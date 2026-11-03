@@ -149,39 +149,37 @@ const ROLES = [
 
 export default function Experience() {
   return (
-    <>
-      <PageMain spacing={8}>
-        <PageHero
-          eyebrow="Career Timeline & Architectural Impact"
-          title="Professional Experience"
-          description={HERO_DESCRIPTION}
+    <PageMain spacing={8}>
+      <PageHero
+        eyebrow="Career Timeline & Architectural Impact"
+        title="Professional Experience"
+        description={HERO_DESCRIPTION}
+      />
+
+      <MetricCards metrics={METRICS} />
+
+      <CompanyNavigation roles={ROLES} />
+
+      <Stack component="section" spacing={3}>
+        <SectionLabel
+          component="h2"
+          label="Detailed Work History"
+          note="Ordered Chronologically (Most Recent First)"
         />
 
-        <MetricCards metrics={METRICS} />
+        {ROLES.map((role) => (
+          <RoleCard key={role.id} role={role} />
+        ))}
 
-        <CompanyNavigation roles={ROLES} />
-
-        <Stack component="section" spacing={3}>
-          <SectionLabel
-            component="h2"
-            label="Detailed Work History"
-            note="Ordered Chronologically (Most Recent First)"
-          />
-
-          {ROLES.map((role) => (
-            <RoleCard key={role.id} role={role} />
-          ))}
-
-          <AcademicBackground />
-        </Stack>
-      </PageMain>
+        <AcademicBackground />
+      </Stack>
 
       <PreFooterCTA
         title="Interested in discussing a role or viewing code?"
         description="Whether you are planning a modern frontend migration or scaling an engineering squad, let’s talk architecture, execution, and technical fit."
-        secondaryButtonText="Explore Personal Projects →"
+        secondaryButtonText="Explore Personal Projects"
         secondaryButtonHref="/projects"
       />
-    </>
+    </PageMain>
   );
 }

@@ -1,85 +1,73 @@
-import Box from "@mui/material/Box";
+import MailOutlinedIcon from "@mui/icons-material/MailOutlined";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
-import { surfaces } from "@/theme";
 import { ActionButton } from "@/components/_common/ActionButton";
+import { DotLabel } from "@/components/_common/DotLabel";
+import { SurfaceCard } from "@/components/_common/SurfaceCard";
 
 interface PreFooterCTAProps {
-  title?: string;
-  description?: string;
-  primaryButtonText?: string;
-  primaryButtonHref?: string;
-  secondaryButtonText?: string;
-  secondaryButtonHref?: string;
+  title: string;
+  description: string;
+  secondaryButtonText: string;
+  secondaryButtonHref: string;
 }
 
+/** The banner at the end of a page. Pages set its text, never its structure. */
 export function PreFooterCTA({
-  title = "Interested in discussing a project or role?",
-  description = "Open to Senior Frontend Engineer opportunities where strong engineering standards, design systems, and thoughtful collaboration matter.",
-  primaryButtonText = "Contact me",
-  primaryButtonHref = "/contact",
-  secondaryButtonText = "View Experience →",
-  secondaryButtonHref = "/experience",
+  title,
+  description,
+  secondaryButtonText,
+  secondaryButtonHref,
 }: PreFooterCTAProps) {
   return (
-    <Box
+    <SurfaceCard
       component="section"
+      direction={{ xs: "column", md: "row" }}
+      spacing={3}
       sx={{
-        width: "100%",
-        maxWidth: 1280,
-        mx: "auto",
-        px: 3,
-        pt: 8,
-        pb: 10,
+        alignItems: { md: "center" },
+        justifyContent: "space-between",
+        p: { xs: 4, sm: 5 },
       }}
     >
-      <Stack
-        direction={{ xs: "column", md: "row" }}
-        spacing={3}
-        sx={{
-          alignItems: { md: "center" },
-          justifyContent: "space-between",
-          p: { xs: 4, sm: 5 },
-          borderRadius: 2,
-          backgroundColor: surfaces.card,
-          border: `1px solid ${surfaces.hairline}`,
-        }}
-      >
-        <Stack spacing={1} sx={{ maxWidth: 672 }}>
-          <Typography
-            variant="h2"
-            sx={{
-              color: "common.white",
-              fontSize: { xs: 20, sm: 24 },
-              fontWeight: 600,
-              letterSpacing: "-0.025em",
-              lineHeight: 1.33,
-            }}
-          >
-            {title}
-          </Typography>
-          <Typography
-            sx={{ color: "text.secondary", fontSize: 14, lineHeight: 1.625 }}
-          >
-            {description}
-          </Typography>
-        </Stack>
-
-        <Stack
-          direction="row"
-          spacing={2}
-          sx={{ alignItems: "center", flexShrink: 0 }}
+      <Stack spacing={1} sx={{ maxWidth: 672 }}>
+        <DotLabel>Next Inquiries & Collaboration</DotLabel>
+        <Typography
+          variant="h2"
+          sx={{
+            color: "common.white",
+            fontSize: { xs: 24, sm: 30 },
+            fontWeight: 600,
+            letterSpacing: "-0.025em",
+            lineHeight: 1.2,
+          }}
         >
-          {secondaryButtonText && secondaryButtonHref && (
-            <ActionButton href={secondaryButtonHref}>
-              {secondaryButtonText}
-            </ActionButton>
-          )}
-          <ActionButton href={primaryButtonHref} primary>
-            {primaryButtonText}
-          </ActionButton>
-        </Stack>
+          {title}
+        </Typography>
+        <Typography
+          sx={{
+            color: "text.secondary",
+            fontSize: { xs: 12, sm: 14 },
+            lineHeight: 1.625,
+          }}
+        >
+          {description}
+        </Typography>
       </Stack>
-    </Box>
+
+      <Stack
+        direction="row"
+        spacing={2}
+        useFlexGap
+        sx={{ flexWrap: "wrap", alignItems: "center", flexShrink: 0 }}
+      >
+        <ActionButton href={secondaryButtonHref} endIcon={<span>→</span>}>
+          {secondaryButtonText}
+        </ActionButton>
+        <ActionButton href="/contact" primary endIcon={<MailOutlinedIcon />}>
+          Contact me
+        </ActionButton>
+      </Stack>
+    </SurfaceCard>
   );
 }

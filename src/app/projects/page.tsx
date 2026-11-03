@@ -46,41 +46,41 @@ const EXPLORATIONS = [
 
 export default function Projects() {
   return (
-    <>
-      <PageMain spacing={8}>
-        <PageHero
-          eyebrow="Independent Work & Craft"
-          title="Personal Projects"
-          description={HERO_DESCRIPTION}
+    <PageMain spacing={8}>
+      <PageHero
+        eyebrow="Independent Work & Craft"
+        title="Personal Projects"
+        description={HERO_DESCRIPTION}
+      />
+
+      <Stack component="section" spacing={2}>
+        <SectionLabel
+          label="Featured Flagship Project"
+          note="Completed Jan 2026 · Independent Exploration"
         />
+        <FlagshipProject />
+      </Stack>
 
-        <Stack component="section" spacing={2}>
-          <SectionLabel
-            label="Featured Flagship Project"
-            note="Completed Jan 2026 · Independent Exploration"
-          />
-          <FlagshipProject />
-        </Stack>
-
-        <Stack component="section" spacing={3}>
-          <SectionHeading
-            eyebrow="Technical Focus & Prototyping"
-            eyebrowSize={12}
-            title="Continuous Learning & Explorations"
-            description="Areas of hands-on investigation and prototyping to evaluate current industry patterns and broaden architectural capabilities."
-          />
-          <CardGrid columns={{ xs: 1, md: 2 }}>
-            {EXPLORATIONS.map((track) => (
-              <ExplorationCard key={track.title} track={track} />
-            ))}
-          </CardGrid>
-        </Stack>
-      </PageMain>
+      <Stack component="section" spacing={3}>
+        <SectionHeading
+          eyebrow="Technical Focus & Prototyping"
+          eyebrowSize={12}
+          title="Continuous Learning & Explorations"
+          description="Areas of hands-on investigation and prototyping to evaluate current industry patterns and broaden architectural capabilities."
+        />
+        <CardGrid columns={{ xs: 1, md: 2 }}>
+          {EXPLORATIONS.map((track) => (
+            <ExplorationCard key={track.title} track={track} />
+          ))}
+        </CardGrid>
+      </Stack>
 
       <PreFooterCTA
         title="Want to collaborate or discuss an opportunity?"
         description="Whether you are planning a modern frontend migration or scaling an engineering squad, let’s talk architecture, execution, and technical fit."
+        secondaryButtonText="View Experience"
+        secondaryButtonHref="/experience"
       />
-    </>
+    </PageMain>
   );
 }

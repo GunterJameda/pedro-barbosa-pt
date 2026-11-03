@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { PageMain } from "@/components/_common/PageMain";
+import { PreFooterCTA } from "@/components/_common/PreFooterCTA";
 import { AboutHero } from "@/components/about/AboutHero";
 import { EngineeringPrinciples } from "@/components/about/EngineeringPrinciples";
-import { PracticeCallout } from "@/components/about/PracticeCallout";
 import { TeamPractices } from "@/components/about/TeamPractices";
 import { TechnicalToolbox } from "@/components/about/TechnicalToolbox";
 
@@ -19,7 +19,12 @@ export default function About() {
       <EngineeringPrinciples />
       <TeamPractices />
       <TechnicalToolbox />
-      <PracticeCallout />
+      <PreFooterCTA
+        title="See the engineering work in practice."
+        description="Explore detailed career milestones across high-growth startups and established software teams, or dive into open-source repositories and side experiments."
+        secondaryButtonText="View Experience"
+        secondaryButtonHref="/experience"
+      />
     </PageMain>
   );
 }
