@@ -1,6 +1,6 @@
-import type { FocusPillar } from "./types";
+import type { Metric } from "@/components/_common/MetricCards";
 
-export const FOCUS_PILLARS: FocusPillar[] = [
+export const FOCUS_PILLARS: Metric[] = [
   {
     tag: "Specialisation",
     title: "Frontend Modernisation",

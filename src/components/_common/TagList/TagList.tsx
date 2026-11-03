@@ -1,7 +1,12 @@
 import Box from "@mui/material/Box";
 import { fontMono, slate, surfaces } from "@/theme";
 
-export function TagList({ tags }: { tags: string[] }) {
+interface TagListProps {
+  tags: string[];
+  dense?: boolean;
+}
+
+export function TagList({ tags, dense = false }: TagListProps) {
   return (
     <Box
       component="ul"
@@ -20,13 +25,13 @@ export function TagList({ tags }: { tags: string[] }) {
           key={tag}
           sx={{
             px: 1,
-            py: 0.5,
+            py: dense ? "2px" : 0.5,
             borderRadius: 1,
             color: slate[300],
             backgroundColor: surfaces.white4,
             border: `1px solid ${surfaces.hairline}`,
             fontFamily: fontMono,
-            fontSize: 12,
+            fontSize: dense ? 11 : 12,
           }}
         >
           {tag}

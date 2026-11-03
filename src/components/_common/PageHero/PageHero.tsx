@@ -1,26 +1,33 @@
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
+import type { ReactNode } from "react";
+import { DotLabel } from "@/components/_common/DotLabel";
 import { slate } from "@/theme";
-import { Eyebrow } from "@/components/_common/Eyebrow";
 
 interface PageHeroProps {
   eyebrow: string;
   title: string;
   description: string;
+  children?: ReactNode;
 }
 
-export function PageHero({ eyebrow, title, description }: PageHeroProps) {
+export function PageHero({
+  eyebrow,
+  title,
+  description,
+  children,
+}: PageHeroProps) {
   return (
-    <Stack component="section" spacing={2} sx={{ maxWidth: 768 }}>
-      <Eyebrow wide>{eyebrow}</Eyebrow>
+    <Stack component="section" spacing={3}>
+      <DotLabel wide>{eyebrow}</DotLabel>
       <Typography
         variant="h1"
         sx={{
           color: "common.white",
-          fontSize: { xs: 36, sm: 48 },
+          fontSize: { xs: 36, sm: 48, lg: 60 },
           fontWeight: 600,
           letterSpacing: "-0.025em",
-          lineHeight: 1.25,
+          lineHeight: 1.12,
         }}
       >
         {title}
@@ -34,6 +41,7 @@ export function PageHero({ eyebrow, title, description }: PageHeroProps) {
       >
         {description}
       </Typography>
+      {children}
     </Stack>
   );
 }
