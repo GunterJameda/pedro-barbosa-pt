@@ -13,7 +13,6 @@ export function RoleAlignment() {
       spacing={3}
       sx={{
         gridColumn: { lg: "span 6" },
-        alignSelf: "start",
         p: { xs: 4, sm: 5 },
       }}
     >

@@ -9,7 +9,7 @@ import { slate } from "@/theme";
 
 export function GitHubCard() {
   return (
-    <SurfaceCard spacing={2} sx={{ p: { xs: 4, sm: 5 } }}>
+    <SurfaceCard spacing={2} sx={{ flexGrow: 1, p: { xs: 4, sm: 5 } }}>
       <IconBadge icon={GitHubIcon} />
       <Stack spacing={0.5}>
         <Typography

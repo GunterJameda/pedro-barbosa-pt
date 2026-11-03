@@ -10,7 +10,7 @@ import { CopyEmailButton } from "./CopyEmailButton";
 
 export function EmailCard() {
   return (
-    <SurfaceCard spacing={3} sx={{ p: { xs: 4, sm: 5 } }}>
+    <SurfaceCard spacing={3} sx={{ flexGrow: 1, p: { xs: 4, sm: 5 } }}>
       <Stack spacing={1}>
         <Eyebrow size={10}>Direct Email</Eyebrow>
         <Link
