@@ -4,6 +4,7 @@ import Box from "@mui/material/Box";
 import CssBaseline from "@mui/material/CssBaseline";
 import { ThemeProvider } from "@mui/material/styles";
 import { AppRouterCacheProvider } from "@mui/material-nextjs/v16-appRouter";
+import { Analytics } from "@vercel/analytics/next";
 import { Footer } from "@/components/_common/Footer";
 import { Navbar } from "@/components/_common/Navbar";
 import { theme } from "@/theme";
@@ -51,6 +52,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
             </Box>
           </ThemeProvider>
         </AppRouterCacheProvider>
+        <Analytics />
       </body>
     </html>
   );
