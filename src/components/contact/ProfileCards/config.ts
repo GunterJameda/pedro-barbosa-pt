@@ -8,8 +8,8 @@ export const PROFILE_LINKS: ProfileLink[] = [
     icon: GitHubIcon,
     title: "GitHub",
     description:
-      "Browse open source contributions, state machine prototypes, and frontend architecture experiments.",
-    linkLabel: "Explore repositories",
+      "Find my GitHub profile and public activity.",
+    linkLabel: "View profile",
     href: GITHUB_URL,
   },
   {

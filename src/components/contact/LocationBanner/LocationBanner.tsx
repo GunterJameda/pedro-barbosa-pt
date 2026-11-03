@@ -20,7 +20,7 @@ export function LocationBanner() {
             lineHeight: 1.33,
           }}
         >
-          Based in Porto, collaborating worldwide.
+          Based in Porto, open to remote work.
         </Typography>
         <Typography
           sx={{
@@ -30,10 +30,8 @@ export function LocationBanner() {
             lineHeight: 1.625,
           }}
         >
-          Experienced working with distributed engineering squads across
-          London, Berlin, New York, and Lisbon. Comfortable with both
-          asynchronous autonomous rhythms and close collaboration during key
-          milestones.
+          Comfortable working asynchronously and autonomously, and in close
+          collaboration during key milestones.
         </Typography>
       </Stack>
       <Stack
@@ -48,7 +46,7 @@ export function LocationBanner() {
         }}
       >
         <StatusDot />
-        <span>Quick connections to all major European hubs</span>
+        <span>Open to remote and hybrid roles</span>
       </Stack>
     </SurfaceCard>
   );
