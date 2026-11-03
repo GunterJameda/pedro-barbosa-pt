@@ -1,12 +1,9 @@
-import GitHubIcon from "@mui/icons-material/GitHub";
-import Button from "@mui/material/Button";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 import { CardGrid } from "@/components/_common/CardGrid";
 import { Eyebrow } from "@/components/_common/Eyebrow";
 import { SurfaceCard } from "@/components/_common/SurfaceCard";
 import { TagList } from "@/components/_common/TagList";
-import { GROWTH_TRACKER_REPO_URL } from "@/constants";
 import { fontMono, slate, surfaces } from "@/theme";
 
 const PILLARS = [
@@ -42,16 +39,9 @@ export function FlagshipProject() {
   return (
     <SurfaceCard component="article" spacing={4} sx={{ p: { xs: 4, sm: 5 } }}>
       <Stack
-        direction={{ xs: "column", md: "row" }}
-        spacing={3}
-        sx={{
-          alignItems: { md: "flex-start" },
-          justifyContent: "space-between",
-          pb: 3,
-          borderBottom: `1px solid ${surfaces.hairline}`,
-        }}
+        spacing={1}
+        sx={{ pb: 3, borderBottom: `1px solid ${surfaces.hairline}` }}
       >
-        <Stack spacing={1} sx={{ maxWidth: 672 }}>
           <Stack
             direction="row"
             spacing={1}
@@ -88,37 +78,6 @@ export function FlagshipProject() {
           >
             Investment Portfolio Analytics & Tracking Platform
           </Typography>
-        </Stack>
-
-        <Button
-          href={GROWTH_TRACKER_REPO_URL}
-          target="_blank"
-          rel="noopener noreferrer"
-          startIcon={<GitHubIcon />}
-          sx={{
-            alignSelf: "flex-start",
-            flexShrink: 0,
-            px: 2,
-            py: 1,
-            borderRadius: 2,
-            color: slate[300],
-            backgroundColor: surfaces.white4,
-            border: `1px solid ${surfaces.white10}`,
-            fontSize: 12,
-            fontWeight: 500,
-            lineHeight: "16px",
-            whiteSpace: "nowrap",
-            "& .MuiButton-startIcon": { ml: 0, mr: 1 },
-            "& .MuiButton-startIcon svg": { fontSize: 14 },
-            "&:hover": {
-              color: "common.white",
-              backgroundColor: surfaces.white8,
-              borderColor: surfaces.teal30,
-            },
-          }}
-        >
-          View GitHub Repository
-        </Button>
       </Stack>
 
       <Stack spacing={3}>

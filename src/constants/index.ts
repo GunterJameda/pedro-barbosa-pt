@@ -1,7 +1,6 @@
 export {
   EMAIL,
   GITHUB_URL,
-  GROWTH_TRACKER_REPO_URL,
   LINKEDIN_URL,
   MAILTO_URL,
 } from "./links";
