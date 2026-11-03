@@ -1,3 +1,4 @@
+import Stack from "@mui/material/Stack";
 import type { Metadata } from "next";
 import { CardGrid } from "@/components/_common/CardGrid";
 import { PageMain } from "@/components/_common/PageMain";
@@ -25,8 +26,10 @@ export default function Experience() {
         <CompanyNavigation />
       </CardGrid>
 
-      <CareerMilestones />
-      <FoundationRoles />
+      <Stack spacing={3}>
+        <CareerMilestones />
+        <FoundationRoles />
+      </Stack>
       <AcademicBackground />
 
       <PreFooterCTA
