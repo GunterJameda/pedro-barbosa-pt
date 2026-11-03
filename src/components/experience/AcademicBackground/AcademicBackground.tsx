@@ -1,10 +1,10 @@
 import SchoolOutlinedIcon from "@mui/icons-material/SchoolOutlined";
-import Box from "@mui/material/Box";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 import { Eyebrow } from "@/components/_common/Eyebrow";
+import { IconBadge } from "@/components/_common/IconBadge";
 import { SurfaceCard } from "@/components/_common/SurfaceCard";
-import { monoNote, surfaces } from "@/theme";
+import { monoNote } from "@/theme";
 
 export function AcademicBackground() {
   return (
@@ -21,22 +21,7 @@ export function AcademicBackground() {
       }}
     >
       <Stack direction="row" spacing={2} sx={{ alignItems: "center" }}>
-        <Box
-          sx={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            flexShrink: 0,
-            width: 40,
-            height: 40,
-            borderRadius: 2,
-            color: "primary.main",
-            backgroundColor: surfaces.teal10,
-            border: `1px solid ${surfaces.teal20}`,
-          }}
-        >
-          <SchoolOutlinedIcon sx={{ fontSize: 20 }} />
-        </Box>
+        <IconBadge icon={SchoolOutlinedIcon} size={40} iconSize={20} accent />
         <Stack spacing={0.5}>
           <Eyebrow size={10}>Academic Background</Eyebrow>
           <Typography

@@ -5,7 +5,7 @@ import { CardGrid } from "@/components/_common/CardGrid";
 import { Eyebrow } from "@/components/_common/Eyebrow";
 import { SectionHeading } from "@/components/_common/SectionHeading";
 import { SurfaceCard } from "@/components/_common/SurfaceCard";
-import { IconBadge } from "@/components/about/IconBadge";
+import { IconBadge } from "@/components/_common/IconBadge";
 import { slate, surfaces } from "@/theme";
 import { PRINCIPLES } from "./config";
 
