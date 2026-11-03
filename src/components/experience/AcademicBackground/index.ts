@@ -1,0 +1,1 @@
+export { AcademicBackground } from "./AcademicBackground";

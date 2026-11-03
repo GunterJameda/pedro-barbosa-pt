@@ -1,0 +1,139 @@
+import assert from "node:assert/strict";
+import { existsSync, readdirSync } from "node:fs";
+import { basename, join } from "node:path";
+import { describe, test } from "node:test";
+import { ESLint } from "eslint";
+
+const ROOT = join(import.meta.dirname, "..");
+const RULE = "no-restricted-imports";
+const eslint = new ESLint({ cwd: ROOT });
+
+async function isBlocked(source, filePath) {
+  const [result] = await eslint.lintText(`import "${source}";\n`, { filePath });
+  return result.messages.some((message) => message.ruleId === RULE);
+}
+
+const directories = (path) =>
+  readdirSync(join(ROOT, path), { withFileTypes: true })
+    .filter((entry) => entry.isDirectory())
+    .map((entry) => entry.name);
+
+const filesIn = (path) =>
+  readdirSync(join(ROOT, path), { recursive: true, withFileTypes: true })
+    .filter((entry) => entry.isFile())
+    .map((entry) => join(entry.parentPath, entry.name));
+
+describe("import rules", () => {
+  const ABOUT = "src/app/about/page.tsx";
+  const CONTACT = "src/app/contact/page.tsx";
+  const CONTACT_MODULE = "src/components/contact/EmailBanner/EmailBanner.tsx";
+  const COMMON_MODULE = "src/components/_common/Footer/Footer.tsx";
+
+  const blocked = [
+    ["a private file of a common module", "@/components/_common/Footer/Footer", ABOUT],
+    ["a private file of a page module", "@/components/contact/EmailBanner/EmailBanner", CONTACT],
+    ["a child nested inside a page module", "@/components/contact/EmailBanner/CopyEmailButton", CONTACT],
+    ["a private theme file", "@/theme/tokens", ABOUT],
+    ["a private constants file", "@/constants/links", ABOUT],
+    ["anything from src/app", "@/app/about/page", COMMON_MODULE],
+    ["a component outside _common or a page folder", "@/components/Footer", ABOUT],
+    ["another page's components", "@/components/contact/EmailBanner", ABOUT],
+    ["page components from _common", "@/components/contact/EmailBanner", COMMON_MODULE],
+    ["a relative path out of the module", "../Footer", COMMON_MODULE],
+    ["a relative path to the parent", "..", COMMON_MODULE],
+    ["a file inside a nested module", "./CopyEmailButton/CopyEmailButton", CONTACT_MODULE],
+  ];
+
+  for (const [name, source, file] of blocked) {
+    test(`blocks ${name}`, async () => {
+      assert.equal(await isBlocked(source, file), true, `${source} in ${file}`);
+    });
+  }
+
+  const allowed = [
+    ["a common module", "@/components/_common/Footer", ABOUT],
+    ["a page's own components", "@/components/contact/EmailBanner", CONTACT],
+    ["sibling components in the same page folder", "@/components/contact/Overview", CONTACT_MODULE],
+    ["the theme module", "@/theme", ABOUT],
+    ["the constants module", "@/constants", ABOUT],
+    ["a private file from inside its module", "./info", COMMON_MODULE],
+    ["a nested child from its parent", "./CopyEmailButton", CONTACT_MODULE],
+    ["packages", "@mui/material/Box", ABOUT],
+  ];
+
+  for (const [name, source, file] of allowed) {
+    test(`allows ${name}`, async () => {
+      assert.equal(await isBlocked(source, file), false, `${source} in ${file}`);
+    });
+  }
+
+  test("the source code follows the rules", async () => {
+    const results = await eslint.lintFiles(["src/**/*.{ts,tsx}"]);
+    const violations = results.flatMap((result) =>
+      result.messages
+        .filter((message) => message.ruleId === RULE)
+        .map((message) => `${result.filePath}: ${message.message}`),
+    );
+    assert.deepEqual(violations, []);
+  });
+});
+
+describe("folder structure", () => {
+  test("src/app only holds Next.js route files", () => {
+    const ROUTE_FILES = new Set([
+      "page.tsx",
+      "layout.tsx",
+      "loading.tsx",
+      "error.tsx",
+      "not-found.tsx",
+      "global-error.tsx",
+      "template.tsx",
+      "default.tsx",
+      "route.ts",
+      "favicon.ico",
+      "icon.png",
+      "opengraph-image.png",
+      "robots.ts",
+      "sitemap.ts",
+    ]);
+    const others = filesIn("src/app").filter(
+      (file) => !ROUTE_FILES.has(basename(file)),
+    );
+    assert.deepEqual(others, []);
+  });
+
+  test("src/components only holds _common and folders named after a page", () => {
+    for (const folder of directories("src/components")) {
+      if (folder === "_common") continue;
+      assert.ok(
+        existsSync(join(ROOT, "src/app", folder, "page.tsx")),
+        `src/components/${folder} doesn't match a page`,
+      );
+    }
+    assert.deepEqual(
+      readdirSync(join(ROOT, "src/components"), { withFileTypes: true })
+        .filter((entry) => entry.isFile())
+        .map((entry) => entry.name),
+      [],
+    );
+  });
+
+  test("every module has an index file", () => {
+    const checkModules = (path) => {
+      for (const folder of directories(path)) {
+        const modulePath = join(path, folder);
+        assert.ok(
+          existsSync(join(ROOT, modulePath, "index.ts")),
+          `${modulePath} has no index.ts`,
+        );
+        checkModules(modulePath);
+      }
+    };
+
+    for (const folder of directories("src/components")) {
+      checkModules(join("src/components", folder));
+    }
+    assert.ok(existsSync(join(ROOT, "src/theme/index.ts")));
+    assert.ok(existsSync(join(ROOT, "src/constants/index.ts")));
+  });
+});
