@@ -1,14 +1,14 @@
 import type { Metadata } from "next";
 import { PageMain } from "@/components/_common/PageMain";
 import { PreFooterCTA } from "@/components/_common/PreFooterCTA";
-import { Explorations } from "@/components/projects/Explorations";
 import { FlagshipProject } from "@/components/projects/FlagshipProject";
+import { ProjectApproach } from "@/components/projects/ProjectApproach";
 import { ProjectsHero } from "@/components/projects/ProjectsHero";
 
 export const metadata: Metadata = {
   title: "Personal Projects",
   description:
-    "End-to-end applications built to explore new technologies, sharpen full-stack craft, and translate complex UI requirements into working software outside work hours.",
+    "Products I build outside work to solve real problems, from defining the requirements to shipping working software.",
 };
 
 export default function Projects() {
@@ -16,10 +16,10 @@ export default function Projects() {
     <PageMain spacing={8}>
       <ProjectsHero />
       <FlagshipProject />
-      <Explorations />
+      <ProjectApproach />
       <PreFooterCTA
         title="Want to collaborate or discuss an opportunity?"
-        description="Whether you are planning a modern frontend migration or scaling an engineering squad, let’s talk architecture, execution, and technical fit."
+        description="If you’re hiring a Senior Frontend Engineer or planning a frontend migration, let’s talk about the role and how I can help."
         secondaryButtonText="View Experience"
         secondaryButtonHref="/experience"
       />

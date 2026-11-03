@@ -7,7 +7,7 @@ export function ProjectsHero() {
     <PageHero
       eyebrow="Independent Work & Craft"
       title="Personal Projects"
-      description="End-to-end applications built to explore new technologies, sharpen full-stack craft, and translate complex UI requirements into working software outside work hours."
+      description="Products I build outside work to solve real problems, from defining the requirements to shipping working software."
     >
       <MetricCards metrics={FOCUS_CARDS} />
     </PageHero>

@@ -6,7 +6,7 @@ import { Eyebrow } from "@/components/_common/Eyebrow";
 import { SurfaceCard } from "@/components/_common/SurfaceCard";
 import { TagList } from "@/components/_common/TagList";
 import { fontMono, monoNote, slate, surfaces } from "@/theme";
-import { TECHNICAL_HIGHLIGHTS, TECH_STACK } from "./config";
+import { DETAIL_CARDS, TAKEAWAYS } from "./config";
 
 export function FlagshipProject() {
   return (
@@ -34,10 +34,10 @@ export function FlagshipProject() {
             fontSize: 12,
           }}
         >
-          Full-Stack Project · 2021 – 2026
+          Full-Stack Product · May 2021 – Jan 2026
         </Box>
         <Typography sx={monoNote}>
-          Independent exploration · Completed Jan 2026
+          Independent product · Launched, retired Jan 2026
         </Typography>
       </Stack>
 
@@ -61,15 +61,15 @@ export function FlagshipProject() {
             fontWeight: 500,
           }}
         >
-          Investment Portfolio Analytics & Tracking Platform
+          An investment tracker that shows your real average price
         </Typography>
       </Stack>
 
       <Box sx={{ pt: 1 }}>
         <CardGrid columns={{ xs: 1, lg: 12 }} gap={4}>
-          <Stack spacing={2} sx={{ gridColumn: { lg: "span 8" } }}>
+          <Stack spacing={2} sx={{ gridColumn: { lg: "span 7" } }}>
             <Eyebrow color="text.secondary" size={12}>
-              Project Overview & Architecture
+              Project Overview
             </Eyebrow>
             <Typography
               sx={{
@@ -78,10 +78,9 @@ export function FlagshipProject() {
                 lineHeight: 1.625,
               }}
             >
-              Independently built and launched the frontend and backend of a
-              responsive application with portfolio charts, tables, and
-              investment metrics, working directly from a designer-provided
-              visual design.
+              A product I took from idea to launch. Users logged their assets,
+              buys and sells, and GrowthTracker calculated the average price
+              they could actually trust when deciding to sell.
             </Typography>
             <Typography
               sx={{
@@ -90,32 +89,26 @@ export function FlagshipProject() {
                 lineHeight: 1.625,
               }}
             >
-              Engineered to handle historical portfolio valuations,
-              time-weighted returns, and automated dividend schedules with
-              low-latency client rendering and contract-first API boundaries.
+              Buy 3 units at 500 and sell 1 at 700, and a typical broker app
+              shows an average of 400, even though the remaining units still
+              cost 500. GrowthTracker kept that number accurate, so users could
+              aim for a profit on every unit they sold.
             </Typography>
           </Stack>
 
-          <Stack spacing={2} sx={{ gridColumn: { lg: "span 4" } }}>
+          <Stack spacing={2} sx={{ gridColumn: { lg: "span 5" } }}>
             <Eyebrow color="text.secondary" size={12}>
-              Key Technical Highlights
+              Key Takeaways
             </Eyebrow>
             <Stack
               component="ul"
-              spacing={1}
-              sx={{
-                m: 0,
-                p: 0,
-                color: slate[300],
-                fontSize: { xs: 12, sm: 14 },
-                lineHeight: 1.5,
-                listStyle: "none",
-              }}
+              spacing={2}
+              sx={{ m: 0, p: 0, listStyle: "none" }}
             >
-              {TECHNICAL_HIGHLIGHTS.map((highlight) => (
+              {TAKEAWAYS.map((takeaway) => (
                 <Stack
                   component="li"
-                  key={highlight}
+                  key={takeaway.title}
                   direction="row"
                   spacing={1}
                   sx={{ alignItems: "flex-start" }}
@@ -123,11 +116,31 @@ export function FlagshipProject() {
                   <Box
                     component="span"
                     aria-hidden
-                    sx={{ color: "primary.main" }}
+                    sx={{ color: "primary.main", fontSize: 14 }}
                   >
                     ✓
                   </Box>
-                  <span>{highlight}</span>
+                  <Stack spacing={0.5}>
+                    <Typography
+                      sx={{
+                        color: "common.white",
+                        fontSize: 14,
+                        fontWeight: 600,
+                        letterSpacing: "-0.025em",
+                      }}
+                    >
+                      {takeaway.title}
+                    </Typography>
+                    <Typography
+                      sx={{
+                        color: "text.secondary",
+                        fontSize: { xs: 12, sm: 14 },
+                        lineHeight: 1.5,
+                      }}
+                    >
+                      {takeaway.description}
+                    </Typography>
+                  </Stack>
                 </Stack>
               ))}
             </Stack>
@@ -135,15 +148,39 @@ export function FlagshipProject() {
         </CardGrid>
       </Box>
 
-      <Stack
-        spacing={2}
-        sx={{ pt: 3, borderTop: `1px solid ${surfaces.hairline}` }}
-      >
-        <Eyebrow color="text.secondary" size={12}>
-          Technology Stack
-        </Eyebrow>
-        <TagList tags={TECH_STACK} />
-      </Stack>
+      <CardGrid columns={{ xs: 1, md: 2 }}>
+        {DETAIL_CARDS.map((card) => (
+          <SurfaceCard
+            key={card.title}
+            spacing={2}
+            sx={{ backgroundColor: surfaces.white2 }}
+          >
+            <Stack spacing={1} sx={{ flex: 1 }}>
+              <Typography
+                variant="h3"
+                sx={{
+                  color: "common.white",
+                  fontSize: 16,
+                  fontWeight: 600,
+                  letterSpacing: "-0.025em",
+                }}
+              >
+                {card.title}
+              </Typography>
+              <Typography
+                sx={{
+                  color: slate[300],
+                  fontSize: { xs: 12, sm: 14 },
+                  lineHeight: 1.625,
+                }}
+              >
+                {card.description}
+              </Typography>
+            </Stack>
+            <TagList tags={card.tags} />
+          </SurfaceCard>
+        ))}
+      </CardGrid>
     </SurfaceCard>
   );
 }

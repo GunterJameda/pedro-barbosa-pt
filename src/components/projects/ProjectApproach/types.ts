@@ -1,9 +1,8 @@
 import type { ElementType } from "react";
 
-export interface Exploration {
+export interface ApproachStep {
   icon: ElementType;
   title: string;
   description: string;
-  glyph: string;
-  focus: string;
+  note: string;
 }

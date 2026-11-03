@@ -2,23 +2,23 @@ import type { Metric } from "@/components/_common/MetricCards";
 
 export const FOCUS_CARDS: Metric[] = [
   {
-    tag: "Focus",
-    title: "Full-Stack & UI",
-    description: "Independent end-to-end applications",
+    tag: "Motivation",
+    title: "Useful First",
+    description: "Built to solve real problems, not to try new tech",
   },
   {
-    tag: "Practice",
-    title: "Design-to-Code",
-    description: "Pixel fidelity & complex interactions",
+    tag: "Starting Point",
+    title: "Problem to Requirements",
+    description: "The requirements come before the code",
   },
   {
-    tag: "Core Exploration",
-    title: "GrowthTracker",
-    description: "Investment portfolio analytics",
+    tag: "Ownership",
+    title: "Idea to Launch",
+    description: "Business rules, design handoff and delivery",
   },
   {
-    tag: "Status",
-    title: "Open Source & Code",
-    description: "Codebases & architecture",
+    tag: "Scope",
+    title: "Frontend to Database",
+    description: "Full-stack, built outside work",
   },
 ];

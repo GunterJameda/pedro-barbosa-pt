@@ -6,30 +6,25 @@ import { IconBadge } from "@/components/_common/IconBadge";
 import { SectionHeading } from "@/components/_common/SectionHeading";
 import { SurfaceCard } from "@/components/_common/SurfaceCard";
 import { fontMono, slate, surfaces } from "@/theme";
-import { EXPLORATIONS } from "./config";
+import { APPROACH_STEPS } from "./config";
 
-export function Explorations() {
+export function ProjectApproach() {
   return (
     <Stack component="section" spacing={3}>
       <SectionHeading
-        eyebrow="Technical Focus"
-        title="Continuous Learning & Explorations"
-        description="Areas of hands-on investigation and prototyping to evaluate current industry patterns and broaden architectural capabilities."
+        eyebrow="My Approach"
+        title="How I Choose What to Build"
+        description="I build things because they could be useful, not just to try a new technology."
       />
       <CardGrid columns={{ xs: 1, md: 2 }} gap={3}>
-        {EXPLORATIONS.map((exploration) => (
+        {APPROACH_STEPS.map((step) => (
           <SurfaceCard
-            key={exploration.title}
+            key={step.title}
             spacing={3}
             sx={{ p: { xs: 3, sm: 4 } }}
           >
             <Stack spacing={2} sx={{ flex: 1 }}>
-              <IconBadge
-                icon={exploration.icon}
-                size={36}
-                iconSize={20}
-                accent
-              />
+              <IconBadge icon={step.icon} size={36} iconSize={20} accent />
               <Typography
                 variant="h3"
                 sx={{
@@ -39,7 +34,7 @@ export function Explorations() {
                   letterSpacing: "-0.025em",
                 }}
               >
-                {exploration.title}
+                {step.title}
               </Typography>
               <Typography
                 sx={{
@@ -48,7 +43,7 @@ export function Explorations() {
                   lineHeight: 1.625,
                 }}
               >
-                {exploration.description}
+                {step.description}
               </Typography>
             </Stack>
             <Stack
@@ -64,9 +59,9 @@ export function Explorations() {
               }}
             >
               <Box component="span" aria-hidden sx={{ color: slate[500] }}>
-                {exploration.glyph}
+                →
               </Box>
-              <span>{exploration.focus}</span>
+              <span>{step.note}</span>
             </Stack>
           </SurfaceCard>
         ))}
