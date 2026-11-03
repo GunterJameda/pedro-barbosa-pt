@@ -53,7 +53,7 @@ describe("import rules", () => {
   const allowed = [
     ["a common module", "@/components/_common/Footer", ABOUT],
     ["a page's own components", "@/components/contact/EmailCard", CONTACT],
-    ["sibling components in the same page folder", "@/components/contact/GitHubCard", CONTACT_MODULE],
+    ["sibling components in the same page folder", "@/components/contact/ProfileCards", CONTACT_MODULE],
     ["the theme module", "@/theme", ABOUT],
     ["the constants module", "@/constants", ABOUT],
     ["a private file from inside its module", "./info", COMMON_MODULE],
