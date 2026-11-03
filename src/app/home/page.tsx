@@ -1,16 +1,10 @@
 import Box from "@mui/material/Box";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
-import { slate } from "@/theme";
-import { ActionButton } from "@/components/_common/ActionButton";
 import { Eyebrow } from "@/components/_common/Eyebrow";
+import { QuickLinks } from "@/components/home/QuickLinks";
 import { Highlight } from "@/components/home/Highlight";
-
-const ACTIONS = [
-  { label: "Experience", href: "/experience", primary: false },
-  { label: "Personal Projects", href: "/projects", primary: false },
-  { label: "Contact", href: "/contact", primary: true },
-];
+import { slate } from "@/theme";
 
 export default function Home() {
   return (
@@ -23,22 +17,25 @@ export default function Home() {
         alignItems: "center",
         justifyContent: "center",
         px: 3,
-        py: { xs: 12, sm: 16 },
+        // Sits the centered content slightly above the middle of the page.
+        pb: 5,
       }}
     >
-      <Stack spacing={4} sx={{ width: "100%", maxWidth: 768, textAlign: "center" }}>
+      <Box sx={{ mb: { xs: 6, sm: 8 } }}>
         <Eyebrow color="text.secondary" wide>
           Porto • UTC+0
         </Eyebrow>
+      </Box>
 
+      <Stack spacing={3} sx={{ maxWidth: 768, textAlign: "center" }}>
         <Typography
           variant="h1"
           sx={{
             color: "common.white",
-            fontSize: { xs: 48, sm: 60, md: 72 },
-            fontWeight: 600,
+            fontSize: { xs: 36, sm: 60 },
+            fontWeight: 700,
             letterSpacing: "-0.025em",
-            lineHeight: 1.1,
+            lineHeight: 1.25,
           }}
         >
           Hello, I’m Pedro Barbosa.
@@ -60,27 +57,7 @@ export default function Home() {
           architectures.
         </Typography>
 
-        <Stack
-          direction="row"
-          useFlexGap
-          spacing={2}
-          sx={{
-            flexWrap: "wrap",
-            alignItems: "center",
-            justifyContent: "center",
-            pt: 2,
-          }}
-        >
-          {ACTIONS.map((action) => (
-            <ActionButton
-              key={action.href}
-              href={action.href}
-              primary={action.primary}
-            >
-              {action.label}
-            </ActionButton>
-          ))}
-        </Stack>
+        <QuickLinks />
       </Stack>
     </Box>
   );
