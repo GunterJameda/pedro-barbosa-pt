@@ -23,7 +23,8 @@ const theme = createTheme({
     },
   },
   typography: {
-    fontFamily: "var(--font-geist-sans), Arial, Helvetica, sans-serif",
+    fontFamily:
+      'var(--font-sans), system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
     button: {
       textTransform: "none",
     },

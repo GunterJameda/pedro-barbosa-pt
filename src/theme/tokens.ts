@@ -30,7 +30,7 @@ export const teal = {
   200: "#99f6e4",
 };
 
-export const fontMono = "var(--font-geist-mono), monospace";
+export const fontMono = 'var(--font-mono), "Fira Code", monospace';
 
 export const monoNote = {
   color: "text.secondary",
