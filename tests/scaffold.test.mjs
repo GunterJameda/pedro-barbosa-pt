@@ -92,6 +92,7 @@ describe("folder structure", () => {
       "route.ts",
       "favicon.ico",
       "icon.png",
+      "icon.svg",
       "opengraph-image.png",
       "robots.ts",
       "sitemap.ts",
