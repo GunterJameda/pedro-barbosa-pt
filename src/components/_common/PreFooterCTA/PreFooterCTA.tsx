@@ -16,7 +16,7 @@ interface PreFooterCTAProps {
 export function PreFooterCTA({
   title = "Interested in discussing a project or role?",
   description = "Open to Senior Frontend Engineer opportunities where strong engineering standards, design systems, and thoughtful collaboration matter.",
-  primaryButtonText = "Contact Pedro",
+  primaryButtonText = "Contact me",
   primaryButtonHref = "/contact",
   secondaryButtonText = "View Experience →",
   secondaryButtonHref = "/experience",

@@ -50,13 +50,15 @@ export function PracticeCallout() {
         useFlexGap
         sx={{ flexWrap: "wrap", alignItems: "center", flexShrink: 0 }}
       >
-        <ActionButton href="/experience">View Experience →</ActionButton>
+        <ActionButton href="/experience" endIcon={<span>→</span>}>
+          View Experience
+        </ActionButton>
         <ActionButton
           href="/contact"
           primary
           endIcon={<MailOutlinedIcon />}
         >
-          Contact Pedro
+          Contact me
         </ActionButton>
       </Stack>
     </SurfaceCard>

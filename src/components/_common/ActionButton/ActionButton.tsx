@@ -59,7 +59,9 @@ export function ActionButton({
         ...(pill && { borderRadius: "999px" }),
         ...(pill && primary && pillPrimaryStyles),
         "& .MuiButton-endIcon": { ml: 1, mr: 0 },
-        "& .MuiButton-endIcon svg": { fontSize: 14 },
+        // Doubled to win over MUI's default icon size.
+        "&& .MuiButton-endIcon > *": { fontSize: "inherit" },
+        "&& .MuiButton-endIcon > svg": { fontSize: 14 },
       }}
     >
       {children}
