@@ -7,9 +7,9 @@ export const METRICS: Metric[] = [
     description: "Production web engineering & distributed delivery",
   },
   {
-    tag: "Track Record",
-    title: "7 Roles Shipped",
-    description: "Enterprise monoliths, multi-tenant apps & scale-ups",
+    tag: "Industries",
+    title: "Fintech to Healthcare",
+    description: "SaaS, e-commerce, proptech & supply chain",
   },
   {
     tag: "Primary Stack",
