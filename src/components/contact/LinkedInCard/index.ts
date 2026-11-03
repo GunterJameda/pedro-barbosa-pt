@@ -1,0 +1,1 @@
+export { LinkedInCard } from "./LinkedInCard";

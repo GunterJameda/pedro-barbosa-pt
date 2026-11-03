@@ -4,8 +4,8 @@ import { CardGrid } from "@/components/_common/CardGrid";
 import { PageHero } from "@/components/_common/PageHero";
 import { PageMain } from "@/components/_common/PageMain";
 import { EmailCard } from "@/components/contact/EmailCard";
+import { LinkedInCard } from "@/components/contact/LinkedInCard";
 import { LocationBanner } from "@/components/contact/LocationBanner";
-import { ProfileCards } from "@/components/contact/ProfileCards";
 import { RoleAlignment } from "@/components/contact/RoleAlignment";
 
 const HERO_DESCRIPTION =
@@ -28,7 +28,7 @@ export default function Contact() {
       <CardGrid columns={{ xs: 1, lg: 12 }} gap={4}>
         <Stack spacing={3} sx={{ gridColumn: { lg: "span 6" } }}>
           <EmailCard />
-          <ProfileCards />
+          <LinkedInCard />
         </Stack>
         <RoleAlignment />
       </CardGrid>
