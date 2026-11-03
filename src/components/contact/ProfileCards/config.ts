@@ -16,7 +16,7 @@ export const PROFILE_LINKS: ProfileLink[] = [
     icon: LinkedInIcon,
     title: "LinkedIn",
     description:
-      "Connect or message me for career inquiries, mutual connections, or background checks.",
+      "Connect or message me for career inquiries or mutual connections.",
     linkLabel: "View profile",
     href: LINKEDIN_URL,
   },
