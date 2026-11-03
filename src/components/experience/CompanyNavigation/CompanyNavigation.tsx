@@ -1,10 +1,9 @@
 import Box from "@mui/material/Box";
-import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 import { CardGrid } from "@/components/_common/CardGrid";
 import { Eyebrow } from "@/components/_common/Eyebrow";
 import { SurfaceCard } from "@/components/_common/SurfaceCard";
-import { monoNote, surfaces } from "@/theme";
+import { surfaces } from "@/theme";
 import { COMPANY_LINKS } from "./config";
 
 export function CompanyNavigation() {
@@ -15,19 +14,9 @@ export function CompanyNavigation() {
       spacing={2}
       sx={{ gridColumn: { lg: "span 7" } }}
     >
-      <Stack
-        direction="row"
-        spacing={2}
-        sx={{
-          alignItems: "center",
-          justifyContent: "space-between",
-          pb: 1,
-          borderBottom: `1px solid ${surfaces.hairline}`,
-        }}
-      >
+      <Box sx={{ pb: 1, borderBottom: `1px solid ${surfaces.hairline}` }}>
         <Eyebrow>Fast Navigation</Eyebrow>
-        <Typography sx={monoNote}>7 Engagements</Typography>
-      </Stack>
+      </Box>
 
       <Typography
         sx={{
