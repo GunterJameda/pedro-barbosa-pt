@@ -23,7 +23,7 @@ export const CAREER_ROLES: CareerRole[] = [
     tags: ["AngularJS", "Ionic v1", "JavaScript", "Stripe API", "Multi-Tenant UI"],
     bulletPoints: [
       "Maintained and extended an expansive multi-tenant platform supporting production web and hybrid mobile applications, precisely adapting interfaces and localized business logic for high-volume international restaurant brands.",
-      "Implemented a unified Stripe payment integration, dynamically configuring the payment form’s appearance, verification flow, and client branding via tenant schema rules.",
+      "Implemented a unified Stripe payment integration, dynamically configuring the payment form's appearance, verification flow, and client branding via tenant schema rules.",
       "Owned feature implementation, comprehensive integration tests, and structured handoff to QA teams, resolving regression defects and orchestrating zero-downtime production rollouts.",
     ],
   },
@@ -48,8 +48,8 @@ export const CAREER_ROLES: CareerRole[] = [
     period: "Oct 2020 – May 2022",
     tags: ["React", "Material UI", "Component Systems", "Workflow Automation"],
     bulletPoints: [
-      "Joined as the company’s first frontend developer, single-handedly setting engineering conventions and building the flagship application to streamline second-hand luxury handbag acquisition and authentication.",
-      "Architected and published version 1.0 of the company’s internal component library, standardizing interaction design, visual tokens, and reusable primitives across distributed business tools.",
+      "Joined as the company's first frontend developer, single-handedly setting engineering conventions and building the flagship application to streamline second-hand luxury handbag acquisition and authentication.",
+      "Architected and published version 1.0 of the company's internal component library, standardizing interaction design, visual tokens, and reusable primitives across distributed business tools.",
     ],
   },
 ];

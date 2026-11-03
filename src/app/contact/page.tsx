@@ -9,7 +9,7 @@ import { LocationBanner } from "@/components/contact/LocationBanner";
 import { RoleAlignment } from "@/components/contact/RoleAlignment";
 
 const HERO_DESCRIPTION =
-  "Whether you’re scaling a product team, modernising frontend foundations, or looking for a Senior Frontend Engineer who delivers with craft and pragmatic ownership.";
+  "Whether you're scaling a product team, modernising frontend foundations, or looking for a Senior Frontend Engineer who delivers with craft and pragmatic ownership.";
 
 export const metadata: Metadata = {
   title: "Contact",
@@ -21,7 +21,7 @@ export default function Contact() {
     <PageMain spacing={6}>
       <PageHero
         eyebrow="Contact & Work Inquiries"
-        title="Let’s talk architecture, teams, or new opportunities."
+        title="Let's talk architecture, teams, or new opportunities."
         description={HERO_DESCRIPTION}
       />
 

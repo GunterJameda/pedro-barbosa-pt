@@ -38,7 +38,7 @@ export default function Home() {
             lineHeight: 1.25,
           }}
         >
-          Hello, I’m Pedro Barbosa.
+          {"Hello, I'm Pedro Barbosa."}
         </Typography>
 
         <Typography

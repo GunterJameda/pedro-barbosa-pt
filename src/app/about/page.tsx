@@ -21,7 +21,7 @@ export default function About() {
       <TechnicalToolbox />
       <PreFooterCTA
         title="See the engineering work in practice."
-        description="Explore my career across startups and established software teams, or see the products I’ve built outside work."
+        description="Explore my career across startups and established software teams, or see the products I've built outside work."
         secondaryButtonText="View Experience"
         secondaryButtonHref="/experience"
       />

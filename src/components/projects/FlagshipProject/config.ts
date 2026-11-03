@@ -14,7 +14,7 @@ export const TAKEAWAYS: Takeaway[] = [
   {
     title: "Making value obvious",
     description:
-      "Learned that a strong feature isn’t enough if users can’t see its value. I had plans to address it, but the money ran out first.",
+      "Learned that a strong feature isn't enough if users can't see its value. I had plans to address it, but the money ran out first.",
   },
 ];
 
@@ -22,7 +22,7 @@ export const DETAIL_CARDS: DetailCard[] = [
   {
     title: "Frontend Implementation",
     description:
-      "Implemented a designer’s visual design, including asset management, the transactions table, and a chart tracking how the real average price evolved with each transaction.",
+      "Implemented a designer's visual design, including asset management, the transactions table, and a chart tracking how the real average price evolved with each transaction.",
     tags: ["React", "TypeScript", "Material UI", "Chart.js"],
   },
   {

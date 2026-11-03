@@ -31,7 +31,7 @@ export default function Experience() {
 
       <PreFooterCTA
         title="Interested in discussing a role or viewing code?"
-        description="Whether you are planning a modern frontend migration or scaling an engineering squad, let’s talk architecture, execution, and technical fit."
+        description="Whether you are planning a modern frontend migration or scaling an engineering squad, let's talk architecture, execution, and technical fit."
         secondaryButtonText="Explore Personal Projects"
         secondaryButtonHref="/projects"
       />

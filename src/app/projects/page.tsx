@@ -19,7 +19,7 @@ export default function Projects() {
       <ProjectApproach />
       <PreFooterCTA
         title="Want to collaborate or discuss an opportunity?"
-        description="If you’re hiring a Senior Frontend Engineer or planning a frontend migration, let’s talk about the role and how I can help."
+        description="If you're hiring a Senior Frontend Engineer or planning a frontend migration, let's talk about the role and how I can help."
         secondaryButtonText="View Experience"
         secondaryButtonHref="/experience"
       />

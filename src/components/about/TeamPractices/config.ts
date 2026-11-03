@@ -8,7 +8,7 @@ export const TEAM_PRACTICES: TeamPractice[] = [
     icon: ChatBubbleOutlineOutlinedIcon,
     title: "Collaborative Code Reviews",
     description:
-      "Focus on constructive, ego-free feedback, keeping PRs moving so teammates aren’t blocked, and leaving files cleaner than I found them.",
+      "Focus on constructive, ego-free feedback, keeping PRs moving so teammates aren't blocked, and leaving files cleaner than I found them.",
     tagLeft: "Focus: Readability & Reliability",
     tagRight: "Mentorship",
   },
