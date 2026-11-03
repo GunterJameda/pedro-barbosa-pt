@@ -13,7 +13,7 @@ export function TechnicalToolbox() {
       <SectionHeading
         eyebrow="Capabilities & Stacks"
         title="Technical Toolbox"
-        aside="Technologies chosen for maintainability, speed, ecosystem stability, and developer ergonomics."
+        description="Technologies chosen for maintainability, speed, ecosystem stability, and developer ergonomics."
       />
       <Stack spacing={2}>
         {TOOLBOX_GROUPS.map((group) => (

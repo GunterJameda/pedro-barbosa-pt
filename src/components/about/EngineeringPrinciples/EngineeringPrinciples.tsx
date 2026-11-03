@@ -15,7 +15,7 @@ export function EngineeringPrinciples() {
       <SectionHeading
         eyebrow="Engineering Principles"
         title="What I Value Most in Code"
-        aside="A disciplined, grounded perspective cultivated over thousands of pull requests and production releases."
+        description="A disciplined, grounded perspective cultivated over thousands of pull requests and production releases."
       />
       <CardGrid columns={{ xs: 1, md: 2 }}>
         {PRINCIPLES.map((principle) => (

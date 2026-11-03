@@ -6,7 +6,7 @@ import { FocusPillars } from "./FocusPillars";
 
 export function AboutHero() {
   return (
-    <Stack component="section" spacing={3} sx={{ maxWidth: 896 }}>
+    <Stack component="section" spacing={3}>
       <DotLabel wide>Profile & Architecture Philosophy</DotLabel>
       <Typography
         variant="h1"
@@ -22,7 +22,6 @@ export function AboutHero() {
       </Typography>
       <Typography
         sx={{
-          maxWidth: 768,
           color: slate[300],
           fontSize: { xs: 16, sm: 18 },
           lineHeight: 1.625,
