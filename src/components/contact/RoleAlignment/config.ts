@@ -21,7 +21,7 @@ export const ALIGNMENT_POINTS: AlignmentPoint[] = [
     icon: ArrowUpwardOutlinedIcon,
     title: "Scope & Impact",
     description:
-      "Frontend modernization, systematic Design System libraries (JSON/data-driven UI engines), multi-tenant enterprise dashboards, and accessible state architectures.",
+      "Frontend modernization, systematic Design System libraries (JSON/data-driven UI engines), multi-tenant enterprise applications, and accessible state architectures.",
   },
   {
     icon: GroupsOutlinedIcon,
