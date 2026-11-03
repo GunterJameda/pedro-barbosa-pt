@@ -5,7 +5,6 @@ import GitHubIcon from "@mui/icons-material/GitHub";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import MailOutlinedIcon from "@mui/icons-material/MailOutlined";
 import MenuIcon from "@mui/icons-material/Menu";
-import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Drawer from "@mui/material/Drawer";
 import IconButton from "@mui/material/IconButton";
@@ -110,14 +109,14 @@ export function MobileMenu({ links, renderBrand }: MobileMenuProps) {
 
         <Stack spacing={3} useFlexGap sx={{ flexGrow: 1, p: 2 }}>
           <Stack component="nav" aria-label="Mobile" spacing={1}>
-            {links.map((link, index) => (
+            {links.map((link) => (
               <Button
                 key={link.href}
                 href={link.href}
                 onClick={close}
                 aria-current={link.isActive ? "page" : undefined}
                 sx={{
-                  justifyContent: "space-between",
+                  justifyContent: "flex-start",
                   minHeight: 48,
                   px: 2,
                   borderRadius: 2,
@@ -146,17 +145,6 @@ export function MobileMenu({ links, renderBrand }: MobileMenuProps) {
                   {link.isActive && <StatusDot />}
                   <span>{link.name}</span>
                 </Stack>
-                <Box
-                  component="span"
-                  aria-hidden
-                  sx={{
-                    color: link.isActive ? "primary.main" : slate[500],
-                    fontFamily: fontMono,
-                    fontSize: 11,
-                  }}
-                >
-                  {String(index + 1).padStart(2, "0")}
-                </Box>
               </Button>
             ))}
           </Stack>
