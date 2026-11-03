@@ -27,23 +27,29 @@ const pillPrimaryStyles = {
 };
 
 interface ActionButtonProps {
-  href: string;
+  href?: string;
+  onClick?: () => void;
   primary?: boolean;
   pill?: boolean;
+  startIcon?: ReactNode;
   endIcon?: ReactNode;
   children: ReactNode;
 }
 
 export function ActionButton({
   href,
+  onClick,
   primary,
   pill,
+  startIcon,
   endIcon,
   children,
 }: ActionButtonProps) {
   return (
     <Button
       href={href}
+      onClick={onClick}
+      startIcon={startIcon}
       endIcon={endIcon}
       sx={{
         minWidth: 0,
@@ -58,10 +64,12 @@ export function ActionButton({
         ...(primary ? primaryStyles : secondaryStyles),
         ...(pill && { borderRadius: "999px" }),
         ...(pill && primary && pillPrimaryStyles),
+        "& .MuiButton-startIcon": { ml: 0, mr: 1 },
         "& .MuiButton-endIcon": { ml: 1, mr: 0 },
         // Doubled to win over MUI's default icon size.
         "&& .MuiButton-endIcon > *": { fontSize: "inherit" },
         "&& .MuiButton-endIcon > svg": { fontSize: 14 },
+        "&& .MuiButton-startIcon > svg": { fontSize: 16 },
       }}
     >
       {children}

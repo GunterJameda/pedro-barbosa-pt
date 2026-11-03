@@ -26,19 +26,19 @@ const filesIn = (path) =>
 describe("import rules", () => {
   const ABOUT = "src/app/about/page.tsx";
   const CONTACT = "src/app/contact/page.tsx";
-  const CONTACT_MODULE = "src/components/contact/EmailBanner/EmailBanner.tsx";
+  const CONTACT_MODULE = "src/components/contact/EmailCard/EmailCard.tsx";
   const COMMON_MODULE = "src/components/_common/Footer/Footer.tsx";
 
   const blocked = [
     ["a private file of a common module", "@/components/_common/Footer/Footer", ABOUT],
-    ["a private file of a page module", "@/components/contact/EmailBanner/EmailBanner", CONTACT],
-    ["a child nested inside a page module", "@/components/contact/EmailBanner/CopyEmailButton", CONTACT],
+    ["a private file of a page module", "@/components/contact/EmailCard/EmailCard", CONTACT],
+    ["a child nested inside a page module", "@/components/contact/EmailCard/CopyEmailButton", CONTACT],
     ["a private theme file", "@/theme/tokens", ABOUT],
     ["a private constants file", "@/constants/links", ABOUT],
     ["anything from src/app", "@/app/about/page", COMMON_MODULE],
     ["a component outside _common or a page folder", "@/components/Footer", ABOUT],
-    ["another page's components", "@/components/contact/EmailBanner", ABOUT],
-    ["page components from _common", "@/components/contact/EmailBanner", COMMON_MODULE],
+    ["another page's components", "@/components/contact/EmailCard", ABOUT],
+    ["page components from _common", "@/components/contact/EmailCard", COMMON_MODULE],
     ["a relative path out of the module", "../Footer", COMMON_MODULE],
     ["a relative path to the parent", "..", COMMON_MODULE],
     ["a file inside a nested module", "./CopyEmailButton/CopyEmailButton", CONTACT_MODULE],
@@ -52,8 +52,8 @@ describe("import rules", () => {
 
   const allowed = [
     ["a common module", "@/components/_common/Footer", ABOUT],
-    ["a page's own components", "@/components/contact/EmailBanner", CONTACT],
-    ["sibling components in the same page folder", "@/components/contact/Overview", CONTACT_MODULE],
+    ["a page's own components", "@/components/contact/EmailCard", CONTACT],
+    ["sibling components in the same page folder", "@/components/contact/GitHubCard", CONTACT_MODULE],
     ["the theme module", "@/theme", ABOUT],
     ["the constants module", "@/constants", ABOUT],
     ["a private file from inside its module", "./info", COMMON_MODULE],
