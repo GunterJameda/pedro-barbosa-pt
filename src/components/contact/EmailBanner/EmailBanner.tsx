@@ -37,7 +37,7 @@ export function EmailBanner() {
         <Typography
           sx={{ color: "text.secondary", fontSize: 14, lineHeight: 1.625 }}
         >
-          Based in Porto, Portugal (UTC+0). Open to remote and hybrid positions
+          Based in Porto, Portugal. Open to remote and hybrid positions
           with companies valuing engineering craft and design quality.
         </Typography>
       </Stack>

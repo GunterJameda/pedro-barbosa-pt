@@ -23,7 +23,7 @@ export default function Home() {
     >
       <Box sx={{ mb: { xs: 6, sm: 8 } }}>
         <Eyebrow color="text.secondary" wide>
-          Porto • UTC+0
+          Porto, Portugal
         </Eyebrow>
       </Box>
 

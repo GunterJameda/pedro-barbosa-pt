@@ -8,7 +8,6 @@ const OVERVIEW = [
   {
     label: "Location",
     value: "Porto, Portugal",
-    detail: "Timezone: UTC+0 / WET",
   },
   {
     label: "Role Fit",
@@ -34,9 +33,11 @@ export function Overview() {
             >
               {item.value}
             </Typography>
-            <Typography sx={{ color: "text.secondary", fontSize: 12 }}>
-              {item.detail}
-            </Typography>
+            {item.detail && (
+              <Typography sx={{ color: "text.secondary", fontSize: 12 }}>
+                {item.detail}
+              </Typography>
+            )}
           </Stack>
         ))}
       </CardGrid>
