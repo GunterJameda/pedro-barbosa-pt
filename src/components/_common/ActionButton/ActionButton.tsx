@@ -31,6 +31,7 @@ interface ActionButtonProps {
   onClick?: () => void;
   primary?: boolean;
   pill?: boolean;
+  fullWidth?: boolean;
   startIcon?: ReactNode;
   endIcon?: ReactNode;
   children: ReactNode;
@@ -41,6 +42,7 @@ export function ActionButton({
   onClick,
   primary,
   pill,
+  fullWidth,
   startIcon,
   endIcon,
   children,
@@ -49,6 +51,7 @@ export function ActionButton({
     <Button
       href={href}
       onClick={onClick}
+      fullWidth={fullWidth}
       startIcon={startIcon}
       endIcon={endIcon}
       sx={{
@@ -63,6 +66,7 @@ export function ActionButton({
         whiteSpace: "nowrap",
         ...(primary ? primaryStyles : secondaryStyles),
         ...(pill && { borderRadius: "999px" }),
+        ...(fullWidth && { py: 2 }),
         ...(pill && primary && pillPrimaryStyles),
         "& .MuiButton-startIcon": { ml: 0, mr: 1 },
         "& .MuiButton-endIcon": { ml: 1, mr: 0 },
