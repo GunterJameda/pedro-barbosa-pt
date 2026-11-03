@@ -4,7 +4,7 @@ export const METRICS: Metric[] = [
   {
     tag: "Tenure",
     title: "Since 2017",
-    description: "Continuous production web engineering & distributed delivery",
+    description: "Production web engineering & distributed delivery",
   },
   {
     tag: "Track Record",
