@@ -34,6 +34,8 @@ export function Navbar() {
       color="transparent"
       elevation={0}
       sx={{
+        // Two rows would take too much of a small screen if they stayed fixed.
+        position: { xs: "static", lg: "sticky" },
         backgroundColor: surfaces.navbar,
         backgroundImage: "none",
         backdropFilter: "blur(12px)",
@@ -45,11 +47,14 @@ export function Navbar() {
           display: "flex",
           alignItems: "center",
           justifyContent: "space-between",
+          flexWrap: { xs: "wrap", lg: "nowrap" },
+          gap: { xs: 2, lg: 0 },
           width: "100%",
           maxWidth: 1280,
-          height: 80,
+          minHeight: 80,
           mx: "auto",
           px: 3,
+          py: { xs: 2, lg: 0 },
         }}
       >
         <Link
@@ -111,7 +116,14 @@ export function Navbar() {
           aria-label="Main"
           direction="row"
           spacing={1}
-          sx={{ alignItems: "center" }}
+          sx={{
+            alignItems: "center",
+            order: { xs: 1, lg: 0 },
+            width: { xs: "100%", lg: "auto" },
+            // Links can be swiped sideways when they don't fit.
+            overflowX: { xs: "auto", lg: "visible" },
+            scrollbarWidth: "none",
+          }}
         >
           {NAV_LINKS.map((link) => {
             const isActive = isActivePath(pathname, link.href);
@@ -122,6 +134,7 @@ export function Navbar() {
                 aria-current={isActive ? "page" : undefined}
                 disableElevation
                 sx={{
+                  flexShrink: 0,
                   minWidth: 0,
                   px: 2,
                   py: 1,

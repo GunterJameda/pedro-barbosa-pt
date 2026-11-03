@@ -52,7 +52,6 @@ export function CompanyNavigation() {
             }}
           >
             <Typography
-              noWrap
               sx={{
                 color: "inherit",
                 fontSize: 12,
@@ -62,7 +61,7 @@ export function CompanyNavigation() {
             >
               {link.name}
             </Typography>
-            <Typography noWrap sx={{ color: "text.secondary", fontSize: 11 }}>
+            <Typography sx={{ color: "text.secondary", fontSize: 11 }}>
               {link.role}
             </Typography>
           </Box>
