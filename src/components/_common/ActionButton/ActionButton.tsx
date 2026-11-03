@@ -7,8 +7,8 @@ const secondaryStyles = {
   backgroundColor: surfaces.white4,
   borderColor: surfaces.white10,
   "&:hover": {
+    color: "common.white",
     backgroundColor: surfaces.white8,
-    borderColor: surfaces.white20,
   },
 };
 
@@ -22,17 +22,7 @@ const primaryStyles = {
   "&:hover": { backgroundColor: "primary.light" },
 };
 
-const pillSecondaryStyles = {
-  borderRadius: "999px",
-  "&:hover": {
-    color: "common.white",
-    backgroundColor: surfaces.white8,
-    borderColor: surfaces.white10,
-  },
-};
-
 const pillPrimaryStyles = {
-  borderRadius: "999px",
   boxShadow: `0 4px 6px -1px ${surfaces.teal20}, 0 2px 4px -2px ${surfaces.teal20}`,
 };
 
@@ -40,6 +30,7 @@ interface ActionButtonProps {
   href: string;
   primary?: boolean;
   pill?: boolean;
+  endIcon?: ReactNode;
   children: ReactNode;
 }
 
@@ -47,11 +38,13 @@ export function ActionButton({
   href,
   primary,
   pill,
+  endIcon,
   children,
 }: ActionButtonProps) {
   return (
     <Button
       href={href}
+      endIcon={endIcon}
       sx={{
         minWidth: 0,
         px: 3,
@@ -63,7 +56,10 @@ export function ActionButton({
         lineHeight: "16px",
         whiteSpace: "nowrap",
         ...(primary ? primaryStyles : secondaryStyles),
-        ...(pill && (primary ? pillPrimaryStyles : pillSecondaryStyles)),
+        ...(pill && { borderRadius: "999px" }),
+        ...(pill && primary && pillPrimaryStyles),
+        "& .MuiButton-endIcon": { ml: 1, mr: 0 },
+        "& .MuiButton-endIcon svg": { fontSize: 14 },
       }}
     >
       {children}

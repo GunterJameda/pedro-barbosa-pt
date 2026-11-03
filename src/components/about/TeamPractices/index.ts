@@ -1,0 +1,1 @@
+export { TeamPractices } from "./TeamPractices";

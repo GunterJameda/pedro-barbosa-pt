@@ -6,7 +6,7 @@ interface EyebrowProps {
   children: ReactNode;
   color?: string;
   component?: ElementType;
-  size?: 11 | 12;
+  size?: 10 | 11 | 12;
   /** Wider tracking, used above page titles. */
   wide?: boolean;
 }
