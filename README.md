@@ -1,36 +1,46 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# pedrobarbosa.pt
 
-## Getting Started
+[![Pedro Barbosa, Senior Frontend Engineer](https://pedrobarbosa.pt/opengraph-image)](https://pedrobarbosa.pt)
 
-First, run the development server:
+This is my personal website, live at **[pedrobarbosa.pt](https://pedrobarbosa.pt)**. I'm a Senior Frontend Engineer based in Porto, Portugal, and this is where I share who I am, how I work and what I've built.
+
+## What's inside
+
+- **Home:** a short introduction, with links to the rest of the site.
+- **About:** the engineering principles I follow, how I work with teams, and the tools I use.
+- **Experience:** my career since 2017, role by role.
+- **Personal Projects:** products I build outside work, and how I choose what to build.
+- **Contact:** how to reach me.
+
+## Built with
+
+- Next.js and React
+- TypeScript
+- Material UI
+- Hosted on Vercel
+
+## How it's built
+
+It's a small site, but I built it the way I'd build a production project:
+
+- **Reusable pieces.** Components shared across pages live in one place, and the ones a single page needs stay with that page.
+- **Structure the code checks itself.** Folder and import rules are enforced automatically by linting and tests, so the structure stays tidy as the site grows.
+- **Consistent history.** Every commit message follows the same format, checked before the commit is accepted.
+- **Ready to be found and shared.** A sitemap, structured data for search engines, and link preview images generated from code.
+
+## Running it locally
+
+You'll need Node.js 20.9 or newer, and Yarn (available through Corepack).
 
 ```bash
-npm run dev
-# or
+yarn install
 yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Then open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Other commands:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- `yarn build`: production build
+- `yarn lint`: lint the code
+- `yarn test`: run the tests
