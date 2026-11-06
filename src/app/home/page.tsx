@@ -5,6 +5,7 @@ import Typography from "@mui/material/Typography";
 import { Eyebrow } from "@/components/_common/Eyebrow";
 import { QuickLinks } from "@/components/home/QuickLinks";
 import { Highlight } from "@/components/home/Highlight";
+import { PersonSchema } from "@/components/home/PersonSchema";
 import { slate } from "@/theme";
 
 export const metadata: Metadata = {
@@ -26,6 +27,7 @@ export default function Home() {
         pb: 5,
       }}
     >
+      <PersonSchema />
       <Box sx={{ mb: { xs: 6, sm: 8 } }}>
         <Eyebrow color="text.secondary" wide>
           Porto, Portugal
