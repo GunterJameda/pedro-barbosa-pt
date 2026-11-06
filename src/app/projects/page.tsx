@@ -6,6 +6,7 @@ import { ProjectApproach } from "@/components/projects/ProjectApproach";
 import { ProjectsHero } from "@/components/projects/ProjectsHero";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/projects" },
   title: "Personal Projects",
   description:
     "Products I build outside work to solve real problems, from defining the requirements to shipping working software.",

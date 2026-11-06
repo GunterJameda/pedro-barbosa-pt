@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Box from "@mui/material/Box";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
@@ -5,6 +6,10 @@ import { Eyebrow } from "@/components/_common/Eyebrow";
 import { QuickLinks } from "@/components/home/QuickLinks";
 import { Highlight } from "@/components/home/Highlight";
 import { slate } from "@/theme";
+
+export const metadata: Metadata = {
+  alternates: { canonical: "/home" },
+};
 
 export default function Home() {
   return (

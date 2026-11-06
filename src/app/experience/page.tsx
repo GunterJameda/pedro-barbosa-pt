@@ -11,6 +11,7 @@ import { ExperienceHero } from "@/components/experience/ExperienceHero";
 import { FoundationRoles } from "@/components/experience/FoundationRoles";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/experience" },
   title: "Experience",
   description:
     "A chronological track record of shipping production web applications, migrating legacy architectures to modern microfrontends, and building scalable design systems since 2017.",

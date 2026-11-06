@@ -12,6 +12,7 @@ const HERO_DESCRIPTION =
   "Whether you're scaling a product team, modernising frontend foundations, or looking for a Senior Frontend Engineer who delivers with craft and pragmatic ownership.";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/contact" },
   title: "Contact",
   description: HERO_DESCRIPTION,
 };

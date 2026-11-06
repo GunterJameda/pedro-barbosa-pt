@@ -7,6 +7,7 @@ import { TeamPractices } from "@/components/about/TeamPractices";
 import { TechnicalToolbox } from "@/components/about/TechnicalToolbox";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/about" },
   title: "About",
   description:
     "Senior Frontend Engineer since 2017, specialising in frontend modernisation and scalable design systems.",
