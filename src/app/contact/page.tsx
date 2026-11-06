@@ -14,7 +14,8 @@ const HERO_DESCRIPTION =
 export const metadata: Metadata = {
   alternates: { canonical: "/contact" },
   title: "Contact",
-  description: HERO_DESCRIPTION,
+  description:
+    "Scaling a product team or modernising your frontend? Let's talk. I'm a Senior Frontend Engineer in Porto, open to remote and hybrid roles.",
 };
 
 export default function Contact() {

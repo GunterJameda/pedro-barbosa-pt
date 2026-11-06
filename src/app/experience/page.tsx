@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   alternates: { canonical: "/experience" },
   title: "Experience",
   description:
-    "A chronological track record of shipping production web applications, migrating legacy architectures to modern microfrontends, and building scalable design systems since 2017.",
+    "My track record since 2017: shipping production web apps, migrating legacy architectures to microfrontends, and building scalable design systems.",
 };
 
 export default function Experience() {
