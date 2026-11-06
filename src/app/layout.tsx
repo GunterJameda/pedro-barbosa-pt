@@ -7,6 +7,7 @@ import { AppRouterCacheProvider } from "@mui/material-nextjs/v16-appRouter";
 import { Analytics } from "@vercel/analytics/next";
 import { Footer } from "@/components/_common/Footer";
 import { Navbar } from "@/components/_common/Navbar";
+import { SITE_URL } from "@/constants";
 import { theme } from "@/theme";
 
 const fontSans = Plus_Jakarta_Sans({
@@ -22,6 +23,7 @@ const fontMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(SITE_URL),
   title: {
     default: "Pedro Barbosa | Senior Frontend Engineer",
     template: "%s | Pedro Barbosa",

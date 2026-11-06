@@ -94,6 +94,7 @@ describe("folder structure", () => {
       "icon.png",
       "icon.svg",
       "opengraph-image.png",
+      "opengraph-image.tsx",
       "robots.ts",
       "sitemap.ts",
     ]);
