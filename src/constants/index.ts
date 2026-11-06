@@ -5,3 +5,5 @@ export {
   MAILTO_URL,
   SITE_URL,
 } from "./links";
+export { PAGES } from "./routes";
+export type { PageLink } from "./types";

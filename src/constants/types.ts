@@ -1,4 +1,4 @@
-export interface NavLink {
+export interface PageLink {
   name: string;
   href: string;
 }

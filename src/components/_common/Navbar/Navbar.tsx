@@ -7,9 +7,9 @@ import Chip from "@mui/material/Chip";
 import Stack from "@mui/material/Stack";
 import { usePathname } from "next/navigation";
 import { StatusDot } from "@/components/_common/StatusDot";
+import { PAGES } from "@/constants";
 import { slate, surfaces } from "@/theme";
 import { Brand } from "./Brand";
-import { NAV_LINKS } from "./config";
 import { MobileMenu } from "./MobileMenu";
 
 function isActivePath(pathname: string, href: string) {
@@ -29,7 +29,7 @@ const statusChip = {
 
 export function Navbar() {
   const pathname = usePathname();
-  const links = NAV_LINKS.map((link) => ({
+  const links = PAGES.map((link) => ({
     ...link,
     isActive: isActivePath(pathname, link.href),
   }));

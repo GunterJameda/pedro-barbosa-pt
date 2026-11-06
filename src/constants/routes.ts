@@ -1,6 +1,7 @@
-import type { NavLink } from "./types";
+import type { PageLink } from "./types";
 
-export const NAV_LINKS: NavLink[] = [
+/** Every page of the site, in navigation order. */
+export const PAGES: PageLink[] = [
   { name: "Home", href: "/home" },
   { name: "About", href: "/about" },
   { name: "Experience", href: "/experience" },
