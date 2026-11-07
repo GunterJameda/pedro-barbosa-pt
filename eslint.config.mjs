@@ -57,7 +57,8 @@ const eslintConfig = defineConfig([
   },
   ...PAGE_SCOPES.map((page) => ({
     files: [
-      `src/app/${page}/**/*.{ts,tsx}`,
+      // Home is the root route, so its page file sits directly in src/app.
+      page === "home" ? "src/app/page.tsx" : `src/app/${page}/**/*.{ts,tsx}`,
       `src/components/pages/${page}/**/*.{ts,tsx}`,
     ],
     rules: boundaries(page),

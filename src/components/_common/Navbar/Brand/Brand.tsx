@@ -9,7 +9,7 @@ export function Brand({ onClick }: { onClick?: () => void }) {
   return (
     <Link
       component={NextLink}
-      href="/home"
+      href="/"
       onClick={onClick}
       underline="none"
       color="inherit"

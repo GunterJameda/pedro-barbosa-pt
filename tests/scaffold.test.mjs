@@ -40,6 +40,7 @@ describe("import rules", () => {
     ["a component directly inside pages", "@/components/pages/Footer", ABOUT],
     ["a page folder itself", "@/components/pages/contact", CONTACT],
     ["another page's components", "@/components/pages/contact/EmailCard", ABOUT],
+    ["home's components from another page", "@/components/pages/home/QuickLinks", ABOUT],
     ["page components from _common", "@/components/pages/contact/EmailCard", COMMON_MODULE],
     ["a relative path out of the module", "../Footer", COMMON_MODULE],
     ["a relative path to the parent", "..", COMMON_MODULE],
@@ -55,6 +56,7 @@ describe("import rules", () => {
   const allowed = [
     ["a common module", "@/components/_common/Footer", ABOUT],
     ["a page's own components", "@/components/pages/contact/EmailCard", CONTACT],
+    ["home's components from the root page", "@/components/pages/home/QuickLinks", "src/app/page.tsx"],
     ["sibling components in the same page folder", "@/components/pages/contact/LinkedInCard", CONTACT_MODULE],
     ["the theme module", "@/theme", ABOUT],
     ["the constants module", "@/constants", ABOUT],
@@ -118,8 +120,13 @@ describe("folder structure", () => {
 
   test("src/components/pages only holds folders named after a page", () => {
     for (const folder of directories("src/components/pages")) {
+      // Home is the root route, so its page file sits directly in src/app.
+      const pageFile =
+        folder === "home"
+          ? join("src/app", "page.tsx")
+          : join("src/app", folder, "page.tsx");
       assert.ok(
-        existsSync(join(ROOT, "src/app", folder, "page.tsx")),
+        existsSync(join(ROOT, pageFile)),
         `src/components/pages/${folder} doesn't match a page`,
       );
     }

@@ -9,7 +9,7 @@ import { PersonSchema } from "@/components/pages/home/PersonSchema";
 import { slate } from "@/theme";
 
 export const metadata: Metadata = {
-  alternates: { canonical: "/home" },
+  alternates: { canonical: "/" },
 };
 
 export default function Home() {
