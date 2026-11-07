@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import { PageMain } from "@/components/_common/PageMain";
 import { PreFooterCTA } from "@/components/_common/PreFooterCTA";
-import { FlagshipProject } from "@/components/projects/FlagshipProject";
-import { ProjectApproach } from "@/components/projects/ProjectApproach";
-import { ProjectsHero } from "@/components/projects/ProjectsHero";
+import { FlagshipProject } from "@/components/pages/projects/FlagshipProject";
+import { ProjectApproach } from "@/components/pages/projects/ProjectApproach";
+import { ProjectsHero } from "@/components/pages/projects/ProjectsHero";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/projects" },

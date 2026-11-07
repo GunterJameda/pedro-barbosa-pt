@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 import { PageMain } from "@/components/_common/PageMain";
 import { PreFooterCTA } from "@/components/_common/PreFooterCTA";
-import { AboutHero } from "@/components/about/AboutHero";
-import { EngineeringPrinciples } from "@/components/about/EngineeringPrinciples";
-import { TeamPractices } from "@/components/about/TeamPractices";
-import { TechnicalToolbox } from "@/components/about/TechnicalToolbox";
+import { AboutHero } from "@/components/pages/about/AboutHero";
+import { EngineeringPrinciples } from "@/components/pages/about/EngineeringPrinciples";
+import { TeamPractices } from "@/components/pages/about/TeamPractices";
+import { TechnicalToolbox } from "@/components/pages/about/TechnicalToolbox";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/about" },

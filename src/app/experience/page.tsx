@@ -3,12 +3,12 @@ import type { Metadata } from "next";
 import { CardGrid } from "@/components/_common/CardGrid";
 import { PageMain } from "@/components/_common/PageMain";
 import { PreFooterCTA } from "@/components/_common/PreFooterCTA";
-import { AcademicBackground } from "@/components/experience/AcademicBackground";
-import { CareerMilestones } from "@/components/experience/CareerMilestones";
-import { CompanyNavigation } from "@/components/experience/CompanyNavigation";
-import { EvolutionBlueprint } from "@/components/experience/EvolutionBlueprint";
-import { ExperienceHero } from "@/components/experience/ExperienceHero";
-import { FoundationRoles } from "@/components/experience/FoundationRoles";
+import { AcademicBackground } from "@/components/pages/experience/AcademicBackground";
+import { CareerMilestones } from "@/components/pages/experience/CareerMilestones";
+import { CompanyNavigation } from "@/components/pages/experience/CompanyNavigation";
+import { EvolutionBlueprint } from "@/components/pages/experience/EvolutionBlueprint";
+import { ExperienceHero } from "@/components/pages/experience/ExperienceHero";
+import { FoundationRoles } from "@/components/pages/experience/FoundationRoles";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/experience" },

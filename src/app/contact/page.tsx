@@ -3,10 +3,10 @@ import type { Metadata } from "next";
 import { CardGrid } from "@/components/_common/CardGrid";
 import { PageHero } from "@/components/_common/PageHero";
 import { PageMain } from "@/components/_common/PageMain";
-import { EmailCard } from "@/components/contact/EmailCard";
-import { LinkedInCard } from "@/components/contact/LinkedInCard";
-import { LocationBanner } from "@/components/contact/LocationBanner";
-import { RoleAlignment } from "@/components/contact/RoleAlignment";
+import { EmailCard } from "@/components/pages/contact/EmailCard";
+import { LinkedInCard } from "@/components/pages/contact/LinkedInCard";
+import { LocationBanner } from "@/components/pages/contact/LocationBanner";
+import { RoleAlignment } from "@/components/pages/contact/RoleAlignment";
 
 const HERO_DESCRIPTION =
   "Whether you're scaling a product team, modernising frontend foundations, or looking for a Senior Frontend Engineer who delivers with craft and pragmatic ownership.";

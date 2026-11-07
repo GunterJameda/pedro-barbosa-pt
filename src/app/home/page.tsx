@@ -3,9 +3,9 @@ import Box from "@mui/material/Box";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 import { Eyebrow } from "@/components/_common/Eyebrow";
-import { QuickLinks } from "@/components/home/QuickLinks";
-import { Highlight } from "@/components/home/Highlight";
-import { PersonSchema } from "@/components/home/PersonSchema";
+import { QuickLinks } from "@/components/pages/home/QuickLinks";
+import { Highlight } from "@/components/pages/home/Highlight";
+import { PersonSchema } from "@/components/pages/home/PersonSchema";
 import { slate } from "@/theme";
 
 export const metadata: Metadata = {

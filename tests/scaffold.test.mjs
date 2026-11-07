@@ -26,19 +26,21 @@ const filesIn = (path) =>
 describe("import rules", () => {
   const ABOUT = "src/app/about/page.tsx";
   const CONTACT = "src/app/contact/page.tsx";
-  const CONTACT_MODULE = "src/components/contact/EmailCard/EmailCard.tsx";
+  const CONTACT_MODULE = "src/components/pages/contact/EmailCard/EmailCard.tsx";
   const COMMON_MODULE = "src/components/_common/Footer/Footer.tsx";
 
   const blocked = [
     ["a private file of a common module", "@/components/_common/Footer/Footer", ABOUT],
-    ["a private file of a page module", "@/components/contact/EmailCard/EmailCard", CONTACT],
-    ["a child nested inside a page module", "@/components/contact/EmailCard/CopyEmailButton", CONTACT],
+    ["a private file of a page module", "@/components/pages/contact/EmailCard/EmailCard", CONTACT],
+    ["a child nested inside a page module", "@/components/pages/contact/EmailCard/CopyEmailButton", CONTACT],
     ["a private theme file", "@/theme/tokens", ABOUT],
     ["a private constants file", "@/constants/links", ABOUT],
     ["anything from src/app", "@/app/about/page", COMMON_MODULE],
-    ["a component outside _common or a page folder", "@/components/Footer", ABOUT],
-    ["another page's components", "@/components/contact/EmailCard", ABOUT],
-    ["page components from _common", "@/components/contact/EmailCard", COMMON_MODULE],
+    ["a component outside _common or pages", "@/components/Footer", ABOUT],
+    ["a component directly inside pages", "@/components/pages/Footer", ABOUT],
+    ["a page folder itself", "@/components/pages/contact", CONTACT],
+    ["another page's components", "@/components/pages/contact/EmailCard", ABOUT],
+    ["page components from _common", "@/components/pages/contact/EmailCard", COMMON_MODULE],
     ["a relative path out of the module", "../Footer", COMMON_MODULE],
     ["a relative path to the parent", "..", COMMON_MODULE],
     ["a file inside a nested module", "./CopyEmailButton/CopyEmailButton", CONTACT_MODULE],
@@ -52,8 +54,8 @@ describe("import rules", () => {
 
   const allowed = [
     ["a common module", "@/components/_common/Footer", ABOUT],
-    ["a page's own components", "@/components/contact/EmailCard", CONTACT],
-    ["sibling components in the same page folder", "@/components/contact/LinkedInCard", CONTACT_MODULE],
+    ["a page's own components", "@/components/pages/contact/EmailCard", CONTACT],
+    ["sibling components in the same page folder", "@/components/pages/contact/LinkedInCard", CONTACT_MODULE],
     ["the theme module", "@/theme", ABOUT],
     ["the constants module", "@/constants", ABOUT],
     ["a private file from inside its module", "./info", COMMON_MODULE],
@@ -104,20 +106,24 @@ describe("folder structure", () => {
     assert.deepEqual(others, []);
   });
 
-  test("src/components only holds _common and folders named after a page", () => {
-    for (const folder of directories("src/components")) {
-      if (folder === "_common") continue;
+  const filesDirectlyIn = (path) =>
+    readdirSync(join(ROOT, path), { withFileTypes: true })
+      .filter((entry) => entry.isFile())
+      .map((entry) => entry.name);
+
+  test("src/components only holds _common and pages", () => {
+    assert.deepEqual(directories("src/components").sort(), ["_common", "pages"]);
+    assert.deepEqual(filesDirectlyIn("src/components"), []);
+  });
+
+  test("src/components/pages only holds folders named after a page", () => {
+    for (const folder of directories("src/components/pages")) {
       assert.ok(
         existsSync(join(ROOT, "src/app", folder, "page.tsx")),
-        `src/components/${folder} doesn't match a page`,
+        `src/components/pages/${folder} doesn't match a page`,
       );
     }
-    assert.deepEqual(
-      readdirSync(join(ROOT, "src/components"), { withFileTypes: true })
-        .filter((entry) => entry.isFile())
-        .map((entry) => entry.name),
-      [],
-    );
+    assert.deepEqual(filesDirectlyIn("src/components/pages"), []);
   });
 
   test("every module has an index file", () => {
@@ -132,8 +138,9 @@ describe("folder structure", () => {
       }
     };
 
-    for (const folder of directories("src/components")) {
-      checkModules(join("src/components", folder));
+    checkModules("src/components/_common");
+    for (const page of directories("src/components/pages")) {
+      checkModules(join("src/components/pages", page));
     }
     assert.ok(existsSync(join(ROOT, "src/theme/index.ts")));
     assert.ok(existsSync(join(ROOT, "src/constants/index.ts")));
