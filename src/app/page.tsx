@@ -7,6 +7,7 @@ import { DotLabel } from "@/components/_common/DotLabel";
 import { QuickLinks } from "@/components/pages/home/QuickLinks";
 import { Highlight } from "@/components/pages/home/Highlight";
 import { PersonSchema } from "@/components/pages/home/PersonSchema";
+import { WebsiteSchema } from "@/components/pages/home/WebsiteSchema";
 import { slate } from "@/theme";
 
 export const metadata: Metadata = {
@@ -17,6 +18,7 @@ export default function Home() {
   return (
     <CenteredMain>
       <PersonSchema />
+      <WebsiteSchema />
       <Box sx={{ mb: { xs: 6, sm: 8 } }}>
         <DotLabel wide>Porto, Portugal</DotLabel>
       </Box>
