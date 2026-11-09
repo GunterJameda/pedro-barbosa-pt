@@ -7,7 +7,7 @@ import { AppRouterCacheProvider } from "@mui/material-nextjs/v16-appRouter";
 import { Analytics } from "@vercel/analytics/next";
 import { Footer } from "@/components/_common/Footer";
 import { Navbar } from "@/components/_common/Navbar";
-import { SITE_URL } from "@/constants";
+import { SITE_NAME, SITE_URL } from "@/constants";
 import { theme } from "@/theme";
 
 const fontSans = Plus_Jakarta_Sans({
@@ -30,6 +30,10 @@ export const metadata: Metadata = {
   },
   description:
     "Senior Frontend Engineer specialising in React, Next.js and TypeScript, with a strong foundation in Angular.",
+  openGraph: {
+    type: "website",
+    siteName: SITE_NAME,
+  },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
