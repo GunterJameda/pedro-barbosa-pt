@@ -1,2 +1,2 @@
-export { ShareImage } from "./ShareImage";
-export { ALT as shareImageAlt, SIZE as shareImageSize } from "./config";
+export { ShareImage, shareImageAlt } from "./ShareImage";
+export { SIZE as shareImageSize } from "./config";

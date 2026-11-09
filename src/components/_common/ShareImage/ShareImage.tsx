@@ -1,8 +1,10 @@
 import { readFile } from "node:fs/promises";
 import { join } from "node:path";
 import { ImageResponse } from "next/og";
+import { PAGES } from "@/constants";
 import { slate, surfaces } from "@/theme";
 import {
+  ALT,
   COLORS,
   DOMAIN,
   FONTS,
@@ -28,8 +30,21 @@ const logo = `data:image/svg+xml;base64,${(
   await readFile(join(process.cwd(), "src/app/icon.svg"))
 ).toString("base64")}`;
 
-/** Link preview image shown when a page of the site is shared. */
-export function ShareImage() {
+const pageFor = (path?: string) => PAGES.find((page) => page.href === path);
+
+/** Alt text for a page's preview image. Without a path, it's the site-wide one. */
+export function shareImageAlt(path?: string) {
+  const page = pageFor(path);
+  return page ? `${page.name} · ${ALT}` : ALT;
+}
+
+/**
+ * Link preview image shown when a page of the site is shared. With a path, it
+ * also shows that page's name and address.
+ */
+export function ShareImage({ path }: { path?: string } = {}) {
+  const page = pageFor(path);
+
   return new ImageResponse(
     (
       <div
@@ -39,7 +54,7 @@ export function ShareImage() {
           display: "flex",
           flexDirection: "column",
           justifyContent: "space-between",
-          padding: 80,
+          padding: "64px 80px",
           backgroundColor: COLORS.background,
           backgroundImage: `radial-gradient(circle at 100% 0%, ${surfaces.teal20} 0%, transparent 56%)`,
           fontFamily: "Plus Jakarta Sans",
@@ -68,6 +83,31 @@ export function ShareImage() {
         </div>
 
         <div style={{ display: "flex", flexDirection: "column" }}>
+          {page && (
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                gap: 16,
+                marginBottom: 24,
+                color: COLORS.teal,
+                fontFamily: "JetBrains Mono",
+                fontSize: 24,
+                letterSpacing: "0.1em",
+                textTransform: "uppercase",
+              }}
+            >
+              <div
+                style={{
+                  width: 12,
+                  height: 12,
+                  borderRadius: 6,
+                  backgroundColor: COLORS.teal,
+                }}
+              />
+              {page.name}
+            </div>
+          )}
           <div
             style={{
               color: "#ffffff",
@@ -89,7 +129,7 @@ export function ShareImage() {
           >
             {ROLE}
           </div>
-          <div style={{ display: "flex", gap: 16, marginTop: 40 }}>
+          <div style={{ display: "flex", gap: 16, marginTop: 32 }}>
             {TAGS.map((tag) => (
               <div
                 key={tag}
@@ -126,7 +166,7 @@ export function ShareImage() {
               backgroundColor: COLORS.teal,
             }}
           />
-          {DOMAIN}
+          {`${DOMAIN}${page?.href ?? ""}`}
         </div>
       </div>
     ),
