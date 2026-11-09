@@ -1,0 +1,50 @@
+"use client";
+
+import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
+import Fade from "@mui/material/Fade";
+import IconButton from "@mui/material/IconButton";
+import { useEffect, useState } from "react";
+import { surfaces } from "@/theme";
+
+// How far the visitor scrolls, in pixels, before the button appears.
+const SHOW_AFTER_PX = 400;
+
+/** Floating button that appears after some scrolling and returns to the top. */
+export function ScrollToTop() {
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const update = () => setIsVisible(window.scrollY > SHOW_AFTER_PX);
+    update();
+    window.addEventListener("scroll", update, { passive: true });
+    return () => window.removeEventListener("scroll", update);
+  }, []);
+
+  return (
+    <Fade in={isVisible}>
+      <IconButton
+        aria-label="Go to top"
+        // Uses the page's smooth scrolling, which respects reduced motion.
+        onClick={() => window.scrollTo({ top: 0 })}
+        sx={{
+          position: "fixed",
+          right: { xs: 16, sm: 24 },
+          bottom: { xs: 16, sm: 24 },
+          zIndex: "speedDial",
+          width: 40,
+          height: 40,
+          color: "common.white",
+          backgroundColor: surfaces.card,
+          border: `1px solid ${surfaces.white10}`,
+          "&:hover": {
+            color: "primary.main",
+            backgroundColor: surfaces.teal10,
+            borderColor: surfaces.teal20,
+          },
+        }}
+      >
+        <ArrowUpwardIcon sx={{ fontSize: 20 }} />
+      </IconButton>
+    </Fade>
+  );
+}

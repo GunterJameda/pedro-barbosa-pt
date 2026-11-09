@@ -7,6 +7,7 @@ import { AppRouterCacheProvider } from "@mui/material-nextjs/v16-appRouter";
 import { Analytics } from "@vercel/analytics/next";
 import { Footer } from "@/components/_common/Footer";
 import { Navbar } from "@/components/_common/Navbar";
+import { ScrollToTop } from "@/components/_common/ScrollToTop";
 import { SITE_NAME, SITE_URL } from "@/constants";
 import { theme } from "@/theme";
 
@@ -61,6 +62,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
               </Box>
               <Footer />
             </Box>
+            <ScrollToTop />
           </ThemeProvider>
         </AppRouterCacheProvider>
         <Analytics />
