@@ -3,7 +3,7 @@ import Box from "@mui/material/Box";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 import { CenteredMain } from "@/components/_common/CenteredMain";
-import { Eyebrow } from "@/components/_common/Eyebrow";
+import { DotLabel } from "@/components/_common/DotLabel";
 import { QuickLinks } from "@/components/pages/home/QuickLinks";
 import { Highlight } from "@/components/pages/home/Highlight";
 import { PersonSchema } from "@/components/pages/home/PersonSchema";
@@ -18,9 +18,7 @@ export default function Home() {
     <CenteredMain>
       <PersonSchema />
       <Box sx={{ mb: { xs: 6, sm: 8 } }}>
-        <Eyebrow color="text.secondary" wide>
-          Porto, Portugal
-        </Eyebrow>
+        <DotLabel wide>Porto, Portugal</DotLabel>
       </Box>
 
       <Stack spacing={3} sx={{ maxWidth: 768, textAlign: "center" }}>
