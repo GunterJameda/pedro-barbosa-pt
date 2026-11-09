@@ -38,7 +38,12 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en" className={`${fontSans.variable} ${fontMono.variable}`}>
+    <html
+      lang="en"
+      className={`${fontSans.variable} ${fontMono.variable}`}
+      // Keeps page-to-page navigation instant despite smooth scrolling.
+      data-scroll-behavior="smooth"
+    >
       <body>
         <AppRouterCacheProvider>
           <ThemeProvider theme={theme}>

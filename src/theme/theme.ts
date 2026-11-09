@@ -38,6 +38,13 @@ const theme = createTheme({
     },
     MuiCssBaseline: {
       styleOverrides: {
+        // Animates jumps to in-page sections (like the Experience page's
+        // company links), unless the visitor prefers reduced motion.
+        html: {
+          "@media (prefers-reduced-motion: no-preference)": {
+            scrollBehavior: "smooth",
+          },
+        },
         "::selection": {
           backgroundColor: surfaces.teal20,
           color: teal[200],
