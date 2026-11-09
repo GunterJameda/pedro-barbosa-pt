@@ -1,0 +1,1 @@
+export { CenteredMain } from "./CenteredMain";

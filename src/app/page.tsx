@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Box from "@mui/material/Box";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
+import { CenteredMain } from "@/components/_common/CenteredMain";
 import { Eyebrow } from "@/components/_common/Eyebrow";
 import { QuickLinks } from "@/components/pages/home/QuickLinks";
 import { Highlight } from "@/components/pages/home/Highlight";
@@ -14,19 +15,7 @@ export const metadata: Metadata = {
 
 export default function Home() {
   return (
-    <Box
-      component="main"
-      sx={{
-        flex: 1,
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        justifyContent: "center",
-        px: 3,
-        // Sits the centered content slightly above the middle of the page.
-        pb: 5,
-      }}
-    >
+    <CenteredMain>
       <PersonSchema />
       <Box sx={{ mb: { xs: 6, sm: 8 } }}>
         <Eyebrow color="text.secondary" wide>
@@ -66,6 +55,6 @@ export default function Home() {
 
         <QuickLinks />
       </Stack>
-    </Box>
+    </CenteredMain>
   );
 }
