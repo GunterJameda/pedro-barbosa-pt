@@ -28,13 +28,7 @@ export function EmailCard() {
         >
           {EMAIL}
         </Link>
-        <Typography
-          sx={{
-            color: "text.secondary",
-            fontSize: { xs: 12, sm: 14 },
-            lineHeight: 1.625,
-          }}
-        >
+        <Typography variant="body" sx={{ color: "text.secondary" }}>
           Best for interview inquiries, technical discussions, or sending over
           job descriptions and specifications.
         </Typography>

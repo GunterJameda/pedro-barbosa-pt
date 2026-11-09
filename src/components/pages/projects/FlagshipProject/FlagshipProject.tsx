@@ -5,7 +5,7 @@ import { CardGrid } from "@/components/_common/CardGrid";
 import { Eyebrow } from "@/components/_common/Eyebrow";
 import { SurfaceCard } from "@/components/_common/SurfaceCard";
 import { TagList } from "@/components/_common/TagList";
-import { fontMono, monoNote, slate, surfaces } from "@/theme";
+import { fontMono, slate, surfaces } from "@/theme";
 import { DETAIL_CARDS, TAKEAWAYS } from "./config";
 
 export function FlagshipProject() {
@@ -36,7 +36,7 @@ export function FlagshipProject() {
         >
           Full-Stack Product · May 2021 – Jan 2026
         </Box>
-        <Typography sx={monoNote}>
+        <Typography variant="mono">
           Independent product · Launched, retired Jan 2026
         </Typography>
       </Stack>
@@ -82,13 +82,7 @@ export function FlagshipProject() {
               buys and sells, and GrowthTracker calculated the average price
               they could actually trust when deciding to sell.
             </Typography>
-            <Typography
-              sx={{
-                color: "text.secondary",
-                fontSize: { xs: 12, sm: 14 },
-                lineHeight: 1.625,
-              }}
-            >
+            <Typography variant="body" sx={{ color: "text.secondary" }}>
               Buy 3 units at 500 and sell 1 at 700, and a typical broker app
               shows an average of 400, even though the remaining units still
               cost 500. GrowthTracker kept that number accurate, so users could
@@ -121,23 +115,10 @@ export function FlagshipProject() {
                     ✓
                   </Box>
                   <Stack spacing={0.5}>
-                    <Typography
-                      sx={{
-                        color: "common.white",
-                        fontSize: 14,
-                        fontWeight: 600,
-                        letterSpacing: "-0.025em",
-                      }}
-                    >
+                    <Typography variant="itemTitle">
                       {takeaway.title}
                     </Typography>
-                    <Typography
-                      sx={{
-                        color: "text.secondary",
-                        fontSize: { xs: 12, sm: 14 },
-                        lineHeight: 1.5,
-                      }}
-                    >
+                    <Typography variant="body" sx={{ color: "text.secondary" }}>
                       {takeaway.description}
                     </Typography>
                   </Stack>
@@ -156,24 +137,10 @@ export function FlagshipProject() {
             sx={{ backgroundColor: surfaces.white2 }}
           >
             <Stack spacing={1} sx={{ flex: 1 }}>
-              <Typography
-                variant="h3"
-                sx={{
-                  color: "common.white",
-                  fontSize: 16,
-                  fontWeight: 600,
-                  letterSpacing: "-0.025em",
-                }}
-              >
+              <Typography variant="cardTitle">
                 {card.title}
               </Typography>
-              <Typography
-                sx={{
-                  color: slate[300],
-                  fontSize: { xs: 12, sm: 14 },
-                  lineHeight: 1.625,
-                }}
-              >
+              <Typography variant="body">
                 {card.description}
               </Typography>
             </Stack>

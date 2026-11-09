@@ -6,7 +6,7 @@ import { Eyebrow } from "@/components/_common/Eyebrow";
 import { SectionHeading } from "@/components/_common/SectionHeading";
 import { SurfaceCard } from "@/components/_common/SurfaceCard";
 import { IconBadge } from "@/components/_common/IconBadge";
-import { slate, surfaces } from "@/theme";
+import { surfaces } from "@/theme";
 import { PRINCIPLES } from "./config";
 
 export function EngineeringPrinciples() {
@@ -30,24 +30,10 @@ export function EngineeringPrinciples() {
                   {principle.badge}
                 </Eyebrow>
               </Stack>
-              <Typography
-                variant="h3"
-                sx={{
-                  color: "common.white",
-                  fontSize: 16,
-                  fontWeight: 600,
-                  letterSpacing: "-0.025em",
-                }}
-              >
+              <Typography variant="cardTitle">
                 {principle.title}
               </Typography>
-              <Typography
-                sx={{
-                  color: slate[300],
-                  fontSize: { xs: 12, sm: 14 },
-                  lineHeight: 1.625,
-                }}
-              >
+              <Typography variant="body">
                 {principle.description}
               </Typography>
             </Stack>

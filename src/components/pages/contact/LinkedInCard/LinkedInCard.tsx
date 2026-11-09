@@ -12,24 +12,10 @@ export function LinkedInCard() {
     <SurfaceCard spacing={2} sx={{ flexGrow: 1, p: { xs: 4, sm: 5 } }}>
       <IconBadge icon={LinkedInIcon} />
       <Stack spacing={0.5} sx={{ flex: 1 }}>
-        <Typography
-          variant="h2"
-          sx={{
-            color: "common.white",
-            fontSize: 16,
-            fontWeight: 600,
-            letterSpacing: "-0.025em",
-          }}
-        >
+        <Typography variant="cardTitle" component="h2">
           LinkedIn
         </Typography>
-        <Typography
-          sx={{
-            color: "text.secondary",
-            fontSize: { xs: 12, sm: 14 },
-            lineHeight: 1.625,
-          }}
-        >
+        <Typography variant="body" sx={{ color: "text.secondary" }}>
           Connect or message me for career inquiries or mutual connections.
         </Typography>
       </Stack>

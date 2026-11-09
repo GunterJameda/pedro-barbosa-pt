@@ -16,7 +16,7 @@ import { type ReactNode, useState } from "react";
 import { ActionButton } from "@/components/_common/ActionButton";
 import { StatusDot } from "@/components/_common/StatusDot";
 import { GITHUB_URL, LINKEDIN_URL } from "@/constants";
-import { fontMono, monoNote, slate, surfaces } from "@/theme";
+import { fontMono, slate, surfaces } from "@/theme";
 import type { MobileMenuLink } from "./types";
 
 const menuButton = {
@@ -210,7 +210,7 @@ export function MobileMenu({ links, renderBrand }: MobileMenuProps) {
                 justifyContent: "space-between",
               }}
             >
-              <Typography sx={monoNote}>Porto, Portugal</Typography>
+              <Typography variant="mono">Porto, Portugal</Typography>
               <Stack direction="row" spacing={2}>
                 <Link
                   href={GITHUB_URL}

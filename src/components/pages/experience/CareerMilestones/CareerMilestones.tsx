@@ -7,7 +7,7 @@ import { DotLabel } from "@/components/_common/DotLabel";
 import { Eyebrow } from "@/components/_common/Eyebrow";
 import { SurfaceCard } from "@/components/_common/SurfaceCard";
 import { TagList } from "@/components/_common/TagList";
-import { monoNote, slate, surfaces } from "@/theme";
+import { slate, surfaces } from "@/theme";
 import { CAREER_ROLES } from "./config";
 
 export function CareerMilestones() {
@@ -29,16 +29,7 @@ export function CareerMilestones() {
             <CardGrid columns={{ xs: 1, lg: 12 }} gap={3}>
               <Stack spacing={1} sx={{ gridColumn: { lg: "span 4" } }}>
                 <DotLabel size={10}>{role.industry}</DotLabel>
-                <Typography
-                  variant="h2"
-                  sx={{
-                    color: "common.white",
-                    fontSize: 24,
-                    fontWeight: 700,
-                    letterSpacing: "-0.025em",
-                    lineHeight: 1.33,
-                  }}
-                >
+                <Typography variant="cardHeading">
                   {role.company}
                 </Typography>
                 <Typography
@@ -46,7 +37,7 @@ export function CareerMilestones() {
                 >
                   {role.roleTitle}
                 </Typography>
-                <Typography sx={monoNote}>{role.period}</Typography>
+                <Typography variant="mono">{role.period}</Typography>
               </Stack>
 
               <Stack spacing={2} sx={{ gridColumn: { lg: "span 8" } }}>
@@ -64,12 +55,7 @@ export function CareerMilestones() {
                       key={point}
                       direction="row"
                       spacing={2}
-                      sx={{
-                        alignItems: "flex-start",
-                        color: slate[300],
-                        fontSize: { xs: 12, sm: 14 },
-                        lineHeight: 1.625,
-                      }}
+                      sx={{ alignItems: "flex-start" }}
                     >
                       <CheckCircleOutlinedIcon
                         sx={{
@@ -79,7 +65,9 @@ export function CareerMilestones() {
                           fontSize: 16,
                         }}
                       />
-                      <span>{point}</span>
+                      <Typography variant="body" component="span">
+                        {point}
+                      </Typography>
                     </Stack>
                   ))}
                 </Stack>

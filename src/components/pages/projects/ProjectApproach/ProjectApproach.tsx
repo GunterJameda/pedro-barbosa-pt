@@ -25,24 +25,10 @@ export function ProjectApproach() {
           >
             <Stack spacing={2} sx={{ flex: 1 }}>
               <IconBadge icon={step.icon} size={36} iconSize={20} accent />
-              <Typography
-                variant="h3"
-                sx={{
-                  color: "common.white",
-                  fontSize: { xs: 16, sm: 18 },
-                  fontWeight: 600,
-                  letterSpacing: "-0.025em",
-                }}
-              >
+              <Typography variant="cardTitle">
                 {step.title}
               </Typography>
-              <Typography
-                sx={{
-                  color: slate[300],
-                  fontSize: { xs: 12, sm: 14 },
-                  lineHeight: 1.625,
-                }}
-              >
+              <Typography variant="body">
                 {step.description}
               </Typography>
             </Stack>

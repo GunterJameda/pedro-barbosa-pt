@@ -4,7 +4,7 @@ import { SectionHeading } from "@/components/_common/SectionHeading";
 import { StatusDot } from "@/components/_common/StatusDot";
 import { SurfaceCard } from "@/components/_common/SurfaceCard";
 import { TagList } from "@/components/_common/TagList";
-import { fontMono, monoNote, slate, surfaces } from "@/theme";
+import { fontMono, slate, surfaces } from "@/theme";
 import { TOOLBOX_GROUPS } from "./config";
 
 export function TechnicalToolbox() {
@@ -28,17 +28,14 @@ export function TechnicalToolbox() {
             >
               <Stack direction="row" spacing={1} sx={{ alignItems: "center" }}>
                 <StatusDot size={8} />
-                <Typography
-                  variant="h3"
-                  sx={{ color: "common.white", fontSize: 16, fontWeight: 600 }}
-                >
+                <Typography variant="cardTitle">
                   {group.title}
                 </Typography>
               </Stack>
-              <Typography sx={monoNote}>{group.roleBadge}</Typography>
+              <Typography variant="mono">{group.roleBadge}</Typography>
             </Stack>
 
-            <Typography sx={{ color: slate[300], fontSize: { xs: 12, sm: 14 } }}>
+            <Typography variant="body">
               {group.description}
             </Typography>
 

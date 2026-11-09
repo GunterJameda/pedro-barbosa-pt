@@ -32,9 +32,3 @@ export const teal = {
 };
 
 export const fontMono = 'var(--font-mono), "Fira Code", monospace';
-
-export const monoNote = {
-  color: "text.secondary",
-  fontFamily: fontMono,
-  fontSize: 12,
-};

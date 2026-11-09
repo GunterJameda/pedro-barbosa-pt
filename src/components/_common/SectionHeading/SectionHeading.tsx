@@ -18,20 +18,9 @@ export function SectionHeading({
   return (
     <Stack spacing={1}>
       <Eyebrow size={eyebrowSize}>{eyebrow}</Eyebrow>
-      <Typography
-        variant="h2"
-        sx={{
-          color: "common.white",
-          fontSize: { xs: 24, sm: 30 },
-          fontWeight: 600,
-          letterSpacing: "-0.025em",
-          lineHeight: 1.2,
-        }}
-      >
-        {title}
-      </Typography>
+      <Typography variant="sectionTitle">{title}</Typography>
       {description && (
-        <Typography sx={{ color: "text.secondary", fontSize: 14 }}>
+        <Typography variant="body" sx={{ color: "text.secondary" }}>
           {description}
         </Typography>
       )}

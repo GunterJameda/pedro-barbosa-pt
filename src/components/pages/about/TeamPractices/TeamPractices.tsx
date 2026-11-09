@@ -4,7 +4,7 @@ import { CardGrid } from "@/components/_common/CardGrid";
 import { SectionHeading } from "@/components/_common/SectionHeading";
 import { SurfaceCard } from "@/components/_common/SurfaceCard";
 import { IconBadge } from "@/components/_common/IconBadge";
-import { fontMono, slate, surfaces } from "@/theme";
+import { fontMono, surfaces } from "@/theme";
 import { TEAM_PRACTICES } from "./config";
 
 export function TeamPractices() {
@@ -20,24 +20,10 @@ export function TeamPractices() {
           <SurfaceCard key={practice.title} spacing={2}>
             <Stack spacing={2} sx={{ flex: 1 }}>
               <IconBadge icon={practice.icon} />
-              <Typography
-                variant="h3"
-                sx={{
-                  color: "common.white",
-                  fontSize: 16,
-                  fontWeight: 600,
-                  letterSpacing: "-0.025em",
-                }}
-              >
+              <Typography variant="cardTitle">
                 {practice.title}
               </Typography>
-              <Typography
-                sx={{
-                  color: slate[300],
-                  fontSize: { xs: 12, sm: 14 },
-                  lineHeight: 1.625,
-                }}
-              >
+              <Typography variant="body">
                 {practice.description}
               </Typography>
             </Stack>

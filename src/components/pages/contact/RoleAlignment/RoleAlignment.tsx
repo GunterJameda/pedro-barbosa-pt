@@ -4,7 +4,6 @@ import Typography from "@mui/material/Typography";
 import { Eyebrow } from "@/components/_common/Eyebrow";
 import { IconBadge } from "@/components/_common/IconBadge";
 import { SurfaceCard } from "@/components/_common/SurfaceCard";
-import { slate } from "@/theme";
 import { ALIGNMENT_POINTS } from "./config";
 
 export function RoleAlignment() {
@@ -18,25 +17,10 @@ export function RoleAlignment() {
     >
       <Stack spacing={1} sx={{ pb: 1 }}>
         <Eyebrow size={10}>Role Alignment</Eyebrow>
-        <Typography
-          variant="h2"
-          sx={{
-            color: "common.white",
-            fontSize: 24,
-            fontWeight: 700,
-            letterSpacing: "-0.025em",
-            lineHeight: 1.33,
-          }}
-        >
+        <Typography variant="cardHeading">
           Role Alignment & Ideal Engagements
         </Typography>
-        <Typography
-          sx={{
-            color: "text.secondary",
-            fontSize: { xs: 12, sm: 14 },
-            lineHeight: 1.625,
-          }}
-        >
+        <Typography variant="body" sx={{ color: "text.secondary" }}>
           To save time for recruiters and engineering leaders, here is a
           transparent snapshot of my core focus and ideal team environments:
         </Typography>
@@ -54,24 +38,10 @@ export function RoleAlignment() {
               <IconBadge icon={point.icon} size={28} iconSize={14} />
             </Box>
             <Stack spacing={0.5}>
-              <Typography
-                variant="h3"
-                sx={{
-                  color: "common.white",
-                  fontSize: 14,
-                  fontWeight: 600,
-                  letterSpacing: "-0.025em",
-                }}
-              >
+              <Typography variant="itemTitle" component="h3">
                 {point.title}
               </Typography>
-              <Typography
-                sx={{
-                  color: slate[300],
-                  fontSize: { xs: 12, sm: 14 },
-                  lineHeight: 1.625,
-                }}
-              >
+              <Typography variant="body">
                 {point.description}
               </Typography>
             </Stack>

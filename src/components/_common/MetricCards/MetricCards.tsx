@@ -14,21 +14,8 @@ export function MetricCards({ metrics }: { metrics: Metric[] }) {
             <Eyebrow color="text.secondary" size={10}>
               {metric.tag}
             </Eyebrow>
-            <Typography
-              sx={{
-                color: "common.white",
-                fontSize: 14,
-                fontWeight: 600,
-                letterSpacing: "-0.025em",
-              }}
-            >
-              {metric.title}
-            </Typography>
-            <Typography
-              sx={{ color: "text.secondary", fontSize: 12, lineHeight: 1.625 }}
-            >
-              {metric.description}
-            </Typography>
+            <Typography variant="itemTitle">{metric.title}</Typography>
+            <Typography variant="small">{metric.description}</Typography>
           </SurfaceCard>
         ))}
       </CardGrid>

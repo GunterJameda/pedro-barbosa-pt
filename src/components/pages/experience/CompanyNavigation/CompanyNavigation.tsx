@@ -18,16 +18,7 @@ export function CompanyNavigation() {
         <Eyebrow>Fast Navigation</Eyebrow>
       </Box>
 
-      <Typography
-        sx={{
-          color: "common.white",
-          fontSize: 14,
-          fontWeight: 600,
-          letterSpacing: "-0.025em",
-        }}
-      >
-        Companies & Engagements
-      </Typography>
+      <Typography variant="itemTitle">Companies & Engagements</Typography>
 
       <CardGrid columns={{ xs: 2, sm: 4 }} gap={1}>
         {COMPANY_LINKS.map((link) => (

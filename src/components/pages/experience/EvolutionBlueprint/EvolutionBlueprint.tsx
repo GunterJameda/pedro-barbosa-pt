@@ -3,7 +3,7 @@ import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 import { SurfaceCard } from "@/components/_common/SurfaceCard";
 import { Eyebrow } from "@/components/_common/Eyebrow";
-import { fontMono, monoNote, slate, surfaces } from "@/theme";
+import { fontMono, slate, surfaces } from "@/theme";
 
 const TEAL = "var(--mui-palette-primary-dark)";
 
@@ -27,13 +27,7 @@ export function EvolutionBlueprint() {
           </Box>
           <Eyebrow>Evolution Blueprint</Eyebrow>
         </Stack>
-        <Typography
-          sx={{
-            color: slate[300],
-            fontSize: { xs: 12, sm: 14 },
-            lineHeight: 1.625,
-          }}
-        >
+        <Typography variant="body">
           From monolith enterprise systems at Glintt and HUUB to microfrontends
           at PriceHubble and schema-driven component engines at Teya, my career
           is shaped by progressive technical ownership.
@@ -44,7 +38,7 @@ export function EvolutionBlueprint() {
         spacing={2}
         sx={{ pt: 2, borderTop: `1px solid ${surfaces.hairline}` }}
       >
-        <Typography sx={monoNote}>
+        <Typography variant="mono">
           Primary Focus Transition{" "}
           <Box
             component="span"

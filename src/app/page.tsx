@@ -8,7 +8,6 @@ import { QuickLinks } from "@/components/pages/home/QuickLinks";
 import { Highlight } from "@/components/pages/home/Highlight";
 import { PersonSchema } from "@/components/pages/home/PersonSchema";
 import { WebsiteSchema } from "@/components/pages/home/WebsiteSchema";
-import { slate } from "@/theme";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/" },
@@ -24,28 +23,11 @@ export default function Home() {
       </Box>
 
       <Stack spacing={3} sx={{ maxWidth: 768, textAlign: "center" }}>
-        <Typography
-          variant="h1"
-          sx={{
-            color: "common.white",
-            fontSize: { xs: 36, sm: 60 },
-            fontWeight: 700,
-            letterSpacing: "-0.025em",
-            lineHeight: 1.25,
-          }}
-        >
+        <Typography variant="displayTitle">
           {"Hello, I'm Pedro Barbosa."}
         </Typography>
 
-        <Typography
-          sx={{
-            maxWidth: 672,
-            mx: "auto",
-            color: slate[300],
-            fontSize: { xs: 16, sm: 18 },
-            lineHeight: 1.625,
-          }}
-        >
+        <Typography variant="lead" sx={{ maxWidth: 672, mx: "auto" }}>
           Senior Frontend Engineer specialising in <Highlight>React</Highlight>,{" "}
           <Highlight>Next.js</Highlight> and <Highlight>TypeScript</Highlight>,
           with a strong foundation in <Highlight>Angular</Highlight>. Building

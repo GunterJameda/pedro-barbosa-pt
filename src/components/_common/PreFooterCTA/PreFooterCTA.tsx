@@ -32,25 +32,8 @@ export function PreFooterCTA({
     >
       <Stack spacing={1} sx={{ maxWidth: 672 }}>
         <DotLabel>Next Inquiries & Collaboration</DotLabel>
-        <Typography
-          variant="h2"
-          sx={{
-            color: "common.white",
-            fontSize: { xs: 24, sm: 30 },
-            fontWeight: 600,
-            letterSpacing: "-0.025em",
-            lineHeight: 1.2,
-          }}
-        >
-          {title}
-        </Typography>
-        <Typography
-          sx={{
-            color: "text.secondary",
-            fontSize: { xs: 12, sm: 14 },
-            lineHeight: 1.625,
-          }}
-        >
+        <Typography variant="sectionTitle">{title}</Typography>
+        <Typography variant="body" sx={{ color: "text.secondary" }}>
           {description}
         </Typography>
       </Stack>

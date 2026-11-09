@@ -3,8 +3,10 @@
 import { createTheme } from "@mui/material/styles";
 import NextLink from "next/link";
 import { slate, surfaces, teal } from "./tokens";
+import { TEXT_VARIANT_ELEMENTS, createTextVariants, sans } from "./typography";
 
-const theme = createTheme({
+// Built in two steps, because the text styles need the theme's breakpoints.
+const baseTheme = createTheme({
   cssVariables: true,
   palette: {
     mode: "dark",
@@ -22,12 +24,10 @@ const theme = createTheme({
       secondary: "#94a3b8",
     },
   },
+  // Set here, so MUI's built-in styles (and the page's base font) use it.
   typography: {
-    fontFamily:
-      'var(--font-sans), system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
-    button: {
-      textTransform: "none",
-    },
+    fontFamily: sans,
+    button: { textTransform: "none" },
   },
   components: {
     // Lets <Button href="..."> use next/link, including from server components.
@@ -50,6 +50,15 @@ const theme = createTheme({
           color: teal[200],
         },
       },
+    },
+  },
+});
+
+const theme = createTheme(baseTheme, {
+  typography: createTextVariants(baseTheme.breakpoints),
+  components: {
+    MuiTypography: {
+      defaultProps: { variantMapping: TEXT_VARIANT_ELEMENTS },
     },
   },
 });
