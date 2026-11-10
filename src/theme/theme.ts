@@ -11,17 +11,17 @@ const baseTheme = createTheme({
   palette: {
     mode: "dark",
     primary: {
-      light: "#5eead4",
-      main: "#2dd4bf",
-      dark: "#14b8a6",
+      light: teal[300],
+      main: teal[400],
+      dark: teal[500],
     },
     background: {
-      default: "#0c1421",
-      paper: "#0c1421",
+      default: surfaces.background,
+      paper: surfaces.background,
     },
     text: {
       primary: slate[100],
-      secondary: "#94a3b8",
+      secondary: slate[400],
     },
   },
   // Set here, so MUI's built-in styles (and the page's base font) use it.

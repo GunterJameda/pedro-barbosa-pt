@@ -1,13 +1,11 @@
 import type { Breakpoints } from "@mui/material/styles";
 import type { CSSProperties } from "react";
-import { fontMono, slate } from "./tokens";
+import { fontMono, slate, white } from "./tokens";
 import type { TextVariant } from "./types";
 
 export const sans =
   'var(--font-sans), system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
 
-const white = "#fff";
-const secondary = "#94a3b8";
 
 // Matches MUI's body1 defaults, which the hand-written styles used to inherit.
 const base: CSSProperties = {
@@ -89,13 +87,13 @@ export function createTextVariants(
       [sm]: { fontSize: 14 },
     },
     // Fine print in cards.
-    small: { ...base, color: secondary, fontSize: 12, lineHeight: 1.625 },
+    small: { ...base, color: slate[400], fontSize: 12, lineHeight: 1.625 },
     // Notes, dates and badges.
-    mono: { ...base, color: secondary, fontFamily: fontMono, fontSize: 12 },
+    mono: { ...base, color: slate[400], fontFamily: fontMono, fontSize: 12 },
     // Card footer labels.
     monoSmall: {
       ...base,
-      color: secondary,
+      color: slate[400],
       fontFamily: fontMono,
       fontSize: 11,
     },
