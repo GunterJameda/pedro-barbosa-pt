@@ -34,7 +34,7 @@ export function FlagshipProject() {
             fontSize: 12,
           }}
         >
-          Full-Stack Product · May 2021 – Jan 2026
+          Full-Stack Product · May 2021 - Jan 2026
         </Box>
         <Typography variant="mono">
           Independent product · Launched, retired Jan 2026

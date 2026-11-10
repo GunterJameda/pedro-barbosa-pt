@@ -27,7 +27,7 @@ export function AcademicBackground() {
             Instituto Superior de Engenharia do Porto (ISEP)
           </Typography>
           <Typography variant="mono">
-            BSc in Informatics Engineering · 2014 – 2017
+            BSc in Informatics Engineering · 2014 - 2017
           </Typography>
         </Stack>
       </Stack>

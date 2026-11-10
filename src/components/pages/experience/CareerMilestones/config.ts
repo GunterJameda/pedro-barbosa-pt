@@ -6,7 +6,7 @@ export const CAREER_ROLES: CareerRole[] = [
     industry: "Financial Operations SaaS",
     company: "Teya",
     roleTitle: "Senior Frontend Engineer",
-    period: "Oct 2025 – Jul 2026",
+    period: "Oct 2025 - Jul 2026",
     tags: ["React", "Next.js", "TypeScript", "Context API", "Material UI", "Recoil", "Redux"],
     bulletPoints: [
       "Proactively identified and implemented codebase improvements in an existing financial operations application, balancing structural refactoring alongside accelerated feature delivery.",
@@ -19,7 +19,7 @@ export const CAREER_ROLES: CareerRole[] = [
     industry: "Enterprise Quick-Service Ordering",
     company: "Tillster",
     roleTitle: "Senior Frontend Engineer",
-    period: "May 2023 – Feb 2025",
+    period: "May 2023 - Feb 2025",
     tags: ["AngularJS", "Ionic v1", "JavaScript", "Stripe API", "Multi-Tenant UI"],
     bulletPoints: [
       "Maintained and extended an expansive multi-tenant platform supporting production web and hybrid mobile applications, precisely adapting interfaces and localized business logic for high-volume international restaurant brands.",
@@ -32,7 +32,7 @@ export const CAREER_ROLES: CareerRole[] = [
     industry: "Real Estate AI & PropTech",
     company: "PriceHubble",
     roleTitle: "Frontend Engineer",
-    period: "May 2022 – May 2023",
+    period: "May 2022 - May 2023",
     tags: ["single-spa", "React", "Next.js", "TypeScript", "Angular", "CI/CD Workflows"],
     bulletPoints: [
       "Partnered directly with another engineer to plan, architect, and deliver the initial phase of decomposing a massive Angular monolith into microfrontends, segregating business domains cleanly.",
@@ -45,7 +45,7 @@ export const CAREER_ROLES: CareerRole[] = [
     industry: "Luxury E-Commerce Tech",
     company: "Luxclusif",
     roleTitle: "Frontend Engineer",
-    period: "Oct 2020 – May 2022",
+    period: "Oct 2020 - May 2022",
     tags: ["React", "TypeScript", "Material UI", "Component Systems", "Workflow Automation"],
     bulletPoints: [
       "Joined as the company's first frontend developer, single-handedly setting engineering conventions and building the flagship application to streamline second-hand luxury handbag acquisition and authentication.",
