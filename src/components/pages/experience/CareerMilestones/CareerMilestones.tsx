@@ -1,8 +1,8 @@
-import CheckCircleOutlinedIcon from "@mui/icons-material/CheckCircleOutlined";
 import Box from "@mui/material/Box";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 import { CardGrid } from "@/components/_common/CardGrid";
+import { CheckList } from "@/components/_common/CheckList";
 import { DotLabel } from "@/components/_common/DotLabel";
 import { Eyebrow } from "@/components/_common/Eyebrow";
 import { SurfaceCard } from "@/components/_common/SurfaceCard";
@@ -44,33 +44,9 @@ export function CareerMilestones() {
                 <Eyebrow color="text.secondary">
                   Key Contributions & Architecture
                 </Eyebrow>
-                <Stack
-                  component="ul"
-                  spacing={2}
-                  sx={{ m: 0, p: 0, listStyle: "none" }}
-                >
-                  {role.bulletPoints.map((point) => (
-                    <Stack
-                      component="li"
-                      key={point}
-                      direction="row"
-                      spacing={2}
-                      sx={{ alignItems: "flex-start" }}
-                    >
-                      <CheckCircleOutlinedIcon
-                        sx={{
-                          flexShrink: 0,
-                          mt: "2px",
-                          color: "primary.main",
-                          fontSize: 16,
-                        }}
-                      />
-                      <Typography variant="body" component="span">
-                        {point}
-                      </Typography>
-                    </Stack>
-                  ))}
-                </Stack>
+                <CheckList
+                  items={role.bulletPoints.map((text) => ({ text }))}
+                />
               </Stack>
             </CardGrid>
           </Box>
