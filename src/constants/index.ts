@@ -10,13 +10,12 @@ export {
   CITY,
   COUNTRY,
   COUNTRY_CODE,
-  IS_LOOKING,
   LOCATION,
   NAME,
   ROLE,
   WORK_MODE,
-  WORK_MODE_ROLES,
 } from "./profile";
+export { IS_LOOKING, WORK_MODE_ROLES } from "./status";
 export { PAGES } from "./routes";
 export type { Availability, PageLink, WorkMode } from "./types";
 export { SITE_ALTERNATE_NAME, SITE_NAME } from "./site";
