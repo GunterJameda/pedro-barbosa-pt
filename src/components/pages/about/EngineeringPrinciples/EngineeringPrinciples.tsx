@@ -1,12 +1,11 @@
 import CheckCircleOutlinedIcon from "@mui/icons-material/CheckCircleOutlined";
 import Stack from "@mui/material/Stack";
-import Typography from "@mui/material/Typography";
+import { CardFooter } from "@/components/_common/CardFooter";
 import { CardGrid } from "@/components/_common/CardGrid";
 import { Eyebrow } from "@/components/_common/Eyebrow";
+import { FeatureCard } from "@/components/_common/FeatureCard";
 import { SectionHeading } from "@/components/_common/SectionHeading";
-import { SurfaceCard } from "@/components/_common/SurfaceCard";
 import { IconBadge } from "@/components/_common/IconBadge";
-import { surfaces } from "@/theme";
 import { PRINCIPLES } from "./config";
 
 export function EngineeringPrinciples() {
@@ -19,8 +18,11 @@ export function EngineeringPrinciples() {
       />
       <CardGrid columns={{ xs: 1, md: 2 }}>
         {PRINCIPLES.map((principle) => (
-          <SurfaceCard key={principle.title} spacing={2}>
-            <Stack spacing={2} sx={{ flex: 1 }}>
+          <FeatureCard
+            key={principle.title}
+            title={principle.title}
+            description={principle.description}
+            header={
               <Stack
                 direction="row"
                 sx={{ alignItems: "center", justifyContent: "space-between" }}
@@ -30,30 +32,16 @@ export function EngineeringPrinciples() {
                   {principle.badge}
                 </Eyebrow>
               </Stack>
-              <Typography variant="cardTitle">
-                {principle.title}
-              </Typography>
-              <Typography variant="body">
-                {principle.description}
-              </Typography>
-            </Stack>
-            <Stack
-              direction="row"
-              spacing={1}
-              sx={{
-                alignItems: "center",
-                pt: 2,
-                color: "primary.light",
-                borderTop: `1px solid ${surfaces.hairline}`,
-                fontSize: 12,
-              }}
-            >
-              <CheckCircleOutlinedIcon
-                sx={{ flexShrink: 0, color: "primary.main", fontSize: 14 }}
-              />
-              <span>{principle.highlight}</span>
-            </Stack>
-          </SurfaceCard>
+            }
+            footer={
+              <CardFooter sx={{ color: "primary.light", fontSize: 12 }}>
+                <CheckCircleOutlinedIcon
+                  sx={{ flexShrink: 0, color: "primary.main", fontSize: 14 }}
+                />
+                <span>{principle.highlight}</span>
+              </CardFooter>
+            }
+          />
         ))}
       </CardGrid>
     </Stack>

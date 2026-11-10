@@ -1,10 +1,11 @@
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
+import { CardFooter } from "@/components/_common/CardFooter";
 import { SectionHeading } from "@/components/_common/SectionHeading";
 import { StatusDot } from "@/components/_common/StatusDot";
 import { SurfaceCard } from "@/components/_common/SurfaceCard";
 import { TagList } from "@/components/_common/TagList";
-import { fontMono, slate, surfaces } from "@/theme";
+import { fontMono, slate } from "@/theme";
 import { TOOLBOX_GROUPS } from "./config";
 
 export function TechnicalToolbox() {
@@ -41,15 +42,10 @@ export function TechnicalToolbox() {
 
             <TagList tags={group.skills} />
 
-            <Stack
-              direction="row"
-              spacing={1}
+            <CardFooter
               sx={{
-                alignItems: "center",
                 justifyContent: "space-between",
-                pt: 2,
                 color: "text.secondary",
-                borderTop: `1px solid ${surfaces.hairline}`,
                 fontFamily: fontMono,
                 fontSize: 11,
               }}
@@ -61,7 +57,7 @@ export function TechnicalToolbox() {
               >
                 {group.footerRight}
               </Typography>
-            </Stack>
+            </CardFooter>
           </SurfaceCard>
         ))}
       </Stack>
