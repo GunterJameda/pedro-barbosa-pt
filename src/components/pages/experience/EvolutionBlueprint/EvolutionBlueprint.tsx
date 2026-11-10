@@ -4,14 +4,9 @@ import Typography from "@mui/material/Typography";
 import { SurfaceCard } from "@/components/_common/SurfaceCard";
 import { Eyebrow } from "@/components/_common/Eyebrow";
 import { fontMono, slate, surfaces, teal } from "@/theme";
+import { CURRENT_POINT, CURVE, PAST_POINTS } from "./config";
 
 const TEAL = teal[500];
-
-const POINTS = [
-  { x: 10, y: 32, labelY: 42, year: "2017" },
-  { x: 110, y: 26, labelY: 38, year: "2020" },
-  { x: 210, y: 18, labelY: 30, year: "2023" },
-];
 
 export function EvolutionBlueprint() {
   return (
@@ -53,7 +48,7 @@ export function EvolutionBlueprint() {
             component="svg"
             viewBox="0 0 320 40"
             role="img"
-            aria-label="Career progression from 2017 to 2026"
+            aria-label={`Career progression from ${PAST_POINTS[0].year} to ${CURRENT_POINT.year}`}
             sx={{
               display: "block",
               width: "100%",
@@ -64,14 +59,14 @@ export function EvolutionBlueprint() {
             }}
           >
             <path
-              d="M 10 32 Q 90 28 160 22 T 310 8"
+              d={CURVE}
               fill="none"
               stroke={TEAL}
               strokeWidth="2"
               strokeLinecap="round"
               opacity={0.7}
             />
-            {POINTS.map((point) => (
+            {PAST_POINTS.map((point) => (
               <g key={point.year}>
                 <circle cx={point.x} cy={point.y} r="3" fill={TEAL} />
                 <text
@@ -85,18 +80,18 @@ export function EvolutionBlueprint() {
               </g>
             ))}
             <circle
-              cx="310"
-              cy="8"
+              cx={CURRENT_POINT.x}
+              cy={CURRENT_POINT.y}
               r="3.5"
               fill={teal[300]}
             />
             <text
-              x="310"
-              y="20"
+              x={CURRENT_POINT.x}
+              y={CURRENT_POINT.labelY}
               fill={teal[400]}
               textAnchor="middle"
             >
-              2026
+              {CURRENT_POINT.year}
             </text>
           </Box>
         </Box>
