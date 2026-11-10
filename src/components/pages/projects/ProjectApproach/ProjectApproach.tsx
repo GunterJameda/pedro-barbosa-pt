@@ -1,11 +1,11 @@
 import Box from "@mui/material/Box";
 import Stack from "@mui/material/Stack";
-import Typography from "@mui/material/Typography";
+import { CardFooter } from "@/components/_common/CardFooter";
 import { CardGrid } from "@/components/_common/CardGrid";
+import { FeatureCard } from "@/components/_common/FeatureCard";
 import { IconBadge } from "@/components/_common/IconBadge";
 import { SectionHeading } from "@/components/_common/SectionHeading";
-import { SurfaceCard } from "@/components/_common/SurfaceCard";
-import { fontMono, slate, surfaces } from "@/theme";
+import { fontMono, slate } from "@/theme";
 import { APPROACH_STEPS } from "./config";
 
 export function ProjectApproach() {
@@ -18,38 +18,30 @@ export function ProjectApproach() {
       />
       <CardGrid columns={{ xs: 1, md: 2 }} gap={3}>
         {APPROACH_STEPS.map((step) => (
-          <SurfaceCard
+          <FeatureCard
             key={step.title}
+            title={step.title}
+            description={step.description}
             spacing={3}
             sx={{ p: { xs: 3, sm: 4 } }}
-          >
-            <Stack spacing={2} sx={{ flex: 1 }}>
+            header={
               <IconBadge icon={step.icon} size={36} iconSize={20} accent />
-              <Typography variant="cardTitle">
-                {step.title}
-              </Typography>
-              <Typography variant="body">
-                {step.description}
-              </Typography>
-            </Stack>
-            <Stack
-              direction="row"
-              spacing={1}
-              sx={{
-                alignItems: "center",
-                pt: 2,
-                color: "primary.light",
-                borderTop: `1px solid ${surfaces.hairline}`,
-                fontFamily: fontMono,
-                fontSize: 12,
-              }}
-            >
-              <Box component="span" aria-hidden sx={{ color: slate[500] }}>
-                →
-              </Box>
-              <span>{step.note}</span>
-            </Stack>
-          </SurfaceCard>
+            }
+            footer={
+              <CardFooter
+                sx={{
+                  color: "primary.light",
+                  fontFamily: fontMono,
+                  fontSize: 12,
+                }}
+              >
+                <Box component="span" aria-hidden sx={{ color: slate[500] }}>
+                  →
+                </Box>
+                <span>{step.note}</span>
+              </CardFooter>
+            }
+          />
         ))}
       </CardGrid>
     </Stack>
