@@ -48,9 +48,12 @@ interface MobileMenuProps {
 
 export function MobileMenu({ links, renderBrand }: MobileMenuProps) {
   const [isOpen, setIsOpen] = useState(false);
-  // Closes the menu if the screen grows past the mobile layout while it's open.
   const isDesktop = useMediaQuery("(min-width:1200px)");
   const close = () => setIsOpen(false);
+
+  // Closes the menu if the screen grows past the mobile layout while it's
+  // open, so it doesn't come back when the screen shrinks again.
+  if (isOpen && isDesktop) setIsOpen(false);
   const availabilityText = AVAILABILITY_TEXT[AVAILABILITY];
 
   return (
@@ -68,7 +71,7 @@ export function MobileMenu({ links, renderBrand }: MobileMenuProps) {
       <Drawer
         id="mobile-menu"
         anchor="right"
-        open={isOpen && !isDesktop}
+        open={isOpen}
         onClose={close}
         slotProps={{
           paper: {

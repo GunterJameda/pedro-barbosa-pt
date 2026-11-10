@@ -118,6 +118,19 @@ describe("MobileMenu", () => {
     await waitFor(() => expect(menu()).not.toBeInTheDocument());
   });
 
+  it("stays closed when the screen shrinks back to mobile width", async () => {
+    const screenSize = mockScreen({ isDesktop: false });
+    renderMenu();
+    await openMenu();
+    screenSize.resize({ isDesktop: true });
+    await waitFor(() => expect(menu()).not.toBeInTheDocument());
+    screenSize.resize({ isDesktop: false });
+    // Give a wrongly reopening menu time to appear.
+    await new Promise((resolve) => setTimeout(resolve, 300));
+    expect(menu()).not.toBeInTheDocument();
+    expect(openButton()).toHaveAttribute("aria-expanded", "false");
+  });
+
   it("opens social profiles in a new tab", async () => {
     renderMenu();
     await openMenu();
