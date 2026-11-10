@@ -1,19 +1,20 @@
-import type { DetailCard, Takeaway } from "./types";
+import type { CheckListItem } from "@/components/_common/CheckList";
+import type { DetailCard } from "./types";
 
-export const TAKEAWAYS: Takeaway[] = [
+export const TAKEAWAYS: CheckListItem[] = [
   {
     title: "Product ownership",
-    description:
+    text:
       "Defined the business rules and requirements myself, starting from a problem I had.",
   },
   {
     title: "End-to-end delivery",
-    description:
+    text:
       "Built every layer, from the database to the interface, and took it to launch.",
   },
   {
     title: "Making value obvious",
-    description:
+    text:
       "Learned that a strong feature isn't enough if users can't see its value. I had plans to address it, but the money ran out first.",
   },
 ];

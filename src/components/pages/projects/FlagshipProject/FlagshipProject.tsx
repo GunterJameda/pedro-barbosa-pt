@@ -2,7 +2,9 @@ import Box from "@mui/material/Box";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 import { CardGrid } from "@/components/_common/CardGrid";
+import { CheckList } from "@/components/_common/CheckList";
 import { Eyebrow } from "@/components/_common/Eyebrow";
+import { FeatureCard } from "@/components/_common/FeatureCard";
 import { SurfaceCard } from "@/components/_common/SurfaceCard";
 import { TagList } from "@/components/_common/TagList";
 import { fontMono, slate, surfaces } from "@/theme";
@@ -94,58 +96,20 @@ export function FlagshipProject() {
             <Eyebrow color="text.secondary" size={12}>
               Key Takeaways
             </Eyebrow>
-            <Stack
-              component="ul"
-              spacing={2}
-              sx={{ m: 0, p: 0, listStyle: "none" }}
-            >
-              {TAKEAWAYS.map((takeaway) => (
-                <Stack
-                  component="li"
-                  key={takeaway.title}
-                  direction="row"
-                  spacing={1}
-                  sx={{ alignItems: "flex-start" }}
-                >
-                  <Box
-                    component="span"
-                    aria-hidden
-                    sx={{ color: "primary.main", fontSize: 14 }}
-                  >
-                    ✓
-                  </Box>
-                  <Stack spacing={0.5}>
-                    <Typography variant="itemTitle">
-                      {takeaway.title}
-                    </Typography>
-                    <Typography variant="body" sx={{ color: "text.secondary" }}>
-                      {takeaway.description}
-                    </Typography>
-                  </Stack>
-                </Stack>
-              ))}
-            </Stack>
+            <CheckList items={TAKEAWAYS} />
           </Stack>
         </CardGrid>
       </Box>
 
       <CardGrid columns={{ xs: 1, md: 2 }}>
         {DETAIL_CARDS.map((card) => (
-          <SurfaceCard
+          <FeatureCard
             key={card.title}
-            spacing={2}
+            title={card.title}
+            description={card.description}
             sx={{ backgroundColor: surfaces.white2 }}
-          >
-            <Stack spacing={1} sx={{ flex: 1 }}>
-              <Typography variant="cardTitle">
-                {card.title}
-              </Typography>
-              <Typography variant="body">
-                {card.description}
-              </Typography>
-            </Stack>
-            <TagList tags={card.tags} />
-          </SurfaceCard>
+            footer={<TagList tags={card.tags} />}
+          />
         ))}
       </CardGrid>
     </SurfaceCard>
