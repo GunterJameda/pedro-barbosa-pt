@@ -5,9 +5,7 @@ import Fade from "@mui/material/Fade";
 import IconButton from "@mui/material/IconButton";
 import { useEffect, useState } from "react";
 import { surfaces } from "@/theme";
-
-// How far the visitor scrolls, in pixels, before the button appears.
-const SHOW_AFTER_PX = 400;
+import { SHOW_AFTER_PX } from "./config";
 
 /** Floating button that appears after some scrolling and returns to the top. */
 export function ScrollToTop() {
