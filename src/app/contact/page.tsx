@@ -7,6 +7,7 @@ import { EmailCard } from "@/components/pages/contact/EmailCard";
 import { LinkedInCard } from "@/components/pages/contact/LinkedInCard";
 import { LocationBanner } from "@/components/pages/contact/LocationBanner";
 import { RoleAlignment } from "@/components/pages/contact/RoleAlignment";
+import { CITY, IS_LOOKING, ROLE, WORK_MODE_ROLES } from "@/constants";
 
 const HERO_DESCRIPTION =
   "Whether you're scaling a product team, modernising frontend foundations, or looking for a Senior Frontend Engineer who delivers with craft and pragmatic ownership.";
@@ -14,8 +15,7 @@ const HERO_DESCRIPTION =
 export const metadata: Metadata = {
   alternates: { canonical: "/contact" },
   title: "Contact",
-  description:
-    "Scaling a product team or modernising your frontend? Let's talk. I'm a Senior Frontend Engineer in Porto, open to remote and hybrid roles.",
+  description: `Scaling a product team or modernising your frontend? Let's talk. I'm a ${ROLE} in ${CITY}${IS_LOOKING ? `, open to ${WORK_MODE_ROLES}` : ""}.`,
 };
 
 export default function Contact() {

@@ -3,6 +3,7 @@ import Typography from "@mui/material/Typography";
 import { Eyebrow } from "@/components/_common/Eyebrow";
 import { StatusDot } from "@/components/_common/StatusDot";
 import { SurfaceCard } from "@/components/_common/SurfaceCard";
+import { IS_LOOKING, WORK_MODE_ROLES } from "@/constants";
 import { fontMono } from "@/theme";
 
 export function LocationBanner() {
@@ -18,20 +19,22 @@ export function LocationBanner() {
           collaboration during key milestones.
         </Typography>
       </Stack>
-      <Stack
-        direction="row"
-        spacing={1}
-        sx={{
-          alignItems: "center",
-          pt: 1,
-          color: "primary.main",
-          fontFamily: fontMono,
-          fontSize: 12,
-        }}
-      >
-        <StatusDot />
-        <span>Open to remote and hybrid roles</span>
-      </Stack>
+      {IS_LOOKING && (
+        <Stack
+          direction="row"
+          spacing={1}
+          sx={{
+            alignItems: "center",
+            pt: 1,
+            color: "primary.main",
+            fontFamily: fontMono,
+            fontSize: 12,
+          }}
+        >
+          <StatusDot />
+          <span>{`Open to ${WORK_MODE_ROLES}`}</span>
+        </Stack>
+      )}
     </SurfaceCard>
   );
 }

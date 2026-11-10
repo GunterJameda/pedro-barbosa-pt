@@ -4,7 +4,13 @@ import PlaceOutlinedIcon from "@mui/icons-material/PlaceOutlined";
 import Box from "@mui/material/Box";
 import Link from "@mui/material/Link";
 import Stack from "@mui/material/Stack";
-import { EMAIL, GITHUB_URL, LINKEDIN_URL, MAILTO_URL } from "@/constants";
+import {
+  EMAIL,
+  GITHUB_URL,
+  LINKEDIN_URL,
+  LOCATION,
+  MAILTO_URL,
+} from "@/constants";
 import { slate, surfaces } from "@/theme";
 
 const SOCIAL_LINKS = [
@@ -44,7 +50,7 @@ export function Footer() {
           <PlaceOutlinedIcon
             sx={{ fontSize: 16, color: surfaces.teal400Muted }}
           />
-          <span>Porto, Portugal</span>
+          <span>{LOCATION}</span>
           <Box component="span" aria-hidden sx={{ color: slate[600] }}>
             •
           </Box>

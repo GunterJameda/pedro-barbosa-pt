@@ -15,8 +15,9 @@ import useMediaQuery from "@mui/material/useMediaQuery";
 import { type ReactNode, useState } from "react";
 import { ActionButton } from "@/components/_common/ActionButton";
 import { StatusDot } from "@/components/_common/StatusDot";
-import { GITHUB_URL, LINKEDIN_URL } from "@/constants";
+import { AVAILABILITY, GITHUB_URL, LINKEDIN_URL, LOCATION } from "@/constants";
 import { fontMono, slate, surfaces } from "@/theme";
+import { AVAILABILITY_TEXT } from "./config";
 import type { MobileMenuLink } from "./types";
 
 const menuButton = {
@@ -50,6 +51,7 @@ export function MobileMenu({ links, renderBrand }: MobileMenuProps) {
   // Closes the menu if the screen grows past the mobile layout while it's open.
   const isDesktop = useMediaQuery("(min-width:1200px)");
   const close = () => setIsOpen(false);
+  const availabilityText = AVAILABILITY_TEXT[AVAILABILITY];
 
   return (
     <>
@@ -157,38 +159,40 @@ export function MobileMenu({ links, renderBrand }: MobileMenuProps) {
               borderTop: `1px solid ${surfaces.hairline}`,
             }}
           >
-            <Stack
-              direction="row"
-              spacing={1}
-              sx={{
-                alignItems: "center",
-                p: 2,
-                borderRadius: 2,
-                backgroundColor: surfaces.card,
-                border: `1px solid ${surfaces.hairline}`,
-              }}
-            >
-              <StatusDot size={8} />
-              <Typography
+            {availabilityText && (
+              <Stack
+                direction="row"
+                spacing={1}
                 sx={{
-                  flexGrow: 1,
-                  color: "common.white",
-                  fontSize: 14,
-                  fontWeight: 500,
+                  alignItems: "center",
+                  p: 2,
+                  borderRadius: 2,
+                  backgroundColor: surfaces.card,
+                  border: `1px solid ${surfaces.hairline}`,
                 }}
               >
-                Availability
-              </Typography>
-              <Typography
-                sx={{
-                  color: "primary.light",
-                  fontFamily: fontMono,
-                  fontSize: 12,
-                }}
-              >
-                Immediate
-              </Typography>
-            </Stack>
+                <StatusDot size={8} />
+                <Typography
+                  sx={{
+                    flexGrow: 1,
+                    color: "common.white",
+                    fontSize: 14,
+                    fontWeight: 500,
+                  }}
+                >
+                  Availability
+                </Typography>
+                <Typography
+                  sx={{
+                    color: "primary.light",
+                    fontFamily: fontMono,
+                    fontSize: 12,
+                  }}
+                >
+                  {availabilityText}
+                </Typography>
+              </Stack>
+            )}
 
             <ActionButton
               href="/contact"
@@ -210,7 +214,7 @@ export function MobileMenu({ links, renderBrand }: MobileMenuProps) {
                 justifyContent: "space-between",
               }}
             >
-              <Typography variant="mono">Porto, Portugal</Typography>
+              <Typography variant="mono">{LOCATION}</Typography>
               <Stack direction="row" spacing={2}>
                 <Link
                   href={GITHUB_URL}

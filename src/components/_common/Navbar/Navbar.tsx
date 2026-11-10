@@ -7,9 +7,10 @@ import Chip from "@mui/material/Chip";
 import Stack from "@mui/material/Stack";
 import { usePathname } from "next/navigation";
 import { StatusDot } from "@/components/_common/StatusDot";
-import { PAGES } from "@/constants";
+import { AVAILABILITY, PAGES } from "@/constants";
 import { slate, surfaces } from "@/theme";
 import { Brand } from "./Brand";
+import { STATUS_LABEL, STATUS_LABELS, STATUS_SHORT_LABEL } from "./config";
 import { MobileMenu } from "./MobileMenu";
 
 function isActivePath(pathname: string, href: string) {
@@ -33,6 +34,7 @@ export function Navbar() {
     ...link,
     isActive: isActivePath(pathname, link.href),
   }));
+  const statusLabel = STATUS_LABEL[AVAILABILITY];
 
   return (
     <AppBar
@@ -107,16 +109,28 @@ export function Navbar() {
           ))}
         </Stack>
 
-        <Chip
-          label="Open for opportunities"
-          icon={<StatusDot pulse />}
-          sx={{
-            ...statusChip,
-            display: { xs: "none", lg: "inline-flex" },
-            height: 24,
-            px: 2,
-          }}
-        />
+        {/* Every label sits in the same cell, so the slot always fits the
+            widest one and the links never move when the chip changes or hides. */}
+        <Box sx={{ display: { xs: "none", lg: "grid" }, justifyItems: "end" }}>
+          {STATUS_LABELS.map((label) => {
+            const isShown = label === statusLabel;
+            return (
+              <Chip
+                key={label}
+                label={label}
+                aria-hidden={isShown ? undefined : true}
+                icon={<StatusDot pulse />}
+                sx={{
+                  ...statusChip,
+                  gridArea: "1 / 1",
+                  height: 24,
+                  px: 2,
+                  visibility: isShown ? "visible" : "hidden",
+                }}
+              />
+            );
+          })}
+        </Box>
 
         <Stack
           direction="row"
@@ -127,18 +141,20 @@ export function Navbar() {
             alignItems: "center",
           }}
         >
-          <Chip
-            label="Open"
-            aria-label="Open for opportunities"
-            icon={<StatusDot pulse />}
-            sx={{
-              ...statusChip,
-              height: 24,
-              px: 1,
-              // Not enough room for it next to the name on the smallest phones.
-              "@media (max-width:359px)": { display: "none" },
-            }}
-          />
+          {statusLabel && (
+            <Chip
+              label={STATUS_SHORT_LABEL}
+              aria-label={statusLabel}
+              icon={<StatusDot pulse />}
+              sx={{
+                ...statusChip,
+                height: 24,
+                px: 1,
+                // Not enough room for it next to the name on the smallest phones.
+                "@media (max-width:359px)": { display: "none" },
+              }}
+            />
+          )}
           <MobileMenu
             links={links}
             renderBrand={(close) => <Brand onClick={close} />}

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Box from "@mui/material/Box";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
+import { LOCATION } from "@/constants";
 import { CenteredMain } from "@/components/_common/CenteredMain";
 import { DotLabel } from "@/components/_common/DotLabel";
 import { QuickLinks } from "@/components/pages/home/QuickLinks";
@@ -19,7 +20,7 @@ export default function Home() {
       <PersonSchema />
       <WebsiteSchema />
       <Box sx={{ mb: { xs: 6, sm: 8 } }}>
-        <DotLabel wide>Porto, Portugal</DotLabel>
+        <DotLabel wide>{LOCATION}</DotLabel>
       </Box>
 
       <Stack spacing={3} sx={{ maxWidth: 768, textAlign: "center" }}>

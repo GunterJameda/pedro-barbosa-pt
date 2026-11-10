@@ -3,6 +3,7 @@ import Link from "@mui/material/Link";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 import NextLink from "next/link";
+import { NAME, ROLE } from "@/constants";
 import { surfaces } from "@/theme";
 
 export function Brand({ onClick }: { onClick?: () => void }) {
@@ -54,14 +55,14 @@ export function Brand({ onClick }: { onClick?: () => void }) {
             letterSpacing: "-0.025em",
           }}
         >
-          Pedro Barbosa
+          {NAME}
         </Typography>
         <Typography
           component="span"
           noWrap
           sx={{ color: "text.secondary", fontSize: 12 }}
         >
-          Senior Frontend Engineer
+          {ROLE}
         </Typography>
       </Stack>
     </Link>

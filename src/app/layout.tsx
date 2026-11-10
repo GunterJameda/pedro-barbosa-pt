@@ -8,7 +8,7 @@ import { Analytics } from "@vercel/analytics/next";
 import { Footer } from "@/components/_common/Footer";
 import { Navbar } from "@/components/_common/Navbar";
 import { ScrollToTop } from "@/components/_common/ScrollToTop";
-import { SITE_NAME, SITE_URL } from "@/constants";
+import { NAME, ROLE, SITE_NAME, SITE_URL } from "@/constants";
 import { theme } from "@/theme";
 
 const fontSans = Plus_Jakarta_Sans({
@@ -26,8 +26,8 @@ const fontMono = JetBrains_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "Pedro Barbosa | Senior Frontend Engineer",
-    template: "%s | Pedro Barbosa",
+    default: `${NAME} | ${ROLE}`,
+    template: `%s | ${NAME}`,
   },
   description:
     "Senior Frontend Engineer specialising in React, Next.js and TypeScript, with a strong foundation in Angular.",

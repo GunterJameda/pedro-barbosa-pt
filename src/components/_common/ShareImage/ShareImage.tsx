@@ -1,19 +1,9 @@
 import { readFile } from "node:fs/promises";
 import { join } from "node:path";
 import { ImageResponse } from "next/og";
-import { PAGES } from "@/constants";
+import { LOCATION, NAME, PAGES, ROLE } from "@/constants";
 import { slate, surfaces } from "@/theme";
-import {
-  ALT,
-  COLORS,
-  DOMAIN,
-  FONTS,
-  LOCATION,
-  NAME,
-  ROLE,
-  SIZE,
-  TAGS,
-} from "./config";
+import { ALT, COLORS, DOMAIN, FONTS, SIZE, TAGS } from "./config";
 
 // Read once when the module loads, so the image can be prerendered.
 const fonts = await Promise.all(

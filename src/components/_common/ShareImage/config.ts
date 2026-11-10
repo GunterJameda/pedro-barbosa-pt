@@ -1,12 +1,10 @@
+import { NAME, ROLE } from "@/constants";
 import type { ShareImageFont } from "./types";
 
 export const SIZE = { width: 1200, height: 630 };
 
-export const ALT = "Pedro Barbosa, Senior Frontend Engineer";
+export const ALT = `${NAME}, ${ROLE}`;
 
-export const NAME = "Pedro Barbosa";
-export const ROLE = "Senior Frontend Engineer";
-export const LOCATION = "Porto, Portugal";
 export const DOMAIN = "pedrobarbosa.pt";
 export const TAGS: string[] = ["React", "Next.js", "TypeScript", "Angular"];
 
