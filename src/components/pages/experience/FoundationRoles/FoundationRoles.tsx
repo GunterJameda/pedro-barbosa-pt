@@ -1,11 +1,12 @@
 import Box from "@mui/material/Box";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
+import { CardFooter } from "@/components/_common/CardFooter";
 import { CardGrid } from "@/components/_common/CardGrid";
 import { DotLabel } from "@/components/_common/DotLabel";
 import { SurfaceCard } from "@/components/_common/SurfaceCard";
 import { TagList } from "@/components/_common/TagList";
-import { slate, surfaces } from "@/theme";
+import { slate } from "@/theme";
 import { FOUNDATION_ROLES } from "./config";
 
 export function FoundationRoles() {
@@ -37,9 +38,9 @@ export function FoundationRoles() {
                 {role.description}
               </Typography>
             </Stack>
-            <Box sx={{ pt: 2, borderTop: `1px solid ${surfaces.hairline}` }}>
+            <CardFooter>
               <TagList tags={role.tags} dense />
-            </Box>
+            </CardFooter>
           </SurfaceCard>
         ))}
       </CardGrid>
