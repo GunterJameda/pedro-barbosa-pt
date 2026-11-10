@@ -2,8 +2,8 @@ import { readFile } from "node:fs/promises";
 import { join } from "node:path";
 import { ImageResponse } from "next/og";
 import { LOCATION, NAME, PAGES, ROLE } from "@/constants";
-import { slate, surfaces } from "@/theme";
-import { ALT, COLORS, DOMAIN, FONTS, SIZE, TAGS } from "./config";
+import { slate, surfaces, teal, white } from "@/theme";
+import { ALT, DOMAIN, FONTS, SIZE, TAGS } from "./config";
 
 // Read once when the module loads, so the image can be prerendered.
 const fonts = await Promise.all(
@@ -45,7 +45,7 @@ export function ShareImage({ path }: { path?: string } = {}) {
           flexDirection: "column",
           justifyContent: "space-between",
           padding: "64px 80px",
-          backgroundColor: COLORS.background,
+          backgroundColor: surfaces.background,
           backgroundImage: `radial-gradient(circle at 100% 0%, ${surfaces.teal20} 0%, transparent 56%)`,
           fontFamily: "Plus Jakarta Sans",
         }}
@@ -80,7 +80,7 @@ export function ShareImage({ path }: { path?: string } = {}) {
                 alignItems: "center",
                 gap: 16,
                 marginBottom: 24,
-                color: COLORS.teal,
+                color: teal[400],
                 fontFamily: "JetBrains Mono",
                 fontSize: 24,
                 letterSpacing: "0.1em",
@@ -92,7 +92,7 @@ export function ShareImage({ path }: { path?: string } = {}) {
                   width: 12,
                   height: 12,
                   borderRadius: 6,
-                  backgroundColor: COLORS.teal,
+                  backgroundColor: teal[400],
                 }}
               />
               {page.name}
@@ -100,7 +100,7 @@ export function ShareImage({ path }: { path?: string } = {}) {
           )}
           <div
             style={{
-              color: "#ffffff",
+              color: white,
               fontSize: 96,
               fontWeight: 700,
               letterSpacing: "-0.025em",
@@ -112,7 +112,7 @@ export function ShareImage({ path }: { path?: string } = {}) {
           <div
             style={{
               marginTop: 16,
-              color: COLORS.tealLight,
+              color: teal[300],
               fontSize: 48,
               fontWeight: 500,
             }}
@@ -144,7 +144,7 @@ export function ShareImage({ path }: { path?: string } = {}) {
             display: "flex",
             alignItems: "center",
             gap: 16,
-            color: COLORS.teal,
+            color: teal[400],
             fontFamily: "JetBrains Mono",
             fontSize: 24,
           }}
@@ -153,7 +153,7 @@ export function ShareImage({ path }: { path?: string } = {}) {
             style={{
               width: 48,
               height: 2,
-              backgroundColor: COLORS.teal,
+              backgroundColor: teal[400],
             }}
           />
           {`${DOMAIN}${page?.href ?? ""}`}

@@ -14,10 +14,3 @@ export const FONTS: ShareImageFont[] = [
   { name: "Plus Jakarta Sans", file: "PlusJakartaSans-Medium.ttf", weight: 500 },
   { name: "JetBrains Mono", file: "JetBrainsMono-Medium.ttf", weight: 500 },
 ];
-
-// Theme palette values. The MUI theme is a client module, so they're repeated here.
-export const COLORS = {
-  background: "#0c1421",
-  teal: "#2dd4bf",
-  tealLight: "#5eead4",
-};
