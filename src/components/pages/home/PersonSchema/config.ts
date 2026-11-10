@@ -2,11 +2,10 @@ import {
   CITY,
   COUNTRY_CODE,
   EMAIL,
-  GITHUB_URL,
-  LINKEDIN_URL,
   NAME,
   ROLE,
   SITE_URL,
+  SOCIAL_LINKS,
 } from "@/constants";
 import type { ProfilePageData } from "./types";
 
@@ -25,7 +24,7 @@ export const PROFILE_PAGE: ProfilePageData = {
       addressLocality: CITY,
       addressCountry: COUNTRY_CODE,
     },
-    sameAs: [GITHUB_URL, LINKEDIN_URL],
+    sameAs: SOCIAL_LINKS.map((link) => link.href),
     knowsAbout: ["React", "Next.js", "TypeScript", "Angular"],
   },
 };

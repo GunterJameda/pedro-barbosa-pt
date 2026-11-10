@@ -1,8 +1,6 @@
 "use client";
 
 import CloseIcon from "@mui/icons-material/Close";
-import GitHubIcon from "@mui/icons-material/GitHub";
-import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import MailOutlinedIcon from "@mui/icons-material/MailOutlined";
 import MenuIcon from "@mui/icons-material/Menu";
 import Button from "@mui/material/Button";
@@ -15,7 +13,7 @@ import useMediaQuery from "@mui/material/useMediaQuery";
 import { type ReactNode, useState } from "react";
 import { ActionButton } from "@/components/_common/ActionButton";
 import { StatusDot } from "@/components/_common/StatusDot";
-import { AVAILABILITY, GITHUB_URL, LINKEDIN_URL, LOCATION } from "@/constants";
+import { AVAILABILITY, LOCATION, SOCIAL_LINKS } from "@/constants";
 import { fontMono, slate, surfaces } from "@/theme";
 import { AVAILABILITY_TEXT } from "./config";
 import type { MobileMenuLink } from "./types";
@@ -219,26 +217,19 @@ export function MobileMenu({ links, renderBrand }: MobileMenuProps) {
             >
               <Typography variant="mono">{LOCATION}</Typography>
               <Stack direction="row" spacing={2}>
-                <Link
-                  href={GITHUB_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  underline="none"
-                  sx={socialLink}
-                >
-                  <GitHubIcon sx={{ fontSize: 14 }} />
-                  GitHub
-                </Link>
-                <Link
-                  href={LINKEDIN_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  underline="none"
-                  sx={socialLink}
-                >
-                  <LinkedInIcon sx={{ fontSize: 14 }} />
-                  LinkedIn
-                </Link>
+                {SOCIAL_LINKS.map(({ name, href, Icon }) => (
+                  <Link
+                    key={name}
+                    href={href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    underline="none"
+                    sx={socialLink}
+                  >
+                    <Icon sx={{ fontSize: 14 }} />
+                    {name}
+                  </Link>
+                ))}
               </Stack>
             </Stack>
           </Stack>

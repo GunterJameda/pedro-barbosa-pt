@@ -4,6 +4,7 @@ export {
   LINKEDIN_URL,
   MAILTO_URL,
   SITE_URL,
+  SOCIAL_LINKS,
 } from "./links";
 export {
   AVAILABILITY,
@@ -17,5 +18,5 @@ export {
 } from "./profile";
 export { IS_LOOKING, WORK_MODE_ROLES } from "./status";
 export { PAGES } from "./routes";
-export type { Availability, PageLink, WorkMode } from "./types";
+export type { Availability, PageLink, SocialLink, WorkMode } from "./types";
 export { SITE_ALTERNATE_NAME, SITE_NAME } from "./site";
