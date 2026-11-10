@@ -9,7 +9,7 @@ export const FOUNDATION_ROLES: FoundationRole[] = [
     period: "Jan 2019 – Jun 2020",
     description:
       "Sole developer of AlbumTeller, an application combining photography album production tools into a single seamless workflow.",
-    tags: ["Angular", "Node.js", "AWS Serverless"],
+    tags: ["Angular", "TypeScript", "Node.js", "AWS Serverless"],
   },
   {
     id: "huub",
@@ -29,6 +29,6 @@ export const FOUNDATION_ROLES: FoundationRole[] = [
     period: "Jul 2017 – Mar 2018",
     description:
       "Developed an enterprise healthcare application supporting rigorous clinical trial data collection, participant management, and protocol tracking workflows.",
-    tags: ["Angular", "JavaScript", "Clinical Systems"],
+    tags: ["Angular", "TypeScript", "Clinical Systems"],
   },
 ];

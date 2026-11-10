@@ -33,7 +33,7 @@ export const CAREER_ROLES: CareerRole[] = [
     company: "PriceHubble",
     roleTitle: "Frontend Engineer",
     period: "May 2022 – May 2023",
-    tags: ["single-spa", "React", "Next.js", "Angular", "CI/CD Workflows"],
+    tags: ["single-spa", "React", "Next.js", "TypeScript", "Angular", "CI/CD Workflows"],
     bulletPoints: [
       "Partnered directly with another engineer to plan, architect, and deliver the initial phase of decomposing a massive Angular monolith into microfrontends, segregating business domains cleanly.",
       "Established isolated repositories and CI/CD deployment pipelines using single-spa orchestration for route coordination, unlocking autonomous deployment pipelines for independent product squads.",
@@ -46,7 +46,7 @@ export const CAREER_ROLES: CareerRole[] = [
     company: "Luxclusif",
     roleTitle: "Frontend Engineer",
     period: "Oct 2020 – May 2022",
-    tags: ["React", "Material UI", "Component Systems", "Workflow Automation"],
+    tags: ["React", "TypeScript", "Material UI", "Component Systems", "Workflow Automation"],
     bulletPoints: [
       "Joined as the company's first frontend developer, single-handedly setting engineering conventions and building the flagship application to streamline second-hand luxury handbag acquisition and authentication.",
       "Architected and published version 1.0 of the company's internal component library, standardizing interaction design, visual tokens, and reusable primitives across distributed business tools.",
