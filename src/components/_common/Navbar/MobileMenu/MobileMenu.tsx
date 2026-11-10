@@ -3,20 +3,15 @@
 import CloseIcon from "@mui/icons-material/Close";
 import MailOutlinedIcon from "@mui/icons-material/MailOutlined";
 import MenuIcon from "@mui/icons-material/Menu";
-import Button from "@mui/material/Button";
 import Drawer from "@mui/material/Drawer";
 import IconButton from "@mui/material/IconButton";
-import Link from "@mui/material/Link";
 import Stack from "@mui/material/Stack";
-import Typography from "@mui/material/Typography";
 import useMediaQuery from "@mui/material/useMediaQuery";
-import { type ReactNode, useState } from "react";
+import { type MouseEvent, type ReactNode, useState } from "react";
 import { ActionButton } from "@/components/_common/ActionButton";
-import { StatusDot } from "@/components/_common/StatusDot";
-import { AVAILABILITY, LOCATION, SOCIAL_LINKS } from "@/constants";
-import { fontMono, slate, surfaces } from "@/theme";
-import { AVAILABILITY_TEXT } from "./config";
-import type { MobileMenuLink } from "./types";
+import { surfaces } from "@/theme";
+import { AvailabilityCard } from "./AvailabilityCard";
+import { MenuFooter } from "./MenuFooter";
 
 const menuButton = {
   width: 40,
@@ -28,23 +23,14 @@ const menuButton = {
   "&:hover": { backgroundColor: surfaces.white8 },
 };
 
-const socialLink = {
-  display: "inline-flex",
-  alignItems: "center",
-  gap: 0.5,
-  color: "text.secondary",
-  fontFamily: fontMono,
-  fontSize: 12,
-  transition: "color 150ms",
-  "&:hover": { color: "primary.light" },
-};
-
 interface MobileMenuProps {
-  links: MobileMenuLink[];
-  renderBrand: (close: () => void) => ReactNode;
+  /** The logo, shown in the menu's header. */
+  brand: ReactNode;
+  /** The page links. */
+  nav: ReactNode;
 }
 
-export function MobileMenu({ links, renderBrand }: MobileMenuProps) {
+export function MobileMenu({ brand, nav }: MobileMenuProps) {
   const [isOpen, setIsOpen] = useState(false);
   const isDesktop = useMediaQuery("(min-width:1200px)");
   const close = () => setIsOpen(false);
@@ -52,7 +38,11 @@ export function MobileMenu({ links, renderBrand }: MobileMenuProps) {
   // Closes the menu if the screen grows past the mobile layout while it's
   // open, so it doesn't come back when the screen shrinks again.
   if (isOpen && isDesktop) setIsOpen(false);
-  const availabilityText = AVAILABILITY_TEXT[AVAILABILITY];
+
+  // Following any link in the menu (a page, the logo, contact) closes it.
+  const closeOnLink = (event: MouseEvent) => {
+    if ((event.target as Element).closest("a")) close();
+  };
 
   return (
     <>
@@ -74,6 +64,7 @@ export function MobileMenu({ links, renderBrand }: MobileMenuProps) {
         slotProps={{
           paper: {
             "aria-label": "Menu",
+            onClick: closeOnLink,
             sx: {
               width: "100%",
               backgroundColor: "background.default",
@@ -94,7 +85,7 @@ export function MobileMenu({ links, renderBrand }: MobileMenuProps) {
             borderBottom: `1px solid ${surfaces.hairline}`,
           }}
         >
-          {renderBrand(close)}
+          {brand}
           <IconButton
             aria-label="Close menu"
             onClick={close}
@@ -111,127 +102,21 @@ export function MobileMenu({ links, renderBrand }: MobileMenuProps) {
         </Stack>
 
         <Stack spacing={3} useFlexGap sx={{ flexGrow: 1, p: 2 }}>
-          <Stack component="nav" aria-label="Mobile" spacing={1}>
-            {links.map((link) => (
-              <Button
-                key={link.href}
-                href={link.href}
-                onClick={close}
-                aria-current={link.isActive ? "page" : undefined}
-                sx={{
-                  justifyContent: "flex-start",
-                  minHeight: 48,
-                  px: 2,
-                  borderRadius: 2,
-                  border: "1px solid",
-                  fontSize: 16,
-                  fontWeight: 500,
-                  ...(link.isActive
-                    ? {
-                        color: "primary.light",
-                        backgroundColor: surfaces.teal10,
-                        borderColor: surfaces.teal20,
-                        "&:hover": { backgroundColor: surfaces.teal10 },
-                      }
-                    : {
-                        color: slate[200],
-                        borderColor: "transparent",
-                        "&:hover": { backgroundColor: surfaces.hairline },
-                      }),
-                }}
-              >
-                <Stack
-                  direction="row"
-                  spacing={1}
-                  sx={{ alignItems: "center" }}
-                >
-                  {link.isActive && <StatusDot />}
-                  <span>{link.name}</span>
-                </Stack>
-              </Button>
-            ))}
-          </Stack>
-
+          {nav}
           <Stack
             spacing={2}
-            sx={{
-              mt: "auto",
-              pt: 3,
-              borderTop: `1px solid ${surfaces.hairline}`,
-            }}
+            sx={{ mt: "auto", pt: 3, borderTop: `1px solid ${surfaces.hairline}` }}
           >
-            {availabilityText && (
-              <Stack
-                direction="row"
-                spacing={1}
-                sx={{
-                  alignItems: "center",
-                  p: 2,
-                  borderRadius: 2,
-                  backgroundColor: surfaces.card,
-                  border: `1px solid ${surfaces.hairline}`,
-                }}
-              >
-                <StatusDot size={8} />
-                <Typography
-                  sx={{
-                    flexGrow: 1,
-                    color: "common.white",
-                    fontSize: 14,
-                    fontWeight: 500,
-                  }}
-                >
-                  Availability
-                </Typography>
-                <Typography
-                  sx={{
-                    color: "primary.light",
-                    fontFamily: fontMono,
-                    fontSize: 12,
-                  }}
-                >
-                  {availabilityText}
-                </Typography>
-              </Stack>
-            )}
-
+            <AvailabilityCard />
             <ActionButton
               href="/contact"
-              onClick={close}
               primary
               fullWidth
               startIcon={<MailOutlinedIcon />}
             >
               Contact me
             </ActionButton>
-
-            <Stack
-              direction="row"
-              spacing={2}
-              useFlexGap
-              sx={{
-                flexWrap: "wrap",
-                alignItems: "center",
-                justifyContent: "space-between",
-              }}
-            >
-              <Typography variant="mono">{LOCATION}</Typography>
-              <Stack direction="row" spacing={2}>
-                {SOCIAL_LINKS.map(({ name, href, Icon }) => (
-                  <Link
-                    key={name}
-                    href={href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    underline="none"
-                    sx={socialLink}
-                  >
-                    <Icon sx={{ fontSize: 14 }} />
-                    {name}
-                  </Link>
-                ))}
-              </Stack>
-            </Stack>
+            <MenuFooter />
           </Stack>
         </Stack>
       </Drawer>

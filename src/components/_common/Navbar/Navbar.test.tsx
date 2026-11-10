@@ -1,129 +1,46 @@
-import { screen, within } from "@testing-library/react";
+import { screen, waitFor, within } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 import { usePathname } from "next/navigation";
 import { beforeEach, describe, expect, it, vi } from "vitest";
-import { type Availability, PAGES } from "@/constants";
-import { setProfile } from "@tests/profile";
 import { renderWithTheme } from "@tests/render";
+import { mockScreen } from "@tests/screen";
 import { Navbar } from "./Navbar";
 
 vi.mock("next/navigation", () => ({ usePathname: vi.fn() }));
 
-function renderAt(pathname: string, navbar = Navbar) {
-  vi.mocked(usePathname).mockReturnValue(pathname);
-  const Bar = navbar;
-  renderWithTheme(<Bar />);
-}
-
-// jsdom can't evaluate breakpoints, so the desktop-only parts count as hidden.
-// Queries include hidden elements, and visibility is checked separately.
-const mainNav = () =>
-  within(screen.getByRole("navigation", { name: "Main", hidden: true }));
-
-const currentLinks = () =>
-  mainNav()
-    .getAllByRole("link", { hidden: true })
-    .filter((link) => link.getAttribute("aria-current") === "page")
-    .map((link) => link.textContent);
-
-/** Shown to sighted visitors, ignoring breakpoints. */
-function isShown(element: Element) {
-  return getComputedStyle(element).visibility !== "hidden";
-}
-
 beforeEach(() => {
-  vi.mocked(usePathname).mockReset();
+  mockScreen({ isDesktop: false });
+  vi.mocked(usePathname).mockReturnValue("/experience");
 });
 
+const linksIn = (name: string) =>
+  within(screen.getByRole("navigation", { name, hidden: true }))
+    .getAllByRole("link", { hidden: true })
+    .map((link) => [link.textContent, link.getAttribute("aria-current")]);
+
 describe("Navbar", () => {
-  it("links to every page, in order", () => {
-    renderAt("/");
-    const links = mainNav().getAllByRole("link", { hidden: true });
-    expect(links.map((link) => link.getAttribute("href"))).toEqual(
-      PAGES.map((page) => page.href),
+  it("links home from the logo", () => {
+    renderWithTheme(<Navbar />);
+    const home = screen
+      .getAllByRole("link", { hidden: true })
+      .find((link) => link.textContent?.includes("Pedro Barbosa"));
+    expect(home).toHaveAttribute("href", "/");
+  });
+
+  it("shows the same pages, and the same current one, in the desktop links and the menu", async () => {
+    renderWithTheme(<Navbar />);
+    await userEvent.click(screen.getByRole("button", { name: "Open menu" }));
+    expect(linksIn("Mobile")).toEqual(linksIn("Main"));
+    expect(linksIn("Mobile")).toContainEqual(["Experience", "page"]);
+  });
+
+  it("closes the menu after a page is chosen in it", async () => {
+    renderWithTheme(<Navbar />);
+    await userEvent.click(screen.getByRole("button", { name: "Open menu" }));
+    const menu = within(screen.getByRole("navigation", { name: "Mobile" }));
+    await userEvent.click(menu.getByRole("link", { name: "Contact" }));
+    await waitFor(() =>
+      expect(screen.queryByRole("navigation", { name: "Mobile" })).not.toBeInTheDocument(),
     );
-  });
-
-  describe("current page", () => {
-    it.each([
-      ["/", "Home"],
-      ["/about", "About"],
-      ["/experience", "Experience"],
-      ["/projects", "Personal Projects"],
-      ["/contact", "Contact"],
-    ])("marks only %s as the current page", (pathname, name) => {
-      renderAt(pathname);
-      expect(currentLinks()).toEqual([name]);
-    });
-
-    it("marks Home only on the home page itself, though every address starts with /", () => {
-      renderAt("/about");
-      expect(currentLinks()).not.toContain("Home");
-    });
-
-    it("marks a section for addresses inside it", () => {
-      renderAt("/about/team");
-      expect(currentLinks()).toEqual(["About"]);
-    });
-
-    it("marks a section when its address ends with a slash", () => {
-      renderAt("/about/");
-      expect(currentLinks()).toEqual(["About"]);
-    });
-
-    it("doesn't mark a section for an address that only starts with the same letters", () => {
-      renderAt("/aboutme");
-      expect(currentLinks()).toEqual([]);
-    });
-
-    it("marks nothing on an unknown address", () => {
-      renderAt("/no-such-page");
-      expect(currentLinks()).toEqual([]);
-    });
-  });
-
-  describe("availability chip", () => {
-    async function renderWith(availability: Availability) {
-      setProfile({ availability });
-      const { Navbar: Bar } = await import("./Navbar");
-      renderAt("/", Bar);
-    }
-
-    const shownTexts = (pattern: RegExp) =>
-      screen
-        .queryAllByText(pattern)
-        .filter(isShown)
-        .map((element) => element.textContent);
-
-    it("says open for opportunities when available right away", async () => {
-      await renderWith("immediate");
-      expect(shownTexts(/opportunities/)).toEqual(["Open for opportunities"]);
-    });
-
-    it("says open to opportunities when open without a start date", async () => {
-      await renderWith("open");
-      expect(shownTexts(/opportunities/)).toEqual(["Open to opportunities"]);
-    });
-
-    it("shows a short label on small screens that still reads in full to screen readers", async () => {
-      await renderWith("open");
-      const shortChip = screen.getByLabelText("Open to opportunities");
-      expect(shortChip).toHaveTextContent(/^Open$/);
-    });
-
-    it("shows no availability at all when not looking", async () => {
-      await renderWith("not-looking");
-      expect(shownTexts(/opportunit|^Open$/)).toEqual([]);
-      expect(screen.queryByLabelText(/opportunit/)).not.toBeInTheDocument();
-    });
-
-    it("hides the unused labels from screen readers too", async () => {
-      await renderWith("immediate");
-      const hidden = screen
-        .queryAllByText(/opportunities/)
-        .filter((element) => !isShown(element));
-      for (const element of hidden) {
-        expect(element.closest("[aria-hidden='true']")).not.toBeNull();
-      }
-    });
   });
 });

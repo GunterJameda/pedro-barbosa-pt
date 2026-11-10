@@ -1,3 +1,6 @@
+"use client";
+
+// Client, because it hands next/link to MUI's Link as a component.
 import Avatar from "@mui/material/Avatar";
 import Link from "@mui/material/Link";
 import Stack from "@mui/material/Stack";
@@ -6,12 +9,11 @@ import NextLink from "next/link";
 import { NAME, ROLE } from "@/constants";
 import { surfaces } from "@/theme";
 
-export function Brand({ onClick }: { onClick?: () => void }) {
+export function Brand() {
   return (
     <Link
       component={NextLink}
       href="/"
-      onClick={onClick}
       underline="none"
       color="inherit"
       sx={{
