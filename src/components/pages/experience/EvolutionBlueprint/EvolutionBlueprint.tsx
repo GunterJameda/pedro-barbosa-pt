@@ -3,9 +3,9 @@ import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 import { SurfaceCard } from "@/components/_common/SurfaceCard";
 import { Eyebrow } from "@/components/_common/Eyebrow";
-import { fontMono, slate, surfaces } from "@/theme";
+import { fontMono, slate, surfaces, teal } from "@/theme";
 
-const TEAL = "var(--mui-palette-primary-dark)";
+const TEAL = teal[500];
 
 const POINTS = [
   { x: 10, y: 32, labelY: 42, year: "2017" },
@@ -88,12 +88,12 @@ export function EvolutionBlueprint() {
               cx="310"
               cy="8"
               r="3.5"
-              fill="var(--mui-palette-primary-light)"
+              fill={teal[300]}
             />
             <text
               x="310"
               y="20"
-              fill="var(--mui-palette-primary-main)"
+              fill={teal[400]}
               textAnchor="middle"
             >
               2026
