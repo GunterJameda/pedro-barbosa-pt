@@ -29,6 +29,7 @@ It's a small site, but I built it the way I'd build a production project:
 - **Structure the code checks itself.** Folder and import rules are enforced automatically by linting and tests, so the structure stays tidy as the site grows.
 - **Consistent history.** Every commit message follows the same format, checked before the commit is accepted.
 - **Tested and checked on every push.** Tests cover the interactive parts and their edge cases, and every push runs linting, type checks, the tests and a production build. A change only goes live once all of them pass.
+- **Tested in real browsers.** End-to-end tests open every page in Chromium, Firefox and WebKit, at desktop and phone sizes, checking navigation, accessibility and that nothing errors in the browser. They take a few minutes, so they run before bigger changes and against the live site rather than on every push.
 - **Ready to be found and shared.** A sitemap, structured data for search engines, and link preview images generated from code.
 
 ## Running it locally
@@ -48,3 +49,5 @@ Other commands:
 - `yarn lint`: lint the code
 - `yarn typecheck`: check the types
 - `yarn test`: run the tests
+- `yarn test:e2e`: build, then run the end-to-end tests (run `yarn playwright install` once first, to download the browsers)
+- `yarn test:e2e:prod`: run the end-to-end tests against the live site
