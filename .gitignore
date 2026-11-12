@@ -43,6 +43,7 @@ next-env.d.ts
 # private review notes
 /docs/roadmap.md
 /docs/performance.md
+/docs/open-questions.md
 
 # end-to-end tests
 /test-results/
