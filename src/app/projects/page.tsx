@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { PageMain } from "@/components/_common/PageMain";
 import { PreFooterCTA } from "@/components/_common/PreFooterCTA";
-import { FlagshipProject } from "@/components/pages/projects/FlagshipProject";
+import { ProjectList } from "@/components/pages/projects/ProjectList";
 import { ProjectApproach } from "@/components/pages/projects/ProjectApproach";
 import { ProjectsHero } from "@/components/pages/projects/ProjectsHero";
 
@@ -16,7 +16,7 @@ export default function Projects() {
   return (
     <PageMain spacing={8}>
       <ProjectsHero />
-      <FlagshipProject />
+      <ProjectList />
       <ProjectApproach />
       <PreFooterCTA
         title="Want to collaborate or discuss an opportunity?"

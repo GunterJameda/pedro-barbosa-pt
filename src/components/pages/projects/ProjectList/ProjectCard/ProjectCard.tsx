@@ -1,4 +1,6 @@
+import GitHubIcon from "@mui/icons-material/GitHub";
 import Box from "@mui/material/Box";
+import Link from "@mui/material/Link";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 import { CardGrid } from "@/components/_common/CardGrid";
@@ -8,9 +10,26 @@ import { FeatureCard } from "@/components/_common/FeatureCard";
 import { SurfaceCard } from "@/components/_common/SurfaceCard";
 import { TagList } from "@/components/_common/TagList";
 import { fontMono, slate, surfaces } from "@/theme";
-import { DETAIL_CARDS, TAKEAWAYS } from "./config";
+import type { Project } from "./types";
 
-export function FlagshipProject() {
+interface ProjectCardProps {
+  project: Project;
+}
+
+/** "2021-05" becomes "May 2021". */
+function formatMonth(month: string) {
+  return new Date(`${month}-01T00:00:00Z`).toLocaleDateString("en-US", {
+    month: "short",
+    year: "numeric",
+    timeZone: "UTC",
+  });
+}
+
+export function ProjectCard({ project }: ProjectCardProps) {
+  const period = `${formatMonth(project.started)} - ${
+    project.ended ? formatMonth(project.ended) : "Present"
+  }`;
+
   return (
     <SurfaceCard component="section" spacing={4} sx={{ p: { xs: 4, sm: 5 } }}>
       <Stack
@@ -36,11 +55,9 @@ export function FlagshipProject() {
             fontSize: 12,
           }}
         >
-          Full-Stack Product · May 2021 - Jan 2026
+          {project.kind} · {period}
         </Box>
-        <Typography variant="mono">
-          Independent product · Launched, retired Jan 2026
-        </Typography>
+        <Typography variant="mono">{project.status}</Typography>
       </Stack>
 
       <Stack spacing={1}>
@@ -54,7 +71,7 @@ export function FlagshipProject() {
             lineHeight: 1.2,
           }}
         >
-          GrowthTracker
+          {project.name}
         </Typography>
         <Typography
           sx={{
@@ -63,8 +80,31 @@ export function FlagshipProject() {
             fontWeight: 500,
           }}
         >
-          An investment tracker that shows your real average price
+          {project.tagline}
         </Typography>
+        {project.repoUrl && (
+          <Link
+            href={project.repoUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            underline="none"
+            sx={{
+              alignSelf: "flex-start",
+              display: "inline-flex",
+              alignItems: "center",
+              gap: 1,
+              pt: 1,
+              color: "text.secondary",
+              fontFamily: fontMono,
+              fontSize: 14,
+              transition: "color 150ms",
+              "&:hover": { color: "primary.light" },
+            }}
+          >
+            <GitHubIcon sx={{ fontSize: 16 }} />
+            View the code on GitHub
+          </Link>
+        )}
       </Stack>
 
       <Box sx={{ pt: 1 }}>
@@ -80,15 +120,10 @@ export function FlagshipProject() {
                 lineHeight: 1.625,
               }}
             >
-              A product I took from idea to launch. Users logged their assets,
-              buys and sells, and GrowthTracker calculated the average price
-              they could actually trust when deciding to sell.
+              {project.summary}
             </Typography>
             <Typography variant="body" sx={{ color: "text.secondary" }}>
-              Buy 3 units at 500 and sell 1 at 700, and a typical broker app
-              shows an average of 400, even though the remaining units still
-              cost 500. GrowthTracker kept that number accurate, so users could
-              aim for a profit on every unit they sold.
+              {project.details}
             </Typography>
           </Stack>
 
@@ -96,13 +131,13 @@ export function FlagshipProject() {
             <Eyebrow color="text.secondary" size={12}>
               Key Takeaways
             </Eyebrow>
-            <CheckList items={TAKEAWAYS} />
+            <CheckList items={project.takeaways} />
           </Stack>
         </CardGrid>
       </Box>
 
       <CardGrid columns={{ xs: 1, md: 2 }}>
-        {DETAIL_CARDS.map((card) => (
+        {project.detailCards.map((card) => (
           <FeatureCard
             key={card.title}
             title={card.title}
