@@ -28,6 +28,8 @@ const pillPrimaryStyles = {
 
 interface ActionButtonProps {
   href?: string;
+  /** Opens href in a new tab, without giving that tab access to the site. */
+  newTab?: boolean;
   onClick?: () => void;
   primary?: boolean;
   pill?: boolean;
@@ -39,6 +41,7 @@ interface ActionButtonProps {
 
 export function ActionButton({
   href,
+  newTab,
   onClick,
   primary,
   pill,
@@ -50,6 +53,7 @@ export function ActionButton({
   return (
     <Button
       href={href}
+      {...(newTab && { target: "_blank", rel: "noopener noreferrer" })}
       onClick={onClick}
       fullWidth={fullWidth}
       startIcon={startIcon}
