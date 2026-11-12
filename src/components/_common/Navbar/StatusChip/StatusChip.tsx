@@ -1,3 +1,10 @@
+"use client";
+
+// Client, because MUI's Chip only draws an icon it can inspect. From a server
+// component, the client-only StatusDot arrives as a reference still loading on
+// a cold page load, so the browser drew the chip without its dot and the page
+// failed to hydrate.
+
 import Box from "@mui/material/Box";
 import Chip from "@mui/material/Chip";
 import { StatusDot } from "@/components/_common/StatusDot";
