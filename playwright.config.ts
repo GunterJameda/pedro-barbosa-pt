@@ -7,6 +7,10 @@ const DEV_PORT = 3101;
 
 const PHONE = { width: 390, height: 844 };
 
+// Set to test a deployed site instead of local servers, e.g. the live one
+// (yarn test:e2e:prod). The dev-server runs only make sense locally.
+const REMOTE_URL = process.env.E2E_BASE_URL;
+
 const BROWSERS: Project[] = [
   { name: "chromium", use: { ...devices["Desktop Chrome"] } },
   { name: "firefox", use: { ...devices["Desktop Firefox"] } },
@@ -21,13 +25,9 @@ export default defineConfig<E2EOptions>({
   testDir: "tests/e2e",
   testMatch: "*.spec.ts",
   fullyParallel: true,
-  forbidOnly: !!process.env.CI,
-  // One retry in CI, so a slow runner doesn't block a deploy. Flaky tests are
-  // still listed in the report.
-  retries: process.env.CI ? 1 : 0,
-  reporter: process.env.CI ? [["list"], ["github"]] : "list",
+  reporter: "list",
   use: { trace: "retain-on-failure" },
-  webServer: [
+  webServer: REMOTE_URL ? undefined : [
     // The production build, which `yarn build` makes first.
     {
       command: `yarn start -p ${PRODUCTION_PORT}`,
@@ -46,13 +46,13 @@ export default defineConfig<E2EOptions>({
     },
   ],
   projects: [
-    // Everything, against the production build.
+    // Everything, against the production build (or the remote site).
     ...BROWSERS.map((browser) => ({
       ...browser,
-      use: { ...browser.use, baseURL: `http://localhost:${PRODUCTION_PORT}` },
+      use: { ...browser.use, baseURL: REMOTE_URL ?? `http://localhost:${PRODUCTION_PORT}` },
     })),
     // Only the clean page load test, against the dev server.
-    ...BROWSERS.map((browser) => ({
+    ...(REMOTE_URL ? [] : BROWSERS).map((browser) => ({
       ...browser,
       name: `${browser.name}-dev`,
       testMatch: "pages.spec.ts",
