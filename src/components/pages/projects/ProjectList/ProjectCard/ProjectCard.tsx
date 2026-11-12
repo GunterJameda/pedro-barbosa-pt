@@ -1,4 +1,5 @@
 import GitHubIcon from "@mui/icons-material/GitHub";
+import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Box from "@mui/material/Box";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
@@ -11,6 +12,22 @@ import { SurfaceCard } from "@/components/_common/SurfaceCard";
 import { TagList } from "@/components/_common/TagList";
 import { fontMono, slate, surfaces } from "@/theme";
 import type { Project } from "./types";
+
+// Takes the GitHub button's place and size, so every card has the same layout.
+const privateCodeLabel = {
+  display: "inline-flex",
+  alignItems: "center",
+  gap: 1,
+  px: 3,
+  py: 1,
+  border: `1px solid ${surfaces.white8}`,
+  borderRadius: 2,
+  color: "text.secondary",
+  fontSize: 12,
+  fontWeight: 500,
+  lineHeight: "16px",
+  whiteSpace: "nowrap",
+};
 
 interface ProjectCardProps {
   project: Project;
@@ -64,7 +81,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
         direction={{ xs: "column", sm: "row" }}
         spacing={2}
         sx={{
-          alignItems: { xs: "flex-start", sm: "center" },
+          alignItems: "flex-start",
           justifyContent: "space-between",
         }}
       >
@@ -91,10 +108,15 @@ export function ProjectCard({ project }: ProjectCardProps) {
             {project.tagline}
           </Typography>
         </Stack>
-        {project.repoUrl && (
+        {project.repoUrl ? (
           <ActionButton href={project.repoUrl} newTab startIcon={<GitHubIcon />}>
             View on GitHub
           </ActionButton>
+        ) : (
+          <Box sx={privateCodeLabel}>
+            <LockOutlinedIcon sx={{ fontSize: 16 }} />
+            Private code
+          </Box>
         )}
       </Stack>
 

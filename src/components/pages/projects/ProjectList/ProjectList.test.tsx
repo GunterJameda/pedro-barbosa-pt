@@ -32,8 +32,10 @@ describe("ProjectList", () => {
     expect(link.getAttribute("href")).toMatch(new RegExp(`^${GITHUB_URL}/`));
   });
 
-  it("doesn't link to GrowthTracker's code, which is private", () => {
+  it("marks GrowthTracker's code as private, with no link to it", () => {
     renderWithTheme(<ProjectList />);
-    expect(within(projectSection("GrowthTracker")).queryByRole("link")).not.toBeInTheDocument();
+    const growthTracker = within(projectSection("GrowthTracker"));
+    expect(growthTracker.queryByRole("link")).not.toBeInTheDocument();
+    expect(growthTracker.getByText(/private/i)).toBeInTheDocument();
   });
 });

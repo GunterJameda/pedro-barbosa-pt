@@ -43,9 +43,17 @@ describe("ProjectCard", () => {
     expect(link).toHaveAttribute("rel", expect.stringContaining("noopener"));
   });
 
-  it("has no code link when the code is private", () => {
+  it("says the code is private instead of linking to it", () => {
     renderWithTheme(<ProjectCard project={project()} />);
     expect(screen.queryByRole("link")).not.toBeInTheDocument();
+    expect(screen.getByText(/private/i)).toBeInTheDocument();
+  });
+
+  it("doesn't call public code private", () => {
+    renderWithTheme(
+      <ProjectCard project={project({ repoUrl: "https://github.com/someone/sample" })} />,
+    );
+    expect(screen.queryByText(/private/i)).not.toBeInTheDocument();
   });
 
   it("gives each project its own section, named by its heading", () => {
