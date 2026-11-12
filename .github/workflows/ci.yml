@@ -44,3 +44,9 @@ jobs:
 
       - name: Build
         run: yarn build
+
+      # The end-to-end tests (yarn test:e2e) belong here in a bigger project,
+      # so a browser failure blocks the deploy. In all three browsers they add
+      # several minutes to every run, which is too much for a site this small,
+      # so they run locally before bigger changes, and now and then against
+      # the live site (yarn test:e2e:prod).
