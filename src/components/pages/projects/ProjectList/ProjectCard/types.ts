@@ -7,6 +7,8 @@ export interface DetailCard {
 }
 
 export interface Project {
+  /** Section id, so Fast Navigation can jump to the card. */
+  id: string;
   name: string;
   tagline: string;
   /** What kind of project it is, shown before the dates. */

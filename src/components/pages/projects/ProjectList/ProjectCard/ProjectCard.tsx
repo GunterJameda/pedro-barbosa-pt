@@ -48,7 +48,16 @@ export function ProjectCard({ project }: ProjectCardProps) {
   }`;
 
   return (
-    <SurfaceCard component="section" spacing={4} sx={{ p: { xs: 4, sm: 5 } }}>
+    <SurfaceCard
+      component="section"
+      id={project.id}
+      spacing={4}
+      sx={{
+        p: { xs: 4, sm: 5 },
+        // Keeps the card clear of the sticky Navbar when jumped to.
+        scrollMarginTop: 96,
+      }}
+    >
       <Stack
         direction={{ xs: "column", sm: "row" }}
         spacing={2}

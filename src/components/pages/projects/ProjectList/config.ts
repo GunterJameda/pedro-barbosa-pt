@@ -4,6 +4,7 @@ import type { Project } from "./ProjectCard";
 /** Newest first. */
 export const PROJECTS: Project[] = [
   {
+    id: "pedrobarbosa-pt",
     name: "pedrobarbosa.pt",
     tagline: "The website you're on, built and run like a product",
     kind: "Frontend Product",
@@ -47,6 +48,7 @@ export const PROJECTS: Project[] = [
     ],
   },
   {
+    id: "growthtracker",
     name: "GrowthTracker",
     tagline: "An investment tracker that shows your real average price",
     kind: "Full-Stack Product",

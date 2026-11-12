@@ -5,6 +5,7 @@ import { ProjectCard } from "./ProjectCard";
 import type { Project } from "./types";
 
 const project = (overrides: Partial<Project> = {}): Project => ({
+  id: "sample",
   name: "Sample",
   tagline: "A sample project",
   kind: "Side Project",
