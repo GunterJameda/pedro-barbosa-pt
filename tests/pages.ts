@@ -1,7 +1,8 @@
 import { readdirSync } from "node:fs";
 import { join, relative } from "node:path";
 
-const APP = join(import.meta.dirname, "../src/app");
+// From the project root, where both Vitest and Playwright run.
+const APP = join(process.cwd(), "src/app");
 
 /** Every page route in src/app, as an address ("/", "/about", ...). */
 export const PAGE_ROUTES: string[] = readdirSync(APP, {
