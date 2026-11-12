@@ -1,8 +1,8 @@
 import GitHubIcon from "@mui/icons-material/GitHub";
 import Box from "@mui/material/Box";
-import Link from "@mui/material/Link";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
+import { ActionButton } from "@/components/_common/ActionButton";
 import { CardGrid } from "@/components/_common/CardGrid";
 import { CheckList } from "@/components/_common/CheckList";
 import { Eyebrow } from "@/components/_common/Eyebrow";
@@ -60,50 +60,41 @@ export function ProjectCard({ project }: ProjectCardProps) {
         <Typography variant="mono">{project.status}</Typography>
       </Stack>
 
-      <Stack spacing={1}>
-        <Typography
-          variant="h2"
-          sx={{
-            color: "common.white",
-            fontSize: { xs: 30, sm: 36 },
-            fontWeight: 700,
-            letterSpacing: "-0.025em",
-            lineHeight: 1.2,
-          }}
-        >
-          {project.name}
-        </Typography>
-        <Typography
-          sx={{
-            color: "primary.main",
-            fontSize: { xs: 16, sm: 18 },
-            fontWeight: 500,
-          }}
-        >
-          {project.tagline}
-        </Typography>
-        {project.repoUrl && (
-          <Link
-            href={project.repoUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            underline="none"
+      <Stack
+        direction={{ xs: "column", sm: "row" }}
+        spacing={2}
+        sx={{
+          alignItems: { xs: "flex-start", sm: "center" },
+          justifyContent: "space-between",
+        }}
+      >
+        <Stack spacing={1}>
+          <Typography
+            variant="h2"
             sx={{
-              alignSelf: "flex-start",
-              display: "inline-flex",
-              alignItems: "center",
-              gap: 1,
-              pt: 1,
-              color: "text.secondary",
-              fontFamily: fontMono,
-              fontSize: 14,
-              transition: "color 150ms",
-              "&:hover": { color: "primary.light" },
+              color: "common.white",
+              fontSize: { xs: 30, sm: 36 },
+              fontWeight: 700,
+              letterSpacing: "-0.025em",
+              lineHeight: 1.2,
             }}
           >
-            <GitHubIcon sx={{ fontSize: 16 }} />
-            View the code on GitHub
-          </Link>
+            {project.name}
+          </Typography>
+          <Typography
+            sx={{
+              color: "primary.main",
+              fontSize: { xs: 16, sm: 18 },
+              fontWeight: 500,
+            }}
+          >
+            {project.tagline}
+          </Typography>
+        </Stack>
+        {project.repoUrl && (
+          <ActionButton href={project.repoUrl} newTab startIcon={<GitHubIcon />}>
+            View on GitHub
+          </ActionButton>
         )}
       </Stack>
 
