@@ -28,29 +28,41 @@ async function waitForScrollToStop(page: Page) {
     .toBe(true);
 }
 
-test("Fast Navigation scrolls to every company, clear of the navbar", async ({ page }) => {
-  await page.goto("/experience");
-  const links = page.getByRole("navigation", { name: "Companies" }).getByRole("link");
-  const targets = await links.evaluateAll((elements) =>
-    elements.map((element) => element.getAttribute("href")!.slice(1)),
-  );
-  expect(targets.length).toBeGreaterThan(0);
+// Every page with a Fast Navigation card, and the name of its navigation.
+const FAST_NAVIGATION = [
+  { path: "/experience", label: "Companies" },
+  { path: "/projects", label: "Projects" },
+];
 
-  for (const [index, id] of targets.entries()) {
-    // Starts from the top each time, so every jump is a real scroll.
-    await page.evaluate(() => window.scrollTo({ top: 0, behavior: "instant" }));
-    await links.nth(index).click();
+for (const { path, label } of FAST_NAVIGATION) {
+  test(`Fast Navigation on ${path} reaches every section, clear of the navbar`, async ({
+    page,
+  }) => {
+    await page.goto(path);
+    const links = page.getByRole("navigation", { name: label }).getByRole("link");
+    const targets = await links.evaluateAll((elements) =>
+      elements.map((element) => element.getAttribute("href")!.slice(1)),
+    );
+    expect(targets.length).toBeGreaterThan(0);
 
-    await expect(page).toHaveURL(`/experience#${id}`);
-    // Smooth scrolling passes through every position on the way, so only the
-    // final one counts: near the top, below the navbar. The last sections
-    // can't reach the top, so for them the page must be scrolled to its end.
-    await waitForScrollToStop(page);
-    const { top, navbar, nearTop, atBottom } = await landing(page, id);
-    expect(top, `#${id} lands below the navbar`).toBeGreaterThanOrEqual(navbar - 1);
-    expect(nearTop || atBottom, `#${id} lands near the top, or the page is at its end`).toBe(true);
-  }
-});
+    for (const [index, id] of targets.entries()) {
+      // Starts from the top each time, so every jump is a real scroll.
+      await page.evaluate(() => window.scrollTo({ top: 0, behavior: "instant" }));
+      await links.nth(index).click();
+
+      await expect(page).toHaveURL(`${path}#${id}`);
+      // Smooth scrolling passes through every position on the way, so only the
+      // final one counts: near the top, below the navbar. The last sections
+      // can't reach the top, so for them the page must be scrolled to its end.
+      await waitForScrollToStop(page);
+      const { top, navbar, nearTop, atBottom } = await landing(page, id);
+      expect(top, `#${id} lands below the navbar`).toBeGreaterThanOrEqual(navbar - 1);
+      expect(nearTop || atBottom, `#${id} lands near the top, or the page is at its end`).toBe(
+        true,
+      );
+    }
+  });
+}
 
 test.describe("go-to-top button", () => {
   const button = (page: Page) => page.getByRole("button", { name: "Go to top" });

@@ -38,4 +38,31 @@ describe("ProjectList", () => {
     expect(growthTracker.queryByRole("link")).not.toBeInTheDocument();
     expect(growthTracker.getByText(/private/i)).toBeInTheDocument();
   });
+
+  it("lists every project in Fast Navigation, in the same order as the cards", () => {
+    renderWithTheme(<ProjectList />);
+    const navigation = screen.getByRole("navigation", { name: "Projects" });
+    const linked = within(navigation)
+      .getAllByRole("link")
+      .map((link) => link.textContent);
+    projectNames().forEach((name, index) => expect(linked[index]).toContain(name));
+    expect(linked).toHaveLength(projectNames().length);
+  });
+
+  it("jumps from each Fast Navigation link to that project's card", () => {
+    const { container } = renderWithTheme(<ProjectList />);
+    const navigation = screen.getByRole("navigation", { name: "Projects" });
+    for (const link of within(navigation).getAllByRole("link")) {
+      const target = container.querySelector(link.getAttribute("href")!);
+      expect(target, `${link.textContent} has no section`).not.toBeNull();
+      const heading = within(target as HTMLElement).getByRole("heading", { level: 2 });
+      expect(link.textContent).toContain(heading.textContent);
+    }
+  });
+
+  it("gives every project its own section id", () => {
+    const { container } = renderWithTheme(<ProjectList />);
+    const ids = [...container.querySelectorAll("section[id]")].map((section) => section.id);
+    expect(new Set(ids).size).toBe(PROJECTS.length);
+  });
 });
