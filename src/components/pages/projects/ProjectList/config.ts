@@ -16,11 +16,11 @@ export const PROJECTS: Project[] = [
     summary:
       "My personal website, where I show my experience and projects. I treat it like a product at work: a prioritised backlog, small focused commits, and checks that must pass before anything goes live.",
     details:
-      "Every push runs linting, type checks, tests and a production build, and a failing check blocks the deploy. The code is public, so you can see how I work, not just read about it.",
+      "Every push runs formatting and lint checks, type checks, tests and a production build, and a failing check blocks the deploy. The code is public, so you can see how I work, not just read about it.",
     takeaways: [
       {
         title: "Quality gates",
-        text: "Lint, type checks, tests and a build run on every push, and nothing deploys unless they pass.",
+        text: "Formatting, lint, type checks, tests and a build run on every push, and nothing deploys unless they pass.",
       },
       {
         title: "Tests that survive refactors",
