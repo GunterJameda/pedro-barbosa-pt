@@ -18,6 +18,5 @@
   "[markdown]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
   "[yaml]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
   // Auto-imports match the code's double quotes.
-  "typescript.preferences.quoteStyle": "double",
-  "javascript.preferences.quoteStyle": "double"
+  "js/ts.preferences.quoteStyle": "double"
 }
