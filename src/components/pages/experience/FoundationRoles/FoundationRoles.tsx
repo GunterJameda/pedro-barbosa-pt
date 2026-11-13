@@ -7,7 +7,6 @@ import { CardGrid } from "@/components/_common/CardGrid";
 import { DotLabel } from "@/components/_common/DotLabel";
 import { SurfaceCard } from "@/components/_common/SurfaceCard";
 import { TagList } from "@/components/_common/TagList";
-import { slate } from "@/theme";
 
 import { FOUNDATION_ROLES } from "./config";
 
@@ -28,11 +27,11 @@ export function FoundationRoles() {
               <Typography variant="cardTitle" component="h2">
                 {role.company}
               </Typography>
-              <Typography sx={{ color: slate[300], fontSize: 12, fontWeight: 500 }}>
+              <Typography sx={{ color: "slate.300", fontSize: 12, fontWeight: 500 }}>
                 {role.roleTitle}
               </Typography>
               <Typography variant="mono">{role.period}</Typography>
-              <Typography variant="small" sx={{ color: slate[300], pt: 1 }}>
+              <Typography variant="small" sx={{ color: "slate.300", pt: 1 }}>
                 {role.description}
               </Typography>
             </Stack>

@@ -4,7 +4,7 @@ import Typography from "@mui/material/Typography";
 
 import { Eyebrow } from "@/components/_common/Eyebrow";
 import { SurfaceCard } from "@/components/_common/SurfaceCard";
-import { fontMono, surfaces } from "@/theme";
+import { fontMono } from "@/theme";
 
 import { CareerChart } from "./CareerChart";
 
@@ -29,7 +29,7 @@ export function EvolutionBlueprint() {
         </Typography>
       </Stack>
 
-      <Stack spacing={2} sx={{ pt: 2, borderTop: `1px solid ${surfaces.hairline}` }}>
+      <Stack spacing={2} sx={{ pt: 2, borderTop: 1, borderColor: "surface.hairline" }}>
         <Typography variant="mono">
           Primary Focus Transition{" "}
           <Box component="span" sx={{ color: "primary.main", fontWeight: 600 }}>

@@ -8,7 +8,6 @@ import { DotLabel } from "@/components/_common/DotLabel";
 import { Eyebrow } from "@/components/_common/Eyebrow";
 import { SurfaceCard } from "@/components/_common/SurfaceCard";
 import { TagList } from "@/components/_common/TagList";
-import { slate, surfaces } from "@/theme";
 
 import { CAREER_ROLES } from "./config";
 
@@ -27,12 +26,12 @@ export function CareerMilestones() {
             scrollMarginTop: 96,
           }}
         >
-          <Box sx={{ pb: 3, borderBottom: `1px solid ${surfaces.hairline}` }}>
+          <Box sx={{ pb: 3, borderBottom: 1, borderColor: "surface.hairline" }}>
             <CardGrid columns={{ xs: 1, lg: 12 }} gap={3}>
               <Stack spacing={1} sx={{ gridColumn: { lg: "span 4" } }}>
                 <DotLabel>{role.industry}</DotLabel>
                 <Typography variant="cardHeading">{role.company}</Typography>
-                <Typography sx={{ color: slate[200], fontSize: 14, fontWeight: 500 }}>
+                <Typography sx={{ color: "slate.200", fontSize: 14, fontWeight: 500 }}>
                   {role.roleTitle}
                 </Typography>
                 <Typography variant="mono">{role.period}</Typography>
