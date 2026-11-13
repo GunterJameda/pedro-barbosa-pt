@@ -6,7 +6,7 @@ import { CardGrid } from "@/components/_common/CardGrid";
 import { FeatureCard } from "@/components/_common/FeatureCard";
 import { IconBadge } from "@/components/_common/IconBadge";
 import { SectionHeading } from "@/components/_common/SectionHeading";
-import { fontMono, slate } from "@/theme";
+import { fontMono } from "@/theme";
 
 import { APPROACH_STEPS } from "./config";
 
@@ -35,7 +35,7 @@ export function ProjectApproach() {
                   fontSize: 12,
                 }}
               >
-                <Box component="span" aria-hidden sx={{ color: slate[500] }}>
+                <Box component="span" aria-hidden sx={{ color: "slate.500" }}>
                   →
                 </Box>
                 <span>{step.note}</span>

@@ -11,7 +11,7 @@ import { Eyebrow } from "@/components/_common/Eyebrow";
 import { FeatureCard } from "@/components/_common/FeatureCard";
 import { SurfaceCard } from "@/components/_common/SurfaceCard";
 import { TagList } from "@/components/_common/TagList";
-import { fontMono, slate, surfaces } from "@/theme";
+import { fontMono } from "@/theme";
 
 import type { Project } from "./types";
 
@@ -22,7 +22,8 @@ const privateCodeLabel = {
   gap: 1,
   px: 3,
   py: 1,
-  border: `1px solid ${surfaces.white8}`,
+  border: 1,
+  borderColor: "surface.white8",
   borderRadius: 2,
   color: "text.secondary",
   fontSize: 12,
@@ -67,7 +68,8 @@ export function ProjectCard({ project }: ProjectCardProps) {
           alignItems: { sm: "center" },
           justifyContent: "space-between",
           pb: 3,
-          borderBottom: `1px solid ${surfaces.hairline}`,
+          borderBottom: 1,
+          borderColor: "surface.hairline",
         }}
       >
         <Box
@@ -77,8 +79,9 @@ export function ProjectCard({ project }: ProjectCardProps) {
             py: 0.5,
             borderRadius: 1,
             color: "primary.light",
-            backgroundColor: surfaces.teal10,
-            border: `1px solid ${surfaces.teal20}`,
+            backgroundColor: "surface.teal10",
+            border: 1,
+            borderColor: "surface.teal20",
             fontFamily: fontMono,
             fontSize: 12,
           }}
@@ -137,7 +140,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
             <Eyebrow color="text.secondary">Project Overview</Eyebrow>
             <Typography
               sx={{
-                color: slate[300],
+                color: "slate.300",
                 fontSize: { xs: 14, sm: 16 },
                 lineHeight: 1.625,
               }}
@@ -162,7 +165,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
             key={card.title}
             title={card.title}
             description={card.description}
-            sx={{ backgroundColor: surfaces.white2 }}
+            sx={{ backgroundColor: "surface.white2" }}
             footer={<TagList tags={card.tags} />}
           />
         ))}
