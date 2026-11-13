@@ -1,2 +1,5 @@
 # Written by Next.js.
 next-env.d.ts
+
+# Local notes, not part of the repo.
+docs/
