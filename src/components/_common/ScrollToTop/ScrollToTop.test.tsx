@@ -2,6 +2,7 @@ import { fireEvent, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { afterEach, describe, expect, it, vi } from "vitest";
 
+import { SkipLink } from "@/components/_common/SkipLink";
 import { renderWithTheme } from "@tests/render";
 
 import { ScrollToTop } from "./ScrollToTop";
@@ -58,6 +59,20 @@ describe("ScrollToTop", () => {
     const [first, second] = scrollTo.mock.calls[0] as unknown[];
     const top = typeof first === "number" ? second : (first as ScrollToOptions).top;
     expect(top).toBe(0);
+  });
+
+  it("moves keyboard focus to the top of the page, since the button then fades out", async () => {
+    vi.spyOn(window, "scrollTo").mockImplementation(() => {});
+    renderWithTheme(
+      <>
+        <SkipLink />
+        <ScrollToTop />
+      </>,
+    );
+    scrollPageTo(2000);
+    button()!.focus();
+    await userEvent.keyboard("{Enter}");
+    expect(screen.getByRole("link", { name: "Skip to content" })).toHaveFocus();
   });
 
   it("leaves the scroll animation to the page, so reduced-motion settings are respected", async () => {
