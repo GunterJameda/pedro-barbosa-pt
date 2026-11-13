@@ -1,0 +1,52 @@
+MIT License
+
+Copyright (c) 2026 Pedro Barbosa
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+--------------------------------------------------------------------------------
+
+Scope of this licence
+
+The MIT License above covers the source code in this repository only: the
+components, styles, configuration, tests and tooling.
+
+It does not cover the content. The content is Copyright (c) 2026 Pedro Barbosa,
+all rights reserved, and is not licensed for reuse. The content is:
+
+- The site's text and copy, including the CV, experience, project
+  descriptions and about-me writing, wherever it appears in the repository
+  (for example the text in src/constants/profile.ts and in the config.ts files
+  under src/components/pages/).
+- The name "Pedro Barbosa", the pedrobarbosa.pt domain, and any photos,
+  logos and icons that identify the site (such as src/app/icon.svg and
+  src/app/favicon.ico).
+- The visual design of the site and of its share images (the images built
+  by src/components/_common/ShareImage and the opengraph-image files under
+  src/app/).
+
+You may reuse the code for your own projects, but replace the content with
+your own before publishing anything built from it.
+
+Third-party files
+
+The font files in assets/fonts/ are not covered by this licence. They are
+distributed under the SIL Open Font License, Version 1.1, by their own
+copyright holders; see the OFL-*.txt files in that folder. Packages installed
+as dependencies keep their own licences.
