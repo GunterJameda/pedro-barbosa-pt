@@ -1,11 +1,6 @@
-import { ShareImage, shareImageAlt, shareImageSize } from "@/components/_common/ShareImage";
+import { shareImageRoute } from "@/components/_common/ShareImage";
 
-const PATH = "/about";
+const route = shareImageRoute("/about");
 
-export const alt = shareImageAlt(PATH);
-export const size = shareImageSize;
-export const contentType = "image/png";
-
-export default function Image() {
-  return ShareImage({ path: PATH });
-}
+export const { alt, size, contentType } = route;
+export default route.Image;

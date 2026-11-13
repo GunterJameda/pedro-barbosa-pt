@@ -1,9 +1,7 @@
-import { ShareImage, shareImageAlt, shareImageSize } from "@/components/_common/ShareImage";
+import { shareImageRoute } from "@/components/_common/ShareImage";
 
-export const alt = shareImageAlt();
-export const size = shareImageSize;
-export const contentType = "image/png";
+// Without a path: the site-wide image, which the 404 page also uses.
+const route = shareImageRoute();
 
-export default function Image() {
-  return ShareImage();
-}
+export const { alt, size, contentType } = route;
+export default route.Image;

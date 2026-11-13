@@ -32,6 +32,19 @@ export function shareImageAlt(path?: string) {
 }
 
 /**
+ * Everything a route's opengraph-image file exports, so each one only names
+ * its page. Without a path, it's the site-wide image.
+ */
+export function shareImageRoute(path?: string) {
+  return {
+    alt: shareImageAlt(path),
+    size: SIZE,
+    contentType: "image/png",
+    Image: () => ShareImage({ path }),
+  };
+}
+
+/**
  * Link preview image shown when a page of the site is shared. With a path, it
  * also shows that page's name and address.
  */
