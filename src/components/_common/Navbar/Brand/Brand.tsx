@@ -8,7 +8,6 @@ import Typography from "@mui/material/Typography";
 import NextLink from "next/link";
 
 import { NAME, ROLE } from "@/constants";
-import { surfaces } from "@/theme";
 
 export function Brand() {
   return (
@@ -33,8 +32,9 @@ export function Brand() {
           width: 36,
           height: 36,
           color: "primary.main",
-          backgroundColor: surfaces.teal10,
-          border: `1px solid ${surfaces.teal30}`,
+          backgroundColor: "surface.teal10",
+          border: 1,
+          borderColor: "surface.teal30",
           fontSize: 12,
           fontWeight: 600,
           letterSpacing: "0.05em",

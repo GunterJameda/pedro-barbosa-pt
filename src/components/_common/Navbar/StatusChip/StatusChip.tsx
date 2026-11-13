@@ -10,7 +10,6 @@ import Chip from "@mui/material/Chip";
 
 import { StatusDot } from "@/components/_common/StatusDot";
 import { AVAILABILITY } from "@/constants";
-import { surfaces } from "@/theme";
 
 import { STATUS_LABEL, STATUS_LABELS, STATUS_SHORT_LABEL } from "./config";
 
@@ -18,8 +17,9 @@ const chip = {
   gap: 1,
   height: 24,
   color: "primary.main",
-  backgroundColor: surfaces.teal10,
-  border: `1px solid ${surfaces.teal20}`,
+  backgroundColor: "surface.teal10",
+  border: 1,
+  borderColor: "surface.teal20",
   fontSize: 12,
   fontWeight: 500,
   "& .MuiChip-icon": { m: 0 },

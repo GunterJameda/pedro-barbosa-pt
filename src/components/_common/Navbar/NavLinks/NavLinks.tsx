@@ -6,7 +6,6 @@ import { usePathname } from "next/navigation";
 
 import { StatusDot } from "@/components/_common/StatusDot";
 import { PAGES } from "@/constants";
-import { slate, surfaces } from "@/theme";
 
 import type { NavLinksVariant } from "./types";
 
@@ -16,9 +15,9 @@ function isActivePath(pathname: string, href: string) {
 
 const activeLink = {
   color: "primary.light",
-  backgroundColor: surfaces.teal10,
-  borderColor: surfaces.teal20,
-  "&:hover": { backgroundColor: surfaces.teal10 },
+  backgroundColor: "surface.teal10",
+  borderColor: "surface.teal20",
+  "&:hover": { backgroundColor: "surface.teal10" },
 };
 
 const VARIANTS = {
@@ -36,7 +35,7 @@ const VARIANTS = {
     },
     inactiveLink: {
       color: "text.secondary",
-      "&:hover": { color: slate[200], backgroundColor: surfaces.hairline },
+      "&:hover": { color: "slate.200", backgroundColor: "surface.hairline" },
     },
   },
   mobile: {
@@ -44,8 +43,8 @@ const VARIANTS = {
     nav: {},
     link: { justifyContent: "flex-start", minHeight: 48, px: 2, fontSize: 16 },
     inactiveLink: {
-      color: slate[200],
-      "&:hover": { backgroundColor: surfaces.hairline },
+      color: "slate.200",
+      "&:hover": { backgroundColor: "surface.hairline" },
     },
   },
 };

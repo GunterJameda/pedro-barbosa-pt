@@ -3,7 +3,7 @@ import Typography from "@mui/material/Typography";
 
 import { StatusDot } from "@/components/_common/StatusDot";
 import { AVAILABILITY } from "@/constants";
-import { fontMono, surfaces } from "@/theme";
+import { fontMono } from "@/theme";
 
 import { AVAILABILITY_TEXT } from "./config";
 
@@ -20,8 +20,9 @@ export function AvailabilityCard() {
         alignItems: "center",
         p: 2,
         borderRadius: 2,
-        backgroundColor: surfaces.card,
-        border: `1px solid ${surfaces.hairline}`,
+        backgroundColor: "surface.card",
+        border: 1,
+        borderColor: "surface.hairline",
       }}
     >
       <StatusDot size={8} />

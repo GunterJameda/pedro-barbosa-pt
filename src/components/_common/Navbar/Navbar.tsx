@@ -2,8 +2,6 @@ import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Stack from "@mui/material/Stack";
 
-import { surfaces } from "@/theme";
-
 import { Brand } from "./Brand";
 import { MobileMenu } from "./MobileMenu";
 import { NavLinks } from "./NavLinks";
@@ -16,10 +14,11 @@ export function Navbar() {
       color="transparent"
       elevation={0}
       sx={{
-        backgroundColor: surfaces.navbar,
+        backgroundColor: "surface.navbar",
         backgroundImage: "none",
         backdropFilter: "blur(12px)",
-        borderBottom: `1px solid ${surfaces.hairline}`,
+        borderBottom: 1,
+        borderColor: "surface.hairline",
       }}
     >
       <Box

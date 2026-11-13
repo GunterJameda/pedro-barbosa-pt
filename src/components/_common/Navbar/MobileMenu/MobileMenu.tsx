@@ -10,7 +10,6 @@ import useMediaQuery from "@mui/material/useMediaQuery";
 import { type MouseEvent, type ReactNode, useState } from "react";
 
 import { ActionButton } from "@/components/_common/ActionButton";
-import { surfaces } from "@/theme";
 
 import { AvailabilityCard } from "./AvailabilityCard";
 import { MenuFooter } from "./MenuFooter";
@@ -20,9 +19,10 @@ const menuButton = {
   height: 40,
   borderRadius: 2,
   color: "common.white",
-  backgroundColor: surfaces.white4,
-  border: `1px solid ${surfaces.white10}`,
-  "&:hover": { backgroundColor: surfaces.white8 },
+  backgroundColor: "surface.white4",
+  border: 1,
+  borderColor: "surface.white10",
+  "&:hover": { backgroundColor: "surface.white8" },
 };
 
 interface MobileMenuProps {
@@ -84,7 +84,8 @@ export function MobileMenu({ brand, nav }: MobileMenuProps) {
             justifyContent: "space-between",
             height: 64,
             px: 2,
-            borderBottom: `1px solid ${surfaces.hairline}`,
+            borderBottom: 1,
+            borderColor: "surface.hairline",
           }}
         >
           {brand}
@@ -94,9 +95,9 @@ export function MobileMenu({ brand, nav }: MobileMenuProps) {
             sx={{
               ...menuButton,
               color: "primary.main",
-              backgroundColor: surfaces.teal10,
-              borderColor: surfaces.teal20,
-              "&:hover": { backgroundColor: surfaces.teal20 },
+              backgroundColor: "surface.teal10",
+              borderColor: "surface.teal20",
+              "&:hover": { backgroundColor: "surface.teal20" },
             }}
           >
             <CloseIcon sx={{ fontSize: 20 }} />
@@ -107,7 +108,7 @@ export function MobileMenu({ brand, nav }: MobileMenuProps) {
           {nav}
           <Stack
             spacing={2}
-            sx={{ mt: "auto", pt: 3, borderTop: `1px solid ${surfaces.hairline}` }}
+            sx={{ mt: "auto", pt: 3, borderTop: 1, borderColor: "surface.hairline" }}
           >
             <AvailabilityCard />
             <ActionButton href="/contact" primary fullWidth startIcon={<MailOutlinedIcon />}>
