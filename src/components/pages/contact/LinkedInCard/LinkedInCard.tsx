@@ -6,7 +6,6 @@ import Typography from "@mui/material/Typography";
 import { IconBadge } from "@/components/_common/IconBadge";
 import { SurfaceCard } from "@/components/_common/SurfaceCard";
 import { LINKEDIN_URL } from "@/constants";
-import { slate } from "@/theme";
 
 export function LinkedInCard() {
   return (
@@ -30,7 +29,7 @@ export function LinkedInCard() {
           display: "inline-flex",
           alignItems: "center",
           gap: 1,
-          color: slate[300],
+          color: "slate.300",
           fontSize: 12,
           fontWeight: 500,
           transition: "color 150ms",
