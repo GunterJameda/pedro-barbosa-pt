@@ -95,3 +95,35 @@ test.describe("on a phone", () => {
     await expect(menu(page)).toBeHidden();
   });
 });
+
+test.describe("skip link", () => {
+  const skipLink = (page: Page) => page.getByRole("link", { name: "Skip to content" });
+
+  test("opens above the navbar only for keyboard users, covering nothing", async ({ page }) => {
+    await page.goto("/about");
+    const height = async () => (await skipLink(page).boundingBox())?.height ?? 0;
+    expect(await height()).toBeLessThanOrEqual(1);
+
+    await page.keyboard.press("Tab");
+    await expect(skipLink(page)).toBeFocused();
+    expect(await height()).toBeGreaterThan(24);
+    const bar = (await skipLink(page).boundingBox())!;
+    const navbar = (await page.locator("header").boundingBox())!;
+    expect(bar.y + bar.height).toBeLessThanOrEqual(navbar.y + 1);
+
+    await page.keyboard.press("Tab");
+    expect(await height()).toBeLessThanOrEqual(1);
+  });
+
+  test("takes keyboard users past the navbar, to the page's content", async ({ page }) => {
+    await page.goto("/about");
+    await page.keyboard.press("Tab");
+    await page.keyboard.press("Enter");
+    await page.keyboard.press("Tab");
+    const inMain = await page.evaluate(
+      () => !!document.activeElement?.closest("main") && document.activeElement.tagName !== "MAIN",
+    );
+    expect(inMain).toBe(true);
+    await expect(page).toHaveURL("/about");
+  });
+});
