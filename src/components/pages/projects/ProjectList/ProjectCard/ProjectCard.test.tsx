@@ -9,6 +9,7 @@ const project = (overrides: Partial<Project> = {}): Project => ({
   name: "Sample",
   tagline: "A sample project",
   kind: "Side Project",
+  category: "Test app",
   started: "2024-03",
   status: "Live",
   summary: "Summary.",

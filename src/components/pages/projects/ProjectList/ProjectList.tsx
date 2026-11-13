@@ -5,7 +5,7 @@ import { ProjectCard } from "./ProjectCard";
 
 const PROJECT_LINKS = PROJECTS.map((project) => ({
   name: project.name,
-  detail: project.kind,
+  detail: project.category,
   targetId: project.id,
 }));
 

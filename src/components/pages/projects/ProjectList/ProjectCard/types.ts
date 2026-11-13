@@ -13,6 +13,8 @@ export interface Project {
   tagline: string;
   /** What kind of project it is, shown before the dates. */
   kind: string;
+  /** What the project is, in two or three words, shown in Fast Navigation. */
+  category: string;
   /** Year and month, as "2021-05". */
   started: string;
   /** Year and month, as "2026-01". Left out while the project is ongoing. */
