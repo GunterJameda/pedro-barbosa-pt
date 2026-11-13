@@ -5,6 +5,7 @@ import Fade from "@mui/material/Fade";
 import IconButton from "@mui/material/IconButton";
 import { useEffect, useState } from "react";
 
+import { SKIP_LINK_ID } from "@/constants";
 import { surfaces } from "@/theme";
 
 import { SHOW_AFTER_PX } from "./config";
@@ -24,8 +25,13 @@ export function ScrollToTop() {
     <Fade in={isVisible}>
       <IconButton
         aria-label="Go to top"
-        // Uses the page's smooth scrolling, which respects reduced motion.
-        onClick={() => window.scrollTo({ top: 0 })}
+        onClick={() => {
+          // Uses the page's smooth scrolling, which respects reduced motion.
+          window.scrollTo({ top: 0 });
+          // The button fades out, so focus moves to the top of the page
+          // instead of dropping back to the start of the document.
+          document.getElementById(SKIP_LINK_ID)?.focus({ preventScroll: true });
+        }}
         sx={{
           position: "fixed",
           right: { xs: 16, sm: 24 },
