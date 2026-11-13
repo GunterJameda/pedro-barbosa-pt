@@ -20,10 +20,10 @@ describe("ProjectList", () => {
     expect(projectNames()).toEqual(newestFirst);
   });
 
-  it("puts this website above GrowthTracker", () => {
+  it("puts this website above Growth Tracker", () => {
     renderWithTheme(<ProjectList />);
     const names = projectNames();
-    expect(names.indexOf("pedrobarbosa.pt")).toBeLessThan(names.indexOf("GrowthTracker"));
+    expect(names.indexOf("pedrobarbosa.pt")).toBeLessThan(names.indexOf("Growth Tracker"));
   });
 
   it("links this website to its public code on my GitHub", () => {
@@ -32,9 +32,9 @@ describe("ProjectList", () => {
     expect(link.getAttribute("href")).toMatch(new RegExp(`^${GITHUB_URL}/`));
   });
 
-  it("marks GrowthTracker's code as private, with no link to it", () => {
+  it("marks Growth Tracker's code as private, with no link to it", () => {
     renderWithTheme(<ProjectList />);
-    const growthTracker = within(projectSection("GrowthTracker"));
+    const growthTracker = within(projectSection("Growth Tracker"));
     expect(growthTracker.queryByRole("link")).not.toBeInTheDocument();
     expect(growthTracker.getByText(/private/i)).toBeInTheDocument();
   });

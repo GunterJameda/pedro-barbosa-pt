@@ -48,17 +48,17 @@ export const PROJECTS: Project[] = [
     ],
   },
   {
-    id: "growthtracker",
-    name: "GrowthTracker",
+    id: "growth-tracker",
+    name: "Growth Tracker",
     tagline: "An investment tracker that shows your real average price",
     kind: "Full-Stack Product",
     started: "2021-05",
     ended: "2026-01",
     status: "Independent product · Launched, retired Jan 2026",
     summary:
-      "A product I took from idea to launch. Users logged their assets, buys and sells, and GrowthTracker calculated the average price they could actually trust when deciding to sell.",
+      "A product I took from idea to launch. Users logged their assets, buys and sells, and Growth Tracker calculated the average price they could actually trust when deciding to sell.",
     details:
-      "Buy 3 units at 500 and sell 1 at 700, and a typical broker app shows an average of 400, even though the remaining units still cost 500. GrowthTracker kept that number accurate, so users could aim for a profit on every unit they sold.",
+      "Buy 3 units at 500 and sell 1 at 700, and a typical broker app shows an average of 400, even though the remaining units still cost 500. Growth Tracker kept that number accurate, so users could aim for a profit on every unit they sold.",
     takeaways: [
       {
         title: "Product ownership",

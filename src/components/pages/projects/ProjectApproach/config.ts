@@ -7,7 +7,7 @@ export const APPROACH_STEPS: ApproachStep[] = [
     icon: LightbulbOutlinedIcon,
     title: "Start With a Real Problem",
     description:
-      "Every project begins with a problem worth solving, like the misleading average price behind GrowthTracker.",
+      "Every project begins with a problem worth solving, like the misleading average price behind Growth Tracker.",
     note: "Problem first",
   },
   {
