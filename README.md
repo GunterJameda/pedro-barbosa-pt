@@ -28,7 +28,7 @@ It's a small site, but I built it the way I'd build a production project:
 - **Reusable pieces.** Components shared across pages live in one place, and the ones a single page needs stay with that page.
 - **Structure the code checks itself.** Folder and import rules are enforced automatically by linting and tests, so the structure stays tidy as the site grows.
 - **Consistent history.** Every commit message follows the same format, checked before the commit is accepted.
-- **Tested and checked on every push.** Tests cover the interactive parts and their edge cases, and every push runs linting, type checks, the tests and a production build. A change only goes live once all of them pass.
+- **Tested and checked on every push.** Tests cover the interactive parts and their edge cases, and every push runs formatting and lint checks, type checks, the tests and a production build. A change only goes live once all of them pass.
 - **Tested in real browsers.** End-to-end tests open every page in Chromium, Firefox and WebKit, at desktop and phone sizes, checking navigation, accessibility and that nothing errors in the browser. They take a few minutes, so they run before bigger changes and against the live site rather than on every push.
 - **Ready to be found and shared.** A sitemap, structured data for search engines, and link preview images generated from code.
 
@@ -46,7 +46,9 @@ Then open [http://localhost:3000](http://localhost:3000).
 Other commands:
 
 - `yarn build`: production build
-- `yarn lint`: lint the code
+- `yarn lint`: lint the code, including the import order
+- `yarn format`: format the code with Prettier (VS Code also does it on save)
+- `yarn format:check`: check the formatting without changing anything
 - `yarn typecheck`: check the types
 - `yarn test`: run the tests
 - `yarn test:e2e`: build, then run the end-to-end tests (run `yarn playwright install` once first, to download the browsers)
