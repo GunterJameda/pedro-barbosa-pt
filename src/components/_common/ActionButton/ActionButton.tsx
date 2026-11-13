@@ -1,15 +1,18 @@
+"use client";
+
+// Client, because the shadows read the theme through a function, and functions
+// can't be passed from a server component to MUI's Button.
 import Button from "@mui/material/Button";
+import type { Theme } from "@mui/material/styles";
 import type { ReactNode } from "react";
 
-import { slate, surfaces } from "@/theme";
-
 const secondaryStyles = {
-  color: slate[300],
-  backgroundColor: surfaces.white4,
-  borderColor: surfaces.white10,
+  color: "slate.300",
+  backgroundColor: "surface.white4",
+  borderColor: "surface.white10",
   "&:hover": {
     color: "common.white",
-    backgroundColor: surfaces.white8,
+    backgroundColor: "surface.white8",
   },
 };
 
@@ -19,12 +22,15 @@ const primaryStyles = {
   fontWeight: 600,
   // Transparent, so it stays the same height as the bordered buttons beside it.
   borderColor: "transparent",
-  boxShadow: `0 1px 2px 0 ${surfaces.teal20}`,
+  boxShadow: ({ vars }: Theme) => `0 1px 2px 0 ${vars.palette.surface.teal20}`,
   "&:hover": { backgroundColor: "primary.light" },
 };
 
 const pillPrimaryStyles = {
-  boxShadow: `0 4px 6px -1px ${surfaces.teal20}, 0 2px 4px -2px ${surfaces.teal20}`,
+  boxShadow: ({ vars }: Theme) => {
+    const shadow = vars.palette.surface.teal20;
+    return `0 4px 6px -1px ${shadow}, 0 2px 4px -2px ${shadow}`;
+  },
 };
 
 interface ActionButtonProps {
