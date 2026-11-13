@@ -42,8 +42,8 @@ export const PROJECTS: Project[] = [
       {
         title: "Quality & Delivery",
         description:
-          "Component and page tests, continuous integration on every push, and deployments that wait for the checks to pass.",
-        tags: ["Vitest", "Testing Library", "GitHub Actions", "Vercel"],
+          "Component and page tests on every push, with deployments that wait for them to pass, plus browser and accessibility tests in Chromium, Firefox and WebKit, run locally and against the live site.",
+        tags: ["Vitest", "Testing Library", "Playwright", "GitHub Actions", "Vercel"],
       },
     ],
   },
