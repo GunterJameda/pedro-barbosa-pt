@@ -49,6 +49,15 @@ describe("ProjectList", () => {
     expect(linked).toHaveLength(projectNames().length);
   });
 
+  it("says what each project is in Fast Navigation", () => {
+    renderWithTheme(<ProjectList />);
+    const navigation = within(screen.getByRole("navigation", { name: "Projects" }));
+    for (const project of PROJECTS) {
+      const link = navigation.getByRole("link", { name: new RegExp(project.name) });
+      expect(link).toHaveTextContent(project.category);
+    }
+  });
+
   it("jumps from each Fast Navigation link to that project's card", () => {
     const { container } = renderWithTheme(<ProjectList />);
     const navigation = screen.getByRole("navigation", { name: "Projects" });
