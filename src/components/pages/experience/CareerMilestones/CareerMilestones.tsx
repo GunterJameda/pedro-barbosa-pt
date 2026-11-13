@@ -30,7 +30,7 @@ export function CareerMilestones() {
           <Box sx={{ pb: 3, borderBottom: `1px solid ${surfaces.hairline}` }}>
             <CardGrid columns={{ xs: 1, lg: 12 }} gap={3}>
               <Stack spacing={1} sx={{ gridColumn: { lg: "span 4" } }}>
-                <DotLabel size={10}>{role.industry}</DotLabel>
+                <DotLabel>{role.industry}</DotLabel>
                 <Typography variant="cardHeading">{role.company}</Typography>
                 <Typography sx={{ color: slate[200], fontSize: 14, fontWeight: 500 }}>
                   {role.roleTitle}

@@ -8,17 +8,14 @@ interface DotLabelProps {
   children: ReactNode;
   dotSize?: number;
   pulse?: boolean;
-  size?: 10 | 11 | 12;
   wide?: boolean;
 }
 
-export function DotLabel({ children, dotSize, pulse, size, wide }: DotLabelProps) {
+export function DotLabel({ children, dotSize, pulse, wide }: DotLabelProps) {
   return (
     <Stack direction="row" spacing={1} sx={{ alignItems: "center" }}>
       <StatusDot size={dotSize} pulse={pulse} />
-      <Eyebrow size={size} wide={wide}>
-        {children}
-      </Eyebrow>
+      <Eyebrow wide={wide}>{children}</Eyebrow>
     </Stack>
   );
 }

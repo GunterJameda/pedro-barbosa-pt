@@ -134,9 +134,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
       <Box sx={{ pt: 1 }}>
         <CardGrid columns={{ xs: 1, lg: 12 }} gap={4}>
           <Stack spacing={2} sx={{ gridColumn: { lg: "span 7" } }}>
-            <Eyebrow color="text.secondary" size={12}>
-              Project Overview
-            </Eyebrow>
+            <Eyebrow color="text.secondary">Project Overview</Eyebrow>
             <Typography
               sx={{
                 color: slate[300],
@@ -152,9 +150,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
           </Stack>
 
           <Stack spacing={2} sx={{ gridColumn: { lg: "span 5" } }}>
-            <Eyebrow color="text.secondary" size={12}>
-              Key Takeaways
-            </Eyebrow>
+            <Eyebrow color="text.secondary">Key Takeaways</Eyebrow>
             <CheckList items={project.takeaways} />
           </Stack>
         </CardGrid>

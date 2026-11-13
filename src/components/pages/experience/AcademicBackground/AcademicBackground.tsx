@@ -23,7 +23,7 @@ export function AcademicBackground() {
       <Stack direction="row" spacing={2} sx={{ alignItems: "center" }}>
         <IconBadge icon={SchoolOutlinedIcon} size={40} iconSize={20} accent />
         <Stack spacing={0.5}>
-          <Eyebrow size={10}>Academic Background</Eyebrow>
+          <Eyebrow>Academic Background</Eyebrow>
           <Typography variant="cardTitle" component="h2">
             Instituto Superior de Engenharia do Porto (ISEP)
           </Typography>

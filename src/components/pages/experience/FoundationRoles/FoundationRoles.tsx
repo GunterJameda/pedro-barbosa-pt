@@ -24,14 +24,14 @@ export function FoundationRoles() {
             sx={{ scrollMarginTop: 96 }}
           >
             <Stack spacing={1} sx={{ flex: 1 }}>
-              <DotLabel size={10}>{role.industry}</DotLabel>
+              <DotLabel>{role.industry}</DotLabel>
               <Typography variant="cardTitle" component="h2">
                 {role.company}
               </Typography>
               <Typography sx={{ color: slate[300], fontSize: 12, fontWeight: 500 }}>
                 {role.roleTitle}
               </Typography>
-              <Typography variant="monoSmall">{role.period}</Typography>
+              <Typography variant="mono">{role.period}</Typography>
               <Typography variant="small" sx={{ color: slate[300], pt: 1 }}>
                 {role.description}
               </Typography>

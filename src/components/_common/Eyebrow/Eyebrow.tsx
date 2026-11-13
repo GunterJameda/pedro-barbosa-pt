@@ -7,7 +7,6 @@ interface EyebrowProps {
   children: ReactNode;
   color?: string;
   component?: ElementType;
-  size?: 10 | 11 | 12;
   /** Wider tracking, used above page titles. */
   wide?: boolean;
 }
@@ -17,7 +16,6 @@ export function Eyebrow({
   children,
   color = "primary.main",
   component = "p",
-  size = 11,
   wide = false,
 }: EyebrowProps) {
   return (
@@ -26,7 +24,7 @@ export function Eyebrow({
       sx={{
         color,
         fontFamily: fontMono,
-        fontSize: size,
+        fontSize: 12,
         letterSpacing: wide ? "0.1em" : "0.05em",
         textTransform: "uppercase",
       }}

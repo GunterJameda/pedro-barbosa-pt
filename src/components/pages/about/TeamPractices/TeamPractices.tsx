@@ -31,7 +31,7 @@ export function TeamPractices() {
                   justifyContent: "space-between",
                   color: "text.secondary",
                   fontFamily: fontMono,
-                  fontSize: 11,
+                  fontSize: 12,
                 }}
               >
                 <span>{practice.tagLeft}</span>

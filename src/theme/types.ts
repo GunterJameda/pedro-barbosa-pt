@@ -11,8 +11,7 @@ export type TextVariant =
   | "lead"
   | "body"
   | "small"
-  | "mono"
-  | "monoSmall";
+  | "mono";
 
 declare module "@mui/material/styles" {
   interface TypographyVariants {
@@ -26,7 +25,6 @@ declare module "@mui/material/styles" {
     body: CSSProperties;
     small: CSSProperties;
     mono: CSSProperties;
-    monoSmall: CSSProperties;
   }
   interface TypographyVariantsOptions {
     pageTitle?: CSSProperties;
@@ -39,7 +37,6 @@ declare module "@mui/material/styles" {
     body?: CSSProperties;
     small?: CSSProperties;
     mono?: CSSProperties;
-    monoSmall?: CSSProperties;
   }
 }
 
@@ -55,6 +52,5 @@ declare module "@mui/material/Typography" {
     body: true;
     small: true;
     mono: true;
-    monoSmall: true;
   }
 }

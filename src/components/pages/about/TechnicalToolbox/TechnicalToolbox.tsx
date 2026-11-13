@@ -45,7 +45,7 @@ export function TechnicalToolbox() {
                 justifyContent: "space-between",
                 color: "text.secondary",
                 fontFamily: fontMono,
-                fontSize: 11,
+                fontSize: 12,
               }}
             >
               <span>{group.footerLeft}</span>

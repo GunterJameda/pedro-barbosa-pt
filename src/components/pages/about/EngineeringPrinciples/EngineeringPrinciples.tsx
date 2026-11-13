@@ -27,9 +27,7 @@ export function EngineeringPrinciples() {
             header={
               <Stack direction="row" sx={{ alignItems: "center", justifyContent: "space-between" }}>
                 <IconBadge icon={principle.icon} />
-                <Eyebrow color="text.secondary" size={10}>
-                  {principle.badge}
-                </Eyebrow>
+                <Eyebrow color="text.secondary">{principle.badge}</Eyebrow>
               </Stack>
             }
             footer={

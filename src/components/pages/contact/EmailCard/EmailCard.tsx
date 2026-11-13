@@ -14,7 +14,7 @@ export function EmailCard() {
   return (
     <SurfaceCard spacing={3} sx={{ flexGrow: 1, p: { xs: 4, sm: 5 } }}>
       <Stack spacing={1}>
-        <Eyebrow size={10}>Direct Email</Eyebrow>
+        <Eyebrow>Direct Email</Eyebrow>
         <Link
           href={MAILTO_URL}
           underline="none"

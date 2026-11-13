@@ -18,7 +18,7 @@ export function RoleAlignment() {
       }}
     >
       <Stack spacing={1} sx={{ pb: 1 }}>
-        <Eyebrow size={10}>Role Alignment</Eyebrow>
+        <Eyebrow>Role Alignment</Eyebrow>
         <Typography variant="cardHeading">Role Alignment & Ideal Engagements</Typography>
         <Typography variant="body" sx={{ color: "text.secondary" }}>
           To save time for recruiters and engineering leaders, here is a transparent snapshot of my

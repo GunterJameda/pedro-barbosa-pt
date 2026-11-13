@@ -13,9 +13,7 @@ export function MetricCards({ metrics }: { metrics: Metric[] }) {
       <CardGrid columns={{ xs: 1, sm: 2, lg: 4 }}>
         {metrics.map((metric) => (
           <SurfaceCard key={metric.tag}>
-            <Eyebrow color="text.secondary" size={10}>
-              {metric.tag}
-            </Eyebrow>
+            <Eyebrow color="text.secondary">{metric.tag}</Eyebrow>
             <Typography variant="itemTitle">{metric.title}</Typography>
             <Typography variant="small">{metric.description}</Typography>
           </SurfaceCard>

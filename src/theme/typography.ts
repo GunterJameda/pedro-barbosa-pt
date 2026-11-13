@@ -88,13 +88,6 @@ export function createTextVariants(breakpoints: Breakpoints): Record<TextVariant
     small: { ...base, color: slate[400], fontSize: 12, lineHeight: 1.625 },
     // Notes, dates and badges.
     mono: { ...base, color: slate[400], fontFamily: fontMono, fontSize: 12 },
-    // Card footer labels.
-    monoSmall: {
-      ...base,
-      color: slate[400],
-      fontFamily: fontMono,
-      fontSize: 11,
-    },
   };
 }
 
@@ -110,5 +103,4 @@ export const TEXT_VARIANT_ELEMENTS: Record<TextVariant, string> = {
   body: "p",
   small: "p",
   mono: "p",
-  monoSmall: "p",
 };
