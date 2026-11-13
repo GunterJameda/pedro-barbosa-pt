@@ -10,6 +10,7 @@ import useMediaQuery from "@mui/material/useMediaQuery";
 import { type MouseEvent, type ReactNode, useState } from "react";
 
 import { ActionButton } from "@/components/_common/ActionButton";
+import { NAVBAR_HEIGHT } from "@/constants";
 
 import { AvailabilityCard } from "./AvailabilityCard";
 import { MenuFooter } from "./MenuFooter";
@@ -82,7 +83,8 @@ export function MobileMenu({ brand, nav }: MobileMenuProps) {
             flexShrink: 0,
             alignItems: "center",
             justifyContent: "space-between",
-            height: 64,
+            // Matches the Navbar it covers.
+            height: NAVBAR_HEIGHT.xs,
             px: 2,
             borderBottom: 1,
             borderColor: "surface.hairline",

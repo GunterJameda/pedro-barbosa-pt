@@ -1,7 +1,7 @@
 import Stack from "@mui/material/Stack";
 import type { ReactNode } from "react";
 
-import { MAIN_ID } from "@/constants";
+import { CONTENT_MAX_WIDTH, MAIN_ID } from "@/constants";
 
 interface PageMainProps {
   children: ReactNode;
@@ -22,7 +22,7 @@ export function PageMain({ children, spacing }: PageMainProps) {
         "&:focus": { outline: "none" },
         flex: 1,
         width: "100%",
-        maxWidth: 1280,
+        maxWidth: CONTENT_MAX_WIDTH,
         mx: "auto",
         px: 3,
         py: { xs: 6, sm: 8 },

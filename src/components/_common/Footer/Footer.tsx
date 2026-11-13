@@ -3,7 +3,7 @@ import Box from "@mui/material/Box";
 import Link from "@mui/material/Link";
 import Stack from "@mui/material/Stack";
 
-import { EMAIL, LOCATION, MAILTO_URL, SOCIAL_LINKS } from "@/constants";
+import { CONTENT_MAX_WIDTH, EMAIL, LOCATION, MAILTO_URL, SOCIAL_LINKS } from "@/constants";
 
 const linkHover = {
   transition: "color 150ms",
@@ -29,7 +29,7 @@ export function Footer() {
         sx={{
           alignItems: "center",
           justifyContent: "space-between",
-          maxWidth: 1280,
+          maxWidth: CONTENT_MAX_WIDTH,
           mx: "auto",
           px: 3,
         }}

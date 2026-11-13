@@ -2,6 +2,8 @@ import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Stack from "@mui/material/Stack";
 
+import { CONTENT_MAX_WIDTH, NAVBAR_HEIGHT } from "@/constants";
+
 import { Brand } from "./Brand";
 import { MobileMenu } from "./MobileMenu";
 import { NavLinks } from "./NavLinks";
@@ -28,8 +30,8 @@ export function Navbar() {
           justifyContent: "space-between",
           gap: 2,
           width: "100%",
-          maxWidth: 1280,
-          height: { xs: 64, lg: 80 },
+          maxWidth: CONTENT_MAX_WIDTH,
+          height: NAVBAR_HEIGHT,
           mx: "auto",
           px: { xs: 2, lg: 3 },
         }}
