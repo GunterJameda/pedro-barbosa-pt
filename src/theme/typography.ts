@@ -80,9 +80,8 @@ export function createTextVariants(breakpoints: Breakpoints): Record<TextVariant
     body: {
       ...base,
       color: slate[300],
-      fontSize: 12,
+      fontSize: 14,
       lineHeight: 1.625,
-      [sm]: { fontSize: 14 },
     },
     // Fine print in cards.
     small: { ...base, color: slate[400], fontSize: 12, lineHeight: 1.625 },
