@@ -6,6 +6,9 @@ import NextLink from "next/link";
 import { slate, surfaces, teal } from "./tokens";
 import { createTextVariants, sans, TEXT_VARIANT_ELEMENTS } from "./typography";
 
+// The page background has its own palette entry; the other surfaces are custom.
+const { background, ...surface } = surfaces;
+
 // Built in two steps, because the text styles need the theme's breakpoints.
 const baseTheme = createTheme({
   cssVariables: true,
@@ -17,13 +20,16 @@ const baseTheme = createTheme({
       dark: teal[500],
     },
     background: {
-      default: surfaces.background,
-      paper: surfaces.background,
+      default: background,
+      paper: background,
     },
     text: {
       primary: slate[100],
       secondary: slate[400],
     },
+    // Custom entries (typed in types.ts), so components pick every colour by key.
+    surface,
+    slate,
   },
   // Set here, so MUI's built-in styles (and the page's base font) use it.
   typography: {

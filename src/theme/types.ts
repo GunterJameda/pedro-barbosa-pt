@@ -1,5 +1,13 @@
 import type { CSSProperties } from "react";
 
+import type { slate, surfaces } from "./tokens";
+
+/** Card, border and tint colours, added to the palette as "surface.<name>". */
+export type SurfaceColors = Omit<typeof surfaces, "background">;
+
+/** Slate shades, added to the palette as "slate.<shade>". */
+export type SlateColors = typeof slate;
+
 /** The site's text styles, added to MUI's Typography as custom variants. */
 export type TextVariant =
   | "pageTitle"
@@ -14,6 +22,18 @@ export type TextVariant =
   | "mono";
 
 declare module "@mui/material/styles" {
+  interface Palette {
+    surface: SurfaceColors;
+    slate: SlateColors;
+  }
+  interface PaletteOptions {
+    surface?: SurfaceColors;
+    slate?: SlateColors;
+  }
+  // The theme turns CSS variables on, so theme.vars is always there.
+  interface CssThemeVariables {
+    enabled: true;
+  }
   interface TypographyVariants {
     pageTitle: CSSProperties;
     displayTitle: CSSProperties;

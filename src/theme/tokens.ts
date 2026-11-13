@@ -7,12 +7,12 @@ import { alpha } from "@mui/material/styles";
  * Kept out of theme.ts (a client module) so server code can import them too.
  *
  * How components pick a colour:
- * 1. A palette key ("primary.main", "text.secondary", "background.default",
- *    "common.white") when the colour is in the palette and the value goes
- *    straight into sx.
- * 2. These tokens for everything else: colours the palette doesn't have,
- *    values inside strings (`1px solid ${surfaces.hairline}`), SVG
- *    attributes and the share image.
+ * 1. By palette key: MUI's own ("primary.main", "text.secondary",
+ *    "common.white") or the custom ones built from this file ("surface.card",
+ *    "slate.300"). Borders take `border: 1` plus a `borderColor` key; a colour
+ *    inside a longer value (like a shadow) comes from `theme.vars.palette`.
+ * 2. With these tokens only where there is no theme: SVG attributes and the
+ *    share image.
  *
  * Exception: src/app/icon.svg is a static file and repeats a few values.
  */
