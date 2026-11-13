@@ -54,3 +54,7 @@ Other commands:
 - `yarn test`: run the tests
 - `yarn test:e2e`: build, then run the end-to-end tests (run `yarn playwright install` once first, to download the browsers)
 - `yarn test:e2e:prod`: run the end-to-end tests against the live site
+
+## Licence
+
+The code is open source under the [MIT licence](LICENSE), so feel free to reuse it. The content isn't: my texts, CV, project descriptions, name, branding, the site's design and its share images are all rights reserved. If you build on this code, please replace them with your own. The fonts keep their own licences. See [LICENSE](LICENSE) for the details.
