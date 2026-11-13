@@ -1,8 +1,8 @@
 import Stack from "@mui/material/Stack";
-import type { Metadata } from "next";
 
 import { CardGrid } from "@/components/_common/CardGrid";
 import { PageMain } from "@/components/_common/PageMain";
+import { pageMetadata } from "@/components/_common/PageMetadata";
 import { PreFooterCTA } from "@/components/_common/PreFooterCTA";
 import { AcademicBackground } from "@/components/pages/experience/AcademicBackground";
 import { CareerMilestones } from "@/components/pages/experience/CareerMilestones";
@@ -11,12 +11,10 @@ import { EvolutionBlueprint } from "@/components/pages/experience/EvolutionBluep
 import { ExperienceHero } from "@/components/pages/experience/ExperienceHero";
 import { FoundationRoles } from "@/components/pages/experience/FoundationRoles";
 
-export const metadata: Metadata = {
-  alternates: { canonical: "/experience" },
-  title: "Experience",
-  description:
-    "My track record since 2017: shipping production web apps, migrating legacy architectures to microfrontends, and building scalable design systems.",
-};
+export const metadata = pageMetadata(
+  "/experience",
+  "My track record since 2017: shipping production web apps, migrating legacy architectures to microfrontends, and building scalable design systems.",
+);
 
 export default function Experience() {
   return (

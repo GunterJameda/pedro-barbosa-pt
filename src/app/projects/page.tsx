@@ -1,17 +1,14 @@
-import type { Metadata } from "next";
-
 import { PageMain } from "@/components/_common/PageMain";
+import { pageMetadata } from "@/components/_common/PageMetadata";
 import { PreFooterCTA } from "@/components/_common/PreFooterCTA";
 import { ProjectApproach } from "@/components/pages/projects/ProjectApproach";
 import { ProjectList } from "@/components/pages/projects/ProjectList";
 import { ProjectsHero } from "@/components/pages/projects/ProjectsHero";
 
-export const metadata: Metadata = {
-  alternates: { canonical: "/projects" },
-  title: "Personal Projects",
-  description:
-    "Products I build outside work to solve real problems, from defining the requirements to shipping working software.",
-};
+export const metadata = pageMetadata(
+  "/projects",
+  "Products I build outside work to solve real problems, from defining the requirements to shipping working software.",
+);
 
 export default function Projects() {
   return (

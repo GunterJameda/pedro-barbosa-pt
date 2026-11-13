@@ -1,18 +1,15 @@
-import type { Metadata } from "next";
-
 import { PageMain } from "@/components/_common/PageMain";
+import { pageMetadata } from "@/components/_common/PageMetadata";
 import { PreFooterCTA } from "@/components/_common/PreFooterCTA";
 import { AboutHero } from "@/components/pages/about/AboutHero";
 import { EngineeringPrinciples } from "@/components/pages/about/EngineeringPrinciples";
 import { TeamPractices } from "@/components/pages/about/TeamPractices";
 import { TechnicalToolbox } from "@/components/pages/about/TechnicalToolbox";
 
-export const metadata: Metadata = {
-  alternates: { canonical: "/about" },
-  title: "About",
-  description:
-    "Senior Frontend Engineer since 2017, specialising in frontend modernisation and scalable design systems.",
-};
+export const metadata = pageMetadata(
+  "/about",
+  "Senior Frontend Engineer since 2017, specialising in frontend modernisation and scalable design systems.",
+);
 
 export default function About() {
   return (

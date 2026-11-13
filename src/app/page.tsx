@@ -1,19 +1,17 @@
 import Box from "@mui/material/Box";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
-import type { Metadata } from "next";
 
 import { CenteredMain } from "@/components/_common/CenteredMain";
 import { DotLabel } from "@/components/_common/DotLabel";
+import { pageMetadata } from "@/components/_common/PageMetadata";
 import { Highlight } from "@/components/pages/home/Highlight";
 import { PersonSchema } from "@/components/pages/home/PersonSchema";
 import { QuickLinks } from "@/components/pages/home/QuickLinks";
 import { WebsiteSchema } from "@/components/pages/home/WebsiteSchema";
 import { LOCATION } from "@/constants";
 
-export const metadata: Metadata = {
-  alternates: { canonical: "/" },
-};
+export const metadata = pageMetadata("/");
 
 export default function Home() {
   return (
