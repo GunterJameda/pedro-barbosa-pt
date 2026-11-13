@@ -6,7 +6,6 @@ import IconButton from "@mui/material/IconButton";
 import { useEffect, useState } from "react";
 
 import { SKIP_LINK_ID } from "@/constants";
-import { surfaces } from "@/theme";
 
 import { SHOW_AFTER_PX } from "./config";
 
@@ -40,12 +39,13 @@ export function ScrollToTop() {
           width: 40,
           height: 40,
           color: "common.white",
-          backgroundColor: surfaces.card,
-          border: `1px solid ${surfaces.white10}`,
+          backgroundColor: "surface.card",
+          border: 1,
+          borderColor: "surface.white10",
           "&:hover": {
             color: "primary.main",
-            backgroundColor: surfaces.teal10,
-            borderColor: surfaces.teal20,
+            backgroundColor: "surface.teal10",
+            borderColor: "surface.teal20",
           },
         }}
       >

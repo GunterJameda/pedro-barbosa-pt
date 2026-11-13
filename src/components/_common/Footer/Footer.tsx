@@ -4,7 +4,6 @@ import Link from "@mui/material/Link";
 import Stack from "@mui/material/Stack";
 
 import { EMAIL, LOCATION, MAILTO_URL, SOCIAL_LINKS } from "@/constants";
-import { slate, surfaces } from "@/theme";
 
 const linkHover = {
   transition: "color 150ms",
@@ -19,7 +18,8 @@ export function Footer() {
         py: 4,
         color: "text.secondary",
         backgroundColor: "background.default",
-        borderTop: `1px solid ${surfaces.hairline}`,
+        borderTop: 1,
+        borderColor: "surface.hairline",
         fontSize: 12,
       }}
     >
@@ -35,15 +35,15 @@ export function Footer() {
         }}
       >
         <Stack direction="row" spacing={1} sx={{ alignItems: "center" }}>
-          <PlaceOutlinedIcon sx={{ fontSize: 16, color: surfaces.teal400Muted }} />
+          <PlaceOutlinedIcon sx={{ fontSize: 16, color: "surface.teal400Muted" }} />
           <span>{LOCATION}</span>
-          <Box component="span" aria-hidden sx={{ color: slate[600] }}>
+          <Box component="span" aria-hidden sx={{ color: "slate.600" }}>
             •
           </Box>
           <Link
             href={MAILTO_URL}
             underline="none"
-            sx={{ color: slate[300], fontSize: "inherit", ...linkHover }}
+            sx={{ color: "slate.300", fontSize: "inherit", ...linkHover }}
           >
             {EMAIL}
           </Link>

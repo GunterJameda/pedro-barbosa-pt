@@ -4,7 +4,6 @@ import Box from "@mui/material/Box";
 import type { MouseEvent } from "react";
 
 import { MAIN_ID, SKIP_LINK_ID } from "@/constants";
-import { surfaces } from "@/theme";
 
 /** Hidden until reached by keyboard, then lets visitors jump past the Navbar. */
 export function SkipLink() {
@@ -43,8 +42,9 @@ export function SkipLink() {
           clipPath: "none",
           py: 1,
           color: "primary.main",
-          backgroundColor: surfaces.teal10,
-          borderBottom: `1px solid ${surfaces.teal20}`,
+          backgroundColor: "surface.teal10",
+          borderBottom: 1,
+          borderColor: "surface.teal20",
           fontSize: 14,
           fontWeight: 500,
           textAlign: "center",
