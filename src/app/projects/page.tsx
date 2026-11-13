@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
+
 import { PageMain } from "@/components/_common/PageMain";
 import { PreFooterCTA } from "@/components/_common/PreFooterCTA";
-import { ProjectList } from "@/components/pages/projects/ProjectList";
 import { ProjectApproach } from "@/components/pages/projects/ProjectApproach";
+import { ProjectList } from "@/components/pages/projects/ProjectList";
 import { ProjectsHero } from "@/components/pages/projects/ProjectsHero";
 
 export const metadata: Metadata = {

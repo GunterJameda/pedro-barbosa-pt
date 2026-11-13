@@ -1,4 +1,5 @@
 import Stack, { type StackProps } from "@mui/material/Stack";
+
 import { surfaces } from "@/theme";
 
 /** Bottom row of a card, separated from the content by a hairline. */

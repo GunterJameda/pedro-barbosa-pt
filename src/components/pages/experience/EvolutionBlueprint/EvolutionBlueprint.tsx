@@ -1,9 +1,11 @@
 import Box from "@mui/material/Box";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
-import { SurfaceCard } from "@/components/_common/SurfaceCard";
+
 import { Eyebrow } from "@/components/_common/Eyebrow";
+import { SurfaceCard } from "@/components/_common/SurfaceCard";
 import { fontMono, surfaces } from "@/theme";
+
 import { CareerChart } from "./CareerChart";
 
 export function EvolutionBlueprint() {

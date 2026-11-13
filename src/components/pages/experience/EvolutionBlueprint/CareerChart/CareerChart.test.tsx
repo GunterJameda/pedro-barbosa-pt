@@ -1,6 +1,8 @@
 import { screen } from "@testing-library/react";
 import { describe, expect, it } from "vitest";
+
 import { renderWithTheme } from "@tests/render";
+
 import { CareerChart } from "./CareerChart";
 import { CURRENT_POINT, PAST_POINTS } from "./config";
 

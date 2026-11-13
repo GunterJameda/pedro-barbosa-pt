@@ -1,5 +1,7 @@
 import Stack from "@mui/material/Stack";
+
 import { FastNavigation } from "@/components/_common/FastNavigation";
+
 import { PROJECTS } from "./config";
 import { ProjectCard } from "./ProjectCard";
 

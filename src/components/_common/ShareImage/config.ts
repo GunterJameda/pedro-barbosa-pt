@@ -1,4 +1,5 @@
 import { NAME, ROLE } from "@/constants";
+
 import type { ShareImageFont } from "./types";
 
 export const SIZE = { width: 1200, height: 630 };

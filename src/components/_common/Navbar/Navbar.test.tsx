@@ -2,8 +2,10 @@ import { screen, waitFor, within } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { usePathname } from "next/navigation";
 import { beforeEach, describe, expect, it, vi } from "vitest";
+
 import { renderWithTheme } from "@tests/render";
 import { mockScreen } from "@tests/screen";
+
 import { Navbar } from "./Navbar";
 
 vi.mock("next/navigation", () => ({ usePathname: vi.fn() }));

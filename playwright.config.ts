@@ -1,4 +1,5 @@
 import { defineConfig, devices, type Project } from "@playwright/test";
+
 import type { E2EOptions } from "./tests/e2e/fixtures";
 
 // Ports of their own, so they never clash with a dev server on 3000.

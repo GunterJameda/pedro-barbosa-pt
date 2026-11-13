@@ -8,8 +8,10 @@ import IconButton from "@mui/material/IconButton";
 import Stack from "@mui/material/Stack";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { type MouseEvent, type ReactNode, useState } from "react";
+
 import { ActionButton } from "@/components/_common/ActionButton";
 import { surfaces } from "@/theme";
+
 import { AvailabilityCard } from "./AvailabilityCard";
 import { MenuFooter } from "./MenuFooter";
 

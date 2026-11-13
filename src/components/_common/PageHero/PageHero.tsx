@@ -1,6 +1,7 @@
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 import type { ReactNode } from "react";
+
 import { DotLabel } from "@/components/_common/DotLabel";
 
 interface PageHeroProps {

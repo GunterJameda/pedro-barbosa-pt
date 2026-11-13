@@ -2,10 +2,12 @@ import MailOutlinedIcon from "@mui/icons-material/MailOutlined";
 import Link from "@mui/material/Link";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
+
 import { ActionButton } from "@/components/_common/ActionButton";
 import { Eyebrow } from "@/components/_common/Eyebrow";
 import { SurfaceCard } from "@/components/_common/SurfaceCard";
 import { EMAIL, MAILTO_URL } from "@/constants";
+
 import { CopyEmailButton } from "./CopyEmailButton";
 
 export function EmailCard() {

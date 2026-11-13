@@ -1,6 +1,7 @@
 import CheckCircleOutlinedIcon from "@mui/icons-material/CheckCircleOutlined";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
+
 import type { CheckListItem } from "./types";
 
 /** List with a check icon on each item. Text under a title is dimmed. */

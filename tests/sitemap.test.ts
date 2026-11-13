@@ -1,8 +1,10 @@
 // @vitest-environment node
 import { describe, expect, it } from "vitest";
+
 import robots from "@/app/robots";
 import sitemap from "@/app/sitemap";
 import { SITE_URL } from "@/constants";
+
 import { PAGE_ROUTES } from "./pages";
 
 const urls = sitemap().map((entry) => entry.url);

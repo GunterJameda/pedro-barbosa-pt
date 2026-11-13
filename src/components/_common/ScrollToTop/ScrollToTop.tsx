@@ -4,7 +4,9 @@ import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
 import Fade from "@mui/material/Fade";
 import IconButton from "@mui/material/IconButton";
 import { useEffect, useState } from "react";
+
 import { surfaces } from "@/theme";
+
 import { SHOW_AFTER_PX } from "./config";
 
 /** Floating button that appears after some scrolling and returns to the top. */

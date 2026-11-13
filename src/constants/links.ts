@@ -1,5 +1,6 @@
 import GitHubIcon from "@mui/icons-material/GitHub";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
+
 import type { SocialLink } from "./types";
 
 export const SITE_URL = "https://pedrobarbosa.pt";

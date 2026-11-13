@@ -1,4 +1,5 @@
 import type { Page } from "@playwright/test";
+
 import { expect, test } from "./fixtures";
 
 /** How far below the top of the window a section may land, navbar included. */

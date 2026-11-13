@@ -1,8 +1,10 @@
 import { screen, within } from "@testing-library/react";
 import { usePathname } from "next/navigation";
 import { describe, expect, it, vi } from "vitest";
+
 import { PAGES } from "@/constants";
 import { renderWithTheme } from "@tests/render";
+
 import { NavLinks } from "./NavLinks";
 import type { NavLinksVariant } from "./types";
 

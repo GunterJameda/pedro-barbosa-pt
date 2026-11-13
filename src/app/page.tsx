@@ -1,14 +1,15 @@
-import type { Metadata } from "next";
 import Box from "@mui/material/Box";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
-import { LOCATION } from "@/constants";
+import type { Metadata } from "next";
+
 import { CenteredMain } from "@/components/_common/CenteredMain";
 import { DotLabel } from "@/components/_common/DotLabel";
-import { QuickLinks } from "@/components/pages/home/QuickLinks";
 import { Highlight } from "@/components/pages/home/Highlight";
 import { PersonSchema } from "@/components/pages/home/PersonSchema";
+import { QuickLinks } from "@/components/pages/home/QuickLinks";
 import { WebsiteSchema } from "@/components/pages/home/WebsiteSchema";
+import { LOCATION } from "@/constants";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/" },

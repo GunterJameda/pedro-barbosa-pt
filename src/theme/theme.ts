@@ -2,8 +2,9 @@
 
 import { createTheme } from "@mui/material/styles";
 import NextLink from "next/link";
+
 import { slate, surfaces, teal } from "./tokens";
-import { TEXT_VARIANT_ELEMENTS, createTextVariants, sans } from "./typography";
+import { createTextVariants, sans, TEXT_VARIANT_ELEMENTS } from "./typography";
 
 // Built in two steps, because the text styles need the theme's breakpoints.
 const baseTheme = createTheme({

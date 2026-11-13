@@ -1,5 +1,6 @@
 import type { Breakpoints } from "@mui/material/styles";
 import type { CSSProperties } from "react";
+
 import { fontMono, slate, white } from "./tokens";
 import type { TextVariant } from "./types";
 

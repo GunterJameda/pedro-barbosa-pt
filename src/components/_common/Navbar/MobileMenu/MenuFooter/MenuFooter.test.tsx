@@ -1,7 +1,9 @@
 import { screen } from "@testing-library/react";
 import { describe, expect, it } from "vitest";
+
 import { SOCIAL_LINKS } from "@/constants";
 import { renderWithTheme } from "@tests/render";
+
 import { MenuFooter } from "./MenuFooter";
 
 describe("MenuFooter", () => {

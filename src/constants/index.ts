@@ -9,7 +9,7 @@ export {
   ROLE,
   WORK_MODE,
 } from "./profile";
-export { IS_LOOKING, WORK_MODE_ROLES } from "./status";
 export { PAGES } from "./routes";
-export type { Availability, PageLink, SocialLink, WorkMode } from "./types";
 export { SITE_ALTERNATE_NAME, SITE_NAME } from "./site";
+export { IS_LOOKING, WORK_MODE_ROLES } from "./status";
+export type { Availability, PageLink, SocialLink, WorkMode } from "./types";

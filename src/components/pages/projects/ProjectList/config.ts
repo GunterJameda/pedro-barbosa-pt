@@ -1,4 +1,5 @@
 import { GITHUB_URL } from "@/constants";
+
 import type { Project } from "./ProjectCard";
 
 /** Newest first. */

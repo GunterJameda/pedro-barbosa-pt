@@ -1,8 +1,11 @@
 import { readFile } from "node:fs/promises";
 import { join } from "node:path";
+
 import { ImageResponse } from "next/og";
+
 import { LOCATION, NAME, PAGES, ROLE } from "@/constants";
 import { slate, surfaces, teal, white } from "@/theme";
+
 import { ALT, DOMAIN, FONTS, SIZE, TAGS } from "./config";
 
 // Read once when the module loads, so the image can be prerendered.

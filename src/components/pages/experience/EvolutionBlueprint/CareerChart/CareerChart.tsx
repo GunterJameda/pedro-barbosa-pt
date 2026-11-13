@@ -1,5 +1,7 @@
 import Box from "@mui/material/Box";
+
 import { fontMono, slate, teal } from "@/theme";
+
 import { CURRENT_POINT, CURVE, PAST_POINTS } from "./config";
 
 const LINE = teal[500];

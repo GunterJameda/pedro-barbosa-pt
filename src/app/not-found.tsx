@@ -2,6 +2,7 @@ import Box from "@mui/material/Box";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 import type { Metadata } from "next";
+
 import { ActionButton } from "@/components/_common/ActionButton";
 import { CenteredMain } from "@/components/_common/CenteredMain";
 import { DotLabel } from "@/components/_common/DotLabel";

@@ -1,8 +1,10 @@
 import { act, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
+
 import { EMAIL } from "@/constants";
 import { renderWithTheme } from "@tests/render";
+
 import { CopyEmailButton } from "./CopyEmailButton";
 
 const IDLE = "Copy email address";

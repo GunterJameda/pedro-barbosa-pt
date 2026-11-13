@@ -2,6 +2,7 @@ import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import Link from "@mui/material/Link";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
+
 import { IconBadge } from "@/components/_common/IconBadge";
 import { SurfaceCard } from "@/components/_common/SurfaceCard";
 import { LINKEDIN_URL } from "@/constants";

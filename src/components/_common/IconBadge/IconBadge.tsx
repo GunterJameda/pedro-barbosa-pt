@@ -1,5 +1,6 @@
 import Box from "@mui/material/Box";
 import type { ElementType } from "react";
+
 import { surfaces } from "@/theme";
 
 interface IconBadgeProps {

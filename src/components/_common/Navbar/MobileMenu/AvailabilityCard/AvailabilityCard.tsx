@@ -1,8 +1,10 @@
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
+
 import { StatusDot } from "@/components/_common/StatusDot";
 import { AVAILABILITY } from "@/constants";
 import { fontMono, surfaces } from "@/theme";
+
 import { AVAILABILITY_TEXT } from "./config";
 
 /** Availability row in the menu. Hidden when not looking. */

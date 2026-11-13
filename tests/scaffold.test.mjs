@@ -2,6 +2,7 @@ import assert from "node:assert/strict";
 import { existsSync, readdirSync } from "node:fs";
 import { basename, join } from "node:path";
 import { describe, test } from "node:test";
+
 import { ESLint } from "eslint";
 
 const ROOT = join(import.meta.dirname, "..");

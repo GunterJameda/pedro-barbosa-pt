@@ -2,6 +2,7 @@ import PlaceOutlinedIcon from "@mui/icons-material/PlaceOutlined";
 import Box from "@mui/material/Box";
 import Link from "@mui/material/Link";
 import Stack from "@mui/material/Stack";
+
 import { EMAIL, LOCATION, MAILTO_URL, SOCIAL_LINKS } from "@/constants";
 import { slate, surfaces } from "@/theme";
 

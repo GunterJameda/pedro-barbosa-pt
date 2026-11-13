@@ -1,7 +1,9 @@
 import { fireEvent, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { afterEach, describe, expect, it, vi } from "vitest";
+
 import { renderWithTheme } from "@tests/render";
+
 import { ScrollToTop } from "./ScrollToTop";
 
 function scrollPageTo(y: number) {

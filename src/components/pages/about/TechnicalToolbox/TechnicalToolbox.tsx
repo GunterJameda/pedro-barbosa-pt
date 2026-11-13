@@ -1,11 +1,13 @@
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
+
 import { CardFooter } from "@/components/_common/CardFooter";
 import { SectionHeading } from "@/components/_common/SectionHeading";
 import { StatusDot } from "@/components/_common/StatusDot";
 import { SurfaceCard } from "@/components/_common/SurfaceCard";
 import { TagList } from "@/components/_common/TagList";
 import { fontMono, slate } from "@/theme";
+
 import { TOOLBOX_GROUPS } from "./config";
 
 export function TechnicalToolbox() {

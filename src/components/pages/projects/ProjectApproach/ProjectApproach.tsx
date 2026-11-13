@@ -1,11 +1,13 @@
 import Box from "@mui/material/Box";
 import Stack from "@mui/material/Stack";
+
 import { CardFooter } from "@/components/_common/CardFooter";
 import { CardGrid } from "@/components/_common/CardGrid";
 import { FeatureCard } from "@/components/_common/FeatureCard";
 import { IconBadge } from "@/components/_common/IconBadge";
 import { SectionHeading } from "@/components/_common/SectionHeading";
 import { fontMono, slate } from "@/theme";
+
 import { APPROACH_STEPS } from "./config";
 
 export function ProjectApproach() {

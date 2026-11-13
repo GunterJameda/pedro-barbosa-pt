@@ -1,9 +1,11 @@
 import Box from "@mui/material/Box";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
+
 import { Eyebrow } from "@/components/_common/Eyebrow";
 import { IconBadge } from "@/components/_common/IconBadge";
 import { SurfaceCard } from "@/components/_common/SurfaceCard";
+
 import { ALIGNMENT_POINTS } from "./config";
 
 export function RoleAlignment() {

@@ -1,8 +1,10 @@
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
+
 import { CardGrid } from "@/components/_common/CardGrid";
 import { Eyebrow } from "@/components/_common/Eyebrow";
 import { SurfaceCard } from "@/components/_common/SurfaceCard";
+
 import type { Metric } from "./types";
 
 export function MetricCards({ metrics }: { metrics: Metric[] }) {

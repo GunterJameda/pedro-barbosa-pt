@@ -3,9 +3,11 @@
 import Button from "@mui/material/Button";
 import Stack from "@mui/material/Stack";
 import { usePathname } from "next/navigation";
+
 import { StatusDot } from "@/components/_common/StatusDot";
 import { PAGES } from "@/constants";
 import { slate, surfaces } from "@/theme";
+
 import type { NavLinksVariant } from "./types";
 
 function isActivePath(pathname: string, href: string) {

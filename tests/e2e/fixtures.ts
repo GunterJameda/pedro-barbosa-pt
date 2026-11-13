@@ -1,4 +1,4 @@
-import { test as base, expect } from "@playwright/test";
+import { expect, test as base } from "@playwright/test";
 
 /** Annotation for tests that visit a missing page on purpose. */
 export const EXPECTS_404 = "expects-404";

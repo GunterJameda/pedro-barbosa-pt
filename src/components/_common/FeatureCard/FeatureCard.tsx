@@ -2,6 +2,7 @@ import type { StackProps } from "@mui/material/Stack";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 import type { ReactNode } from "react";
+
 import { SurfaceCard } from "@/components/_common/SurfaceCard";
 
 interface FeatureCardProps extends Omit<StackProps, "title"> {

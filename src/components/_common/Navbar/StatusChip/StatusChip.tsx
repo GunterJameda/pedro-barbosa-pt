@@ -7,9 +7,11 @@
 
 import Box from "@mui/material/Box";
 import Chip from "@mui/material/Chip";
+
 import { StatusDot } from "@/components/_common/StatusDot";
 import { AVAILABILITY } from "@/constants";
 import { surfaces } from "@/theme";
+
 import { STATUS_LABEL, STATUS_LABELS, STATUS_SHORT_LABEL } from "./config";
 
 const chip = {

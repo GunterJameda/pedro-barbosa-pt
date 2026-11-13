@@ -1,5 +1,6 @@
 import Stack from "@mui/material/Stack";
 import type { Metadata } from "next";
+
 import { CardGrid } from "@/components/_common/CardGrid";
 import { PageHero } from "@/components/_common/PageHero";
 import { PageMain } from "@/components/_common/PageMain";

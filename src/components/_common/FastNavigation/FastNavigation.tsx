@@ -1,10 +1,12 @@
 import Box from "@mui/material/Box";
 import type { SxProps, Theme } from "@mui/material/styles";
 import Typography from "@mui/material/Typography";
+
 import { CardGrid } from "@/components/_common/CardGrid";
 import { Eyebrow } from "@/components/_common/Eyebrow";
 import { SurfaceCard } from "@/components/_common/SurfaceCard";
 import { surfaces } from "@/theme";
+
 import type { FastNavigationLink } from "./types";
 
 interface FastNavigationProps {

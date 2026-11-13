@@ -1,6 +1,7 @@
 import SchoolOutlinedIcon from "@mui/icons-material/SchoolOutlined";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
+
 import { Eyebrow } from "@/components/_common/Eyebrow";
 import { IconBadge } from "@/components/_common/IconBadge";
 import { SurfaceCard } from "@/components/_common/SurfaceCard";

@@ -1,11 +1,13 @@
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
+
 import { CardFooter } from "@/components/_common/CardFooter";
 import { CardGrid } from "@/components/_common/CardGrid";
 import { FeatureCard } from "@/components/_common/FeatureCard";
-import { SectionHeading } from "@/components/_common/SectionHeading";
 import { IconBadge } from "@/components/_common/IconBadge";
+import { SectionHeading } from "@/components/_common/SectionHeading";
 import { fontMono } from "@/theme";
+
 import { TEAM_PRACTICES } from "./config";
 
 export function TeamPractices() {
