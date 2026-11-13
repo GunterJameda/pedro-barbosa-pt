@@ -6,7 +6,7 @@ import { SectionHeading } from "@/components/_common/SectionHeading";
 import { StatusDot } from "@/components/_common/StatusDot";
 import { SurfaceCard } from "@/components/_common/SurfaceCard";
 import { TagList } from "@/components/_common/TagList";
-import { fontMono, slate } from "@/theme";
+import { fontMono } from "@/theme";
 
 import { TOOLBOX_GROUPS } from "./config";
 
@@ -54,7 +54,7 @@ export function TechnicalToolbox() {
               }}
             >
               <span>{group.footerLeft}</span>
-              <Typography component="span" sx={{ color: slate[300], font: "inherit" }}>
+              <Typography component="span" sx={{ color: "slate.300", font: "inherit" }}>
                 {group.footerRight}
               </Typography>
             </CardFooter>
