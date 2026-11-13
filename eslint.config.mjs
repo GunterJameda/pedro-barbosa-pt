@@ -1,8 +1,10 @@
 import { readdirSync } from "node:fs";
 import { join } from "node:path";
+
 import { defineConfig, globalIgnores } from "eslint/config";
 import nextVitals from "eslint-config-next/core-web-vitals";
 import nextTs from "eslint-config-next/typescript";
+import simpleImportSort from "eslint-plugin-simple-import-sort";
 
 // Each folder in src/components/pages belongs to one page.
 const PAGE_SCOPES = readdirSync(join(import.meta.dirname, "src/components/pages"), {
@@ -50,6 +52,27 @@ const boundaries = (currentPage) => ({
 const eslintConfig = defineConfig([
   ...nextVitals,
   ...nextTs,
+  // Packages first, then the project's own @/ imports, then ./ imports,
+  // each group sorted A to Z.
+  {
+    plugins: { "simple-import-sort": simpleImportSort },
+    rules: {
+      "simple-import-sort/imports": [
+        "error",
+        {
+          groups: [
+            ["^\\u0000"],
+            ["^node:"],
+            ["^@?\\w"],
+            // This project's own code: @/ and the @tests/ helpers.
+            ["^@/", "^@tests/", "^"],
+            ["^\\."],
+          ],
+        },
+      ],
+      "simple-import-sort/exports": "error",
+    },
+  },
   {
     files: ["src/**/*.{ts,tsx}"],
     rules: boundaries(null),
