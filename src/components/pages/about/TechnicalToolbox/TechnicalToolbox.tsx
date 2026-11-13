@@ -41,8 +41,13 @@ export function TechnicalToolbox() {
             <TagList tags={group.skills} />
 
             <CardFooter
+              useFlexGap
               sx={{
                 justifyContent: "space-between",
+                // On narrow cards the right label moves below, whole.
+                flexWrap: "wrap",
+                rowGap: 0.5,
+                "& > *": { whiteSpace: "nowrap" },
                 color: "text.secondary",
                 fontFamily: fontMono,
                 fontSize: 12,
