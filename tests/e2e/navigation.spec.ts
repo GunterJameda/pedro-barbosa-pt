@@ -76,9 +76,10 @@ test.describe("on a phone", () => {
     await expect(page).toHaveURL("/projects");
     await expect(menu(page)).toBeHidden();
     await menuButton(page).click();
-    await expect(
-      menu(page).getByRole("link", { name: "Personal Projects" }),
-    ).toHaveAttribute("aria-current", "page");
+    await expect(menu(page).getByRole("link", { name: "Personal Projects" })).toHaveAttribute(
+      "aria-current",
+      "page",
+    );
   });
 
   test("closes the menu when the window grows to desktop size", async ({ page }) => {

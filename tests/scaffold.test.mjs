@@ -32,7 +32,11 @@ describe("import rules", () => {
   const blocked = [
     ["a private file of a common module", "@/components/_common/Footer/Footer", ABOUT],
     ["a private file of a page module", "@/components/pages/contact/EmailCard/EmailCard", CONTACT],
-    ["a child nested inside a page module", "@/components/pages/contact/EmailCard/CopyEmailButton", CONTACT],
+    [
+      "a child nested inside a page module",
+      "@/components/pages/contact/EmailCard/CopyEmailButton",
+      CONTACT,
+    ],
     ["a private theme file", "@/theme/tokens", ABOUT],
     ["a private constants file", "@/constants/links", ABOUT],
     ["anything from src/app", "@/app/about/page", COMMON_MODULE],
@@ -56,8 +60,16 @@ describe("import rules", () => {
   const allowed = [
     ["a common module", "@/components/_common/Footer", ABOUT],
     ["a page's own components", "@/components/pages/contact/EmailCard", CONTACT],
-    ["home's components from the root page", "@/components/pages/home/QuickLinks", "src/app/page.tsx"],
-    ["sibling components in the same page folder", "@/components/pages/contact/LinkedInCard", CONTACT_MODULE],
+    [
+      "home's components from the root page",
+      "@/components/pages/home/QuickLinks",
+      "src/app/page.tsx",
+    ],
+    [
+      "sibling components in the same page folder",
+      "@/components/pages/contact/LinkedInCard",
+      CONTACT_MODULE,
+    ],
     ["the theme module", "@/theme", ABOUT],
     ["the constants module", "@/constants", ABOUT],
     ["a private file from inside its module", "./info", COMMON_MODULE],
@@ -102,9 +114,7 @@ describe("folder structure", () => {
       "robots.ts",
       "sitemap.ts",
     ]);
-    const others = filesIn("src/app").filter(
-      (file) => !ROUTE_FILES.has(basename(file)),
-    );
+    const others = filesIn("src/app").filter((file) => !ROUTE_FILES.has(basename(file)));
     assert.deepEqual(others, []);
   });
 
@@ -122,9 +132,7 @@ describe("folder structure", () => {
     for (const folder of directories("src/components/pages")) {
       // Home is the root route, so its page file sits directly in src/app.
       const pageFile =
-        folder === "home"
-          ? join("src/app", "page.tsx")
-          : join("src/app", folder, "page.tsx");
+        folder === "home" ? join("src/app", "page.tsx") : join("src/app", folder, "page.tsx");
       assert.ok(
         existsSync(join(ROOT, pageFile)),
         `src/components/pages/${folder} doesn't match a page`,
@@ -137,10 +145,7 @@ describe("folder structure", () => {
     const checkModules = (path) => {
       for (const folder of directories(path)) {
         const modulePath = join(path, folder);
-        assert.ok(
-          existsSync(join(ROOT, modulePath, "index.ts")),
-          `${modulePath} has no index.ts`,
-        );
+        assert.ok(existsSync(join(ROOT, modulePath, "index.ts")), `${modulePath} has no index.ts`);
         checkModules(modulePath);
       }
     };

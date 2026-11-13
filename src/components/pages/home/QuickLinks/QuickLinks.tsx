@@ -16,12 +16,7 @@ export function QuickLinks() {
       }}
     >
       {LINKS.map((link) => (
-        <ActionButton
-          key={link.href}
-          href={link.href}
-          primary={link.primary}
-          pill
-        >
+        <ActionButton key={link.href} href={link.href} primary={link.primary} pill>
           {link.label}
         </ActionButton>
       ))}

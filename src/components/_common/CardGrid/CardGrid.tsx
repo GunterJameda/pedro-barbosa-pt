@@ -16,9 +16,5 @@ export function CardGrid({ columns, children, gap = 2 }: CardGridProps) {
     ]),
   );
 
-  return (
-    <Box sx={{ display: "grid", gap, gridTemplateColumns: template }}>
-      {children}
-    </Box>
-  );
+  return <Box sx={{ display: "grid", gap, gridTemplateColumns: template }}>{children}</Box>;
 }

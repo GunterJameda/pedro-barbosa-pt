@@ -24,16 +24,13 @@ export default function Home() {
       </Box>
 
       <Stack spacing={3} sx={{ maxWidth: 768, textAlign: "center" }}>
-        <Typography variant="displayTitle">
-          {"Hello, I'm Pedro Barbosa."}
-        </Typography>
+        <Typography variant="displayTitle">{"Hello, I'm Pedro Barbosa."}</Typography>
 
         <Typography variant="lead" sx={{ maxWidth: 672, mx: "auto" }}>
           Senior Frontend Engineer specialising in <Highlight>React</Highlight>,{" "}
-          <Highlight>Next.js</Highlight> and <Highlight>TypeScript</Highlight>,
-          with a strong foundation in <Highlight>Angular</Highlight>. Building
-          resilient multi-tenant apps, design systems, and modern frontend
-          architectures.
+          <Highlight>Next.js</Highlight> and <Highlight>TypeScript</Highlight>, with a strong
+          foundation in <Highlight>Angular</Highlight>. Building resilient multi-tenant apps, design
+          systems, and modern frontend architectures.
         </Typography>
 
         <QuickLinks />

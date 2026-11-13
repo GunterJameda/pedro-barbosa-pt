@@ -29,16 +29,12 @@ export function TechnicalToolbox() {
             >
               <Stack direction="row" spacing={1} sx={{ alignItems: "center" }}>
                 <StatusDot size={8} />
-                <Typography variant="cardTitle">
-                  {group.title}
-                </Typography>
+                <Typography variant="cardTitle">{group.title}</Typography>
               </Stack>
               <Typography variant="mono">{group.roleBadge}</Typography>
             </Stack>
 
-            <Typography variant="body">
-              {group.description}
-            </Typography>
+            <Typography variant="body">{group.description}</Typography>
 
             <TagList tags={group.skills} />
 
@@ -51,10 +47,7 @@ export function TechnicalToolbox() {
               }}
             >
               <span>{group.footerLeft}</span>
-              <Typography
-                component="span"
-                sx={{ color: slate[300], font: "inherit" }}
-              >
+              <Typography component="span" sx={{ color: slate[300], font: "inherit" }}>
                 {group.footerRight}
               </Typography>
             </CardFooter>

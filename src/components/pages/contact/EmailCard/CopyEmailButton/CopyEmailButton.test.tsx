@@ -52,9 +52,7 @@ describe("CopyEmailButton", () => {
   it("says so when the browser has no clipboard access at all", async () => {
     // Happens on pages served over plain HTTP, where navigator.clipboard is missing.
     const { user, button } = setup();
-    vi.spyOn(navigator, "clipboard", "get").mockReturnValue(
-      undefined as unknown as Clipboard,
-    );
+    vi.spyOn(navigator, "clipboard", "get").mockReturnValue(undefined as unknown as Clipboard);
     await user.click(button);
     expect(button).toHaveAccessibleName(FAILED);
   });
@@ -96,10 +94,7 @@ describe("CopyEmailButton", () => {
   it("announces the result to screen readers", async () => {
     const { user, button } = setup();
     await user.click(button);
-    expect(screen.getByText(COPIED).closest("[aria-live]")).toHaveAttribute(
-      "aria-live",
-      "polite",
-    );
+    expect(screen.getByText(COPIED).closest("[aria-live]")).toHaveAttribute("aria-live", "polite");
   });
 
   it("leaves no timer running after it's removed from the page", async () => {

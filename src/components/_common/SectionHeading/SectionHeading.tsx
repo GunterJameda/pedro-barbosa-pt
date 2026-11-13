@@ -9,12 +9,7 @@ interface SectionHeadingProps {
   eyebrowSize?: 11 | 12;
 }
 
-export function SectionHeading({
-  eyebrow,
-  title,
-  description,
-  eyebrowSize,
-}: SectionHeadingProps) {
+export function SectionHeading({ eyebrow, title, description, eyebrowSize }: SectionHeadingProps) {
   return (
     <Stack spacing={1}>
       <Eyebrow size={eyebrowSize}>{eyebrow}</Eyebrow>

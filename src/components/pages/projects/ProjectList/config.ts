@@ -19,18 +19,15 @@ export const PROJECTS: Project[] = [
     takeaways: [
       {
         title: "Quality gates",
-        text:
-          "Lint, type checks, tests and a build run on every push, and nothing deploys unless they pass.",
+        text: "Lint, type checks, tests and a build run on every push, and nothing deploys unless they pass.",
       },
       {
         title: "Tests that survive refactors",
-        text:
-          "Tests check behaviour and edge cases through what visitors see, so they only change when the behaviour does.",
+        text: "Tests check behaviour and edge cases through what visitors see, so they only change when the behaviour does.",
       },
       {
         title: "Structure with rules",
-        text:
-          "Folder and import rules are enforced by lint, so each file's scope is clear from its path.",
+        text: "Folder and import rules are enforced by lint, so each file's scope is clear from its path.",
       },
     ],
     detailCards: [
@@ -64,18 +61,15 @@ export const PROJECTS: Project[] = [
     takeaways: [
       {
         title: "Product ownership",
-        text:
-          "Defined the business rules and requirements myself, starting from a problem I had.",
+        text: "Defined the business rules and requirements myself, starting from a problem I had.",
       },
       {
         title: "End-to-end delivery",
-        text:
-          "Built every layer, from the database to the interface, and took it to launch.",
+        text: "Built every layer, from the database to the interface, and took it to launch.",
       },
       {
         title: "Making value obvious",
-        text:
-          "Learned that a strong feature isn't enough if users can't see its value. I had plans to address it, but the money ran out first.",
+        text: "Learned that a strong feature isn't enough if users can't see its value. I had plans to address it, but the money ran out first.",
       },
     ],
     detailCards: [

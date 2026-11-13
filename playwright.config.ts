@@ -27,24 +27,26 @@ export default defineConfig<E2EOptions>({
   fullyParallel: true,
   reporter: "list",
   use: { trace: "retain-on-failure" },
-  webServer: REMOTE_URL ? undefined : [
-    // The production build, which `yarn build` makes first.
-    {
-      command: `yarn start -p ${PRODUCTION_PORT}`,
-      url: `http://localhost:${PRODUCTION_PORT}`,
-      // Fails fast if the port is taken, instead of testing something else.
-      reuseExistingServer: false,
-      timeout: 60_000,
-    },
-    // A dev server, because some errors only happen there (a page that fails
-    // to hydrate while its code is still loading, for example).
-    {
-      command: `yarn next dev -p ${DEV_PORT}`,
-      url: `http://localhost:${DEV_PORT}`,
-      reuseExistingServer: false,
-      timeout: 120_000,
-    },
-  ],
+  webServer: REMOTE_URL
+    ? undefined
+    : [
+        // The production build, which `yarn build` makes first.
+        {
+          command: `yarn start -p ${PRODUCTION_PORT}`,
+          url: `http://localhost:${PRODUCTION_PORT}`,
+          // Fails fast if the port is taken, instead of testing something else.
+          reuseExistingServer: false,
+          timeout: 60_000,
+        },
+        // A dev server, because some errors only happen there (a page that fails
+        // to hydrate while its code is still loading, for example).
+        {
+          command: `yarn next dev -p ${DEV_PORT}`,
+          url: `http://localhost:${DEV_PORT}`,
+          reuseExistingServer: false,
+          timeout: 120_000,
+        },
+      ],
   projects: [
     // Everything, against the production build (or the remote site).
     ...BROWSERS.map((browser) => ({

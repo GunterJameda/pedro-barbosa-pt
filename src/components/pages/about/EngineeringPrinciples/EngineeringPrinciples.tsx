@@ -23,10 +23,7 @@ export function EngineeringPrinciples() {
             title={principle.title}
             description={principle.description}
             header={
-              <Stack
-                direction="row"
-                sx={{ alignItems: "center", justifyContent: "space-between" }}
-              >
+              <Stack direction="row" sx={{ alignItems: "center", justifyContent: "space-between" }}>
                 <IconBadge icon={principle.icon} />
                 <Eyebrow color="text.secondary" size={10}>
                   {principle.badge}

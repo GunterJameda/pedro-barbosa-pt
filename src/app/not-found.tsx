@@ -19,9 +19,7 @@ export default function NotFound() {
       </Box>
 
       <Stack spacing={3} sx={{ maxWidth: 768, textAlign: "center" }}>
-        <Typography variant="displayTitle">
-          Nothing to render here.
-        </Typography>
+        <Typography variant="displayTitle">Nothing to render here.</Typography>
 
         <Typography variant="lead" sx={{ maxWidth: 672, mx: "auto" }}>
           {"This route isn't part of the site. Let me point you somewhere useful."}

@@ -21,9 +21,7 @@ describe("PersonSchema", () => {
   it("links the person to the site and their public profiles", async () => {
     const { data } = await renderSchema();
     expect(data.mainEntity.url).toBe(SITE_URL);
-    expect(data.mainEntity.sameAs).toEqual(
-      expect.arrayContaining([GITHUB_URL, LINKEDIN_URL]),
-    );
+    expect(data.mainEntity.sameAs).toEqual(expect.arrayContaining([GITHUB_URL, LINKEDIN_URL]));
   });
 
   it("can't be broken out of by a value containing a closing script tag", async () => {

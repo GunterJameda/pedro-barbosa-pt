@@ -33,10 +33,7 @@ export function TeamPractices() {
                 }}
               >
                 <span>{practice.tagLeft}</span>
-                <Typography
-                  component="span"
-                  sx={{ color: "primary.main", font: "inherit" }}
-                >
+                <Typography component="span" sx={{ color: "primary.main", font: "inherit" }}>
                   {practice.tagRight}
                 </Typography>
               </CardFooter>

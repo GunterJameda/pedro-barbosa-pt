@@ -24,9 +24,7 @@ export function ProjectApproach() {
             description={step.description}
             spacing={3}
             sx={{ p: { xs: 3, sm: 4 } }}
-            header={
-              <IconBadge icon={step.icon} size={36} iconSize={20} accent />
-            }
+            header={<IconBadge icon={step.icon} size={36} iconSize={20} accent />}
             footer={
               <CardFooter
                 sx={{

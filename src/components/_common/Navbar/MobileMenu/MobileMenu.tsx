@@ -108,12 +108,7 @@ export function MobileMenu({ brand, nav }: MobileMenuProps) {
             sx={{ mt: "auto", pt: 3, borderTop: `1px solid ${surfaces.hairline}` }}
           >
             <AvailabilityCard />
-            <ActionButton
-              href="/contact"
-              primary
-              fullWidth
-              startIcon={<MailOutlinedIcon />}
-            >
+            <ActionButton href="/contact" primary fullWidth startIcon={<MailOutlinedIcon />}>
               Contact me
             </ActionButton>
             <MenuFooter />

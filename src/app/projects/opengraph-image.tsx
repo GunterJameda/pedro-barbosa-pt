@@ -1,8 +1,4 @@
-import {
-  ShareImage,
-  shareImageAlt,
-  shareImageSize,
-} from "@/components/_common/ShareImage";
+import { ShareImage, shareImageAlt, shareImageSize } from "@/components/_common/ShareImage";
 
 const PATH = "/projects";
 

@@ -1,12 +1,4 @@
-import {
-  CITY,
-  COUNTRY_CODE,
-  EMAIL,
-  NAME,
-  ROLE,
-  SITE_URL,
-  SOCIAL_LINKS,
-} from "@/constants";
+import { CITY, COUNTRY_CODE, EMAIL, NAME, ROLE, SITE_URL, SOCIAL_LINKS } from "@/constants";
 import type { ProfilePageData } from "./types";
 
 // Only facts already shown on the site.

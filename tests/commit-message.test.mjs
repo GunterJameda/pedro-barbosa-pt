@@ -23,7 +23,10 @@ describe("commit messages", () => {
     ["a breaking change marker", "refactor(theme)!: rename tokens\n"],
     ["exactly 64 characters", `fix: ${"a".repeat(59)}\n`],
     ["comments added by git", "fix: keep links\n\n# Please enter the message\n"],
-    ["the diff added by commit -v", "fix: keep links\n# ------------------------ >8 ------------------------\n# Do not modify\ndiff --git a/a b/a\n"],
+    [
+      "the diff added by commit -v",
+      "fix: keep links\n# ------------------------ >8 ------------------------\n# Do not modify\ndiff --git a/a b/a\n",
+    ],
     ["merge commits made by git", "Merge branch 'main' into fix\n"],
   ];
 

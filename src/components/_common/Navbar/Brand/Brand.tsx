@@ -59,11 +59,7 @@ export function Brand() {
         >
           {NAME}
         </Typography>
-        <Typography
-          component="span"
-          noWrap
-          sx={{ color: "text.secondary", fontSize: 12 }}
-        >
+        <Typography component="span" noWrap sx={{ color: "text.secondary", fontSize: 12 }}>
           {ROLE}
         </Typography>
       </Stack>

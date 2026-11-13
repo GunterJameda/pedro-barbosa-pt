@@ -20,11 +20,14 @@ const landing = (page: Page, id: string) =>
 async function waitForScrollToStop(page: Page) {
   const scrollY = () => page.evaluate(() => window.scrollY);
   await expect
-    .poll(async () => {
-      const before = await scrollY();
-      await page.waitForTimeout(200);
-      return before > 0 && before === (await scrollY());
-    }, { message: "the page scrolls to the section and stops" })
+    .poll(
+      async () => {
+        const before = await scrollY();
+        await page.waitForTimeout(200);
+        return before > 0 && before === (await scrollY());
+      },
+      { message: "the page scrolls to the section and stops" },
+    )
     .toBe(true);
 }
 

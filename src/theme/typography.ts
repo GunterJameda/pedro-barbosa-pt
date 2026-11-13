@@ -6,7 +6,6 @@ import type { TextVariant } from "./types";
 export const sans =
   'var(--font-sans), system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
 
-
 // Matches MUI's body1 defaults, which the hand-written styles used to inherit.
 const base: CSSProperties = {
   fontFamily: sans,
@@ -17,9 +16,7 @@ const base: CSSProperties = {
 const tight = { letterSpacing: "-0.025em", color: white };
 
 /** Builds the site's text styles. Responsive sizes need the theme's breakpoints. */
-export function createTextVariants(
-  breakpoints: Breakpoints,
-): Record<TextVariant, CSSProperties> {
+export function createTextVariants(breakpoints: Breakpoints): Record<TextVariant, CSSProperties> {
   const sm = breakpoints.up("sm");
   const lg = breakpoints.up("lg");
 

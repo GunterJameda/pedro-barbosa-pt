@@ -10,12 +10,7 @@ interface PageHeroProps {
   children?: ReactNode;
 }
 
-export function PageHero({
-  eyebrow,
-  title,
-  description,
-  children,
-}: PageHeroProps) {
+export function PageHero({ eyebrow, title, description, children }: PageHeroProps) {
   return (
     <Stack component="section" spacing={3}>
       <DotLabel wide>{eyebrow}</DotLabel>

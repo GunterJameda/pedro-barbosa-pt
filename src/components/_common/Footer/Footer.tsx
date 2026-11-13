@@ -34,9 +34,7 @@ export function Footer() {
         }}
       >
         <Stack direction="row" spacing={1} sx={{ alignItems: "center" }}>
-          <PlaceOutlinedIcon
-            sx={{ fontSize: 16, color: surfaces.teal400Muted }}
-          />
+          <PlaceOutlinedIcon sx={{ fontSize: 16, color: surfaces.teal400Muted }} />
           <span>{LOCATION}</span>
           <Box component="span" aria-hidden sx={{ color: slate[600] }}>
             •

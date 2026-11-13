@@ -26,9 +26,7 @@ export function AcademicBackground() {
           <Typography variant="cardTitle" component="h2">
             Instituto Superior de Engenharia do Porto (ISEP)
           </Typography>
-          <Typography variant="mono">
-            BSc in Informatics Engineering · 2014 - 2017
-          </Typography>
+          <Typography variant="mono">BSc in Informatics Engineering · 2014 - 2017</Typography>
         </Stack>
       </Stack>
       <Typography variant="mono" sx={{ flexShrink: 0 }}>

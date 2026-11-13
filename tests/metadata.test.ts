@@ -10,8 +10,7 @@ vi.mock("next/font/google", () => ({
   JetBrains_Mono: () => ({ variable: "" }),
 }));
 
-const pageModule = (route: string) =>
-  routeModule<{ metadata: Metadata }>(route, "page.tsx");
+const pageModule = (route: string) => routeModule<{ metadata: Metadata }>(route, "page.tsx");
 
 async function allMetadata() {
   const { metadata: site } = await import("../src/app/layout");

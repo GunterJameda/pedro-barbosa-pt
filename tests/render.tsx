@@ -6,8 +6,6 @@ import { theme } from "@/theme";
 /** Renders with the site's theme, so text styles map to the same HTML elements as on the site. */
 export function renderWithTheme(ui: ReactElement) {
   return render(ui, {
-    wrapper: ({ children }) => (
-      <ThemeProvider theme={theme}>{children}</ThemeProvider>
-    ),
+    wrapper: ({ children }) => <ThemeProvider theme={theme}>{children}</ThemeProvider>,
   });
 }

@@ -20,8 +20,7 @@ function renderMenu() {
 }
 
 // While the menu is open, the page behind it is hidden from assistive tech.
-const openButton = () =>
-  screen.getByRole("button", { name: "Open menu", hidden: true });
+const openButton = () => screen.getByRole("button", { name: "Open menu", hidden: true });
 const menu = () => screen.queryByRole("navigation", { name: "Mobile" });
 
 async function openMenu() {
@@ -29,8 +28,7 @@ async function openMenu() {
   expect(menu()).toBeVisible();
 }
 
-const waitUntilClosed = () =>
-  waitFor(() => expect(menu()).not.toBeInTheDocument());
+const waitUntilClosed = () => waitFor(() => expect(menu()).not.toBeInTheDocument());
 
 beforeEach(() => {
   mockScreen({ isDesktop: false });

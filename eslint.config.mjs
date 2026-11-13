@@ -5,10 +5,9 @@ import nextVitals from "eslint-config-next/core-web-vitals";
 import nextTs from "eslint-config-next/typescript";
 
 // Each folder in src/components/pages belongs to one page.
-const PAGE_SCOPES = readdirSync(
-  join(import.meta.dirname, "src/components/pages"),
-  { withFileTypes: true },
-)
+const PAGE_SCOPES = readdirSync(join(import.meta.dirname, "src/components/pages"), {
+  withFileTypes: true,
+})
   .filter((entry) => entry.isDirectory())
   .map((entry) => entry.name);
 

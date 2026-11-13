@@ -21,22 +21,16 @@ export function EvolutionBlueprint() {
           <Eyebrow>Evolution Blueprint</Eyebrow>
         </Stack>
         <Typography variant="body">
-          From monolith enterprise systems at Glintt and HUUB to microfrontends
-          at PriceHubble and schema-driven component engines at Teya, my career
-          is shaped by progressive technical ownership.
+          From monolith enterprise systems at Glintt and HUUB to microfrontends at PriceHubble and
+          schema-driven component engines at Teya, my career is shaped by progressive technical
+          ownership.
         </Typography>
       </Stack>
 
-      <Stack
-        spacing={2}
-        sx={{ pt: 2, borderTop: `1px solid ${surfaces.hairline}` }}
-      >
+      <Stack spacing={2} sx={{ pt: 2, borderTop: `1px solid ${surfaces.hairline}` }}>
         <Typography variant="mono">
           Primary Focus Transition{" "}
-          <Box
-            component="span"
-            sx={{ color: "primary.main", fontWeight: 600 }}
-          >
+          <Box component="span" sx={{ color: "primary.main", fontWeight: 600 }}>
             Angular → React / Next
           </Box>
         </Typography>

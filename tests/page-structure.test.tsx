@@ -22,8 +22,8 @@ describe.each(PAGES)("$name page", ({ route, file }) => {
 
   it("doesn't skip heading levels", async () => {
     const page = await renderPage(route, file);
-    const levels = [...page.querySelectorAll("h1, h2, h3, h4, h5, h6")].map(
-      (heading) => Number(heading.tagName[1]),
+    const levels = [...page.querySelectorAll("h1, h2, h3, h4, h5, h6")].map((heading) =>
+      Number(heading.tagName[1]),
     );
     levels.forEach((level, index) => {
       const previous = levels[index - 1] ?? 0;

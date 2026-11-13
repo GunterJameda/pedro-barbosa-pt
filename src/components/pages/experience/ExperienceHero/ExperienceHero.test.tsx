@@ -41,5 +41,4 @@ describe("ExperienceHero availability card", () => {
       expect(screen.getAllByText(/remote/i).length).toBeGreaterThan(0);
     },
   );
-
 });

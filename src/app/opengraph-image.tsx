@@ -1,8 +1,4 @@
-import {
-  ShareImage,
-  shareImageAlt,
-  shareImageSize,
-} from "@/components/_common/ShareImage";
+import { ShareImage, shareImageAlt, shareImageSize } from "@/components/_common/ShareImage";
 
 export const alt = shareImageAlt();
 export const size = shareImageSize;

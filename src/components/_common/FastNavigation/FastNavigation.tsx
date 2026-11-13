@@ -57,9 +57,7 @@ export function FastNavigation({ label, title, links, sx }: FastNavigationProps)
             >
               {link.name}
             </Typography>
-            <Typography sx={{ color: "text.secondary", fontSize: 11 }}>
-              {link.detail}
-            </Typography>
+            <Typography sx={{ color: "text.secondary", fontSize: 11 }}>{link.detail}</Typography>
           </Box>
         ))}
       </CardGrid>

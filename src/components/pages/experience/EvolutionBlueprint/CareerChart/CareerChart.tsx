@@ -32,28 +32,13 @@ export function CareerChart() {
       {PAST_POINTS.map((point) => (
         <g key={point.year}>
           <circle cx={point.x} cy={point.y} r="3" fill={LINE} />
-          <text
-            x={point.x}
-            y={point.labelY}
-            fill={slate[500]}
-            textAnchor="middle"
-          >
+          <text x={point.x} y={point.labelY} fill={slate[500]} textAnchor="middle">
             {point.year}
           </text>
         </g>
       ))}
-      <circle
-        cx={CURRENT_POINT.x}
-        cy={CURRENT_POINT.y}
-        r="3.5"
-        fill={teal[300]}
-      />
-      <text
-        x={CURRENT_POINT.x}
-        y={CURRENT_POINT.labelY}
-        fill={teal[400]}
-        textAnchor="middle"
-      >
+      <circle cx={CURRENT_POINT.x} cy={CURRENT_POINT.y} r="3.5" fill={teal[300]} />
+      <text x={CURRENT_POINT.x} y={CURRENT_POINT.labelY} fill={teal[400]} textAnchor="middle">
         {CURRENT_POINT.year}
       </text>
     </Box>

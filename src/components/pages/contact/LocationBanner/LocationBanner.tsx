@@ -11,12 +11,10 @@ export function LocationBanner() {
     <SurfaceCard component="section" spacing={2} sx={{ p: { xs: 4, sm: 5 } }}>
       <Stack spacing={1}>
         <Eyebrow size={10}>Location & Remote Work</Eyebrow>
-        <Typography variant="cardHeading">
-          Based in Porto, open to remote work.
-        </Typography>
+        <Typography variant="cardHeading">Based in Porto, open to remote work.</Typography>
         <Typography variant="body" sx={{ maxWidth: 768 }}>
-          Comfortable working asynchronously and autonomously, and in close
-          collaboration during key milestones.
+          Comfortable working asynchronously and autonomously, and in close collaboration during key
+          milestones.
         </Typography>
       </Stack>
       {IS_LOOKING && (

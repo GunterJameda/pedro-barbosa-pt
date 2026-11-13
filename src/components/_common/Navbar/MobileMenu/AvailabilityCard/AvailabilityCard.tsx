@@ -33,9 +33,7 @@ export function AvailabilityCard() {
       >
         Availability
       </Typography>
-      <Typography
-        sx={{ color: "primary.light", fontFamily: fontMono, fontSize: 12 }}
-      >
+      <Typography sx={{ color: "primary.light", fontFamily: fontMono, fontSize: 12 }}>
         {text}
       </Typography>
     </Stack>

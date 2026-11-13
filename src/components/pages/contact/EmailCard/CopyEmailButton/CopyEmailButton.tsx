@@ -26,11 +26,7 @@ export function CopyEmailButton() {
   };
 
   return (
-    <ActionButton
-      onClick={handleCopy}
-      primary
-      startIcon={<ContentCopyOutlinedIcon />}
-    >
+    <ActionButton onClick={handleCopy} primary startIcon={<ContentCopyOutlinedIcon />}>
       {/* All labels share one cell, so the button fits the longest and never resizes. */}
       <Box component="span" aria-live="polite" sx={{ display: "inline-grid" }}>
         {(Object.keys(LABELS) as CopyStatus[]).map((key) => (

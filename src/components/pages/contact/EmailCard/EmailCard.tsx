@@ -29,17 +29,12 @@ export function EmailCard() {
           {EMAIL}
         </Link>
         <Typography variant="body" sx={{ color: "text.secondary" }}>
-          Best for interview inquiries, technical discussions, or sending over
-          job descriptions and specifications.
+          Best for interview inquiries, technical discussions, or sending over job descriptions and
+          specifications.
         </Typography>
       </Stack>
 
-      <Stack
-        direction="row"
-        spacing={2}
-        useFlexGap
-        sx={{ flexWrap: "wrap", alignItems: "center" }}
-      >
+      <Stack direction="row" spacing={2} useFlexGap sx={{ flexWrap: "wrap", alignItems: "center" }}>
         <CopyEmailButton />
         <ActionButton href={MAILTO_URL} startIcon={<MailOutlinedIcon />}>
           Open mail client

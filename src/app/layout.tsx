@@ -57,9 +57,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
               }}
             >
               <Navbar />
-              <Box sx={{ flex: 1, display: "flex", flexDirection: "column" }}>
-                {children}
-              </Box>
+              <Box sx={{ flex: 1, display: "flex", flexDirection: "column" }}>{children}</Box>
               <Footer />
             </Box>
             <ScrollToTop />
