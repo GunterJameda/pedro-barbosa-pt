@@ -9,6 +9,7 @@ import { JetBrains_Mono, Plus_Jakarta_Sans } from "next/font/google";
 import { Footer } from "@/components/_common/Footer";
 import { Navbar } from "@/components/_common/Navbar";
 import { ScrollToTop } from "@/components/_common/ScrollToTop";
+import { SkipLink } from "@/components/_common/SkipLink";
 import { NAME, ROLE, SITE_NAME, SITE_URL } from "@/constants";
 import { theme } from "@/theme";
 
@@ -50,6 +51,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <AppRouterCacheProvider>
           <ThemeProvider theme={theme}>
             <CssBaseline />
+            <SkipLink />
             <Box
               sx={{
                 display: "flex",

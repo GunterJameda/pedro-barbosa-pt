@@ -1,3 +1,4 @@
+export { MAIN_ID, SKIP_LINK_ID } from "./layout";
 export { EMAIL, GITHUB_URL, LINKEDIN_URL, MAILTO_URL, SITE_URL, SOCIAL_LINKS } from "./links";
 export {
   AVAILABILITY,
