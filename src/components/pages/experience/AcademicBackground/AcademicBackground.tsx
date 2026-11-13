@@ -5,6 +5,7 @@ import Typography from "@mui/material/Typography";
 import { Eyebrow } from "@/components/_common/Eyebrow";
 import { IconBadge } from "@/components/_common/IconBadge";
 import { SurfaceCard } from "@/components/_common/SurfaceCard";
+import { SCROLL_OFFSET } from "@/constants";
 
 export function AcademicBackground() {
   return (
@@ -17,7 +18,7 @@ export function AcademicBackground() {
         alignItems: { sm: "center" },
         justifyContent: "space-between",
         p: { xs: 3, sm: 4 },
-        scrollMarginTop: 96,
+        scrollMarginTop: SCROLL_OFFSET,
       }}
     >
       <Stack direction="row" spacing={2} sx={{ alignItems: "center" }}>

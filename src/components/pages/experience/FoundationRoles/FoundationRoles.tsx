@@ -7,6 +7,7 @@ import { CardGrid } from "@/components/_common/CardGrid";
 import { DotLabel } from "@/components/_common/DotLabel";
 import { SurfaceCard } from "@/components/_common/SurfaceCard";
 import { TagList } from "@/components/_common/TagList";
+import { SCROLL_OFFSET } from "@/constants";
 
 import { FOUNDATION_ROLES } from "./config";
 
@@ -20,7 +21,7 @@ export function FoundationRoles() {
             key={role.id}
             id={role.id}
             spacing={2}
-            sx={{ scrollMarginTop: 96 }}
+            sx={{ scrollMarginTop: SCROLL_OFFSET }}
           >
             <Stack spacing={1} sx={{ flex: 1 }}>
               <DotLabel>{role.industry}</DotLabel>

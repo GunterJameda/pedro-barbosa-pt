@@ -11,6 +11,7 @@ import { Eyebrow } from "@/components/_common/Eyebrow";
 import { FeatureCard } from "@/components/_common/FeatureCard";
 import { SurfaceCard } from "@/components/_common/SurfaceCard";
 import { TagList } from "@/components/_common/TagList";
+import { SCROLL_OFFSET } from "@/constants";
 import { fontMono } from "@/theme";
 
 import type { Project } from "./types";
@@ -58,7 +59,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
       sx={{
         p: { xs: 4, sm: 5 },
         // Keeps the card clear of the sticky Navbar when jumped to.
-        scrollMarginTop: 96,
+        scrollMarginTop: SCROLL_OFFSET,
       }}
     >
       <Stack

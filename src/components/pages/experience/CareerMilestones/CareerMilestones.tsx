@@ -8,6 +8,7 @@ import { DotLabel } from "@/components/_common/DotLabel";
 import { Eyebrow } from "@/components/_common/Eyebrow";
 import { SurfaceCard } from "@/components/_common/SurfaceCard";
 import { TagList } from "@/components/_common/TagList";
+import { SCROLL_OFFSET } from "@/constants";
 
 import { CAREER_ROLES } from "./config";
 
@@ -23,7 +24,7 @@ export function CareerMilestones() {
           sx={{
             p: { xs: 4, sm: 5 },
             // Keeps the card clear of the sticky Navbar when jumped to.
-            scrollMarginTop: 96,
+            scrollMarginTop: SCROLL_OFFSET,
           }}
         >
           <Box sx={{ pb: 3, borderBottom: 1, borderColor: "surface.hairline" }}>
