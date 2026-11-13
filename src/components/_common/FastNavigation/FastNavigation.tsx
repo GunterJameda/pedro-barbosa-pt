@@ -5,7 +5,6 @@ import Typography from "@mui/material/Typography";
 import { CardGrid } from "@/components/_common/CardGrid";
 import { Eyebrow } from "@/components/_common/Eyebrow";
 import { SurfaceCard } from "@/components/_common/SurfaceCard";
-import { surfaces } from "@/theme";
 
 import type { FastNavigationLink } from "./types";
 
@@ -21,7 +20,7 @@ interface FastNavigationProps {
 export function FastNavigation({ label, title, links, sx }: FastNavigationProps) {
   return (
     <SurfaceCard component="nav" aria-label={label} spacing={2} sx={sx}>
-      <Box sx={{ pb: 1, borderBottom: `1px solid ${surfaces.hairline}` }}>
+      <Box sx={{ pb: 1, borderBottom: 1, borderColor: "surface.hairline" }}>
         <Eyebrow>Fast Navigation</Eyebrow>
       </Box>
 
@@ -39,13 +38,14 @@ export function FastNavigation({ label, title, links, sx }: FastNavigationProps)
               borderRadius: 2,
               color: "common.white",
               textDecoration: "none",
-              backgroundColor: surfaces.white2,
-              border: `1px solid ${surfaces.hairline}`,
+              backgroundColor: "surface.white2",
+              border: 1,
+              borderColor: "surface.hairline",
               transition: "background-color 150ms, border-color 150ms",
               "&:hover": {
                 color: "primary.light",
-                backgroundColor: surfaces.white4,
-                borderColor: surfaces.teal30,
+                backgroundColor: "surface.white4",
+                borderColor: "surface.teal30",
               },
             }}
           >

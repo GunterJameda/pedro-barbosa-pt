@@ -1,7 +1,5 @@
 import Stack, { type StackProps } from "@mui/material/Stack";
 
-import { surfaces } from "@/theme";
-
 export function SurfaceCard({ spacing = 1, sx, ...props }: StackProps) {
   return (
     <Stack
@@ -10,8 +8,9 @@ export function SurfaceCard({ spacing = 1, sx, ...props }: StackProps) {
         {
           p: 3,
           borderRadius: 2,
-          backgroundColor: surfaces.card,
-          border: `1px solid ${surfaces.hairline}`,
+          backgroundColor: "surface.card",
+          border: 1,
+          borderColor: "surface.hairline",
         },
         ...(Array.isArray(sx) ? sx : [sx]),
       ]}

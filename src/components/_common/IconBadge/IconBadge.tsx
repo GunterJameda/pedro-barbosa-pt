@@ -1,8 +1,6 @@
 import Box from "@mui/material/Box";
 import type { ElementType } from "react";
 
-import { surfaces } from "@/theme";
-
 interface IconBadgeProps {
   icon: ElementType;
   size?: number;
@@ -28,8 +26,9 @@ export function IconBadge({
         height: size,
         borderRadius: 2,
         color: "primary.main",
-        backgroundColor: accent ? surfaces.teal10 : surfaces.white4,
-        border: `1px solid ${accent ? surfaces.teal20 : surfaces.hairline}`,
+        backgroundColor: accent ? "surface.teal10" : "surface.white4",
+        border: 1,
+        borderColor: accent ? "surface.teal20" : "surface.hairline",
       }}
     >
       <Icon sx={{ fontSize: iconSize }} />

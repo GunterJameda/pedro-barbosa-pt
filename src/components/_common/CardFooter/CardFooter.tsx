@@ -1,7 +1,5 @@
 import Stack, { type StackProps } from "@mui/material/Stack";
 
-import { surfaces } from "@/theme";
-
 /** Bottom row of a card, separated from the content by a hairline. */
 export function CardFooter({ sx, ...props }: StackProps) {
   return (
@@ -12,7 +10,8 @@ export function CardFooter({ sx, ...props }: StackProps) {
         {
           alignItems: "center",
           pt: 2,
-          borderTop: `1px solid ${surfaces.hairline}`,
+          borderTop: 1,
+          borderColor: "surface.hairline",
         },
         ...(Array.isArray(sx) ? sx : [sx]),
       ]}
