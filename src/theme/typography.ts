@@ -1,10 +1,12 @@
 import type { CSSProperties } from "react";
 import type { Breakpoints } from "@mui/material/styles";
 import type { TextVariant } from "./types";
-import { fontMono, slate, white } from "./tokens";
+import { slate, white } from "./tokens";
 
 export const sans =
   'var(--font-sans), system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
+
+export const fontMono = 'var(--font-mono), "Fira Code", monospace';
 
 // Matches MUI's body1 defaults, which the hand-written styles used to inherit.
 const base: CSSProperties = {

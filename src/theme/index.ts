@@ -1,2 +1,4 @@
+export { fontVariables } from "./fonts";
 export { default as theme } from "./theme";
-export { fontMono, slate, surfaces, teal, white } from "./tokens";
+export { slate, surfaces, teal, white } from "./tokens";
+export { fontMono } from "./typography";

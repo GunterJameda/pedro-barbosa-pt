@@ -51,5 +51,3 @@ export const surfaces = {
   teal30: alpha(teal[500], 0.3),
   teal400Muted: alpha(teal[400], 0.8),
 };
-
-export const fontMono = 'var(--font-mono), "Fira Code", monospace';

@@ -1,14 +1,8 @@
 import type { Metadata } from "next";
-import { describe, expect, it, vi } from "vitest";
+import { describe, expect, it } from "vitest";
 import type { Availability, WorkMode } from "@/constants";
 import { PAGE_ROUTES, routeModule } from "./pages";
 import { setProfile } from "./profile";
-
-// next/font only works inside a Next.js build.
-vi.mock("next/font/google", () => ({
-  Plus_Jakarta_Sans: () => ({ variable: "" }),
-  JetBrains_Mono: () => ({ variable: "" }),
-}));
 
 const pageModule = (route: string) => routeModule<{ metadata: Metadata }>(route, "page.tsx");
 
