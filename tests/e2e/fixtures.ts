@@ -69,8 +69,12 @@ export const test = base.extend<E2EOptions & { browserProblems: void }>({
       await provide();
 
       // The browser also logs an expected 404 as an error; drop only that one.
+      // Its log names the address with the hash, which the response doesn't.
       const unexpected = problems
-        .filter(({ text, url }) => !(url && expected404s.has(url) && text.includes("404")))
+        .filter(
+          ({ text, url }) =>
+            !(url && expected404s.has(url.replace(/#.*/, "")) && text.includes("404")),
+        )
         .map(({ text }) => text);
 
       expect(unexpected, "the browser reported problems").toEqual([]);
