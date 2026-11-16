@@ -4,7 +4,7 @@ import Typography from "@mui/material/Typography";
 import { Eyebrow } from "@/components/_common/Eyebrow";
 import { IconBadge } from "@/components/_common/IconBadge";
 import { SurfaceCard } from "@/components/_common/SurfaceCard";
-import { ALIGNMENT_POINTS } from "./config";
+import { ALIGNMENT_POINTS } from "./content";
 
 export function RoleAlignment() {
   return (

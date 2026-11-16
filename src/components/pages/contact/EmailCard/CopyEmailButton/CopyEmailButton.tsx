@@ -5,7 +5,8 @@ import ContentCopyOutlinedIcon from "@mui/icons-material/ContentCopyOutlined";
 import Box from "@mui/material/Box";
 import { EMAIL } from "@/constants";
 import { ActionButton } from "@/components/_common/ActionButton";
-import { LABELS, RESET_AFTER_MS } from "./config";
+import { RESET_AFTER_MS } from "./constants";
+import { LABELS } from "./content";
 import type { CopyStatus } from "./types";
 
 export function CopyEmailButton() {

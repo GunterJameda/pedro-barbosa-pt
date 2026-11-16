@@ -1,16 +1,13 @@
 import Stack from "@mui/material/Stack";
 import { CITY, IS_LOOKING, ROLE, WORK_MODE_ROLES } from "@/constants";
 import { CardGrid } from "@/components/_common/CardGrid";
-import { PageHero } from "@/components/_common/PageHero";
 import { PageMain } from "@/components/_common/PageMain";
 import { pageMetadata } from "@/components/_common/PageMetadata";
+import { ContactHero } from "@/components/pages/contact/ContactHero";
 import { EmailCard } from "@/components/pages/contact/EmailCard";
 import { LinkedInCard } from "@/components/pages/contact/LinkedInCard";
 import { LocationBanner } from "@/components/pages/contact/LocationBanner";
 import { RoleAlignment } from "@/components/pages/contact/RoleAlignment";
-
-const HERO_DESCRIPTION =
-  "Whether you're scaling a product team, modernising frontend foundations, or looking for a Senior Frontend Engineer who delivers with craft and pragmatic ownership.";
 
 export const metadata = pageMetadata(
   "/contact",
@@ -20,11 +17,7 @@ export const metadata = pageMetadata(
 export default function Contact() {
   return (
     <PageMain spacing={6}>
-      <PageHero
-        eyebrow="Contact & Work Inquiries"
-        title="Let's talk architecture, teams, or new opportunities."
-        description={HERO_DESCRIPTION}
-      />
+      <ContactHero />
 
       <CardGrid columns={{ xs: 1, lg: 12 }} gap={4}>
         <Stack spacing={3} sx={{ gridColumn: { lg: "span 6" } }}>
