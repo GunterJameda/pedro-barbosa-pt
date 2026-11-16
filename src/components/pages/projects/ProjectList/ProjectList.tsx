@@ -1,13 +1,7 @@
 import Stack from "@mui/material/Stack";
 import { FastNavigation } from "@/components/_common/FastNavigation";
-import { PROJECTS } from "./config";
+import { PROJECT_LINKS, PROJECTS } from "./content";
 import { ProjectCard } from "./ProjectCard";
-
-const PROJECT_LINKS = PROJECTS.map((project) => ({
-  name: project.name,
-  detail: project.category,
-  targetId: project.id,
-}));
 
 export function ProjectList() {
   return (

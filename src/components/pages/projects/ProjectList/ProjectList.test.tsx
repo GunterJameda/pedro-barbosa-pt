@@ -2,7 +2,7 @@ import { screen, within } from "@testing-library/react";
 import { describe, expect, it } from "vitest";
 import { GITHUB_URL } from "@/constants";
 import { renderWithTheme } from "@tests/render";
-import { PROJECTS } from "./config";
+import { PROJECTS } from "./content";
 import { ProjectList } from "./ProjectList";
 
 const projectNames = () =>

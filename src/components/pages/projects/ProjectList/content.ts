@@ -1,4 +1,5 @@
 import { GITHUB_URL } from "@/constants";
+import type { FastNavigationLink } from "@/components/_common/FastNavigation";
 import type { Project } from "./ProjectCard";
 
 /** Newest first. */
@@ -88,3 +89,10 @@ export const PROJECTS: Project[] = [
     ],
   },
 ];
+
+/** Fast Navigation's links, one per project card. */
+export const PROJECT_LINKS: FastNavigationLink[] = PROJECTS.map((project) => ({
+  name: project.name,
+  detail: project.category,
+  targetId: project.id,
+}));

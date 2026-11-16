@@ -12,36 +12,12 @@ import { Eyebrow } from "@/components/_common/Eyebrow";
 import { FeatureCard } from "@/components/_common/FeatureCard";
 import { SurfaceCard } from "@/components/_common/SurfaceCard";
 import { TagList } from "@/components/_common/TagList";
+import { privateCodeLabel } from "./styles";
+import { formatMonth } from "./utils";
 import type { Project } from "./types";
-
-// Takes the GitHub button's place and size, so every card has the same layout.
-const privateCodeLabel = {
-  display: "inline-flex",
-  alignItems: "center",
-  gap: 1,
-  px: 3,
-  py: 1,
-  border: 1,
-  borderColor: "surface.white8",
-  borderRadius: 2,
-  color: "text.secondary",
-  fontSize: 12,
-  fontWeight: 500,
-  lineHeight: "16px",
-  whiteSpace: "nowrap",
-};
 
 interface ProjectCardProps {
   project: Project;
-}
-
-/** "2021-05" becomes "May 2021". */
-function formatMonth(month: string) {
-  return new Date(`${month}-01T00:00:00Z`).toLocaleDateString("en-US", {
-    month: "short",
-    year: "numeric",
-    timeZone: "UTC",
-  });
 }
 
 export function ProjectCard({ project }: ProjectCardProps) {
