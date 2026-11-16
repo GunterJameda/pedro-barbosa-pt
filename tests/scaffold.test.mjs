@@ -1,9 +1,10 @@
 import assert from "node:assert/strict";
-import { existsSync, readdirSync } from "node:fs";
-import { basename, join } from "node:path";
+import { existsSync, readdirSync, readFileSync } from "node:fs";
+import { basename, dirname, extname, join, relative } from "node:path";
 import { describe, test } from "node:test";
 
 import { ESLint } from "eslint";
+import ts from "typescript";
 
 const ROOT = join(import.meta.dirname, "..");
 const RULE = "no-restricted-imports";
@@ -157,5 +158,85 @@ describe("folder structure", () => {
     }
     assert.ok(existsSync(join(ROOT, "src/theme/index.ts")));
     assert.ok(existsSync(join(ROOT, "src/constants/index.ts")));
+  });
+});
+
+describe("file names", () => {
+  const PASCAL_CASE = /^[A-Z][a-zA-Z0-9]*$/;
+  const CAMEL_CASE = /^[a-z][a-zA-Z0-9]*$/;
+  const CODE = new Set([".ts", ".tsx", ".mjs", ".js"]);
+  // Wrappers that turn a function into a component.
+  const COMPONENT_WRAPPERS = new Set(["memo", "forwardRef", "lazy", "styled"]);
+  // Next.js names these files itself, so they keep its kebab-case names.
+  const EXEMPT_FOLDERS = ["src/app/"];
+
+  const isExported = (node) =>
+    ts.getModifiers(node)?.some((modifier) => modifier.kind === ts.SyntaxKind.ExportKeyword);
+
+  const wrapperName = (expression) => {
+    while (ts.isCallExpression(expression)) expression = expression.expression;
+    if (ts.isPropertyAccessExpression(expression)) return expression.name.text;
+    return ts.isIdentifier(expression) ? expression.text : undefined;
+  };
+
+  const isComponentValue = (value) =>
+    value !== undefined &&
+    (ts.isArrowFunction(value) ||
+      ts.isFunctionExpression(value) ||
+      (ts.isCallExpression(value) && COMPONENT_WRAPPERS.has(wrapperName(value))));
+
+  /** A component file exports a PascalCase function, or a PascalCase const holding one. */
+  const isComponentFile = (file) => {
+    const source = ts.createSourceFile(
+      file,
+      readFileSync(join(ROOT, file), "utf8"),
+      ts.ScriptTarget.Latest,
+      true,
+    );
+    return source.statements.some((statement) => {
+      if (!isExported(statement)) return false;
+      if (ts.isFunctionDeclaration(statement)) {
+        return PASCAL_CASE.test(statement.name?.text ?? "");
+      }
+      if (ts.isVariableStatement(statement)) {
+        return statement.declarationList.declarations.some(
+          (declaration) =>
+            ts.isIdentifier(declaration.name) &&
+            PASCAL_CASE.test(declaration.name.text) &&
+            isComponentValue(declaration.initializer),
+        );
+      }
+      return false;
+    });
+  };
+
+  // Read from disk, not from git, so a case-only rename on a case-insensitive disk shows up.
+  const codeFiles = ["src", "tests"]
+    .flatMap(filesIn)
+    .map((file) => relative(ROOT, file))
+    .filter((file) => CODE.has(extname(file)))
+    .filter((file) => !EXEMPT_FOLDERS.some((folder) => file.startsWith(folder)));
+
+  // The part before the first dot, so Footer.test.tsx and navigation.spec.ts are named by their base.
+  const baseName = (file) => basename(file).split(".")[0];
+  const isTestFile = (file) => /\.(test|spec)\.[^.]+$/.test(file);
+
+  test("component files use PascalCase and every other file uses camelCase", () => {
+    const sources = codeFiles.filter((file) => !isTestFile(file));
+    const components = new Set(
+      sources.filter(isComponentFile).map((file) => join(dirname(file), baseName(file))),
+    );
+
+    const misnamed = codeFiles.flatMap((file) => {
+      const name = baseName(file);
+      // A test is named after the file it tests when one sits next to it, and camelCase otherwise.
+      const isComponent = components.has(join(dirname(file), name));
+      if (isComponent) {
+        return PASCAL_CASE.test(name) ? [] : [`${file} is a component, so it needs PascalCase`];
+      }
+      return CAMEL_CASE.test(name) ? [] : [`${file} isn't a component, so it needs camelCase`];
+    });
+
+    assert.deepEqual(misnamed, []);
   });
 });
