@@ -84,6 +84,24 @@ test.describe("script payloads in the address", () => {
   });
 });
 
+test.describe("structured data", () => {
+  // The only HTML the site writes itself. A "<" in it could close the script
+  // tag early and turn the rest of the data into markup.
+  for (const route of PAGE_ROUTES) {
+    test(`stays inside its script tag on ${route}`, async ({ request }) => {
+      const html = await (await request.get(route)).text();
+      const scripts = [
+        ...html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g),
+      ].map((match) => match[1] ?? "");
+      for (const json of scripts) {
+        expect(json).not.toContain("<");
+        expect(() => JSON.parse(json) as unknown).not.toThrow();
+      }
+      if (route === "/") expect(scripts.length).toBeGreaterThan(0);
+    });
+  }
+});
+
 test.describe("the old /home address", () => {
   test("only ever redirects within the site", async ({ request, baseURL }) => {
     const site = new URL(baseURL!).origin;
