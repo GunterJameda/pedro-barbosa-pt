@@ -47,4 +47,16 @@ describe("serializeJsonLd", () => {
       '{"name":"Pedro & Sons > \\"co\\" - Lisboa, Portugal"}',
     );
   });
+
+  it("fails clearly when the data has no JSON form", () => {
+    expect(() => serializeJsonLd({ toJSON: () => undefined })).toThrow("no JSON form");
+    expect(() => serializeJsonLd(() => "Ana")).toThrow("no JSON form");
+  });
+
+  it("fails on data JSON can't hold, instead of writing part of it", () => {
+    const loop: Record<string, unknown> = { name: "Ana" };
+    loop.self = loop;
+    expect(() => serializeJsonLd(loop)).toThrow(TypeError);
+    expect(() => serializeJsonLd({ count: BigInt(1) })).toThrow(TypeError);
+  });
 });
