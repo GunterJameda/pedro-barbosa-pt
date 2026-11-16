@@ -1,53 +1,15 @@
-import { readFile } from "node:fs/promises";
-import { join } from "node:path";
 import { ImageResponse } from "next/og";
-import { LOCATION, NAME, PAGES, ROLE } from "@/constants";
+import type { PageLink } from "@/constants";
+import { LOCATION, NAME, ROLE } from "@/constants";
 import { slate, surfaces, teal, white } from "@/theme";
-import { ALT, DOMAIN, FONTS, SIZE, TAGS } from "./config";
-
-// Read once when the module loads, so the image can be prerendered.
-const fonts = await Promise.all(
-  FONTS.map(async ({ name, file, weight }) => ({
-    name,
-    weight,
-    style: "normal" as const,
-    data: await readFile(join(process.cwd(), "assets/fonts", file)),
-  })),
-);
-
-// The site's favicon, so the image carries the same mark.
-const logo = `data:image/svg+xml;base64,${(
-  await readFile(join(process.cwd(), "src/app/icon.svg"))
-).toString("base64")}`;
-
-const pageFor = (path?: string) => PAGES.find((page) => page.href === path);
-
-/** Alt text for a page's preview image. Without a path, it's the site-wide one. */
-export function shareImageAlt(path?: string) {
-  const page = pageFor(path);
-  return page ? `${page.name} · ${ALT}` : ALT;
-}
+import { FONT_DATA, LOGO, SIZE } from "./constants";
+import { DOMAIN, TAGS } from "./content";
 
 /**
- * Everything a route's opengraph-image file exports, so each one only names
- * its page. Without a path, it's the site-wide image.
- */
-export function shareImageRoute(path?: string) {
-  return {
-    alt: shareImageAlt(path),
-    size: SIZE,
-    contentType: "image/png",
-    Image: () => ShareImage({ path }),
-  };
-}
-
-/**
- * Link preview image shown when a page of the site is shared. With a path, it
+ * Link preview image shown when a page of the site is shared. With a page, it
  * also shows that page's name and address.
  */
-export function ShareImage({ path }: { path?: string } = {}) {
-  const page = pageFor(path);
-
+export function ShareImage({ page }: { page?: PageLink } = {}) {
   return new ImageResponse(
     <div
       style={{
@@ -70,7 +32,7 @@ export function ShareImage({ path }: { path?: string } = {}) {
         }}
       >
         {/* eslint-disable-next-line @next/next/no-img-element -- rendered to a PNG, not a page */}
-        <img src={logo} width={80} height={80} alt="" />
+        <img src={LOGO} width={80} height={80} alt="" />
         <div
           style={{
             color: slate[300],
@@ -171,6 +133,6 @@ export function ShareImage({ path }: { path?: string } = {}) {
         {`${DOMAIN}${page?.href ?? ""}`}
       </div>
     </div>,
-    { ...SIZE, fonts },
+    { ...SIZE, fonts: FONT_DATA },
   );
 }

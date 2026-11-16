@@ -1,1 +1,1 @@
-export { shareImageAlt, shareImageRoute } from "./ShareImage";
+export { shareImageAlt, shareImageRoute } from "./utils";
