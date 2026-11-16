@@ -33,6 +33,8 @@ It's a small site, but I built it the way I'd build a production project:
 - **Secure by default.** Every page is sent with security headers: a Content Security Policy that only lets the site load its own files, no framing by other sites, and no access to device features it doesn't use. Tests check them on every page.
 - **Ready to be found and shared.** A sitemap, structured data for search engines, and link preview images generated from code.
 
+For how the code is organised, the rules it follows and how they're checked, see [the architecture notes](docs/ARCHITECTURE.md).
+
 ## Running it locally
 
 You'll need Node.js 24 and Yarn (available through Corepack).
