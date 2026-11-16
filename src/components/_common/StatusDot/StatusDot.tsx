@@ -1,11 +1,7 @@
 "use client";
 
 import Box from "@mui/material/Box";
-import { keyframes } from "@mui/material/styles";
-
-const pulseAnimation = keyframes`
-  50% { opacity: 0.5; }
-`;
+import { pulseAnimation } from "./styles";
 
 interface StatusDotProps {
   size?: number;

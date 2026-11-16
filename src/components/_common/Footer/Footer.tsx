@@ -3,11 +3,7 @@ import Box from "@mui/material/Box";
 import Link from "@mui/material/Link";
 import Stack from "@mui/material/Stack";
 import { CONTENT_MAX_WIDTH, EMAIL, LOCATION, MAILTO_URL, SOCIAL_LINKS } from "@/constants";
-
-const linkHover = {
-  transition: "color 150ms",
-  "&:hover": { color: "primary.light" },
-};
+import { linkHover } from "./styles";
 
 export function Footer() {
   return (
