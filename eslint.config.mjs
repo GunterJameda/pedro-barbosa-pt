@@ -55,7 +55,7 @@ const eslintConfig = defineConfig([
   // within each one: side-effect imports, node: built-ins, react and next,
   // @mui, other packages, @/constants and @/theme, @/components/_common,
   // @/components/pages, any other @/ code, @tests/ helpers, then the
-  // module's own files (constants, content, config, styles, utils, types)
+  // module's own files (constants, content, styles, utils, types)
   // and its child modules. Type imports end in \u0000, so each pattern
   // allows it.
   {
@@ -78,7 +78,6 @@ const eslintConfig = defineConfig([
               "^@tests/",
               "^\\./constants\\u0000?$",
               "^\\./content\\u0000?$",
-              "^\\./config\\u0000?$",
               "^\\./styles\\u0000?$",
               "^\\./utils\\u0000?$",
               "^\\./types\\u0000?$",
