@@ -2,7 +2,16 @@ import type { APIResponse } from "@playwright/test";
 import { PAGE_ROUTES } from "@tests/pages";
 import { expect, test } from "./fixtures";
 
-const PATHS = [...PAGE_ROUTES, "/this-page-does-not-exist"];
+// Every page, the 404 page and every file the site serves besides pages.
+const PATHS = [
+  ...PAGE_ROUTES,
+  "/this-page-does-not-exist",
+  ...PAGE_ROUTES.map((route) => `${route === "/" ? "" : route}/opengraph-image`),
+  "/sitemap.xml",
+  "/robots.txt",
+  "/icon.svg",
+  "/favicon.ico",
+];
 
 /** The enforced Content Security Policy, as directive name to sources. */
 function contentSecurityPolicy(response: APIResponse) {
@@ -30,6 +39,8 @@ for (const path of PATHS) {
       expect(policy.get("object-src")).toEqual(["'none'"]);
       expect(policy.get("base-uri")).toEqual(["'self'"]);
       expect(policy.get("form-action")).toEqual(["'self'"]);
+      // Scripts only run from script tags, never from attributes like onerror.
+      expect(policy.get("script-src-attr")).toEqual(["'none'"]);
     });
 
     test("stop other sites from framing the page", async ({ request }) => {
@@ -44,6 +55,9 @@ for (const path of PATHS) {
       expect(headers["referrer-policy"]).toBe("strict-origin-when-cross-origin");
       expect(headers["cross-origin-opener-policy"]).toBe("same-origin");
       expect(headers["permissions-policy"]).toContain("camera=()");
+      // At least a year, so browsers keep using HTTPS between visits.
+      const maxAge = Number(headers["strict-transport-security"]?.match(/max-age=(\d+)/)?.[1]);
+      expect(maxAge).toBeGreaterThanOrEqual(365 * 24 * 60 * 60);
     });
   });
 }
