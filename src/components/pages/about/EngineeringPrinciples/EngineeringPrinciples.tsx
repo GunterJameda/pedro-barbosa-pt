@@ -6,7 +6,7 @@ import { Eyebrow } from "@/components/_common/Eyebrow";
 import { FeatureCard } from "@/components/_common/FeatureCard";
 import { IconBadge } from "@/components/_common/IconBadge";
 import { SectionHeading } from "@/components/_common/SectionHeading";
-import { PRINCIPLES } from "./config";
+import { PRINCIPLES } from "./content";
 
 export function EngineeringPrinciples() {
   return (

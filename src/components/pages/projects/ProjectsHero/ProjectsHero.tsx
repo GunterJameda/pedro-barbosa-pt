@@ -1,6 +1,6 @@
 import { MetricCards } from "@/components/_common/MetricCards";
 import { PageHero } from "@/components/_common/PageHero";
-import { FOCUS_CARDS } from "./config";
+import { FOCUS_CARDS } from "./content";
 
 export function ProjectsHero() {
   return (

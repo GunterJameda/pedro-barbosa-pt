@@ -1,5 +1,5 @@
 import { ActionButton } from "@/components/_common/ActionButton";
-import { LINKS } from "./config";
+import { LINKS } from "./content";
 
 export function QuickLinks() {
   return LINKS.map((link) => (

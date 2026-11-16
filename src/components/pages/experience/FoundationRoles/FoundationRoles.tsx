@@ -7,7 +7,7 @@ import { CardGrid } from "@/components/_common/CardGrid";
 import { DotLabel } from "@/components/_common/DotLabel";
 import { SurfaceCard } from "@/components/_common/SurfaceCard";
 import { TagList } from "@/components/_common/TagList";
-import { FOUNDATION_ROLES } from "./config";
+import { FOUNDATION_ROLES } from "./content";
 
 export function FoundationRoles() {
   return (

@@ -1,4 +1,4 @@
-import { PROFILE_PAGE } from "./config";
+import { PROFILE_PAGE } from "./content";
 
 /** Tells search engines this page is the profile of the person the site is about (JSON-LD). */
 export function PersonSchema() {

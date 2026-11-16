@@ -32,7 +32,7 @@ all rights reserved, and is not licensed for reuse. The content is:
 
 - The site's text and copy, including the CV, experience, project
   descriptions and about-me writing, wherever it appears in the repository
-  (for example the text in src/constants/profile.ts and in the config.ts files
+  (for example the text in src/constants/profile.ts and in the content.ts files
   under src/components/pages/).
 - The name "Pedro Barbosa", the pedrobarbosa.pt domain, and any photos,
   logos and icons that identify the site (such as src/app/icon.svg and

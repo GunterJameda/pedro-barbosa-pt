@@ -1,6 +1,6 @@
 import { MetricCards } from "@/components/_common/MetricCards";
 import { PageHero } from "@/components/_common/PageHero";
-import { METRICS } from "./config";
+import { METRICS } from "./content";
 
 export function ExperienceHero() {
   return (

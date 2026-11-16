@@ -8,7 +8,7 @@ import { DotLabel } from "@/components/_common/DotLabel";
 import { Eyebrow } from "@/components/_common/Eyebrow";
 import { SurfaceCard } from "@/components/_common/SurfaceCard";
 import { TagList } from "@/components/_common/TagList";
-import { CAREER_ROLES } from "./config";
+import { CAREER_ROLES } from "./content";
 
 export function CareerMilestones() {
   return (

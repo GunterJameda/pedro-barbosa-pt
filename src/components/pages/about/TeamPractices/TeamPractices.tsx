@@ -6,7 +6,7 @@ import { CardGrid } from "@/components/_common/CardGrid";
 import { FeatureCard } from "@/components/_common/FeatureCard";
 import { IconBadge } from "@/components/_common/IconBadge";
 import { SectionHeading } from "@/components/_common/SectionHeading";
-import { TEAM_PRACTICES } from "./config";
+import { TEAM_PRACTICES } from "./content";
 
 export function TeamPractices() {
   return (

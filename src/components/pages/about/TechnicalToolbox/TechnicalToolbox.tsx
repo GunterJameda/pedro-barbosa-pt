@@ -6,7 +6,7 @@ import { SectionHeading } from "@/components/_common/SectionHeading";
 import { StatusDot } from "@/components/_common/StatusDot";
 import { SurfaceCard } from "@/components/_common/SurfaceCard";
 import { TagList } from "@/components/_common/TagList";
-import { TOOLBOX_GROUPS } from "./config";
+import { TOOLBOX_GROUPS } from "./content";
 
 export function TechnicalToolbox() {
   return (

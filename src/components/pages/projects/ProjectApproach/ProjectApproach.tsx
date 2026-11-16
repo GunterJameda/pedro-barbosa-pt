@@ -6,7 +6,7 @@ import { CardGrid } from "@/components/_common/CardGrid";
 import { FeatureCard } from "@/components/_common/FeatureCard";
 import { IconBadge } from "@/components/_common/IconBadge";
 import { SectionHeading } from "@/components/_common/SectionHeading";
-import { APPROACH_STEPS } from "./config";
+import { APPROACH_STEPS } from "./content";
 
 export function ProjectApproach() {
   return (
