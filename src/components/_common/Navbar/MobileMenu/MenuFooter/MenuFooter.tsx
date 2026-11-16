@@ -2,18 +2,7 @@ import Link from "@mui/material/Link";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 import { LOCATION, SOCIAL_LINKS } from "@/constants";
-import { fontMono } from "@/theme";
-
-const socialLink = {
-  display: "inline-flex",
-  alignItems: "center",
-  gap: 0.5,
-  color: "text.secondary",
-  fontFamily: fontMono,
-  fontSize: 12,
-  transition: "color 150ms",
-  "&:hover": { color: "primary.light" },
-};
+import { socialLink } from "./styles";
 
 /** Location and social profiles, at the bottom of the menu. */
 export function MenuFooter() {

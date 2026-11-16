@@ -10,19 +10,10 @@ import Stack from "@mui/material/Stack";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { NAVBAR_HEIGHT } from "@/constants";
 import { ActionButton } from "@/components/_common/ActionButton";
+import { DESKTOP_QUERY, MENU_ID } from "./constants";
+import { menuButton } from "./styles";
 import { AvailabilityCard } from "./AvailabilityCard";
 import { MenuFooter } from "./MenuFooter";
-
-const menuButton = {
-  width: 40,
-  height: 40,
-  borderRadius: 2,
-  color: "common.white",
-  backgroundColor: "surface.white4",
-  border: 1,
-  borderColor: "surface.white10",
-  "&:hover": { backgroundColor: "surface.white8" },
-};
 
 interface MobileMenuProps {
   /** The logo, shown in the menu's header. */
@@ -33,7 +24,7 @@ interface MobileMenuProps {
 
 export function MobileMenu({ brand, nav }: MobileMenuProps) {
   const [isOpen, setIsOpen] = useState(false);
-  const isDesktop = useMediaQuery("(min-width:1200px)");
+  const isDesktop = useMediaQuery(DESKTOP_QUERY);
   const close = () => setIsOpen(false);
 
   // Closes the menu if the screen grows past the mobile layout while it's
@@ -50,7 +41,7 @@ export function MobileMenu({ brand, nav }: MobileMenuProps) {
       <IconButton
         aria-label="Open menu"
         aria-expanded={isOpen}
-        aria-controls="mobile-menu"
+        aria-controls={MENU_ID}
         onClick={() => setIsOpen(true)}
         sx={menuButton}
       >
@@ -58,7 +49,7 @@ export function MobileMenu({ brand, nav }: MobileMenuProps) {
       </IconButton>
 
       <Drawer
-        id="mobile-menu"
+        id={MENU_ID}
         anchor="right"
         open={isOpen}
         onClose={close}

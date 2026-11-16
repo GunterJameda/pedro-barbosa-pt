@@ -9,20 +9,8 @@ import Box from "@mui/material/Box";
 import Chip from "@mui/material/Chip";
 import { AVAILABILITY } from "@/constants";
 import { StatusDot } from "@/components/_common/StatusDot";
-import { STATUS_LABEL, STATUS_LABELS, STATUS_SHORT_LABEL } from "./config";
-
-const chip = {
-  gap: 1,
-  height: 24,
-  color: "primary.main",
-  backgroundColor: "surface.teal10",
-  border: 1,
-  borderColor: "surface.teal20",
-  fontSize: 12,
-  fontWeight: 500,
-  "& .MuiChip-icon": { m: 0 },
-  "& .MuiChip-label": { p: 0 },
-};
+import { STATUS_LABEL, STATUS_LABELS, STATUS_SHORT_LABEL } from "./content";
+import { chip } from "./styles";
 
 /**
  * Availability chip. The full one shows on desktop; the compact one, on

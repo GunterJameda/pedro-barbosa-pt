@@ -3,7 +3,7 @@ import Typography from "@mui/material/Typography";
 import { AVAILABILITY } from "@/constants";
 import { fontMono } from "@/theme";
 import { StatusDot } from "@/components/_common/StatusDot";
-import { AVAILABILITY_TEXT } from "./config";
+import { AVAILABILITY_TEXT } from "./content";
 
 /** Availability row in the menu. Hidden when not looking. */
 export function AvailabilityCard() {
