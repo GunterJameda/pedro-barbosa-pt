@@ -1,4 +1,4 @@
-import Box from "@mui/material/Box";
+import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import Stack from "@mui/material/Stack";
 import { fontMono } from "@/theme";
 import { CardFooter } from "@/components/_common/CardFooter";
@@ -33,9 +33,7 @@ export function ProjectApproach() {
                   fontSize: 12,
                 }}
               >
-                <Box component="span" aria-hidden sx={{ color: "slate.500" }}>
-                  →
-                </Box>
+                <ArrowForwardIcon sx={{ fontSize: 14, color: "slate.500" }} />
                 <span>{step.note}</span>
               </CardFooter>
             }
