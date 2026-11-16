@@ -93,6 +93,20 @@ const eslintConfig = defineConfig([
     files: ["src/**/*.{ts,tsx}"],
     rules: boundaries(null),
   },
+  // A link that opens a new tab must not let that tab reach back into the
+  // site (rel="noopener noreferrer"), and no link may run code (javascript:).
+  {
+    files: ["src/**/*.tsx"],
+    // Material UI's Link and Button render a link when given an href.
+    settings: { linkComponents: ["Link", "Button"] },
+    rules: {
+      "react/jsx-no-target-blank": [
+        "error",
+        { allowReferrer: false, enforceDynamicLinks: "always" },
+      ],
+      "react/jsx-no-script-url": "error",
+    },
+  },
   ...PAGE_SCOPES.map((page) => ({
     files: [
       // Home is the root route, so its page file sits directly in src/app.
