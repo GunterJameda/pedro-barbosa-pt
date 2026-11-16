@@ -1,3 +1,4 @@
+import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import MailOutlinedIcon from "@mui/icons-material/MailOutlined";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
@@ -44,7 +45,7 @@ export function PreFooterCTA({
         useFlexGap
         sx={{ flexWrap: "wrap", alignItems: "center", flexShrink: 0 }}
       >
-        <ActionButton href={secondaryButtonHref} endIcon={<span>→</span>}>
+        <ActionButton href={secondaryButtonHref} endIcon={<ArrowForwardIcon />}>
           {secondaryButtonText}
         </ActionButton>
         <ActionButton href="/contact" primary endIcon={<MailOutlinedIcon />}>

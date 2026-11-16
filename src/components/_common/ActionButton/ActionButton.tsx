@@ -55,7 +55,6 @@ export function ActionButton({
         "& .MuiButton-startIcon": { ml: 0, mr: 1 },
         "& .MuiButton-endIcon": { ml: 1, mr: 0 },
         // Doubled to win over MUI's default icon size.
-        "&& .MuiButton-endIcon > *": { fontSize: "inherit" },
         "&& .MuiButton-endIcon > svg": { fontSize: 14 },
         "&& .MuiButton-startIcon > svg": { fontSize: 16 },
       }}
