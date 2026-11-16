@@ -1,8 +1,6 @@
 import { screen, within } from "@testing-library/react";
 import { describe, expect, it } from "vitest";
-
 import { renderWithTheme } from "@tests/render";
-
 import { FastNavigation } from "./FastNavigation";
 
 const LINKS = [

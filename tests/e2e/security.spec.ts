@@ -1,7 +1,5 @@
 import type { APIResponse } from "@playwright/test";
-
 import { PAGE_ROUTES } from "@tests/pages";
-
 import { expect, test } from "./fixtures";
 
 const PATHS = [...PAGE_ROUTES, "/this-page-does-not-exist"];

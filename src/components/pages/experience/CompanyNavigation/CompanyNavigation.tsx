@@ -1,5 +1,4 @@
 import { FastNavigation } from "@/components/_common/FastNavigation";
-
 import { COMPANY_LINKS } from "./config";
 
 export function CompanyNavigation() {

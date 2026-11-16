@@ -1,5 +1,4 @@
 import { vi } from "vitest";
-
 import type { Availability, WorkMode } from "@/constants";
 
 interface ProfileSettings {

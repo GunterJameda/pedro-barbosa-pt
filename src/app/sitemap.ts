@@ -1,5 +1,4 @@
 import type { MetadataRoute } from "next";
-
 import { PAGES, SITE_URL } from "@/constants";
 
 export default function sitemap(): MetadataRoute.Sitemap {

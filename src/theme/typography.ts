@@ -1,8 +1,7 @@
-import type { Breakpoints } from "@mui/material/styles";
 import type { CSSProperties } from "react";
-
-import { fontMono, slate, white } from "./tokens";
+import type { Breakpoints } from "@mui/material/styles";
 import type { TextVariant } from "./types";
+import { fontMono, slate, white } from "./tokens";
 
 export const sans =
   'var(--font-sans), system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';

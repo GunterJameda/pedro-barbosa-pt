@@ -1,12 +1,10 @@
-import { screen, within } from "@testing-library/react";
 import { usePathname } from "next/navigation";
+import { screen, within } from "@testing-library/react";
 import { describe, expect, it, vi } from "vitest";
-
 import { PAGES } from "@/constants";
 import { renderWithTheme } from "@tests/render";
-
-import { NavLinks } from "./NavLinks";
 import type { NavLinksVariant } from "./types";
+import { NavLinks } from "./NavLinks";
 
 vi.mock("next/navigation", () => ({ usePathname: vi.fn() }));
 

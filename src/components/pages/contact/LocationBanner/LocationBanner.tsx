@@ -1,11 +1,10 @@
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
-
+import { IS_LOOKING, WORK_MODE_ROLES } from "@/constants";
+import { fontMono } from "@/theme";
 import { Eyebrow } from "@/components/_common/Eyebrow";
 import { StatusDot } from "@/components/_common/StatusDot";
 import { SurfaceCard } from "@/components/_common/SurfaceCard";
-import { IS_LOOKING, WORK_MODE_ROLES } from "@/constants";
-import { fontMono } from "@/theme";
 
 export function LocationBanner() {
   return (

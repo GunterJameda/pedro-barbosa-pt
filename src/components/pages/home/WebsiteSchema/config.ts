@@ -1,5 +1,4 @@
 import { SITE_ALTERNATE_NAME, SITE_NAME, SITE_URL } from "@/constants";
-
 import type { WebsiteData } from "./types";
 
 export const WEBSITE: WebsiteData = {

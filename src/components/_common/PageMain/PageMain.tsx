@@ -1,6 +1,5 @@
-import Stack from "@mui/material/Stack";
 import type { ReactNode } from "react";
-
+import Stack from "@mui/material/Stack";
 import { CONTENT_MAX_WIDTH, MAIN_ID } from "@/constants";
 
 interface PageMainProps {

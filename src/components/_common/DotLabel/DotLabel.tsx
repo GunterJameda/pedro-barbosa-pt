@@ -1,6 +1,5 @@
-import Stack from "@mui/material/Stack";
 import type { ReactNode } from "react";
-
+import Stack from "@mui/material/Stack";
 import { Eyebrow } from "@/components/_common/Eyebrow";
 import { StatusDot } from "@/components/_common/StatusDot";
 

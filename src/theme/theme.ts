@@ -1,8 +1,7 @@
 "use client";
 
-import { createTheme } from "@mui/material/styles";
 import NextLink from "next/link";
-
+import { createTheme } from "@mui/material/styles";
 import { slate, surfaces, teal } from "./tokens";
 import { createTextVariants, sans, TEXT_VARIANT_ELEMENTS } from "./typography";
 

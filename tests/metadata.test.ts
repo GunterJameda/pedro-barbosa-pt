@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
 import { describe, expect, it, vi } from "vitest";
-
 import type { Availability, WorkMode } from "@/constants";
-
 import { PAGE_ROUTES, routeModule } from "./pages";
 import { setProfile } from "./profile";
 

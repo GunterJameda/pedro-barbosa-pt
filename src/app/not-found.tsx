@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-
 import { ActionButton } from "@/components/_common/ActionButton";
 import { CenteredHero } from "@/components/_common/CenteredHero";
 import { CenteredMain } from "@/components/_common/CenteredMain";

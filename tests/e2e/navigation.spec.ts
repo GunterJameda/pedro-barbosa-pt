@@ -1,5 +1,4 @@
 import type { Page } from "@playwright/test";
-
 import { expect, isPhone, test } from "./fixtures";
 
 const mainNav = (page: Page) => page.getByRole("navigation", { name: "Main" });

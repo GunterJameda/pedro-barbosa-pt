@@ -1,8 +1,6 @@
 import AxeBuilder from "@axe-core/playwright";
 import type { Page } from "@playwright/test";
-
 import { PAGE_ROUTES } from "@tests/pages";
-
 import { expect, EXPECTS_404, test } from "./fixtures";
 
 const MISSING_PAGE = "/this-page-does-not-exist";

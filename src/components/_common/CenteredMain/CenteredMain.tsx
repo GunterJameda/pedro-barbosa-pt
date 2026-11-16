@@ -1,6 +1,5 @@
-import Box from "@mui/material/Box";
 import type { ReactNode } from "react";
-
+import Box from "@mui/material/Box";
 import { MAIN_ID } from "@/constants";
 
 /** Page body that centres a single short message on the screen, like Home. */

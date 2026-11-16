@@ -1,6 +1,5 @@
-import Typography from "@mui/material/Typography";
 import type { ElementType, ReactNode } from "react";
-
+import Typography from "@mui/material/Typography";
 import { fontMono } from "@/theme";
 
 interface EyebrowProps {

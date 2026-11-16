@@ -1,10 +1,8 @@
 import { screen, within } from "@testing-library/react";
 import { describe, expect, it } from "vitest";
-
 import { renderWithTheme } from "@tests/render";
-
-import { ProjectCard } from "./ProjectCard";
 import type { Project } from "./types";
+import { ProjectCard } from "./ProjectCard";
 
 const project = (overrides: Partial<Project> = {}): Project => ({
   id: "sample",

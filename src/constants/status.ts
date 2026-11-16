@@ -1,5 +1,5 @@
-import { AVAILABILITY, WORK_MODE } from "./profile";
 import type { WorkMode } from "./types";
+import { AVAILABILITY, WORK_MODE } from "./profile";
 
 // Values that follow from the settings in profile.ts.
 

@@ -1,5 +1,4 @@
 import Box from "@mui/material/Box";
-
 import { fontMono } from "@/theme";
 
 interface TagListProps {

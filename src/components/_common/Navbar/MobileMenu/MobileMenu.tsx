@@ -1,5 +1,6 @@
 "use client";
 
+import { type MouseEvent, type ReactNode, useState } from "react";
 import CloseIcon from "@mui/icons-material/Close";
 import MailOutlinedIcon from "@mui/icons-material/MailOutlined";
 import MenuIcon from "@mui/icons-material/Menu";
@@ -7,11 +8,8 @@ import Drawer from "@mui/material/Drawer";
 import IconButton from "@mui/material/IconButton";
 import Stack from "@mui/material/Stack";
 import useMediaQuery from "@mui/material/useMediaQuery";
-import { type MouseEvent, type ReactNode, useState } from "react";
-
-import { ActionButton } from "@/components/_common/ActionButton";
 import { NAVBAR_HEIGHT } from "@/constants";
-
+import { ActionButton } from "@/components/_common/ActionButton";
 import { AvailabilityCard } from "./AvailabilityCard";
 import { MenuFooter } from "./MenuFooter";
 

@@ -1,3 +1,4 @@
+import { LOCATION } from "@/constants";
 import { CenteredHero } from "@/components/_common/CenteredHero";
 import { CenteredMain } from "@/components/_common/CenteredMain";
 import { pageMetadata } from "@/components/_common/PageMetadata";
@@ -5,7 +6,6 @@ import { Highlight } from "@/components/pages/home/Highlight";
 import { PersonSchema } from "@/components/pages/home/PersonSchema";
 import { QuickLinks } from "@/components/pages/home/QuickLinks";
 import { WebsiteSchema } from "@/components/pages/home/WebsiteSchema";
-import { LOCATION } from "@/constants";
 
 export const metadata = pageMetadata("/");
 

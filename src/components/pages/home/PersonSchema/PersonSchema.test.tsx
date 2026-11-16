@@ -1,6 +1,5 @@
 import { renderToStaticMarkup } from "react-dom/server";
 import { describe, expect, it } from "vitest";
-
 import { GITHUB_URL, LINKEDIN_URL, SITE_URL } from "@/constants";
 import { setProfile } from "@tests/profile";
 

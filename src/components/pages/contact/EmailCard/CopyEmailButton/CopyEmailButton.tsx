@@ -1,12 +1,10 @@
 "use client";
 
+import { useEffect, useRef, useState } from "react";
 import ContentCopyOutlinedIcon from "@mui/icons-material/ContentCopyOutlined";
 import Box from "@mui/material/Box";
-import { useEffect, useRef, useState } from "react";
-
-import { ActionButton } from "@/components/_common/ActionButton";
 import { EMAIL } from "@/constants";
-
+import { ActionButton } from "@/components/_common/ActionButton";
 import { LABELS, RESET_AFTER_MS } from "./config";
 import type { CopyStatus } from "./types";
 

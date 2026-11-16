@@ -1,5 +1,5 @@
-import Box from "@mui/material/Box";
 import type { ReactNode } from "react";
+import Box from "@mui/material/Box";
 
 interface CardGridProps {
   columns: { xs: number; sm?: number; md?: number; lg?: number };

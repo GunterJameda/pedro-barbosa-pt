@@ -1,8 +1,7 @@
 "use client";
 
-import Box from "@mui/material/Box";
 import type { MouseEvent } from "react";
-
+import Box from "@mui/material/Box";
 import { MAIN_ID, SKIP_LINK_ID } from "@/constants";
 
 /** Hidden until reached by keyboard, then lets visitors jump past the Navbar. */

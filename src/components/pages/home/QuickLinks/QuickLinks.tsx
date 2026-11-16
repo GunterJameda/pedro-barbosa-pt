@@ -1,5 +1,4 @@
 import { ActionButton } from "@/components/_common/ActionButton";
-
 import { LINKS } from "./config";
 
 export function QuickLinks() {

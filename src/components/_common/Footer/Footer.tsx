@@ -2,7 +2,6 @@ import PlaceOutlinedIcon from "@mui/icons-material/PlaceOutlined";
 import Box from "@mui/material/Box";
 import Link from "@mui/material/Link";
 import Stack from "@mui/material/Stack";
-
 import { CONTENT_MAX_WIDTH, EMAIL, LOCATION, MAILTO_URL, SOCIAL_LINKS } from "@/constants";
 
 const linkHover = {

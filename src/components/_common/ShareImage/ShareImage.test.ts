@@ -1,8 +1,6 @@
 // @vitest-environment node
 import { describe, expect, it } from "vitest";
-
 import { NAME, PAGES, ROLE } from "@/constants";
-
 import { shareImageAlt } from "./ShareImage";
 
 describe("shareImageAlt", () => {

@@ -1,6 +1,6 @@
-import type { Metric } from "@/components/_common/MetricCards";
 import type { Availability, WorkMode } from "@/constants";
 import { AVAILABILITY, LOCATION, WORK_MODE } from "@/constants";
+import type { Metric } from "@/components/_common/MetricCards";
 
 const WORK_MODE_LABEL: Record<WorkMode, string> = {
   "remote-and-hybrid": "Remote & Hybrid",

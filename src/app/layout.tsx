@@ -1,17 +1,16 @@
+import type { Metadata } from "next";
+import { JetBrains_Mono, Plus_Jakarta_Sans } from "next/font/google";
 import Box from "@mui/material/Box";
 import CssBaseline from "@mui/material/CssBaseline";
 import { ThemeProvider } from "@mui/material/styles";
 import { AppRouterCacheProvider } from "@mui/material-nextjs/v16-appRouter";
 import { Analytics } from "@vercel/analytics/next";
-import type { Metadata } from "next";
-import { JetBrains_Mono, Plus_Jakarta_Sans } from "next/font/google";
-
+import { NAME, ROLE, SITE_NAME, SITE_URL } from "@/constants";
+import { theme } from "@/theme";
 import { Footer } from "@/components/_common/Footer";
 import { Navbar } from "@/components/_common/Navbar";
 import { ScrollToTop } from "@/components/_common/ScrollToTop";
 import { SkipLink } from "@/components/_common/SkipLink";
-import { NAME, ROLE, SITE_NAME, SITE_URL } from "@/constants";
-import { theme } from "@/theme";
 
 const fontSans = Plus_Jakarta_Sans({
   variable: "--font-sans",

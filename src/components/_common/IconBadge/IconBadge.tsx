@@ -1,5 +1,5 @@
-import Box from "@mui/material/Box";
 import type { ElementType } from "react";
+import Box from "@mui/material/Box";
 
 interface IconBadgeProps {
   icon: ElementType;

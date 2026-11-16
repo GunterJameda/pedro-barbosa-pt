@@ -1,6 +1,5 @@
 import { readdirSync } from "node:fs";
 import { join } from "node:path";
-
 import { defineConfig, globalIgnores } from "eslint/config";
 import nextVitals from "eslint-config-next/core-web-vitals";
 import nextTs from "eslint-config-next/typescript";
@@ -52,8 +51,13 @@ const boundaries = (currentPage) => ({
 const eslintConfig = defineConfig([
   ...nextVitals,
   ...nextTs,
-  // Packages first, then the project's own @/ imports, then ./ imports,
-  // each group sorted A to Z.
+  // Imports are one block with no blank lines, ordered by layer and A to Z
+  // within each one: side-effect imports, node: built-ins, react and next,
+  // @mui, other packages, @/constants and @/theme, @/components/_common,
+  // @/components/pages, any other @/ code, @tests/ helpers, then the
+  // module's own files (constants, content, config, styles, utils, types)
+  // and its child modules. Type imports end in \u0000, so each pattern
+  // allows it.
   {
     plugins: { "simple-import-sort": simpleImportSort },
     rules: {
@@ -61,12 +65,25 @@ const eslintConfig = defineConfig([
         "error",
         {
           groups: [
-            ["^\\u0000"],
-            ["^node:"],
-            ["^@?\\w"],
-            // This project's own code: @/ and the @tests/ helpers.
-            ["^@/", "^@tests/", "^"],
-            ["^\\."],
+            [
+              "^\\u0000",
+              "^node:",
+              "^(react|react-dom|next)(/|\\u0000|$)",
+              "^@mui/",
+              "^@?\\w",
+              "^@/(constants|theme)(/|\\u0000|$)",
+              "^@/components/_common(/|\\u0000|$)",
+              "^@/components/pages(/|\\u0000|$)",
+              "^@/",
+              "^@tests/",
+              "^\\./constants\\u0000?$",
+              "^\\./content\\u0000?$",
+              "^\\./config\\u0000?$",
+              "^\\./styles\\u0000?$",
+              "^\\./utils\\u0000?$",
+              "^\\./types\\u0000?$",
+              "^\\.",
+            ],
           ],
         },
       ],

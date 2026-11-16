@@ -1,6 +1,5 @@
 import { screen } from "@testing-library/react";
 import { describe, expect, it } from "vitest";
-
 import type { Availability, WorkMode } from "@/constants";
 import { LOCATION } from "@/constants";
 import { setProfile } from "@tests/profile";

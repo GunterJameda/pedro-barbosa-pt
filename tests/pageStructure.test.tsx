@@ -1,7 +1,6 @@
-import { screen } from "@testing-library/react";
 import type { ComponentType } from "react";
+import { screen } from "@testing-library/react";
 import { describe, expect, it } from "vitest";
-
 import { PAGE_ROUTES, routeModule } from "./pages";
 import { renderWithTheme } from "./render";
 

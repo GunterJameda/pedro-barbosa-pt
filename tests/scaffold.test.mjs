@@ -2,7 +2,6 @@ import assert from "node:assert/strict";
 import { existsSync, readdirSync, readFileSync } from "node:fs";
 import { basename, dirname, extname, join, relative } from "node:path";
 import { describe, test } from "node:test";
-
 import { ESLint } from "eslint";
 import ts from "typescript";
 

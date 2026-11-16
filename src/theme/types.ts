@@ -1,5 +1,4 @@
 import type { CSSProperties } from "react";
-
 import type { slate, surfaces } from "./tokens";
 
 /** Card, border and tint colours, added to the palette as "surface.<name>". */

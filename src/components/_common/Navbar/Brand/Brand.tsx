@@ -1,12 +1,11 @@
 "use client";
 
 // Client, because it hands next/link to MUI's Link as a component.
+import NextLink from "next/link";
 import Avatar from "@mui/material/Avatar";
 import Link from "@mui/material/Link";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
-import NextLink from "next/link";
-
 import { NAME, ROLE } from "@/constants";
 
 export function Brand() {

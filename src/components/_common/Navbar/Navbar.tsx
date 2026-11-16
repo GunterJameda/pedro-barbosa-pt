@@ -1,9 +1,7 @@
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Stack from "@mui/material/Stack";
-
 import { CONTENT_MAX_WIDTH, NAVBAR_HEIGHT } from "@/constants";
-
 import { Brand } from "./Brand";
 import { MobileMenu } from "./MobileMenu";
 import { NavLinks } from "./NavLinks";

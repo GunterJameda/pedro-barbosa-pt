@@ -2,9 +2,9 @@
 
 // Client, because the shadows read the theme through a function, and functions
 // can't be passed from a server component to MUI's Button.
+import type { ReactNode } from "react";
 import Button from "@mui/material/Button";
 import type { Theme } from "@mui/material/styles";
-import type { ReactNode } from "react";
 
 const secondaryStyles = {
   color: "slate.300",

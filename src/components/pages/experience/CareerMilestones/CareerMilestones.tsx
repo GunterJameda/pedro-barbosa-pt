@@ -1,15 +1,13 @@
 import Box from "@mui/material/Box";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
-
+import { SCROLL_OFFSET } from "@/constants";
 import { CardGrid } from "@/components/_common/CardGrid";
 import { CheckList } from "@/components/_common/CheckList";
 import { DotLabel } from "@/components/_common/DotLabel";
 import { Eyebrow } from "@/components/_common/Eyebrow";
 import { SurfaceCard } from "@/components/_common/SurfaceCard";
 import { TagList } from "@/components/_common/TagList";
-import { SCROLL_OFFSET } from "@/constants";
-
 import { CAREER_ROLES } from "./config";
 
 export function CareerMilestones() {
