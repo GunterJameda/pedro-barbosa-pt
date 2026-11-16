@@ -1,11 +1,11 @@
-import { LOCATION } from "@/constants";
-import { CenteredHero } from "@/components/_common/CenteredHero";
-import { CenteredMain } from "@/components/_common/CenteredMain";
-import { pageMetadata } from "@/components/_common/PageMetadata";
-import { Highlight } from "@/components/pages/home/Highlight";
-import { PersonSchema } from "@/components/pages/home/PersonSchema";
-import { QuickLinks } from "@/components/pages/home/QuickLinks";
-import { WebsiteSchema } from "@/components/pages/home/WebsiteSchema";
+import { LOCATION } from "@/_common/constants";
+import { pageMetadata } from "@/_common/utils/pageMetadata";
+import { CenteredHero } from "@/_common/components/CenteredHero";
+import { CenteredMain } from "@/_common/components/CenteredMain";
+import { Highlight } from "@/home/components/Highlight";
+import { PersonSchema } from "@/home/components/PersonSchema";
+import { QuickLinks } from "@/home/components/QuickLinks";
+import { WebsiteSchema } from "@/home/components/WebsiteSchema";
 
 export const metadata = pageMetadata("/");
 

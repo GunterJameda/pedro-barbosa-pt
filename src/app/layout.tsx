@@ -4,12 +4,12 @@ import CssBaseline from "@mui/material/CssBaseline";
 import { ThemeProvider } from "@mui/material/styles";
 import { AppRouterCacheProvider } from "@mui/material-nextjs/v16-appRouter";
 import { Analytics } from "@vercel/analytics/next";
-import { NAME, ROLE, SITE_NAME, SITE_URL } from "@/constants";
-import { fontVariables, theme } from "@/theme";
-import { Footer } from "@/components/_common/Footer";
-import { Navbar } from "@/components/_common/Navbar";
-import { ScrollToTop } from "@/components/_common/ScrollToTop";
-import { SkipLink } from "@/components/_common/SkipLink";
+import { NAME, ROLE, SITE_NAME, SITE_URL } from "@/_common/constants";
+import { fontVariables, theme } from "@/_common/theme";
+import { Footer } from "@/_common/components/Footer";
+import { Navbar } from "@/_common/components/Navbar";
+import { ScrollToTop } from "@/_common/components/ScrollToTop";
+import { SkipLink } from "@/_common/components/SkipLink";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),

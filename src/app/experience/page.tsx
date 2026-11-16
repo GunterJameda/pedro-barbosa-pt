@@ -1,14 +1,14 @@
 import Stack from "@mui/material/Stack";
-import { CardGrid } from "@/components/_common/CardGrid";
-import { PageMain } from "@/components/_common/PageMain";
-import { pageMetadata } from "@/components/_common/PageMetadata";
-import { PreFooterCTA } from "@/components/_common/PreFooterCTA";
-import { AcademicBackground } from "@/components/pages/experience/AcademicBackground";
-import { CareerMilestones } from "@/components/pages/experience/CareerMilestones";
-import { CompanyNavigation } from "@/components/pages/experience/CompanyNavigation";
-import { EvolutionBlueprint } from "@/components/pages/experience/EvolutionBlueprint";
-import { ExperienceHero } from "@/components/pages/experience/ExperienceHero";
-import { FoundationRoles } from "@/components/pages/experience/FoundationRoles";
+import { pageMetadata } from "@/_common/utils/pageMetadata";
+import { CardGrid } from "@/_common/components/CardGrid";
+import { PageMain } from "@/_common/components/PageMain";
+import { PreFooterCTA } from "@/_common/components/PreFooterCTA";
+import { AcademicBackground } from "@/experience/components/AcademicBackground";
+import { CareerMilestones } from "@/experience/components/CareerMilestones";
+import { CompanyNavigation } from "@/experience/components/CompanyNavigation";
+import { EvolutionBlueprint } from "@/experience/components/EvolutionBlueprint";
+import { ExperienceHero } from "@/experience/components/ExperienceHero";
+import { FoundationRoles } from "@/experience/components/FoundationRoles";
 
 export const metadata = pageMetadata(
   "/experience",

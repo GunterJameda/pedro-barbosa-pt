@@ -1,13 +1,13 @@
 import Stack from "@mui/material/Stack";
-import { CITY, IS_LOOKING, ROLE, WORK_MODE_ROLES } from "@/constants";
-import { CardGrid } from "@/components/_common/CardGrid";
-import { PageMain } from "@/components/_common/PageMain";
-import { pageMetadata } from "@/components/_common/PageMetadata";
-import { ContactHero } from "@/components/pages/contact/ContactHero";
-import { EmailCard } from "@/components/pages/contact/EmailCard";
-import { LinkedInCard } from "@/components/pages/contact/LinkedInCard";
-import { LocationBanner } from "@/components/pages/contact/LocationBanner";
-import { RoleAlignment } from "@/components/pages/contact/RoleAlignment";
+import { CITY, IS_LOOKING, ROLE, WORK_MODE_ROLES } from "@/_common/constants";
+import { pageMetadata } from "@/_common/utils/pageMetadata";
+import { CardGrid } from "@/_common/components/CardGrid";
+import { PageMain } from "@/_common/components/PageMain";
+import { ContactHero } from "@/contact/components/ContactHero";
+import { EmailCard } from "@/contact/components/EmailCard";
+import { LinkedInCard } from "@/contact/components/LinkedInCard";
+import { LocationBanner } from "@/contact/components/LocationBanner";
+import { RoleAlignment } from "@/contact/components/RoleAlignment";
 
 export const metadata = pageMetadata(
   "/contact",

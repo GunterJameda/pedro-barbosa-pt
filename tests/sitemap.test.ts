@@ -1,6 +1,6 @@
 // @vitest-environment node
 import { describe, expect, it } from "vitest";
-import { SITE_URL } from "@/constants";
+import { SITE_URL } from "@/_common/constants";
 import robots from "@/app/robots";
 import sitemap from "@/app/sitemap";
 import { PAGE_ROUTES } from "./pages";

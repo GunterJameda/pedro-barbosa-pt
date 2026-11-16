@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
-import { ActionButton } from "@/components/_common/ActionButton";
-import { CenteredHero } from "@/components/_common/CenteredHero";
-import { CenteredMain } from "@/components/_common/CenteredMain";
+import { ActionButton } from "@/_common/components/ActionButton";
+import { CenteredHero } from "@/_common/components/CenteredHero";
+import { CenteredMain } from "@/_common/components/CenteredMain";
 
 export const metadata: Metadata = {
   title: "Page not found",

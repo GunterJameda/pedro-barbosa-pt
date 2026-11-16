@@ -1,9 +1,9 @@
-import { PageMain } from "@/components/_common/PageMain";
-import { pageMetadata } from "@/components/_common/PageMetadata";
-import { PreFooterCTA } from "@/components/_common/PreFooterCTA";
-import { ProjectApproach } from "@/components/pages/projects/ProjectApproach";
-import { ProjectList } from "@/components/pages/projects/ProjectList";
-import { ProjectsHero } from "@/components/pages/projects/ProjectsHero";
+import { pageMetadata } from "@/_common/utils/pageMetadata";
+import { PageMain } from "@/_common/components/PageMain";
+import { PreFooterCTA } from "@/_common/components/PreFooterCTA";
+import { ProjectApproach } from "@/projects/components/ProjectApproach";
+import { ProjectList } from "@/projects/components/ProjectList";
+import { ProjectsHero } from "@/projects/components/ProjectsHero";
 
 export const metadata = pageMetadata(
   "/projects",

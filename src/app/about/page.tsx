@@ -1,10 +1,10 @@
-import { PageMain } from "@/components/_common/PageMain";
-import { pageMetadata } from "@/components/_common/PageMetadata";
-import { PreFooterCTA } from "@/components/_common/PreFooterCTA";
-import { AboutHero } from "@/components/pages/about/AboutHero";
-import { EngineeringPrinciples } from "@/components/pages/about/EngineeringPrinciples";
-import { TeamPractices } from "@/components/pages/about/TeamPractices";
-import { TechnicalToolbox } from "@/components/pages/about/TechnicalToolbox";
+import { pageMetadata } from "@/_common/utils/pageMetadata";
+import { PageMain } from "@/_common/components/PageMain";
+import { PreFooterCTA } from "@/_common/components/PreFooterCTA";
+import { AboutHero } from "@/about/components/AboutHero";
+import { EngineeringPrinciples } from "@/about/components/EngineeringPrinciples";
+import { TeamPractices } from "@/about/components/TeamPractices";
+import { TechnicalToolbox } from "@/about/components/TechnicalToolbox";
 
 export const metadata = pageMetadata(
   "/about",

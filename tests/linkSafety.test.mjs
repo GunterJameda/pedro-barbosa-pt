@@ -4,7 +4,7 @@ import { describe, test } from "node:test";
 import { ESLint } from "eslint";
 
 const ROOT = join(import.meta.dirname, "..");
-const FILE = "src/components/_common/Sample/Sample.tsx";
+const FILE = "src/_common/components/Sample/Sample.tsx";
 const eslint = new ESLint({ cwd: ROOT });
 
 /** The rules a component breaks, given the JSX it returns. */

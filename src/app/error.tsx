@@ -1,6 +1,6 @@
 "use client";
 
-import { ErrorPage } from "@/components/_common/ErrorPage";
+import { ErrorPage } from "@/_common/components/ErrorPage";
 
 // Next requires error boundaries to be client components. Shown when a page
 // throws while rendering; the root layout (navbar and footer) stays.

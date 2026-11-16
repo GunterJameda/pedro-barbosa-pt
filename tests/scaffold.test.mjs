@@ -24,29 +24,76 @@ const filesIn = (path) =>
     .filter((entry) => entry.isFile())
     .map((entry) => join(entry.parentPath, entry.name));
 
+// Kind folders whose every child folder is a module (components/Footer).
+const MODULE_KINDS = new Set(["components", "hooks", "utils"]);
+// Every kind folder a page may hold; constants and types are one module themselves.
+const PAGE_KINDS = new Set([...MODULE_KINDS, "constants", "types"]);
+// _common also holds the theme.
+const COMMON_KINDS = new Set([...PAGE_KINDS, "theme"]);
+
+// Every folder in src besides app and _common belongs to one page.
+const pageFolders = directories("src").filter((folder) => !["app", "_common"].includes(folder));
+
+const filesDirectlyIn = (path) =>
+  readdirSync(join(ROOT, path), { withFileTypes: true })
+    .filter((entry) => entry.isFile())
+    .map((entry) => entry.name);
+
+// Every folder inside path, at any depth, relative to the root.
+const foldersIn = (path) =>
+  readdirSync(join(ROOT, path), { recursive: true, withFileTypes: true })
+    .filter((entry) => entry.isDirectory())
+    .map((entry) => relative(ROOT, join(entry.parentPath, entry.name)));
+
 describe("import rules", () => {
   const ABOUT = "src/app/about/page.tsx";
   const CONTACT = "src/app/contact/page.tsx";
-  const CONTACT_MODULE = "src/components/pages/contact/EmailCard/EmailCard.tsx";
-  const COMMON_MODULE = "src/components/_common/Footer/Footer.tsx";
+  const HOME = "src/app/page.tsx";
+  const HOME_SHARE_IMAGE = "src/app/opengraph-image.tsx";
+  const LAYOUT = "src/app/layout.tsx";
+  const ABOUT_MODULE = "src/about/components/AboutHero/AboutHero.tsx";
+  const CONTACT_MODULE = "src/contact/components/EmailCard/EmailCard.tsx";
+  const COMMON_MODULE = "src/_common/components/Footer/Footer.tsx";
+  const COMMON_UTIL = "src/_common/utils/pageMetadata/pageMetadata.ts";
 
   const blocked = [
-    ["a private file of a common module", "@/components/_common/Footer/Footer", ABOUT],
-    ["a private file of a page module", "@/components/pages/contact/EmailCard/EmailCard", CONTACT],
+    ["a private file of a common module", "@/_common/components/Footer/Footer", ABOUT],
+    [
+      "a private file of a common module from a page's code",
+      "@/_common/components/Footer/Footer",
+      ABOUT_MODULE,
+    ],
+    ["a private file of a common helper", "@/_common/utils/pageMetadata/pageMetadata", ABOUT],
+    ["a private file of a page module", "@/contact/components/EmailCard/EmailCard", CONTACT],
     [
       "a child nested inside a page module",
-      "@/components/pages/contact/EmailCard/CopyEmailButton",
+      "@/contact/components/EmailCard/CopyEmailButton",
       CONTACT,
     ],
-    ["a private theme file", "@/theme/tokens", ABOUT],
-    ["a private constants file", "@/constants/links", ABOUT],
+    ["a private theme file", "@/_common/theme/tokens", ABOUT],
+    ["a private constants file", "@/_common/constants/links", ABOUT],
     ["anything from src/app", "@/app/about/page", COMMON_MODULE],
-    ["a component outside _common or pages", "@/components/Footer", ABOUT],
-    ["a component directly inside pages", "@/components/pages/Footer", ABOUT],
-    ["a page folder itself", "@/components/pages/contact", CONTACT],
-    ["another page's components", "@/components/pages/contact/EmailCard", ABOUT],
-    ["home's components from another page", "@/components/pages/home/QuickLinks", ABOUT],
-    ["page components from _common", "@/components/pages/contact/EmailCard", COMMON_MODULE],
+    ["a folder that is neither _common nor a page", "@/components/_common/Footer", ABOUT],
+    ["_common itself", "@/_common", ABOUT],
+    ["a kind folder itself", "@/_common/components", ABOUT],
+    ["a module outside a kind folder", "@/_common/Footer", ABOUT],
+    ["a module directly inside a page folder", "@/contact/EmailCard", CONTACT],
+    ["a page folder itself", "@/contact", CONTACT],
+    ["another page's code", "@/contact/components/EmailCard", ABOUT],
+    [
+      "another page's code from a page's components",
+      "@/contact/components/EmailCard",
+      ABOUT_MODULE,
+    ],
+    ["home's code from another page", "@/home/components/QuickLinks", ABOUT],
+    [
+      "another page's code from home's share image",
+      "@/about/components/AboutHero",
+      HOME_SHARE_IMAGE,
+    ],
+    ["page code from a _common component", "@/contact/components/EmailCard", COMMON_MODULE],
+    ["page code from a _common helper", "@/contact/components/EmailCard", COMMON_UTIL],
+    ["page code from a shared route file", "@/home/components/QuickLinks", LAYOUT],
     ["a relative path out of the module", "../Footer", COMMON_MODULE],
     ["a relative path to the parent", "..", COMMON_MODULE],
     ["a file inside a nested module", "./CopyEmailButton/CopyEmailButton", CONTACT_MODULE],
@@ -59,20 +106,21 @@ describe("import rules", () => {
   }
 
   const allowed = [
-    ["a common module", "@/components/_common/Footer", ABOUT],
-    ["a page's own components", "@/components/pages/contact/EmailCard", CONTACT],
-    [
-      "home's components from the root page",
-      "@/components/pages/home/QuickLinks",
-      "src/app/page.tsx",
-    ],
+    ["a common module", "@/_common/components/Footer", ABOUT],
+    ["a common module from a page's code", "@/_common/components/Footer", ABOUT_MODULE],
+    ["a common module from another common module", "@/_common/components/Eyebrow", COMMON_MODULE],
+    ["a common helper", "@/_common/utils/pageMetadata", ABOUT],
+    ["a page's own components", "@/contact/components/EmailCard", CONTACT],
+    ["a page's own constants", "@/contact/constants", CONTACT_MODULE],
+    ["home's code from the root page", "@/home/components/QuickLinks", HOME],
+    ["home's code from the root share image", "@/home/components/QuickLinks", HOME_SHARE_IMAGE],
     [
       "sibling components in the same page folder",
-      "@/components/pages/contact/LinkedInCard",
+      "@/contact/components/LinkedInCard",
       CONTACT_MODULE,
     ],
-    ["the theme module", "@/theme", ABOUT],
-    ["the constants module", "@/constants", ABOUT],
+    ["the theme module", "@/_common/theme", ABOUT],
+    ["the constants module", "@/_common/constants", ABOUT],
     ["a private file from inside its module", "./info", COMMON_MODULE],
     ["a nested child from its parent", "./CopyEmailButton", CONTACT_MODULE],
     ["packages", "@mui/material/Box", ABOUT],
@@ -119,27 +167,28 @@ describe("folder structure", () => {
     assert.deepEqual(others, []);
   });
 
-  const filesDirectlyIn = (path) =>
-    readdirSync(join(ROOT, path), { withFileTypes: true })
-      .filter((entry) => entry.isFile())
-      .map((entry) => entry.name);
-
-  test("src/components only holds _common and pages", () => {
-    assert.deepEqual(directories("src/components").sort(), ["_common", "pages"]);
-    assert.deepEqual(filesDirectlyIn("src/components"), []);
-  });
-
-  test("src/components/pages only holds folders named after a page", () => {
-    for (const folder of directories("src/components/pages")) {
+  test("src only holds app, _common and folders named after a page", () => {
+    for (const folder of pageFolders) {
       // Home is the root route, so its page file sits directly in src/app.
       const pageFile =
         folder === "home" ? join("src/app", "page.tsx") : join("src/app", folder, "page.tsx");
-      assert.ok(
-        existsSync(join(ROOT, pageFile)),
-        `src/components/pages/${folder} doesn't match a page`,
-      );
+      assert.ok(existsSync(join(ROOT, pageFile)), `src/${folder} doesn't match a page`);
     }
-    assert.deepEqual(filesDirectlyIn("src/components/pages"), []);
+    assert.deepEqual(filesDirectlyIn("src"), []);
+  });
+
+  test("a page folder only holds kind folders", () => {
+    for (const page of pageFolders) {
+      const others = directories(join("src", page)).filter((folder) => !PAGE_KINDS.has(folder));
+      assert.deepEqual(others, [], `src/${page} holds folders that aren't a kind`);
+      assert.deepEqual(filesDirectlyIn(join("src", page)), [], `src/${page} holds files`);
+    }
+  });
+
+  test("_common only holds kind folders", () => {
+    const others = directories("src/_common").filter((folder) => !COMMON_KINDS.has(folder));
+    assert.deepEqual(others, []);
+    assert.deepEqual(filesDirectlyIn("src/_common"), []);
   });
 
   test("every module has an index file", () => {
@@ -151,12 +200,15 @@ describe("folder structure", () => {
       }
     };
 
-    checkModules("src/components/_common");
-    for (const page of directories("src/components/pages")) {
-      checkModules(join("src/components/pages", page));
+    for (const scope of ["_common", ...pageFolders]) {
+      for (const kind of directories(join("src", scope))) {
+        const kindPath = join("src", scope, kind);
+        if (!MODULE_KINDS.has(kind)) {
+          assert.ok(existsSync(join(ROOT, kindPath, "index.ts")), `${kindPath} has no index.ts`);
+        }
+        checkModules(kindPath);
+      }
     }
-    assert.ok(existsSync(join(ROOT, "src/theme/index.ts")));
-    assert.ok(existsSync(join(ROOT, "src/constants/index.ts")));
   });
 });
 
@@ -212,7 +264,7 @@ const codeFiles = ["src", "tests"]
 
 const isTestFile = (file) => /\.(test|spec)\.[^.]+$/.test(file);
 
-describe("file names", () => {
+describe("names", () => {
   const CAMEL_CASE = /^[a-z][a-zA-Z0-9]*$/;
 
   // The part before the first dot, so Footer.test.tsx and navigation.spec.ts are named by their base.
@@ -232,6 +284,35 @@ describe("file names", () => {
         return PASCAL_CASE.test(name) ? [] : [`${file} is a component, so it needs PascalCase`];
       }
       return CAMEL_CASE.test(name) ? [] : [`${file} isn't a component, so it needs camelCase`];
+    });
+
+    assert.deepEqual(misnamed, []);
+  });
+
+  test("component folders use PascalCase and every other folder uses camelCase", () => {
+    const sources = new Set(codeFiles.filter((file) => !isTestFile(file)));
+    // A module holds a component when a file directly inside it is a component file.
+    const holdsComponent = (folder) =>
+      filesDirectlyIn(folder).some(
+        (name) => sources.has(join(folder, name)) && isComponentFile(join(folder, name)),
+      );
+
+    // src/app follows Next.js routes, and _common and the page folders are checked by the
+    // folder structure tests, so the names start at the kind folders.
+    const folders = directories("src")
+      .filter((scope) => scope !== "app")
+      .flatMap((scope) => foldersIn(join("src", scope)));
+
+    const misnamed = folders.flatMap((folder) => {
+      const name = basename(folder);
+      if (holdsComponent(folder)) {
+        return PASCAL_CASE.test(name)
+          ? []
+          : [`${folder} holds a component, so it needs PascalCase`];
+      }
+      return CAMEL_CASE.test(name)
+        ? []
+        : [`${folder} doesn't hold a component, so it needs camelCase`];
     });
 
     assert.deepEqual(misnamed, []);

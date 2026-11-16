@@ -5,23 +5,29 @@ import nextVitals from "eslint-config-next/core-web-vitals";
 import nextTs from "eslint-config-next/typescript";
 import simpleImportSort from "eslint-plugin-simple-import-sort";
 
-// Each folder in src/components/pages belongs to one page.
-const PAGE_SCOPES = readdirSync(join(import.meta.dirname, "src/components/pages"), {
-  withFileTypes: true,
-})
-  .filter((entry) => entry.isDirectory())
+// Every folder in src besides app and _common belongs to one page.
+const PAGE_SCOPES = readdirSync(join(import.meta.dirname, "src"), { withFileTypes: true })
+  .filter((entry) => entry.isDirectory() && !["app", "_common"].includes(entry.name))
   .map((entry) => entry.name);
+
+// Kind folders whose every child folder is a module (components/Footer).
+const MODULE_KINDS = "components|hooks|utils";
+// Kind folders that are a module themselves (constants).
+const SINGLE_MODULE_KINDS = "constants|theme|types";
 
 const INDEX_ONLY = "Import from the module's index, not a file inside it.";
 
 const MODULE_RULES = [
-  { regex: "^@/components/_common/[^/]+/.+", message: INDEX_ONLY },
-  { regex: "^@/components/pages/[^/]+/[^/]+/.+", message: INDEX_ONLY },
-  { regex: "^@/(theme|constants)/.+", message: INDEX_ONLY },
+  { regex: `^@/[^/]+/(${MODULE_KINDS})/[^/]+/.+`, message: INDEX_ONLY },
+  { regex: `^@/[^/]+/(${SINGLE_MODULE_KINDS})/.+`, message: INDEX_ONLY },
   { regex: "^\\./[^/]+/.+", message: INDEX_ONLY },
   {
-    regex: "^@/components/(?!_common/|pages/[^/]+/)",
-    message: "Components live in _common or in pages/<page>.",
+    regex: `^@/(?!(app|_common|${PAGE_SCOPES.join("|")})(/|$))`,
+    message: "src only holds app, _common and one folder per page.",
+  },
+  {
+    regex: `^@/(?!app(/|$))[^/]+(/(?!(${MODULE_KINDS})/[^/]+$|(${SINGLE_MODULE_KINDS})$)|$)`,
+    message: "Import a module: <page or _common>/<kind>/<Module>, or <kind> for constants.",
   },
   {
     regex: "^@/app(/|$)",
@@ -40,24 +46,30 @@ const boundaries = (currentPage) => ({
       patterns: [
         ...MODULE_RULES,
         ...PAGE_SCOPES.filter((page) => page !== currentPage).map((page) => ({
-          regex: `^@/components/pages/${page}(/|$)`,
-          message: `These components are private to the ${page} page.`,
+          regex: `^@/${page}(/|$)`,
+          message: `This code is private to the ${page} page.`,
         })),
       ],
     },
   ],
 });
 
+// Home is the root route, so its route files sit directly in src/app.
+const routeFiles = (page) =>
+  page === "home"
+    ? ["src/app/page.tsx", "src/app/opengraph-image.tsx"]
+    : [`src/app/${page}/**/*.{ts,tsx}`];
+
 const eslintConfig = defineConfig([
   ...nextVitals,
   ...nextTs,
   // Imports are one block with no blank lines, ordered by layer and A to Z
   // within each one: side-effect imports, node: built-ins, react and next,
-  // @mui, other packages, @/constants and @/theme, @/components/_common,
-  // @/components/pages, any other @/ code, @tests/ helpers, then the
-  // module's own files (constants, content, styles, utils, types)
-  // and its child modules. Type imports end in \u0000, so each pattern
-  // allows it.
+  // @mui, other packages, @/_common/constants and @/_common/theme,
+  // @/_common/utils, @/_common/components, the page's own code (any other
+  // @/ import), @tests/ helpers, then the module's own files (constants,
+  // content, styles, utils, types) and its child modules. Type imports end
+  // in \u0000, so each pattern allows it.
   {
     plugins: { "simple-import-sort": simpleImportSort },
     rules: {
@@ -71,9 +83,9 @@ const eslintConfig = defineConfig([
               "^(react|react-dom|next)(/|\\u0000|$)",
               "^@mui/",
               "^@?\\w",
-              "^@/(constants|theme)(/|\\u0000|$)",
-              "^@/components/_common(/|\\u0000|$)",
-              "^@/components/pages(/|\\u0000|$)",
+              "^@/_common/(constants|theme)(/|\\u0000|$)",
+              "^@/_common/utils(/|\\u0000|$)",
+              "^@/_common/components(/|\\u0000|$)",
               "^@/",
               "^@tests/",
               "^\\./constants\\u0000?$",
@@ -108,11 +120,7 @@ const eslintConfig = defineConfig([
     },
   },
   ...PAGE_SCOPES.map((page) => ({
-    files: [
-      // Home is the root route, so its page file sits directly in src/app.
-      page === "home" ? "src/app/page.tsx" : `src/app/${page}/**/*.{ts,tsx}`,
-      `src/components/pages/${page}/**/*.{ts,tsx}`,
-    ],
+    files: [...routeFiles(page), `src/${page}/**/*.{ts,tsx}`],
     rules: boundaries(page),
   })),
   // Override default ignores of eslint-config-next.

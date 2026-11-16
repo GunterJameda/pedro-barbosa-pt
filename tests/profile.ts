@@ -1,5 +1,5 @@
 import { vi } from "vitest";
-import type { Availability, WorkMode } from "@/constants";
+import type { Availability, WorkMode } from "@/_common/constants";
 
 interface ProfileSettings {
   availability?: Availability;
@@ -13,7 +13,7 @@ interface ProfileSettings {
  */
 export function setProfile({ availability, workMode, name }: ProfileSettings) {
   vi.resetModules();
-  vi.doMock("@/constants/profile", async (importOriginal) => ({
+  vi.doMock("@/_common/constants/profile", async (importOriginal) => ({
     ...(await importOriginal<object>()),
     ...(availability && { AVAILABILITY: availability }),
     ...(workMode && { WORK_MODE: workMode }),

@@ -2,7 +2,7 @@
 import { existsSync } from "node:fs";
 import { join } from "node:path";
 import { describe, expect, it } from "vitest";
-import { shareImageAlt } from "@/components/_common/ShareImage";
+import { shareImageAlt } from "@/_common/components/ShareImage";
 import { PAGE_ROUTES, routeModule } from "./pages";
 
 const APP = join(import.meta.dirname, "../src/app");
