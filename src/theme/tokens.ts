@@ -14,7 +14,8 @@ import { alpha } from "@mui/material/styles";
  * 2. With these tokens only where there is no theme: SVG attributes and the
  *    share image.
  *
- * Exception: src/app/icon.svg is a static file and repeats a few values.
+ * Exceptions that repeat a few values: src/app/icon.svg, a static file, and
+ * GlobalErrorPage, which shows when the layout (and so the theme) may have failed.
  */
 
 export const white = "#fff";
