@@ -1,7 +1,7 @@
+import TrendingUpIcon from "@mui/icons-material/TrendingUp";
 import Box from "@mui/material/Box";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
-import { fontMono } from "@/theme";
 import { Eyebrow } from "@/components/_common/Eyebrow";
 import { SurfaceCard } from "@/components/_common/SurfaceCard";
 import { CareerChart } from "./CareerChart";
@@ -11,13 +11,7 @@ export function EvolutionBlueprint() {
     <SurfaceCard spacing={3} sx={{ gridColumn: { lg: "span 5" } }}>
       <Stack spacing={2} sx={{ flex: 1 }}>
         <Stack direction="row" spacing={1} sx={{ alignItems: "center" }}>
-          <Box
-            component="span"
-            aria-hidden
-            sx={{ color: "primary.main", fontFamily: fontMono, fontSize: 12 }}
-          >
-            ▲
-          </Box>
+          <TrendingUpIcon sx={{ fontSize: 16, color: "primary.main" }} />
           <Eyebrow>Evolution Blueprint</Eyebrow>
         </Stack>
         <Typography variant="body">
