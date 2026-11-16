@@ -1,4 +1,5 @@
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import NorthEastIcon from "@mui/icons-material/NorthEast";
 import Link from "@mui/material/Link";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
@@ -36,7 +37,7 @@ export function LinkedInCard() {
         }}
       >
         View profile
-        <span aria-hidden>↗</span>
+        <NorthEastIcon sx={{ fontSize: 14 }} />
       </Link>
     </SurfaceCard>
   );
