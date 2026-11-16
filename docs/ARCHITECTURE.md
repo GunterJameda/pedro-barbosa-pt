@@ -138,6 +138,9 @@ The rules above are checked by tools, not left to memory.
     other page's components.
   - `simple-import-sort` enforces the import order and fixes it automatically (VS Code runs the fix
     on save, through `.vscode/settings.json`).
+  - `react/jsx-no-target-blank` requires `rel="noopener noreferrer"` on every link that opens a new
+    tab, including MUI's `Link` and `Button`, and `react/jsx-no-script-url` rejects `javascript:`
+    links. `tests/linkSafety.test.mjs` checks both rules still reject unsafe links.
 - **`tests/scaffold.test.mjs`** checks the structure:
   - imports that must be blocked or allowed, run through the real ESLint config, and no violations
     in `src`;
@@ -217,16 +220,24 @@ Also:
   results). Both pass their data to `_common/JsonLd`, which serializes it with `serializeJsonLd`
   (in its `utils.ts`). That escapes `<`, so a value can't close the script tag or open an HTML
   comment, and the U+2028 and U+2029 separators, which older JavaScript parsers reject in strings.
+  Data with no JSON form (a function, or a `toJSON` that returns nothing) throws, so the build fails
+  instead of shipping an empty script.
 - **Old addresses:** `/home` redirects permanently to `/` (in `next.config.ts`).
 
 ## Security headers
 
-`next.config.ts` sends these headers on every route:
+`next.config.ts` sends these headers on every route, including the 404 page, the share images,
+the sitemap and `robots.txt`:
 
 - **Content Security Policy:** `default-src 'self'`, so only the site's own files load. Images also
   allow `data:` and `blob:`. `object-src 'none'`, `base-uri 'self'`, `form-action 'self'` and
-  `frame-ancestors 'none'` close the other common gaps.
+  `frame-ancestors 'none'` close the other common gaps. `script-src-attr 'none'` blocks inline event
+  handlers (`onerror=`, `onclick=`), the usual way injected HTML runs a script; React attaches its
+  events in code, so the site has none.
 - **`X-Frame-Options: DENY`** blocks framing in older browsers.
+- **`Strict-Transport-Security: max-age=63072000`**: browsers only reach the site over HTTPS for
+  two years after a visit. Vercel sends the same by default; setting it here keeps it from
+  depending on the host. Browsers ignore it over plain HTTP, so local runs are unaffected.
 - **`Referrer-Policy: strict-origin-when-cross-origin`**: other sites only learn the domain a visitor
   came from.
 - **`X-Content-Type-Options: nosniff`**.
@@ -242,12 +253,20 @@ Prerendering. The site takes no input from visitors, so there is nothing to inje
 through. In development only, `script-src` also allows `'unsafe-eval'` (React's debugging tools)
 and Vercel Analytics' debug script.
 
+Why there is no Trusted Types (`require-trusted-types-for 'script'`): Next's chunk loader, React
+and Vercel Analytics set script addresses and HTML directly, so every browser that supports it
+would block the site's own code.
+
+Links are checked too. ESLint requires `rel="noopener noreferrer"` on every link that opens a new
+tab and rejects `javascript:` links (see How the rules are enforced), and the end-to-end tests try
+the attacks these protections stop (see Testing).
+
 ## Testing
 
 `yarn test` runs two test runners:
 
-- **Node's test runner** runs the `tests/*.test.mjs` files: the structure, import order and commit
-  message checks described above.
+- **Node's test runner** runs the `tests/*.test.mjs` files: the structure, import order, link
+  safety and commit message checks described above.
 - **Vitest** with Testing Library, in jsdom, runs everything else.
 
 Component and helper tests sit next to the code they test, for example
@@ -276,7 +295,15 @@ logs an error or warning, throws, or gets a failed request.
 - `navigation.spec.ts`: the navbar, the phone menu and the skip link.
 - `scrolling.spec.ts`: in-page navigation lands each section below the sticky navbar; the go-to-top
   button.
-- `security.spec.ts`: the security headers on every page and on a missing page.
+- `security.spec.ts`: the security headers on every page, a missing page, the share images, the
+  sitemap, `robots.txt` and the icons.
+- `attacks.spec.ts`: tries the attacks the headers and code guard against. Script payloads in query
+  strings, hashes and paths (encoded once and twice, on real and missing pages) are never reflected
+  as markup, never add an element and never run; the structured data never contains `<` and parses
+  as JSON; `/home` and slash tricks like `//evil.example` only redirect within the site; another
+  site can't show a page in a frame; every link that opens a new tab has
+  `rel="noopener noreferrer"` (including the phone menu), the new tab gets no handle on the site
+  and no referrer, and every link starts with `/`, `#`, `https://` or `mailto:`.
 
 They take several minutes, so they don't run in CI. They run locally with `yarn test:e2e` and
 against the live site with `yarn test:e2e:prod`.
