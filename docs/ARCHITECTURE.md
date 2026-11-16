@@ -8,12 +8,13 @@ Next.js App Router project with React, TypeScript and Material UI (MUI).
 ```text
 src/
   app/                  Routes only: pages, layout, metadata routes, share images
-  components/
-    _common/            Components used by more than one page (or by the layout)
-    pages/
-      <page>/           Components used by one page only (about, contact, experience, home, projects)
-  constants/            Site-wide values: pages, links, profile, layout sizes
-  theme/                Colour tokens, the MUI theme, text styles and fonts
+  _common/              Code used by more than one page (or by the layout)
+    components/         Shared components
+    constants/          Site-wide values: pages, links, profile, layout sizes
+    theme/              Colour tokens, the MUI theme, text styles and fonts
+    utils/              Shared helpers (pageMetadata)
+  <page>/               Code used by one page only (about, contact, experience, home, projects)
+    components/         That page's components
 tests/                  Route-level tests, structure tests and helpers
   e2e/                  Playwright end-to-end tests
 assets/fonts/           Font files for the share images
@@ -22,42 +23,55 @@ assets/fonts/           Font files for the share images
 - `src/app` holds Next.js route files and nothing else: `page.tsx`, `layout.tsx`, `not-found.tsx`,
   `error.tsx`, `global-error.tsx`, `opengraph-image.tsx`, `sitemap.ts`, `robots.ts`, the favicon and
   the icon.
-- The error routes only render a shared component. `error.tsx` shows `_common/ErrorPage` when a page
-  throws, inside the normal layout. `global-error.tsx` shows `_common/GlobalErrorPage` when the root
-  layout itself fails, so that page brings its own `<html>` and `<body>` and uses only inline styles
-  and system fonts: no MUI, theme or web fonts, since any of them could be what broke.
-- `src/components/pages/<page>` is named after its route. Home is the root route, so its page file
-  is `src/app/page.tsx` and its components are in `src/components/pages/home`.
-- `src/constants` and `src/theme` are the project's base layer. Everything else may import them.
+- The error routes only render a shared component. `error.tsx` shows `_common/components/ErrorPage`
+  when a page throws, inside the normal layout. `global-error.tsx` shows
+  `_common/components/GlobalErrorPage` when the root layout itself fails, so that page brings its
+  own `<html>` and `<body>` and uses only inline styles and system fonts: no MUI, theme or web
+  fonts, since any of them could be what broke.
+- `src/<page>` is named after its route. Home is the root route, so its route files are
+  `src/app/page.tsx` and `src/app/opengraph-image.tsx`, and its code is in `src/home`. A page folder
+  is never called `src/pages`, which Next.js would read as the Pages Router.
+- Inside `_common` and each page folder, code is grouped by kind, one folder per kind:
+  `components/`, `constants/`, `hooks/`, `types/`, `utils/` (and `theme/`, only in `_common`). A
+  folder only exists when it has something in it; today the page folders only have `components/`.
+  Helper functions always go in `utils/`, never `helpers/` or `functions/`.
+- In `components/`, `hooks/` and `utils/`, every child folder is a module
+  (`_common/components/Footer`, `_common/utils/pageMetadata`). `constants/`, `theme/` and `types/`
+  are one module each.
+- `src/_common/constants` and `src/_common/theme` are the project's base layer. Everything else may
+  import them.
 
 ### Where a new component goes
 
-1. Used by one page: `src/components/pages/<page>/<Component>`.
+1. Used by one page: `src/<page>/components/<Component>`.
 2. Used only inside one component: in that component's folder, for example
-   `pages/contact/EmailCard/CopyEmailButton`.
-3. Used by two or more pages, or by the root layout: `src/components/_common/<Component>`.
+   `contact/components/EmailCard/CopyEmailButton`.
+3. Used by two or more pages, or by the root layout: `src/_common/components/<Component>`.
+
+A helper, hook, constant or type follows the same rule, in the matching kind folder.
 
 When a component gains a second user, it moves up to the nearest level both can import from. The
 whole folder moves as one unit, with every nested child module inside it, however deep, and the same
 inner structure: nothing is flattened or reshuffled, only the imports that point at it change. For
-example, if a second page needed `EmailCard`, `pages/contact/EmailCard/` would move to
-`_common/EmailCard/` with `CopyEmailButton/` still inside it.
+example, if a second page needed `EmailCard`, `contact/components/EmailCard/` would move to
+`_common/components/EmailCard/` with `CopyEmailButton/` still inside it.
 
-There is no generic `common` or `utils` folder outside these.
+There is no generic `common`, `components` or `utils` folder outside these.
 
 ## Module rules
 
-Every folder under `src/components`, plus `src/constants` and `src/theme`, is a module.
+Every folder inside a `components/`, `hooks/` or `utils/` kind folder is a module, and so are
+`constants/`, `theme/` and `types/` themselves.
 
 - **`index.ts` is the module's public face.** It re-exports what others may use, for example
   `export { EmailCard } from "./EmailCard";`. Every other file in the folder is private.
-- **Imports from outside a module go through its index:** `@/components/_common/Footer`, never
-  `@/components/_common/Footer/Footer`; `@/constants`, never `@/constants/links`.
+- **Imports from outside a module go through its index:** `@/_common/components/Footer`, never
+  `@/_common/components/Footer/Footer`; `@/_common/constants`, never `@/_common/constants/links`.
 - **Imports use `@/`** (which maps to `src/`). A relative `./` import only reaches files of the same
   module or its direct child modules (`./CopyEmailButton`). `../` is never used in `src`.
-- **A page's components are private to that page.** `src/app/about/page.tsx` and
-  `src/components/pages/about/**` can import `@/components/pages/about/...`, but not
-  `@/components/pages/contact/...`. Shared components in `_common` can't import page components.
+- **A page's code is private to that page.** `src/app/about/**` and `src/about/**` can import
+  `@/about/...` and `@/_common/...`, but not `@/contact/...`. Code in `_common`, and route files
+  shared by every page (`layout.tsx`, `error.tsx`, `not-found.tsx`), can't import any page's code.
 - **Nothing imports from `src/app`.** Routes sit at the top and only consume other code.
 
 ## One responsibility per file
@@ -81,9 +95,9 @@ A module splits its pieces by kind, one file per kind:
 - Short copy passed straight to a component as JSX props or children stays in the component, for
   example the title and description in `ContactHero.tsx`. Lists and records of copy go in
   `content.ts`.
-- Related values stay grouped by topic. `src/constants` has one file per topic (`links.ts`,
+- Related values stay grouped by topic. `src/_common/constants` has one file per topic (`links.ts`,
   `profile.ts`, `routes.ts`, `layout.ts`, `site.ts`, `status.ts`), all re-exported by
-  `src/constants/index.ts`.
+  `src/_common/constants/index.ts`.
 - Route files keep only what Next.js needs together: a `page.tsx` holds the page and its `metadata`;
   an `opengraph-image.tsx` only re-exports what `shareImageRoute` builds.
 
@@ -92,8 +106,12 @@ A module splits its pieces by kind, one file per kind:
 - Component files are PascalCase: `Footer.tsx`, `CopyEmailButton.tsx`. A component's folder has the
   same name.
 - Every other file is camelCase: `styles.ts`, `pageMetadata.ts`, `scaffold.test.mjs`.
+- Every other folder is camelCase too: kind folders (`components`, `utils`) and modules without a
+  component (`utils/pageMetadata`). `_common` and the page folders, named after their routes, are
+  the exceptions.
 - A test file is named after the file it tests: `Footer.test.tsx`, `utils.test.ts`.
-- Files in `src/app` keep the names Next.js gives them (`page.tsx`, `opengraph-image.tsx`).
+- Files and folders in `src/app` keep the names Next.js gives them (`page.tsx`,
+  `opengraph-image.tsx`).
 - Tool config files at the root keep their tools' names (`eslint.config.mjs`, `next.config.ts`).
 
 ## Import order
@@ -106,10 +124,10 @@ each layer. Type imports sit with their layer.
 3. React and Next.js (`react`, `react-dom`, `next`)
 4. MUI (`@mui/...`)
 5. Other packages (`@vercel/analytics`, `vitest`)
-6. The project's base: `@/constants`, `@/theme`
-7. Shared components: `@/components/_common/...`
-8. Page components: `@/components/pages/...`
-9. Any other `@/` code
+6. The project's base: `@/_common/constants`, `@/_common/theme`
+7. Shared helpers: `@/_common/utils/...`
+8. Shared components: `@/_common/components/...`
+9. The page's own code (`@/contact/...`) and any other `@/` code
 10. Test helpers: `@tests/...`
 11. The module's own files, in this order: `./constants`, `./content`, `./styles`, `./utils`,
     `./types`, then child modules (`./CopyEmailButton`)
@@ -120,8 +138,8 @@ For example, from `CopyEmailButton.tsx`:
 import { useEffect, useRef, useState } from "react";
 import ContentCopyOutlinedIcon from "@mui/icons-material/ContentCopyOutlined";
 import Box from "@mui/material/Box";
-import { EMAIL } from "@/constants";
-import { ActionButton } from "@/components/_common/ActionButton";
+import { EMAIL } from "@/_common/constants";
+import { ActionButton } from "@/_common/components/ActionButton";
 import { RESET_AFTER_MS } from "./constants";
 import { LABELS } from "./content";
 import type { CopyStatus } from "./types";
@@ -133,9 +151,10 @@ The rules above are checked by tools, not left to memory.
 
 - **ESLint** (`eslint.config.mjs`, run with `yarn lint`):
   - `no-restricted-imports` enforces the module boundaries: index-only imports, no `../`, nothing
-    from `src/app`, components only in `_common` or `pages/<page>`. The list of pages is read from
-    the folders in `src/components/pages`, and each page gets its own rule set that blocks every
-    other page's components.
+    from `src/app`, code only in `_common` or a page folder, and only through a module inside a
+    kind folder. The list of pages is read from the folders in `src` besides `app` and `_common`,
+    and each page (its folder and its route files) gets its own rule set that blocks every other
+    page's code. Everything else in `src`, including `_common`, blocks every page's code.
   - `simple-import-sort` enforces the import order and fixes it automatically (VS Code runs the fix
     on save, through `.vscode/settings.json`).
   - `react/jsx-no-target-blank` requires `rel="noopener noreferrer"` on every link that opens a new
@@ -144,10 +163,12 @@ The rules above are checked by tools, not left to memory.
 - **`tests/scaffold.test.mjs`** checks the structure:
   - imports that must be blocked or allowed, run through the real ESLint config, and no violations
     in `src`;
-  - `src/app` holds only route files; `src/components` holds only `_common` and `pages`; every
-    folder in `pages` matches a route; every module has an `index.ts`;
+  - `src/app` holds only route files; `src` holds only `app`, `_common` and folders that match a
+    page; a page folder and `_common` hold only kind folders; every module has an `index.ts`;
   - file names: it parses each file with the TypeScript compiler, and a file that exports a
-    PascalCase component must be PascalCase, while every other file must be camelCase;
+    PascalCase component must be PascalCase, while every other file must be camelCase; a folder
+    that holds a component file must be PascalCase, and every other folder outside `src/app`
+    camelCase;
   - one responsibility per file: a component file declares nothing at the top level besides
     imports, re-exports, one component and its `<Component>Props` type, and the failure message
     says where the extra piece should go.
@@ -167,7 +188,7 @@ The rules above are checked by tools, not left to memory.
 
 ## Theming
 
-The theme is built in layers in `src/theme`:
+The theme is built in layers in `src/_common/theme`:
 
 1. **`tokens.ts`** defines every colour once: `white`, the `slate` and `teal` scales, and `surfaces`
    (the background, card colours and translucent tints). It isn't a client module, so server code
@@ -197,9 +218,9 @@ How components pick a colour:
 
 ## Metadata and SEO
 
-`PAGES` in `src/constants/routes.ts` lists every page with its name and address, in navigation
-order. Several things are built from it, so a new page needs its entry there and its route files,
-and nothing else:
+`PAGES` in `src/_common/constants/routes.ts` lists every page with its name and address, in
+navigation order. Several things are built from it, so a new page needs its entry there and its
+route files, and nothing else:
 
 - **Navigation:** the navbar and mobile menu links.
 - **Page metadata:** each `page.tsx` exports `metadata = pageMetadata("/about", "...")`. The helper
@@ -217,11 +238,11 @@ Also:
 - **`robots.ts`** allows every page and points to the sitemap.
 - **Structured data:** the home page renders two JSON-LD scripts, `PersonSchema` (a `ProfilePage`
   about a `Person`, built from the constants) and `WebsiteSchema` (the site's name, for search
-  results). Both pass their data to `_common/JsonLd`, which serializes it with `serializeJsonLd`
-  (in its `utils.ts`). That escapes `<`, so a value can't close the script tag or open an HTML
-  comment, and the U+2028 and U+2029 separators, which older JavaScript parsers reject in strings.
-  Data with no JSON form (a function, or a `toJSON` that returns nothing) throws, so the build fails
-  instead of shipping an empty script.
+  results). Both pass their data to `_common/components/JsonLd`, which serializes it with
+  `serializeJsonLd` (in its `utils.ts`). That escapes `<`, so a value can't close the script tag or
+  open an HTML comment, and the U+2028 and U+2029 separators, which older JavaScript parsers reject
+  in strings. Data with no JSON form (a function, or a `toJSON` that returns nothing) throws, so the
+  build fails instead of shipping an empty script.
 - **Old addresses:** `/home` redirects permanently to `/` (in `next.config.ts`).
 
 ## Security headers

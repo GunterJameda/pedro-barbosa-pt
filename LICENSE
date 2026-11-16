@@ -32,13 +32,14 @@ all rights reserved, and is not licensed for reuse. The content is:
 
 - The site's text and copy, including the CV, experience, project
   descriptions and about-me writing, wherever it appears in the repository
-  (for example the text in src/constants/profile.ts and in the content.ts files
-  under src/components/pages/).
+  (for example the text in src/_common/constants/profile.ts and in the
+  content.ts files under the page folders: src/about/, src/contact/,
+  src/experience/, src/home/ and src/projects/).
 - The name "Pedro Barbosa", the pedrobarbosa.pt domain, and any photos,
   logos and icons that identify the site (such as src/app/icon.svg and
   src/app/favicon.ico).
 - The visual design of the site and of its share images (the images built
-  by src/components/_common/ShareImage and the opengraph-image files under
+  by src/_common/components/ShareImage and the opengraph-image files under
   src/app/).
 
 You may reuse the code for your own projects, but replace the content with
