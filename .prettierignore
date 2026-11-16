@@ -1,5 +1,7 @@
 # Written by Next.js.
 next-env.d.ts
 
-# Local notes, not part of the repo.
-docs/
+# Private notes, gitignored and not part of the repo.
+docs/roadmap.md
+docs/performance.md
+docs/open-questions.md
