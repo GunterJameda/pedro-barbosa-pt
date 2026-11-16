@@ -1,1 +1,1 @@
-export { pageMetadata } from "./PageMetadata";
+export { pageMetadata } from "./pageMetadata";

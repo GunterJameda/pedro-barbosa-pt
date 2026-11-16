@@ -3,7 +3,7 @@ import { describe, expect, it } from "vitest";
 
 import { PAGES } from "@/constants";
 
-import { pageMetadata } from "./PageMetadata";
+import { pageMetadata } from "./pageMetadata";
 
 const otherPages = PAGES.filter(({ href }) => href !== "/");
 
