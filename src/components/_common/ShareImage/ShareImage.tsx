@@ -9,7 +9,7 @@ import { DOMAIN, TAGS } from "./content";
  * Link preview image shown when a page of the site is shared. With a page, it
  * also shows that page's name and address.
  */
-export function ShareImage({ page }: { page?: PageLink } = {}) {
+export function ShareImage({ page }: { page?: PageLink | undefined } = {}) {
   return new ImageResponse(
     <div
       style={{

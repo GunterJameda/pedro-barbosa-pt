@@ -7,7 +7,7 @@ interface EyebrowProps {
   color?: string;
   component?: ElementType;
   /** Wider tracking, used above page titles. */
-  wide?: boolean;
+  wide?: boolean | undefined;
 }
 
 /** Small uppercase mono label that sits above titles and values. */

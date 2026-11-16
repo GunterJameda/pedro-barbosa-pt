@@ -4,8 +4,8 @@ import Box from "@mui/material/Box";
 import { pulseAnimation } from "./styles";
 
 interface StatusDotProps {
-  size?: number;
-  pulse?: boolean;
+  size?: number | undefined;
+  pulse?: boolean | undefined;
   /** Set by MUI when this is used as a Chip icon. */
   className?: string;
 }

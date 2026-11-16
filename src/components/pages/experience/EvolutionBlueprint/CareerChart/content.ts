@@ -4,7 +4,7 @@ import type { ChartPoint } from "./types";
 
 export const CURVE = "M 10 32 Q 90 28 160 22 T 310 8";
 
-export const PAST_POINTS: ChartPoint[] = [
+export const PAST_POINTS: [ChartPoint, ...ChartPoint[]] = [
   { x: 10, y: 32, labelY: 42, year: "2017" },
   { x: 110, y: 26, labelY: 38, year: "2020" },
   { x: 210, y: 18, labelY: 30, year: "2023" },
