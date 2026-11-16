@@ -5,7 +5,7 @@ import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
 import Fade from "@mui/material/Fade";
 import IconButton from "@mui/material/IconButton";
 import { SKIP_LINK_ID } from "@/constants";
-import { SHOW_AFTER_PX } from "./config";
+import { SHOW_AFTER_PX } from "./constants";
 
 /** Floating button that appears after some scrolling and returns to the top. */
 export function ScrollToTop() {
