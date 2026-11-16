@@ -1,7 +1,7 @@
 import { screen } from "@testing-library/react";
 import { describe, expect, it } from "vitest";
 import { renderWithTheme } from "@tests/render";
-import { CURRENT_POINT, PAST_POINTS } from "./config";
+import { CURRENT_POINT, PAST_POINTS } from "./content";
 import { CareerChart } from "./CareerChart";
 
 const years = [...PAST_POINTS, CURRENT_POINT].map((point) => point.year);

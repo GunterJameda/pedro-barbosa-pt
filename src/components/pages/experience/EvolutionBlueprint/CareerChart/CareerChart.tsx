@@ -1,8 +1,7 @@
 import Box from "@mui/material/Box";
 import { fontMono, slate, teal } from "@/theme";
-import { CURRENT_POINT, CURVE, PAST_POINTS } from "./config";
-
-const LINE = teal[500];
+import { CURRENT_POINT, CURVE, PAST_POINTS } from "./content";
+import { LINE } from "./styles";
 
 /** Small line chart of the career, from the first year to the current one. */
 export function CareerChart() {
