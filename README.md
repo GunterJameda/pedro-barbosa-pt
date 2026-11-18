@@ -13,6 +13,7 @@ This is my personal website, live at **[pedrobarbosa.pt](https://pedrobarbosa.pt
 - **Experience:** my career since 2017, role by role.
 - **Personal Projects:** products I build outside work, and how I choose what to build.
 - **Contact:** how to reach me.
+- **Languages:** every page is in English and in European Portuguese (at `/pt`), and the site remembers the language you choose.
 
 ## Built with
 

@@ -12,7 +12,7 @@ src/
   _common/              Code used by more than one page (or by the layout)
     components/         Shared components
     constants/          Site-wide values: pages, links, profile, layout sizes
-    i18n/               Languages, routing, and one message file per language (en.json)
+    i18n/               Languages, routing, and one message file per language (en.json, pt-PT.json)
     navigation/         Locale-aware Link, usePathname and getPathname
     theme/              Colour tokens, the MUI theme, text styles and fonts
     utils/              Shared helpers (pageMetadata, localeRoutes, formatMonth...)
@@ -247,10 +247,10 @@ route files, and nothing else:
   `siteMetadata()` sets `metadataBase`, the title template, the site-wide description and preview.
 - **Language alternates:** every page lists its address in every enabled language
   (`<link rel="alternate" hreflang>`), plus `x-default`, the default language's address, built by
-  `languageAlternates` from `LOCALES`. With English alone, that's `en` and `x-default`; a new
-  language shows up there, in the sitemap and in the routes as soon as it's enabled.
+  `languageAlternates` from `LOCALES`: `en`, `pt-PT` and `x-default`; a new language shows up there,
+  in the sitemap and in the routes as soon as it's enabled.
 - **Link previews:** `socialMetadata` sets `og:type`, `og:site_name`, `og:locale` (from
-  `OPEN_GRAPH_LOCALES`) and the share image, for Open Graph and X's large image card. The image is
+  `OPEN_GRAPH_LOCALES`), `og:locale:alternate` (the other languages') and the share image, for Open Graph and X's large image card. The image is
   set explicitly rather than left to Next.js, which would give it the `[locale]` route's address
   (`/en/about/opengraph-image`) instead of the page's own (`/about/opengraph-image`).
 - **Share images:** each route's `opengraph-image.tsx` is three lines around
@@ -275,44 +275,79 @@ Also:
 
 ## Languages and copy
 
-The site uses [next-intl](https://next-intl.dev). English (`en`) is the only language today, and
-the default one.
+The site uses [next-intl](https://next-intl.dev). It is shown in English (`en`, the default) and
+European Portuguese (`pt-PT`, at `/pt`).
 
 - **Addresses:** the default language has no prefix (`/about`); any other language gets one
   (`/pt/about`). Every page lives under `src/app/[locale]`; `localeRoutes` (in `_common/utils`)
   builds the rewrites and redirects in `next.config.ts` that map the public addresses onto it, so
-  `/about` shows `/en/about` at the same address. There is no proxy: nothing runs on each request,
-  every page stays static, and the headers are the ones `next.config.ts` sets. Nothing detects the
-  browser's language or sets a cookie.
+  `/about` shows `/en/about` at the same address and `/pt/about` shows `/pt-PT/about`. There is no
+  proxy: nothing runs on each request, every page stays static, and the headers are the ones
+  `next.config.ts` sets. Nothing on the server detects the browser's language.
+- **The visitor's choice:** one cookie, `NEXT_LOCALE` (a first-party, functional preference,
+  `SameSite=Lax`, `Path=/`, a year; the names and values are in `_common/i18n/locales.ts`), holds
+  `en`, `pt-PT` or `dismissed`. It is written in the browser by `saveLanguageChoice`, before
+  navigating, when the visitor picks a language in the switcher or in the suggestion bar, or closes
+  the bar. `localeRoutes` turns it into temporary (307) redirects in `next.config.ts` that apply
+  only to requests carrying the cookie: with `pt-PT`, an English address redirects to the same page
+  under `/pt`; with `en`, a `/pt` address redirects to the English one; any other value, or no
+  cookie, redirects nothing. These are rules matched before the pages, so they cost nothing
+  per request on the pages themselves and keep them static. Search engines and visitors with no
+  cookie always get the page they asked for.
+- **The switcher:** `Navbar/LanguageSwitcher` shows `EN · PT`, in the navbar next to the status chip
+  and, with the label "Language" / "Idioma", in the phone menu's footer. The current language is
+  bold (not only coloured) and has `aria-current`; the other is a plain link to the same page in
+  that language, with `lang` and `hreflang`, named by its full language name for screen readers.
+  It is a plain link (not next-intl's `Link`, which would point at the internal `/en/...`), so the
+  page loads whole in the new language.
+- **The suggestion bar:** `SiteDocument/LanguageSuggestion` is a thin bar above the navbar, shown
+  only on an English page, to a browser whose `navigator.languages` includes any `pt*`, with no
+  saved choice or dismissal: "Este site está disponível em português.", a link to the same page
+  in Portuguese and a close button. It reads the browser while hydrating (`useSyncExternalStore`
+  with a server snapshot of "hidden"), so it is not in the static HTML and appears after the page
+  loads, pushing the page down once, for those visitors only. Its copy is `common.LanguageSuggestion`:
+  in `en.json` it is in Portuguese (the bar speaks the suggested language, whatever the page's),
+  and `pt-PT.json` holds the English version, unused until a mirror bar for Portuguese pages is
+  wanted. There is no such bar for English-speaking visitors on Portuguese pages.
 - **The language in code:** pages and layouts read it from the address with `next/root-params`
   (in `_common/i18n/request.ts`), so they stay static; share images get it from their route's
   `params`. Links go through `_common/navigation`'s `Link` (also MUI's link component, through the
   theme), which keeps the visitor's language, and `usePathname` gives the address without the
-  prefix.
-- **Messages:** every piece of copy is in `src/_common/i18n/en.json`: text, labels, aria-labels,
-  alt text, page titles and descriptions, share image text and structured data text. Namespaces
-  follow the code: `pages` and `profile` for shared names, `common.<Component>` for shared
-  components, `<page>.<Component>` for a page's own, and `<page>.page` for a page's route copy.
-  Only values that come from data stay out: my name, email, city and links (constants), years and
-  dates (`CAREER_START_YEAR`, `formatMonth`), passed in as message arguments (`{careerStartYear}`).
-  Lists of items are keyed objects; lists of tags or bullet points are arrays, read with `t.raw`.
+  prefix. next-intl's own locale cookie is turned off (`localeCookie: false` in `routing.ts`), so
+  it doesn't write a second one.
+- **Messages:** every piece of copy is in `src/_common/i18n/en.json` and `pt-PT.json`, with the same
+  keys (a test checks it): text, labels, aria-labels, alt text, page titles and descriptions, share
+  image text and structured data text. Namespaces follow the code: `pages` and `profile` for shared
+  names, `common.<Component>` for shared components, `<page>.<Component>` for a page's own, and
+  `<page>.page` for a page's route copy. Only values that come from data stay out: my name, email,
+  city and links (constants), years and dates (`CAREER_START_YEAR`, `formatMonth`), passed in as
+  message arguments (`{careerStartYear}`). Lists of items are keyed objects; lists of tags or bullet
+  points are arrays, read with `t.raw`. The Portuguese is European, in the first person, avoiding
+  "você"; the city and work-mode values are written so they read right without an article
+  ("Sou ... ({city})").
+- **Dates:** `formatMonth` writes a month as its short name and the year: "May 2021" in English,
+  "mai. 2021" in Portuguese (Portugal's default short date would be "05/2021", so the month's own
+  short name is used when the default is numeric).
 - **Keys are typed:** `_common/i18n/types.ts` gives next-intl the English messages' shape, so a
   key that doesn't exist fails `yarn typecheck`.
-- **The one exception:** `GlobalErrorPage` keeps its copy in its `content.ts`, in English. It shows
+- **The exceptions:** `GlobalErrorPage` keeps its copy in its `content.ts`, in English. It shows
   when the root layout fails, and the layout is what provides the language and messages, so it
-  can't count on them.
+  can't count on them. The 404 page for addresses without a page, and the share images' pictures
+  (their text is translated; the design is the same), stay as they were.
 - **Rich text:** the home page's intro marks its highlights with tags (`<highlight>React</highlight>`).
   Its empty `<gap></gap>` renders nothing: it keeps the comma and the space after it as separate
   text, as the page always had, so the browser lays the line out exactly the same.
 
-To add a language (for example `pt-PT` at `/pt`):
+To add another language (for example `de` at `/de`):
 
-1. Add `src/_common/i18n/pt-PT.json` with the same keys as `en.json` (a test checks it).
-2. In `src/_common/i18n/locales.ts`, add it to `LOCALES` and `OPEN_GRAPH_LOCALES` (`pt_PT`), and to
-   `LOCALE_PREFIXES` (`{ "pt-PT": "/pt" }`), since its prefix isn't its locale.
+1. Add `src/_common/i18n/de.json` with the same keys as `en.json`.
+2. In `src/_common/i18n/locales.ts`, add it to `LOCALES` and `OPEN_GRAPH_LOCALES`, and to
+   `LOCALE_PREFIXES` if its prefix isn't its locale.
+3. Add its name to `common.LanguageSwitcher.languages` in every message file, and check
+   `formatMonth` and the page descriptions' length (a test) in it.
 
-Its pages, share images, routes, alternates and sitemap entries follow from those. The 404 page for
-addresses without a page stays in the default language.
+Its pages, share images, routes, alternates, switcher option, saved-choice redirects and sitemap
+entries follow from those.
 
 ## Security headers
 
@@ -385,10 +420,15 @@ Route-level tests in `tests/` find every `page.tsx` in `src/app/[locale]` and ch
 Firefox and WebKit, each at desktop and phone sizes. A shared fixture fails any test if the browser
 logs an error or warning, throws, or gets a failed request.
 
-- `pages.spec.ts`: every page loads with a 200 status and has no accessibility violations (axe);
-  missing pages return 404; every page and the 404 page declare English (`lang`, `og:locale`,
-  `hreflang` alternates); `/en` addresses redirect to their public ones; the clean-load test also
+- `pages.spec.ts`: every page, in both languages, loads with a 200 status and has no accessibility
+  violations (axe); missing pages return 404; every English page and the 404 page declare English
+  (`lang`, `og:locale`, `hreflang` alternates); `/en` addresses redirect to their public ones; the clean-load test also
   runs against the dev server, where some hydration errors only show up.
+- `languages.spec.ts`: the Portuguese pages declare their language and alternates and use
+  Portuguese dates; the sitemap lists both languages; the switcher goes both ways, keeps the page and
+  saves the choice; the saved choice redirects (and only with the cookie); the suggestion bar shows
+  for a Portuguese browser with no saved choice, not in the HTML, not for an English browser, and
+  never again after choosing or closing.
 - `navigation.spec.ts`: the navbar, the phone menu and the skip link.
 - `scrolling.spec.ts`: in-page navigation lands each section below the sticky navbar; the go-to-top
   button.
