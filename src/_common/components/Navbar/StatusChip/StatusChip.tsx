@@ -7,9 +7,10 @@
 
 import Box from "@mui/material/Box";
 import Chip from "@mui/material/Chip";
+import { useTranslations } from "next-intl";
 import { AVAILABILITY } from "@/_common/constants";
 import { StatusDot } from "@/_common/components/StatusDot";
-import { STATUS_LABEL, STATUS_LABELS, STATUS_SHORT_LABEL } from "./content";
+import { CHIP_STATUSES } from "./constants";
 import { chip } from "./styles";
 
 /**
@@ -17,12 +18,16 @@ import { chip } from "./styles";
  * smaller screens, reads "Open" but keeps the full text for screen readers.
  */
 export function StatusChip({ compact = false }: { compact?: boolean }) {
-  const label = STATUS_LABEL[AVAILABILITY];
+  const t = useTranslations("common.StatusChip");
+  const availability = AVAILABILITY;
+  const label = availability === "not-looking" ? null : t(`status.${availability}`);
+  // Every chip text, to reserve the width of the widest.
+  const labels = CHIP_STATUSES.map((status) => t(`status.${status}`));
 
   if (compact) {
     return label ? (
       <Chip
-        label={STATUS_SHORT_LABEL}
+        label={t("short")}
         aria-label={label}
         icon={<StatusDot pulse />}
         sx={{
@@ -39,7 +44,7 @@ export function StatusChip({ compact = false }: { compact?: boolean }) {
   // and the links never move when the chip changes or hides.
   return (
     <Box sx={{ display: { xs: "none", lg: "grid" }, justifyItems: "end" }}>
-      {STATUS_LABELS.map((text) => {
+      {labels.map((text) => {
         const isShown = text === label;
         return (
           <Chip

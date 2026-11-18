@@ -1,24 +1,27 @@
 "use client";
 
-import { usePathname } from "next/navigation";
 import Button from "@mui/material/Button";
 import Stack from "@mui/material/Stack";
+import { useTranslations } from "next-intl";
 import { PAGES } from "@/_common/constants";
+import { usePathname } from "@/_common/navigation";
 import { StatusDot } from "@/_common/components/StatusDot";
-import { NAV_LABELS } from "./content";
 import { activeLink, variantStyles } from "./styles";
 import { isActivePath } from "./utils";
 import type { NavLinksVariant } from "./types";
 
 /** Links to every page, with the current one highlighted. */
 export function NavLinks({ variant }: { variant: NavLinksVariant }) {
+  const t = useTranslations("common.NavLinks");
+  const tPages = useTranslations("pages");
+  // The address without its language prefix, so links match in every language.
   const pathname = usePathname();
   const { nav, link, inactiveLink } = variantStyles[variant];
 
   return (
     <Stack
       component="nav"
-      aria-label={NAV_LABELS[variant]}
+      aria-label={t(variant)}
       direction={variant === "desktop" ? "row" : "column"}
       spacing={1}
       sx={nav}
@@ -44,10 +47,10 @@ export function NavLinks({ variant }: { variant: NavLinksVariant }) {
             {variant === "mobile" ? (
               <Stack direction="row" spacing={1} sx={{ alignItems: "center" }}>
                 {isActive && <StatusDot />}
-                <span>{page.name}</span>
+                <span>{tPages(page.key)}</span>
               </Stack>
             ) : (
-              page.name
+              tPages(page.key)
             )}
           </Button>
         );

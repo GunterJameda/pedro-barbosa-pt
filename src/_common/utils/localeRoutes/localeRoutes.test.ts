@@ -1,0 +1,90 @@
+// @vitest-environment node
+import { getPathMatch } from "next/dist/shared/lib/router/utils/path-match";
+import { describe, expect, it } from "vitest";
+import { DEFAULT_LOCALE, LOCALE_PREFIXES, LOCALES } from "@/_common/i18n";
+import type { RouteRule } from "./types";
+import { localeRoutes } from "./localeRoutes";
+
+/** Where Next.js sends an address through the first rule that matches it, as next.config.ts runs them. */
+function follow(rules: RouteRule[], address: string) {
+  for (const { source, destination } of rules) {
+    const params = getPathMatch(source)(address);
+    if (params) {
+      return destination.replace(/:(\w+)\*?/g, (_, name: string) =>
+        [params[name] ?? ""].flat().join("/"),
+      );
+    }
+  }
+  return address;
+}
+
+const site = localeRoutes({
+  locales: LOCALES,
+  defaultLocale: DEFAULT_LOCALE,
+  prefixes: LOCALE_PREFIXES,
+});
+const withPortuguese = localeRoutes({
+  locales: ["en", "pt-PT"],
+  defaultLocale: "en",
+  prefixes: { "pt-PT": "/pt" },
+});
+
+describe("localeRoutes", () => {
+  it.each([
+    ["/", "/en"],
+    ["/about", "/en/about"],
+    ["/about/opengraph-image", "/en/about/opengraph-image"],
+    ["/no-such-page", "/en/no-such-page"],
+    ["/missing.php", "/en/missing.php"],
+  ])("shows %s from the English pages, at the same address", (address, page) => {
+    expect(follow(site.rewrites, address)).toBe(page);
+  });
+
+  it.each(["/sitemap.xml", "/robots.txt", "/icon.svg", "/favicon.ico", "/_next/static/a.js"])(
+    "leaves %s alone, since it's the same in every language",
+    (address) => {
+      expect(follow(site.rewrites, address)).toBe(address);
+    },
+  );
+
+  it.each([
+    ["/en", "/"],
+    ["/en/about", "/about"],
+  ])("redirects the English page's internal address %s to its public one", (address, target) => {
+    expect(follow(site.redirects, address)).toBe(target);
+  });
+
+  it("only redirects addresses inside the English prefix, not ones that start with it", () => {
+    expect(follow(site.redirects, "/english")).toBe("/english");
+    expect(follow(site.rewrites, "/english")).toBe("/en/english");
+  });
+
+  it("makes every redirect permanent", () => {
+    expect(withPortuguese.redirects.every(({ permanent }) => permanent)).toBe(true);
+  });
+
+  describe("with a second language enabled", () => {
+    it.each([
+      ["/pt", "/pt-PT"],
+      ["/pt/about", "/pt-PT/about"],
+    ])("shows %s from that language's pages", (address, page) => {
+      expect(follow(withPortuguese.rewrites, address)).toBe(page);
+    });
+
+    it("keeps English at addresses without a prefix", () => {
+      expect(follow(withPortuguese.rewrites, "/about")).toBe("/en/about");
+      expect(follow(withPortuguese.rewrites, "/ptolemy")).toBe("/en/ptolemy");
+    });
+
+    it("redirects the language's internal address to its prefix", () => {
+      expect(follow(withPortuguese.redirects, "/pt-PT/about")).toBe("/pt/about");
+      expect(follow(withPortuguese.redirects, "/pt-PT")).toBe("/pt");
+    });
+
+    it("needs no rule for a language whose prefix is its locale", () => {
+      const withGerman = localeRoutes({ locales: ["en", "de"], defaultLocale: "en", prefixes: {} });
+      expect(follow(withGerman.rewrites, "/de/about")).toBe("/de/about");
+      expect(follow(withGerman.redirects, "/de/about")).toBe("/de/about");
+    });
+  });
+});

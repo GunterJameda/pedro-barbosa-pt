@@ -1,0 +1,1 @@
+export { socialMetadata } from "./socialMetadata";

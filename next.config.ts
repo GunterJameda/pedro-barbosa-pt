@@ -1,4 +1,7 @@
 import type { NextConfig } from "next";
+import createNextIntlPlugin from "next-intl/plugin";
+import { DEFAULT_LOCALE, LOCALE_PREFIXES, LOCALES } from "./src/_common/i18n";
+import { localeRoutes } from "./src/_common/utils/localeRoutes";
 
 const isDev = process.env.NODE_ENV === "development";
 
@@ -57,18 +60,38 @@ const SECURITY_HEADERS = [
   { key: "Cross-Origin-Opener-Policy", value: "same-origin" },
 ];
 
+// Every page lives under src/app/[locale]. These map each language's public
+// addresses onto it: /about is the English page, /pt/about would be Portuguese.
+const LOCALE_ROUTES = localeRoutes({
+  locales: LOCALES,
+  defaultLocale: DEFAULT_LOCALE,
+  prefixes: LOCALE_PREFIXES,
+});
+
 const nextConfig: NextConfig = {
   cacheComponents: true,
+  experimental: {
+    // A 404 page for addresses without a page, outside the [locale] route.
+    globalNotFound: true,
+  },
   partialPrefetching: true,
   headers() {
     return [{ source: "/:path*", headers: SECURITY_HEADERS }];
+  },
+  rewrites() {
+    // Applied before the pages: no proxy runs on each request.
+    return { beforeFiles: LOCALE_ROUTES.rewrites, afterFiles: [], fallback: [] };
   },
   redirects() {
     return [
       // Home used to live at /home. Keeps old links and search results working.
       { source: "/home", destination: "/", permanent: true },
+      ...LOCALE_ROUTES.redirects,
     ];
   },
 };
 
-export default nextConfig;
+// Points next-intl at the request config, which loads each language's messages.
+const withNextIntl = createNextIntlPlugin("./src/_common/i18n/request.ts");
+
+export default withNextIntl(nextConfig);

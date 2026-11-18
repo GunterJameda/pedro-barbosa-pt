@@ -1,0 +1,1 @@
+export { localeRoutes } from "./localeRoutes";

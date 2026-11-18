@@ -1,12 +1,13 @@
-import type { FastNavigationLink } from "@/_common/components/FastNavigation";
+import type { CompanyLink } from "./types";
 
-export const COMPANY_LINKS: FastNavigationLink[] = [
-  { name: "Teya", detail: "Senior Engineer", targetId: "teya" },
-  { name: "Tillster", detail: "Senior Engineer", targetId: "tillster" },
-  { name: "PriceHubble", detail: "Frontend Engineer", targetId: "pricehubble" },
-  { name: "Luxclusif", detail: "Frontend Engineer", targetId: "luxclusif" },
-  { name: "LabsForge", detail: "Frontend Engineer", targetId: "labsforge" },
-  { name: "HUUB", detail: "Junior Engineer", targetId: "huub" },
-  { name: "Glintt", detail: "Junior Engineer", targetId: "glintt" },
-  { name: "Education", detail: "ISEP Porto", targetId: "education" },
+/** The sections the card jumps to, in page order; each names its copy in the messages. */
+export const COMPANY_LINKS: CompanyLink[] = [
+  "teya",
+  "tillster",
+  "pricehubble",
+  "luxclusif",
+  "labsforge",
+  "huub",
+  "glintt",
+  "education",
 ];

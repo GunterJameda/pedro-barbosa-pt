@@ -1,0 +1,1 @@
+export { languageAlternates } from "./languageAlternates";

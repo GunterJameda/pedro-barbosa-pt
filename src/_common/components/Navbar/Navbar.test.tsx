@@ -6,7 +6,11 @@ import { renderWithTheme } from "@tests/render";
 import { mockScreen } from "@tests/screen";
 import { Navbar } from "./Navbar";
 
-vi.mock("next/navigation", () => ({ usePathname: vi.fn() }));
+// Only the address is faked; the site's locale-aware navigation needs the rest.
+vi.mock("next/navigation", async (importOriginal) => ({
+  ...(await importOriginal<object>()),
+  usePathname: vi.fn(),
+}));
 
 beforeEach(() => {
   mockScreen({ isDesktop: false });

@@ -1,8 +1,9 @@
 import type { QuickLink } from "./types";
 
+/** Each link is named after its page. */
 export const LINKS: QuickLink[] = [
-  { label: "About", href: "/about", primary: false },
-  { label: "Experience", href: "/experience", primary: false },
-  { label: "Personal Projects", href: "/projects", primary: false },
-  { label: "Contact", href: "/contact", primary: true },
+  { page: "about", href: "/about", primary: false },
+  { page: "experience", href: "/experience", primary: false },
+  { page: "projects", href: "/projects", primary: false },
+  { page: "contact", href: "/contact", primary: true },
 ];

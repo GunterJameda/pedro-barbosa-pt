@@ -1,6 +1,7 @@
 import Box from "@mui/material/Box";
 import type { SxProps, Theme } from "@mui/material/styles";
 import Typography from "@mui/material/Typography";
+import { useTranslations } from "next-intl";
 import { CardGrid } from "@/_common/components/CardGrid";
 import { Eyebrow } from "@/_common/components/Eyebrow";
 import { SurfaceCard } from "@/_common/components/SurfaceCard";
@@ -16,10 +17,11 @@ interface FastNavigationProps {
 
 /** A card of links that jump to sections further down the page. */
 export function FastNavigation({ label, title, links, sx }: FastNavigationProps) {
+  const t = useTranslations("common.FastNavigation");
   return (
     <SurfaceCard component="nav" aria-label={label} spacing={2} sx={sx}>
       <Box sx={{ pb: 1, borderBottom: 1, borderColor: "surface.hairline" }}>
-        <Eyebrow>Fast Navigation</Eyebrow>
+        <Eyebrow>{t("label")}</Eyebrow>
       </Box>
 
       <Typography variant="itemTitle">{title}</Typography>

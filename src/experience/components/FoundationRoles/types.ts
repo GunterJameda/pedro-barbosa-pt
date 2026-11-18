@@ -1,9 +1,9 @@
+import type { Messages } from "@/_common/i18n";
+
 export interface FoundationRole {
-  id: string;
-  industry: string;
-  company: string;
-  roleTitle: string;
-  period: string;
-  description: string;
-  tags: string[];
+  id: keyof Messages["experience"]["FoundationRoles"]["roles"];
+  /** Year and month, as "2019-01". */
+  started: string;
+  /** Year and month, as "2020-06". */
+  ended: string;
 }

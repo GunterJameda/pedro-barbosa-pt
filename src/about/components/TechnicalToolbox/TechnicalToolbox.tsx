@@ -1,5 +1,7 @@
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
+import { useTranslations } from "next-intl";
+import { CAREER_START_YEAR } from "@/_common/constants";
 import { fontMono } from "@/_common/theme";
 import { CardFooter } from "@/_common/components/CardFooter";
 import { SectionHeading } from "@/_common/components/SectionHeading";
@@ -9,16 +11,13 @@ import { TagList } from "@/_common/components/TagList";
 import { TOOLBOX_GROUPS } from "./content";
 
 export function TechnicalToolbox() {
+  const t = useTranslations("about.TechnicalToolbox");
   return (
     <Stack component="section" spacing={3}>
-      <SectionHeading
-        eyebrow="Capabilities & Stacks"
-        title="Technical Toolbox"
-        description="Technologies chosen for maintainability, speed, ecosystem stability, and developer ergonomics."
-      />
+      <SectionHeading eyebrow={t("eyebrow")} title={t("title")} description={t("description")} />
       <Stack spacing={2}>
         {TOOLBOX_GROUPS.map((group) => (
-          <SurfaceCard key={group.title} spacing={2}>
+          <SurfaceCard key={group} spacing={2}>
             <Stack
               direction={{ xs: "column", sm: "row" }}
               spacing={1}
@@ -29,14 +28,14 @@ export function TechnicalToolbox() {
             >
               <Stack direction="row" spacing={1} sx={{ alignItems: "center" }}>
                 <StatusDot size={8} />
-                <Typography variant="cardTitle">{group.title}</Typography>
+                <Typography variant="cardTitle">{t(`groups.${group}.title`)}</Typography>
               </Stack>
-              <Typography variant="mono">{group.roleBadge}</Typography>
+              <Typography variant="mono">{t(`groups.${group}.roleBadge`)}</Typography>
             </Stack>
 
-            <Typography variant="body">{group.description}</Typography>
+            <Typography variant="body">{t(`groups.${group}.description`)}</Typography>
 
-            <TagList tags={group.skills} />
+            <TagList tags={t.raw(`groups.${group}.skills`) as string[]} />
 
             <CardFooter
               useFlexGap
@@ -51,9 +50,9 @@ export function TechnicalToolbox() {
                 fontSize: 12,
               }}
             >
-              <span>{group.footerLeft}</span>
+              <span>{t(`groups.${group}.footerLeft`)}</span>
               <Typography component="span" sx={{ color: "slate.300", font: "inherit" }}>
-                {group.footerRight}
+                {t(`groups.${group}.footerRight`, { careerStartYear: CAREER_START_YEAR })}
               </Typography>
             </CardFooter>
           </SurfaceCard>

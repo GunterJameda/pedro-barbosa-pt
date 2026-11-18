@@ -2,6 +2,7 @@ import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import MailOutlinedIcon from "@mui/icons-material/MailOutlined";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
+import { useTranslations } from "next-intl";
 import { ActionButton } from "@/_common/components/ActionButton";
 import { DotLabel } from "@/_common/components/DotLabel";
 import { SurfaceCard } from "@/_common/components/SurfaceCard";
@@ -20,6 +21,7 @@ export function PreFooterCTA({
   secondaryButtonText,
   secondaryButtonHref,
 }: PreFooterCTAProps) {
+  const t = useTranslations("common.PreFooterCTA");
   return (
     <SurfaceCard
       component="section"
@@ -32,7 +34,7 @@ export function PreFooterCTA({
       }}
     >
       <Stack spacing={1} sx={{ maxWidth: 672 }}>
-        <DotLabel>Next Inquiries & Collaboration</DotLabel>
+        <DotLabel>{t("label")}</DotLabel>
         <Typography variant="sectionTitle">{title}</Typography>
         <Typography variant="body" sx={{ color: "text.secondary" }}>
           {description}
@@ -49,7 +51,7 @@ export function PreFooterCTA({
           {secondaryButtonText}
         </ActionButton>
         <ActionButton href="/contact" primary endIcon={<MailOutlinedIcon />}>
-          Contact me
+          {t("contact")}
         </ActionButton>
       </Stack>
     </SurfaceCard>

@@ -1,8 +1,3 @@
-export interface ToolboxGroup {
-  title: string;
-  roleBadge: string;
-  description: string;
-  skills: string[];
-  footerLeft: string;
-  footerRight: string;
-}
+import type { Messages } from "@/_common/i18n";
+
+export type ToolboxGroup = keyof Messages["about"]["TechnicalToolbox"]["groups"];

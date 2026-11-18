@@ -1,8 +1,11 @@
 import { screen, within } from "@testing-library/react";
 import { describe, expect, it } from "vitest";
 import { GITHUB_URL } from "@/_common/constants";
+import { messages } from "@tests/intl";
 import { renderWithTheme } from "@tests/render";
 import { PROJECTS } from "./content";
+
+const copyOf = (project: (typeof PROJECTS)[number]) => messages.projects.projects[project.id];
 import { ProjectList } from "./ProjectList";
 
 const projectNames = () =>
@@ -16,7 +19,7 @@ describe("ProjectList", () => {
     renderWithTheme(<ProjectList />);
     const newestFirst = [...PROJECTS]
       .sort((a, b) => b.started.localeCompare(a.started))
-      .map((project) => project.name);
+      .map((project) => copyOf(project).name);
     expect(projectNames()).toEqual(newestFirst);
   });
 
@@ -53,8 +56,9 @@ describe("ProjectList", () => {
     renderWithTheme(<ProjectList />);
     const navigation = within(screen.getByRole("navigation", { name: "Projects" }));
     for (const project of PROJECTS) {
-      const link = navigation.getByRole("link", { name: new RegExp(project.name) });
-      expect(link).toHaveTextContent(project.category);
+      const { name, category } = copyOf(project);
+      const link = navigation.getByRole("link", { name: new RegExp(name) });
+      expect(link).toHaveTextContent(category);
     }
   });
 

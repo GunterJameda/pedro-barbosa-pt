@@ -1,0 +1,601 @@
+{
+  "site": {
+    "title": "{name} | {role}",
+    "titleTemplate": "%s | {name}",
+    "description": "Senior Frontend Engineer specialising in React, Next.js and TypeScript, with a strong foundation in Angular."
+  },
+  "profile": {
+    "role": "Senior Frontend Engineer",
+    "workModeRoles": {
+      "remote-and-hybrid": "remote and hybrid roles",
+      "remote-only": "remote roles"
+    }
+  },
+  "pages": {
+    "home": "Home",
+    "about": "About",
+    "experience": "Experience",
+    "projects": "Personal Projects",
+    "contact": "Contact"
+  },
+  "common": {
+    "ErrorPage": {
+      "label": "Something broke",
+      "title": "Something failed to render.",
+      "text": "An unexpected error stopped this page from loading. Try again, or let me take you back home.",
+      "retry": "Try again",
+      "home": "Go to Home",
+      "tabTitle": "Something went wrong | {name}"
+    },
+    "FastNavigation": {
+      "label": "Fast Navigation"
+    },
+    "MobileMenu": {
+      "open": "Open menu",
+      "menu": "Menu",
+      "close": "Close menu",
+      "contact": "Contact me"
+    },
+    "AvailabilityCard": {
+      "label": "Availability",
+      "status": {
+        "immediate": "Immediate",
+        "open": "Open to opportunities"
+      }
+    },
+    "NavLinks": {
+      "desktop": "Main",
+      "mobile": "Mobile"
+    },
+    "StatusChip": {
+      "status": {
+        "immediate": "Open for opportunities",
+        "open": "Open to opportunities"
+      },
+      "short": "Open"
+    },
+    "PreFooterCTA": {
+      "label": "Next Inquiries & Collaboration",
+      "contact": "Contact me"
+    },
+    "ScrollToTop": {
+      "label": "Go to top"
+    },
+    "ShareImage": {
+      "alt": "{name}, {role}",
+      "pageAlt": "{page} · {name}, {role}",
+      "tags": ["React", "Next.js", "TypeScript", "Angular"]
+    },
+    "SkipLink": {
+      "label": "Skip to content"
+    }
+  },
+  "notFound": {
+    "title": "Page not found",
+    "label": "Error 404",
+    "heading": "Nothing to render here.",
+    "text": "This route isn't part of the site. Let me point you somewhere useful.",
+    "home": "Go to Home",
+    "contact": "Contact me"
+  },
+  "home": {
+    "Hero": {
+      "title": "Hello, I'm {name}.",
+      "text": "Senior Frontend Engineer specialising in <highlight>React</highlight>,<gap></gap> <highlight>Next.js</highlight> and <highlight>TypeScript</highlight>, with a strong foundation in <highlight>Angular</highlight>. Building resilient multi-tenant apps, design systems, and modern frontend architectures."
+    },
+    "PersonSchema": {
+      "knowsAbout": ["React", "Next.js", "TypeScript", "Angular"]
+    }
+  },
+  "about": {
+    "page": {
+      "description": "Senior Frontend Engineer since {careerStartYear}, specialising in frontend modernisation and scalable design systems.",
+      "ctaTitle": "See the engineering work in practice.",
+      "ctaText": "Explore my career across startups and established software teams, or see the products I've built outside work.",
+      "ctaButton": "View Experience"
+    },
+    "AboutHero": {
+      "eyebrow": "Profile & Architecture Philosophy",
+      "title": "Engineering with care, pragmatism, and attention to detail.",
+      "description": "Senior Frontend Engineer · Since {careerStartYear}. Specialising in frontend modernisation and scalable design systems. My practice unites clean architectural boundaries, accessible component systems, and empathetic, high-velocity collaboration across product, design, and engineering squads.",
+      "pillars": {
+        "specialisation": {
+          "tag": "Specialisation",
+          "title": "Frontend Modernisation",
+          "description": "De-risking legacy migrations & state decoupling"
+        },
+        "uiArchitecture": {
+          "tag": "UI Architecture",
+          "title": "Design Systems",
+          "description": "Multi-tenant token pipelines & schema-driven UI"
+        },
+        "collaboration": {
+          "tag": "Collaboration",
+          "title": "Direct & RFC-Driven",
+          "description": "Bridging design & engineering with low-ambiguity specs"
+        },
+        "seniority": {
+          "tag": "Seniority",
+          "title": "Senior IC",
+          "description": "Deep hands-on implementation & codebase stewardship"
+        }
+      }
+    },
+    "EngineeringPrinciples": {
+      "eyebrow": "Engineering Principles",
+      "title": "What I Value Most in Code",
+      "description": "A disciplined, grounded perspective cultivated over thousands of pull requests and production releases.",
+      "principles": {
+        "rootIntent": {
+          "badge": "Root Intent",
+          "title": "Solve the Root Need, Not Just the Spec",
+          "description": "Looking past static tickets to understand the real user behavior and business outcome behind the requirement. True engineering interrogates assumptions upfront to ship durable, high-impact solutions.",
+          "highlight": "Addressing genuine human and system needs"
+        },
+        "pragmaticSimplicity": {
+          "badge": "Pragmatic Simplicity",
+          "title": "Pragmatic, High-Leverage Architecture",
+          "description": "Finding the leanest, most elegant implementation that maximizes existing systems without unnecessary abstraction. Choosing proven patterns that deliver high business leverage with minimal team friction.",
+          "highlight": "Maximal leverage through existing architecture"
+        },
+        "systemResilience": {
+          "badge": "System Resilience",
+          "title": "Sustainable Extensibility",
+          "description": "Designing clear component boundaries and contracts that accommodate future evolution without premature complexity. Isolating state domains to enable seamless growth without brittle cascades.",
+          "highlight": "Clean boundary contracts without over-engineering"
+        },
+        "userExperience": {
+          "badge": "User Experience",
+          "title": "Frictionless UX & Perceived Performance",
+          "description": "Treating responsive layout, keyboard navigation, and smooth frame delivery as first-class architectural requirements, not afterthoughts. Instantaneous feedback inspires deep confidence in product craft.",
+          "highlight": "Tactile feedback, zero layout shifts, tight frame budgets"
+        }
+      }
+    },
+    "TeamPractices": {
+      "eyebrow": "Methodology & Culture",
+      "title": "How I Work in Teams",
+      "description": "Software is built by people, not just pull requests. Here is how I collaborate day-to-day to keep teams moving smoothly.",
+      "practices": {
+        "codeReviews": {
+          "title": "Collaborative Code Reviews",
+          "description": "Focus on constructive, ego-free feedback, keeping PRs moving so teammates aren't blocked, and leaving files cleaner than I found them.",
+          "tagLeft": "Focus: Readability & Reliability",
+          "tagRight": "Mentorship"
+        },
+        "writtenSpecs": {
+          "title": "Clear Written Specs & RFCs",
+          "description": "Writing down technical trade-offs and edge cases early before building. Clarifying questions up front saves hours of rewrite meetings later.",
+          "tagLeft": "Format: Async RFCs",
+          "tagRight": "Low Ambiguity"
+        },
+        "crossFunctional": {
+          "title": "Cross-functional Bridge",
+          "description": "Working closely with designers, backend engineers, and product. Thinking through what happens when things go wrong (slow networks, errors, missing data) before users see it.",
+          "tagLeft": "Design ⇄ Code Synergy",
+          "tagRight": "Design Tokens"
+        }
+      }
+    },
+    "TechnicalToolbox": {
+      "eyebrow": "Capabilities & Stacks",
+      "title": "Technical Toolbox",
+      "description": "Technologies chosen for maintainability, speed, ecosystem stability, and developer ergonomics.",
+      "groups": {
+        "coreState": {
+          "title": "Core & State",
+          "roleBadge": "Primary Stack",
+          "description": "React, Next.js, and TypeScript daily drivers paired with resilient state management architectures.",
+          "skills": [
+            "TypeScript",
+            "React",
+            "Next.js",
+            "JavaScript (ES6+)",
+            "HTML5 / CSS3",
+            "Redux & Context API",
+            "NgRx & Recoil",
+            "Angular / AngularJS"
+          ],
+          "footerLeft": "Production Proficiency",
+          "footerRight": "Senior · Since {careerStartYear}"
+        },
+        "designSystems": {
+          "title": "UI & Design Systems",
+          "roleBadge": "Architecture",
+          "description": "Reusable component libraries, design token pipelines, and dynamic JSON-driven UI rendering.",
+          "skills": [
+            "Design System Architecture",
+            "JSON-driven Components",
+            "Material UI (MUI)",
+            "Chakra UI",
+            "Tailwind CSS",
+            "Accessibility (a11y)",
+            "Frontend Modernisation"
+          ],
+          "footerLeft": "Specialisation",
+          "footerRight": "Scalable UI Systems"
+        },
+        "testingDelivery": {
+          "title": "Testing & CI/CD",
+          "roleBadge": "Delivery",
+          "description": "End-to-end and unit testing automation with multi-platform continuous integration pipelines.",
+          "skills": [
+            "Jest & Vitest",
+            "Playwright",
+            "Jasmine & Karma",
+            "Unit & E2E Testing",
+            "GitHub Actions",
+            "GitLab CI/CD",
+            "Bitbucket Pipelines",
+            "Jenkins"
+          ],
+          "footerLeft": "Pipeline Automation",
+          "footerRight": "Rigorous CI/CD"
+        }
+      }
+    }
+  },
+  "experience": {
+    "page": {
+      "description": "My track record since {careerStartYear}: shipping production web apps, migrating legacy architectures to microfrontends, and building scalable design systems.",
+      "ctaTitle": "Interested in discussing a role or viewing code?",
+      "ctaText": "Whether you are planning a modern frontend migration or scaling an engineering squad, let's talk architecture, execution, and technical fit.",
+      "ctaButton": "Explore Personal Projects"
+    },
+    "period": "{start} - {end}",
+    "ExperienceHero": {
+      "eyebrow": "Career Timeline & Architectural Impact",
+      "title": "Professional Experience",
+      "description": "A chronological track record of shipping production web applications, migrating legacy architectures to modern microfrontends, and building scalable design systems since {careerStartYear}.",
+      "metrics": {
+        "tenure": {
+          "tag": "Tenure",
+          "title": "Since {careerStartYear}",
+          "description": "Production web engineering & distributed delivery"
+        },
+        "industries": {
+          "tag": "Industries",
+          "title": "Fintech to Healthcare",
+          "description": "SaaS, e-commerce, proptech & supply chain"
+        },
+        "primaryStack": {
+          "tag": "Primary Stack",
+          "title": "React & Next.js",
+          "description": "TypeScript, design systems & microfrontend migration"
+        }
+      },
+      "availability": {
+        "immediate": {
+          "tag": "Availability",
+          "title": "Immediate",
+          "description": "{location} · {workMode} Senior Engineer roles"
+        },
+        "open": {
+          "tag": "Availability",
+          "title": "Open to offers",
+          "description": "{location} · {workMode} Senior Engineer roles"
+        },
+        "not-looking": {
+          "tag": "Location",
+          "title": "{location}",
+          "description": "{workModeExperience}"
+        }
+      },
+      "workMode": {
+        "remote-and-hybrid": "Remote & Hybrid",
+        "remote-only": "Remote"
+      },
+      "workModeExperience": {
+        "remote-and-hybrid": "Remote & hybrid experience",
+        "remote-only": "Remote experience"
+      }
+    },
+    "EvolutionBlueprint": {
+      "eyebrow": "Evolution Blueprint",
+      "text": "From monolith enterprise systems at Glintt and HUUB to microfrontends at PriceHubble and schema-driven component engines at Teya, my career is shaped by progressive technical ownership.",
+      "focusLabel": "Primary Focus Transition",
+      "focus": "Angular → React / Next"
+    },
+    "CareerChart": {
+      "label": "Career progression from {start} to {end}"
+    },
+    "CompanyNavigation": {
+      "label": "Companies",
+      "title": "Companies & Engagements",
+      "links": {
+        "teya": { "name": "Teya", "detail": "Senior Engineer" },
+        "tillster": { "name": "Tillster", "detail": "Senior Engineer" },
+        "pricehubble": { "name": "PriceHubble", "detail": "Frontend Engineer" },
+        "luxclusif": { "name": "Luxclusif", "detail": "Frontend Engineer" },
+        "labsforge": { "name": "LabsForge", "detail": "Frontend Engineer" },
+        "huub": { "name": "HUUB", "detail": "Junior Engineer" },
+        "glintt": { "name": "Glintt", "detail": "Junior Engineer" },
+        "education": { "name": "Education", "detail": "ISEP Porto" }
+      }
+    },
+    "CareerMilestones": {
+      "contributions": "Key Contributions & Architecture",
+      "roles": {
+        "teya": {
+          "industry": "Financial Operations SaaS",
+          "company": "Teya",
+          "roleTitle": "Senior Frontend Engineer",
+          "tags": [
+            "React",
+            "Next.js",
+            "TypeScript",
+            "Context API",
+            "Material UI",
+            "Recoil",
+            "Redux"
+          ],
+          "bulletPoints": [
+            "Proactively identified and implemented codebase improvements in an existing financial operations application, balancing structural refactoring alongside accelerated feature delivery.",
+            "Contributed to deep state-management migrations from legacy Redux and Recoil architectures directly to idiomatic Context API patterns, minimizing mental overhead and bundle weight.",
+            "Spearheaded component migrations from Chakra UI to an internal Material UI-based unified design system, including a dynamic component engine that rendered complex workflows straight from JSON configurations and data schemas."
+          ]
+        },
+        "tillster": {
+          "industry": "Enterprise Quick-Service Ordering",
+          "company": "Tillster",
+          "roleTitle": "Senior Frontend Engineer",
+          "tags": ["AngularJS", "Ionic v1", "JavaScript", "Stripe API", "Multi-Tenant UI"],
+          "bulletPoints": [
+            "Maintained and extended an expansive multi-tenant platform supporting production web and hybrid mobile applications, precisely adapting interfaces and localized business logic for high-volume international restaurant brands.",
+            "Implemented a unified Stripe payment integration, dynamically configuring the payment form's appearance, verification flow, and client branding via tenant schema rules.",
+            "Owned feature implementation, comprehensive integration tests, and structured handoff to QA teams, resolving regression defects and orchestrating zero-downtime production rollouts."
+          ]
+        },
+        "pricehubble": {
+          "industry": "Real Estate AI & PropTech",
+          "company": "PriceHubble",
+          "roleTitle": "Frontend Engineer",
+          "tags": ["single-spa", "React", "Next.js", "TypeScript", "Angular", "CI/CD Workflows"],
+          "bulletPoints": [
+            "Partnered directly with another engineer to plan, architect, and deliver the initial phase of decomposing a massive Angular monolith into microfrontends, segregating business domains cleanly.",
+            "Established isolated repositories and CI/CD deployment pipelines using single-spa orchestration for route coordination, unlocking autonomous deployment pipelines for independent product squads.",
+            "Engineered a redesigned user onboarding wizard in React and Next.js, iterating in close synchronization with product designers to refine UX heuristics and optimize step-completion metrics."
+          ]
+        },
+        "luxclusif": {
+          "industry": "Luxury E-Commerce Tech",
+          "company": "Luxclusif",
+          "roleTitle": "Frontend Engineer",
+          "tags": [
+            "React",
+            "TypeScript",
+            "Material UI",
+            "Component Systems",
+            "Workflow Automation"
+          ],
+          "bulletPoints": [
+            "Joined as the company's first frontend developer, single-handedly setting engineering conventions and building the flagship application to streamline second-hand luxury handbag acquisition and authentication.",
+            "Architected and published version 1.0 of the company's internal component library, standardizing interaction design, visual tokens, and reusable primitives across distributed business tools."
+          ]
+        }
+      }
+    },
+    "FoundationRoles": {
+      "roles": {
+        "labsforge": {
+          "industry": "Consulting & Cloud",
+          "company": "LabsForge Consulting",
+          "roleTitle": "Frontend Engineer",
+          "description": "Sole developer of AlbumTeller, an application combining photography album production tools into a single seamless workflow.",
+          "tags": ["Angular", "TypeScript", "Node.js", "AWS Serverless"]
+        },
+        "huub": {
+          "industry": "Supply Chain Tech",
+          "company": "HUUB",
+          "roleTitle": "Junior Frontend Engineer",
+          "description": "Developed a specialized warehouse quality control application supporting real-time inspection workflows for incoming clothing garments and manufacturing defect auditing.",
+          "tags": ["Angular", "TypeScript", "Logistics UX"]
+        },
+        "glintt": {
+          "industry": "Healthcare Informatics",
+          "company": "Glintt",
+          "roleTitle": "Junior Frontend Engineer",
+          "description": "Developed an enterprise healthcare application supporting rigorous clinical trial data collection, participant management, and protocol tracking workflows.",
+          "tags": ["Angular", "TypeScript", "Clinical Systems"]
+        }
+      }
+    },
+    "AcademicBackground": {
+      "eyebrow": "Academic Background",
+      "school": "Instituto Superior de Engenharia do Porto (ISEP)",
+      "degree": "BSc in Informatics Engineering · {start} - {end}",
+      "location": "Porto, Portugal"
+    }
+  },
+  "projects": {
+    "page": {
+      "description": "Products I build outside work to solve real problems, from defining the requirements to shipping working software.",
+      "ctaTitle": "Want to collaborate or discuss an opportunity?",
+      "ctaText": "If you're hiring a Senior Frontend Engineer or planning a frontend migration, let's talk about the role and how I can help.",
+      "ctaButton": "View Experience"
+    },
+    "ProjectsHero": {
+      "eyebrow": "Independent Work & Craft",
+      "title": "Personal Projects",
+      "description": "Products I build outside work to solve real problems, from defining the requirements to shipping working software.",
+      "cards": {
+        "motivation": {
+          "tag": "Motivation",
+          "title": "Useful First",
+          "description": "Built to solve real problems, not to try new tech"
+        },
+        "startingPoint": {
+          "tag": "Starting Point",
+          "title": "Problem to Requirements",
+          "description": "The requirements come before the code"
+        },
+        "ownership": {
+          "tag": "Ownership",
+          "title": "Idea to Launch",
+          "description": "Business rules, design handoff and delivery"
+        },
+        "scope": {
+          "tag": "Scope",
+          "title": "Frontend to Database",
+          "description": "Full-stack, built outside work"
+        }
+      }
+    },
+    "ProjectList": {
+      "label": "Projects",
+      "title": "All Projects"
+    },
+    "ProjectCard": {
+      "period": "{start} - {end}",
+      "present": "Present",
+      "repo": "View on GitHub",
+      "privateCode": "Private code",
+      "overview": "Project Overview",
+      "takeaways": "Key Takeaways"
+    },
+    "projects": {
+      "pedrobarbosa-pt": {
+        "name": "pedrobarbosa.pt",
+        "tagline": "The website you're on, built and run like a product",
+        "kind": "Frontend Product",
+        "category": "Personal website",
+        "status": "Open source · Live",
+        "summary": "My personal website, where I show my experience and projects. I treat it like a product at work: a prioritised backlog, small focused commits, and checks that must pass before anything goes live.",
+        "details": "Every push runs formatting and lint checks, type checks, tests and a production build, and a failing check blocks the deploy. Every page is sent with security headers that only let it load the site's own files, and browser tests try script injection, framing and redirect attacks against it. The code is public, so you can see how I work, not just read about it.",
+        "takeaways": [
+          {
+            "title": "Quality gates",
+            "text": "Formatting, lint, type checks, tests and a build run on every push, and nothing deploys unless they pass."
+          },
+          {
+            "title": "Tests that survive refactors",
+            "text": "Tests check behaviour and edge cases through what visitors see, so they only change when the behaviour does."
+          },
+          {
+            "title": "Structure with rules",
+            "text": "Folder and import rules are enforced by lint, so each file's scope is clear from its path."
+          }
+        ],
+        "detailCards": [
+          {
+            "title": "Frontend Implementation",
+            "description": "Responsive pages rendered on the server, one theme for every colour and text style, and share images and structured data for search and social links.",
+            "tags": ["Next.js", "React", "TypeScript", "Material UI"]
+          },
+          {
+            "title": "Quality & Delivery",
+            "description": "Component and page tests on every push, with deployments that wait for them to pass, plus browser and accessibility tests in Chromium, Firefox and WebKit, run locally and against the live site.",
+            "tags": ["Vitest", "Testing Library", "Playwright", "GitHub Actions", "Vercel"]
+          }
+        ]
+      },
+      "growth-tracker": {
+        "name": "Growth Tracker",
+        "tagline": "An investment tracker that shows your real average price",
+        "kind": "Full-Stack Product",
+        "category": "Investment tracker",
+        "status": "Independent product · Launched, retired Jan 2026",
+        "summary": "A product I took from idea to launch. Users logged their assets, buys and sells, and Growth Tracker calculated the average price they could actually trust when deciding to sell.",
+        "details": "Buy 3 units at 500 and sell 1 at 700, and a typical broker app shows an average of 400, even though the remaining units still cost 500. Growth Tracker kept that number accurate, so users could aim for a profit on every unit they sold.",
+        "takeaways": [
+          {
+            "title": "Product ownership",
+            "text": "Defined the business rules and requirements myself, starting from a problem I had."
+          },
+          {
+            "title": "End-to-end delivery",
+            "text": "Built every layer, from the database to the interface, and took it to launch."
+          },
+          {
+            "title": "Making value obvious",
+            "text": "Learned that a strong feature isn't enough if users can't see its value. I had plans to address it, but the money ran out first."
+          }
+        ],
+        "detailCards": [
+          {
+            "title": "Frontend Implementation",
+            "description": "Implemented a designer's visual design, including asset management, the transactions table, and a chart tracking how the real average price evolved with each transaction.",
+            "tags": ["React", "TypeScript", "Material UI", "Chart.js"]
+          },
+          {
+            "title": "Backend & Core Logic",
+            "description": "Built the backend and data model, plus the complex algorithm behind the real average price, covering scenarios like sales made below it.",
+            "tags": ["Node.js", "Fastify", "Prisma", "PostgreSQL"]
+          }
+        ]
+      }
+    },
+    "ProjectApproach": {
+      "eyebrow": "My Approach",
+      "title": "How I Choose What to Build",
+      "description": "I build things because they could be useful, not just to try a new technology.",
+      "steps": {
+        "realProblem": {
+          "title": "Start With a Real Problem",
+          "description": "Every project begins with a problem worth solving, like the misleading average price behind Growth Tracker.",
+          "note": "Problem first"
+        },
+        "defineFirst": {
+          "title": "Define Before Building",
+          "description": "I turn the problem into clear requirements first, so the code has a purpose from the start.",
+          "note": "Requirements, then code"
+        }
+      }
+    }
+  },
+  "contact": {
+    "page": {
+      "description": "Scaling a product team or modernising your frontend? Let's talk. I'm a {role} in {city}.",
+      "descriptionLooking": "Scaling a product team or modernising your frontend? Let's talk. I'm a {role} in {city}, open to {workModeRoles}."
+    },
+    "ContactHero": {
+      "eyebrow": "Contact & Work Inquiries",
+      "title": "Let's talk architecture, teams, or new opportunities.",
+      "description": "Whether you're scaling a product team, modernising frontend foundations, or looking for a Senior Frontend Engineer who delivers with craft and pragmatic ownership."
+    },
+    "EmailCard": {
+      "eyebrow": "Direct Email",
+      "text": "Best for interview inquiries, technical discussions, or sending over job descriptions and specifications.",
+      "openMail": "Open mail client"
+    },
+    "CopyEmailButton": {
+      "idle": "Copy email address",
+      "copied": "Copied to clipboard!",
+      "failed": "Couldn't copy the email"
+    },
+    "LinkedInCard": {
+      "title": "LinkedIn",
+      "text": "Connect or message me for career inquiries or mutual connections.",
+      "link": "View profile"
+    },
+    "LocationBanner": {
+      "eyebrow": "Location & Remote Work",
+      "title": "Based in {city}, open to remote work.",
+      "text": "Comfortable working asynchronously and autonomously, and in close collaboration during key milestones.",
+      "openTo": "Open to {workModeRoles}"
+    },
+    "RoleAlignment": {
+      "eyebrow": "Role Alignment",
+      "title": "Role Alignment & Ideal Engagements",
+      "text": "To save time for recruiters and engineering leaders, here is a transparent snapshot of my core focus and ideal team environments:",
+      "points": {
+        "icRoles": {
+          "title": "Senior Frontend IC Roles",
+          "description": "Hands-on individual contributor role focusing on deep implementation, rendering performance, bundle discipline, and UI fluidity."
+        },
+        "coreStack": {
+          "title": "Core Stack",
+          "description": "Modern React, Next.js, and TypeScript ecosystems, backed with pragmatic cross-framework architectural experience (including Angular-to-React migrations)."
+        },
+        "scopeImpact": {
+          "title": "Scope & Impact",
+          "description": "Frontend modernization, systematic Design System libraries (JSON/data-driven UI engines), multi-tenant enterprise applications, and accessible state architectures."
+        },
+        "culture": {
+          "title": "Engineering Culture",
+          "description": "Pragmatic teams valuing clean ergonomics, thoughtful code reviews, high empathy, written problem statements, and sensible automated testing."
+        }
+      }
+    }
+  }
+}

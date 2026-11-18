@@ -1,35 +1,9 @@
 import { CAREER_START_YEAR } from "@/_common/constants";
 import type { FoundationRole } from "./types";
 
+/** Newest first. Each id names the role's copy in the messages and its section on the page. */
 export const FOUNDATION_ROLES: FoundationRole[] = [
-  {
-    id: "labsforge",
-    industry: "Consulting & Cloud",
-    company: "LabsForge Consulting",
-    roleTitle: "Frontend Engineer",
-    period: "Jan 2019 - Jun 2020",
-    description:
-      "Sole developer of AlbumTeller, an application combining photography album production tools into a single seamless workflow.",
-    tags: ["Angular", "TypeScript", "Node.js", "AWS Serverless"],
-  },
-  {
-    id: "huub",
-    industry: "Supply Chain Tech",
-    company: "HUUB",
-    roleTitle: "Junior Frontend Engineer",
-    period: "Jun 2018 - Jan 2019",
-    description:
-      "Developed a specialized warehouse quality control application supporting real-time inspection workflows for incoming clothing garments and manufacturing defect auditing.",
-    tags: ["Angular", "TypeScript", "Logistics UX"],
-  },
-  {
-    id: "glintt",
-    industry: "Healthcare Informatics",
-    company: "Glintt",
-    roleTitle: "Junior Frontend Engineer",
-    period: `Jul ${CAREER_START_YEAR} - Mar 2018`,
-    description:
-      "Developed an enterprise healthcare application supporting rigorous clinical trial data collection, participant management, and protocol tracking workflows.",
-    tags: ["Angular", "TypeScript", "Clinical Systems"],
-  },
+  { id: "labsforge", started: "2019-01", ended: "2020-06" },
+  { id: "huub", started: "2018-06", ended: "2019-01" },
+  { id: "glintt", started: `${CAREER_START_YEAR}-07`, ended: "2018-03" },
 ];

@@ -3,13 +3,14 @@
 import { useEffect, useRef, useState } from "react";
 import ContentCopyOutlinedIcon from "@mui/icons-material/ContentCopyOutlined";
 import Box from "@mui/material/Box";
+import { useTranslations } from "next-intl";
 import { EMAIL } from "@/_common/constants";
 import { ActionButton } from "@/_common/components/ActionButton";
-import { RESET_AFTER_MS } from "./constants";
-import { LABELS } from "./content";
+import { COPY_STATUSES, RESET_AFTER_MS } from "./constants";
 import type { CopyStatus } from "./types";
 
 export function CopyEmailButton() {
+  const t = useTranslations("contact.CopyEmailButton");
   const [status, setStatus] = useState<CopyStatus>("idle");
   const resetTimer = useRef<ReturnType<typeof setTimeout>>(undefined);
 
@@ -30,7 +31,7 @@ export function CopyEmailButton() {
     <ActionButton onClick={handleCopy} primary startIcon={<ContentCopyOutlinedIcon />}>
       {/* All labels share one cell, so the button fits the longest and never resizes. */}
       <Box component="span" aria-live="polite" sx={{ display: "inline-grid" }}>
-        {(Object.keys(LABELS) as CopyStatus[]).map((key) => (
+        {COPY_STATUSES.map((key) => (
           <Box
             component="span"
             key={key}
@@ -40,7 +41,7 @@ export function CopyEmailButton() {
               visibility: key === status ? "visible" : "hidden",
             }}
           >
-            {LABELS[key]}
+            {t(key)}
           </Box>
         ))}
       </Box>

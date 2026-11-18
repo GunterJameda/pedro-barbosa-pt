@@ -2,7 +2,7 @@ import { renderToString } from "react-dom/server";
 import { screen } from "@testing-library/react";
 import { afterEach, describe, expect, it, vi } from "vitest";
 import { CAREER_START_YEAR } from "@/_common/constants";
-import { renderWithTheme } from "@tests/render";
+import { renderWithTheme, withIntl } from "@tests/render";
 import { CareerChart } from "./CareerChart";
 
 const VISIT_YEAR = 2028;
@@ -43,7 +43,7 @@ describe("CareerChart", () => {
 
   it("is drawn for the build year first, so the server HTML and hydration match", () => {
     vi.useFakeTimers({ now: new Date(`${VISIT_YEAR}-06-01`) });
-    const html = renderToString(<CareerChart buildYear={BUILD_YEAR} />);
+    const html = renderToString(withIntl(<CareerChart buildYear={BUILD_YEAR} />));
     expect(html).toContain(`to ${BUILD_YEAR}`);
     expect(html).not.toContain(`to ${VISIT_YEAR}`);
   });

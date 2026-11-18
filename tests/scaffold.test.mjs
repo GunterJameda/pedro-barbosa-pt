@@ -28,8 +28,8 @@ const filesIn = (path) =>
 const MODULE_KINDS = new Set(["components", "hooks", "utils"]);
 // Every kind folder a page may hold; constants and types are one module themselves.
 const PAGE_KINDS = new Set([...MODULE_KINDS, "constants", "types"]);
-// _common also holds the theme.
-const COMMON_KINDS = new Set([...PAGE_KINDS, "theme"]);
+// _common also holds the theme, the languages (i18n) and locale-aware navigation.
+const COMMON_KINDS = new Set([...PAGE_KINDS, "i18n", "navigation", "theme"]);
 
 // Every folder in src besides app and _common belongs to one page.
 const pageFolders = directories("src").filter((folder) => !["app", "_common"].includes(folder));
@@ -46,11 +46,12 @@ const foldersIn = (path) =>
     .map((entry) => relative(ROOT, join(entry.parentPath, entry.name)));
 
 describe("import rules", () => {
-  const ABOUT = "src/app/about/page.tsx";
-  const CONTACT = "src/app/contact/page.tsx";
-  const HOME = "src/app/page.tsx";
-  const HOME_SHARE_IMAGE = "src/app/opengraph-image.tsx";
-  const LAYOUT = "src/app/layout.tsx";
+  const ABOUT = "src/app/[locale]/about/page.tsx";
+  const CONTACT = "src/app/[locale]/contact/page.tsx";
+  const HOME = "src/app/[locale]/page.tsx";
+  const HOME_SHARE_IMAGE = "src/app/[locale]/opengraph-image.tsx";
+  const LAYOUT = "src/app/[locale]/layout.tsx";
+  const SITEMAP = "src/app/sitemap.ts";
   const ABOUT_MODULE = "src/about/components/AboutHero/AboutHero.tsx";
   const CONTACT_MODULE = "src/contact/components/EmailCard/EmailCard.tsx";
   const COMMON_MODULE = "src/_common/components/Footer/Footer.tsx";
@@ -72,6 +73,10 @@ describe("import rules", () => {
     ],
     ["a private theme file", "@/_common/theme/tokens", ABOUT],
     ["a private constants file", "@/_common/constants/links", ABOUT],
+    ["a private i18n file", "@/_common/i18n/routing", ABOUT],
+    ["a message file", "@/_common/i18n/en.json", ABOUT_MODULE],
+    ["a private navigation file", "@/_common/navigation/navigation", COMMON_MODULE],
+    ["page code from the sitemap", "@/home/components/QuickLinks", SITEMAP],
     ["anything from src/app", "@/app/about/page", COMMON_MODULE],
     ["a folder that is neither _common nor a page", "@/components/_common/Footer", ABOUT],
     ["_common itself", "@/_common", ABOUT],
@@ -121,6 +126,9 @@ describe("import rules", () => {
     ],
     ["the theme module", "@/_common/theme", ABOUT],
     ["the constants module", "@/_common/constants", ABOUT],
+    ["the i18n module", "@/_common/i18n", SITEMAP],
+    ["the i18n module from a page's code", "@/_common/i18n", ABOUT_MODULE],
+    ["the navigation module", "@/_common/navigation", COMMON_MODULE],
     ["a private file from inside its module", "./info", COMMON_MODULE],
     ["a nested child from its parent", "./CopyEmailButton", CONTACT_MODULE],
     ["packages", "@mui/material/Box", ABOUT],
@@ -152,6 +160,7 @@ describe("folder structure", () => {
       "error.tsx",
       "not-found.tsx",
       "global-error.tsx",
+      "global-not-found.tsx",
       "template.tsx",
       "default.tsx",
       "route.ts",
@@ -168,10 +177,12 @@ describe("folder structure", () => {
   });
 
   test("src only holds app, _common and folders named after a page", () => {
+    // Every page sits in src/app/[locale]; home is the root route, so its page file sits
+    // directly in it.
+    const PAGES_ROOT = join("src/app", "[locale]");
     for (const folder of pageFolders) {
-      // Home is the root route, so its page file sits directly in src/app.
       const pageFile =
-        folder === "home" ? join("src/app", "page.tsx") : join("src/app", folder, "page.tsx");
+        folder === "home" ? join(PAGES_ROOT, "page.tsx") : join(PAGES_ROOT, folder, "page.tsx");
       assert.ok(existsSync(join(ROOT, pageFile)), `src/${folder} doesn't match a page`);
     }
     assert.deepEqual(filesDirectlyIn("src"), []);

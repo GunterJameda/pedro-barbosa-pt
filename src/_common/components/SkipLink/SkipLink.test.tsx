@@ -5,6 +5,8 @@ import { MAIN_ID } from "@/_common/constants";
 import { renderWithTheme } from "@tests/render";
 import { SkipLink } from "./SkipLink";
 
+// Plain links stand in for a page's own focusable links.
+/* eslint-disable @next/next/no-html-link-for-pages */
 function renderPage() {
   return renderWithTheme(
     <>
@@ -18,6 +20,7 @@ function renderPage() {
     </>,
   );
 }
+/* eslint-enable @next/next/no-html-link-for-pages */
 
 describe("SkipLink", () => {
   it("is the first thing keyboard users reach", async () => {

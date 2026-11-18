@@ -14,9 +14,14 @@ export interface PersonData {
   knowsAbout: string[];
 }
 
+/** The Person fields that are facts, the same in every language. */
+export type PersonFacts = Omit<PersonData, "jobTitle" | "knowsAbout">;
+
 /** schema.org ProfilePage: the page exists to represent one person. */
 export interface ProfilePageData {
   "@context": "https://schema.org";
   "@type": "ProfilePage";
+  /** The page's language, like "en". */
+  inLanguage: string;
   mainEntity: PersonData;
 }

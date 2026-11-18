@@ -1,24 +1,6 @@
-import type { Metric } from "@/_common/components/MetricCards";
+import type { Messages } from "@/_common/i18n";
 
-export const FOCUS_CARDS: Metric[] = [
-  {
-    tag: "Motivation",
-    title: "Useful First",
-    description: "Built to solve real problems, not to try new tech",
-  },
-  {
-    tag: "Starting Point",
-    title: "Problem to Requirements",
-    description: "The requirements come before the code",
-  },
-  {
-    tag: "Ownership",
-    title: "Idea to Launch",
-    description: "Business rules, design handoff and delivery",
-  },
-  {
-    tag: "Scope",
-    title: "Frontend to Database",
-    description: "Full-stack, built outside work",
-  },
-];
+type FocusCard = keyof Messages["projects"]["ProjectsHero"]["cards"];
+
+/** The focus cards under the title, in order. */
+export const FOCUS_CARDS: FocusCard[] = ["motivation", "startingPoint", "ownership", "scope"];

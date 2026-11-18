@@ -1,7 +1,11 @@
 import type SvgIcon from "@mui/material/SvgIcon";
 
+/** A page's key, which names it in the "pages" messages. */
+export type PageKey = "home" | "about" | "experience" | "projects" | "contact";
+
 export interface PageLink {
-  name: string;
+  key: PageKey;
+  /** The page's address in the default language. */
   href: string;
 }
 

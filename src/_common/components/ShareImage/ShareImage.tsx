@@ -1,15 +1,22 @@
 import { ImageResponse } from "next/og";
-import type { PageLink } from "@/_common/constants";
-import { LOCATION, NAME, ROLE } from "@/_common/constants";
+import { LOCATION, NAME } from "@/_common/constants";
 import { slate, surfaces, teal, white } from "@/_common/theme";
 import { FONT_DATA, LOGO, SIZE } from "./constants";
-import { DOMAIN, TAGS } from "./content";
+
+interface ShareImageProps {
+  /** The page's name, shown above mine. Left out on the site-wide image. */
+  pageName?: string | undefined;
+  role: string;
+  tags: string[];
+  /** The page's address, without the scheme: "pedrobarbosa.pt/about". */
+  address: string;
+}
 
 /**
  * Link preview image shown when a page of the site is shared. With a page, it
  * also shows that page's name and address.
  */
-export function ShareImage({ page }: { page?: PageLink | undefined } = {}) {
+export function ShareImage({ pageName, role, tags, address }: ShareImageProps) {
   return new ImageResponse(
     <div
       style={{
@@ -47,7 +54,7 @@ export function ShareImage({ page }: { page?: PageLink | undefined } = {}) {
       </div>
 
       <div style={{ display: "flex", flexDirection: "column" }}>
-        {page && (
+        {pageName && (
           <div
             style={{
               display: "flex",
@@ -69,7 +76,7 @@ export function ShareImage({ page }: { page?: PageLink | undefined } = {}) {
                 backgroundColor: teal[400],
               }}
             />
-            {page.name}
+            {pageName}
           </div>
         )}
         <div
@@ -91,10 +98,10 @@ export function ShareImage({ page }: { page?: PageLink | undefined } = {}) {
             fontWeight: 500,
           }}
         >
-          {ROLE}
+          {role}
         </div>
         <div style={{ display: "flex", gap: 16, marginTop: 32 }}>
-          {TAGS.map((tag) => (
+          {tags.map((tag) => (
             <div
               key={tag}
               style={{
@@ -130,7 +137,7 @@ export function ShareImage({ page }: { page?: PageLink | undefined } = {}) {
             backgroundColor: teal[400],
           }}
         />
-        {`${DOMAIN}${page?.href ?? ""}`}
+        {address}
       </div>
     </div>,
     { ...SIZE, fonts: FONT_DATA },

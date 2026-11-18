@@ -13,7 +13,7 @@ const PAGE_SCOPES = readdirSync(join(import.meta.dirname, "src"), { withFileType
 // Kind folders whose every child folder is a module (components/Footer).
 const MODULE_KINDS = "components|hooks|utils";
 // Kind folders that are a module themselves (constants).
-const SINGLE_MODULE_KINDS = "constants|theme|types";
+const SINGLE_MODULE_KINDS = "constants|i18n|navigation|theme|types";
 
 const INDEX_ONLY = "Import from the module's index, not a file inside it.";
 
@@ -54,18 +54,20 @@ const boundaries = (currentPage) => ({
   ],
 });
 
-// Home is the root route, so its route files sit directly in src/app.
+// Every page's route files sit in src/app/[locale]. Home is the root route, so
+// its route files sit directly in it.
 const routeFiles = (page) =>
   page === "home"
-    ? ["src/app/page.tsx", "src/app/opengraph-image.tsx"]
-    : [`src/app/${page}/**/*.{ts,tsx}`];
+    ? ["src/app/[[]locale]/page.tsx", "src/app/[[]locale]/opengraph-image.tsx"]
+    : [`src/app/[[]locale]/${page}/**/*.{ts,tsx}`];
 
 const eslintConfig = defineConfig([
   ...nextVitals,
   ...nextTs,
   // Imports are one block with no blank lines, ordered by layer and A to Z
   // within each one: side-effect imports, node: built-ins, react and next,
-  // @mui, other packages, @/_common/constants and @/_common/theme,
+  // @mui, other packages, the base (@/_common/constants, i18n, navigation
+  // and theme),
   // @/_common/utils, @/_common/components, the page's own code (any other
   // @/ import), @tests/ helpers, then the module's own files (constants,
   // content, styles, utils, types) and its child modules. Type imports end
@@ -83,7 +85,7 @@ const eslintConfig = defineConfig([
               "^(react|react-dom|next)(/|\\u0000|$)",
               "^@mui/",
               "^@?\\w",
-              "^@/_common/(constants|theme)(/|\\u0000|$)",
+              "^@/_common/(constants|i18n|navigation|theme)(/|\\u0000|$)",
               "^@/_common/utils(/|\\u0000|$)",
               "^@/_common/components(/|\\u0000|$)",
               "^@/",

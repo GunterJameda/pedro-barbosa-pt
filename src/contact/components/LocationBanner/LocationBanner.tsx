@@ -1,20 +1,23 @@
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
-import { IS_LOOKING, WORK_MODE_ROLES } from "@/_common/constants";
+import { useTranslations } from "next-intl";
+import { CITY, IS_LOOKING, WORK_MODE } from "@/_common/constants";
 import { fontMono } from "@/_common/theme";
 import { Eyebrow } from "@/_common/components/Eyebrow";
 import { StatusDot } from "@/_common/components/StatusDot";
 import { SurfaceCard } from "@/_common/components/SurfaceCard";
 
 export function LocationBanner() {
+  const t = useTranslations();
   return (
     <SurfaceCard component="section" spacing={2} sx={{ p: { xs: 4, sm: 5 } }}>
       <Stack spacing={1}>
-        <Eyebrow>Location & Remote Work</Eyebrow>
-        <Typography variant="cardHeading">Based in Porto, open to remote work.</Typography>
+        <Eyebrow>{t("contact.LocationBanner.eyebrow")}</Eyebrow>
+        <Typography variant="cardHeading">
+          {t("contact.LocationBanner.title", { city: CITY })}
+        </Typography>
         <Typography variant="body" sx={{ maxWidth: 768 }}>
-          Comfortable working asynchronously and autonomously, and in close collaboration during key
-          milestones.
+          {t("contact.LocationBanner.text")}
         </Typography>
       </Stack>
       {IS_LOOKING && (
@@ -30,7 +33,11 @@ export function LocationBanner() {
           }}
         >
           <StatusDot />
-          <span>{`Open to ${WORK_MODE_ROLES}`}</span>
+          <span>
+            {t("contact.LocationBanner.openTo", {
+              workModeRoles: t(`profile.workModeRoles.${WORK_MODE}`),
+            })}
+          </span>
         </Stack>
       )}
     </SurfaceCard>

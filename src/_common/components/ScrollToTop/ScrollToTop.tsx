@@ -4,11 +4,13 @@ import { useEffect, useState } from "react";
 import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
 import Fade from "@mui/material/Fade";
 import IconButton from "@mui/material/IconButton";
+import { useTranslations } from "next-intl";
 import { SKIP_LINK_ID } from "@/_common/constants";
 import { SHOW_AFTER_PX } from "./constants";
 
 /** Floating button that appears after some scrolling and returns to the top. */
 export function ScrollToTop() {
+  const t = useTranslations("common.ScrollToTop");
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
@@ -21,7 +23,7 @@ export function ScrollToTop() {
   return (
     <Fade in={isVisible}>
       <IconButton
-        aria-label="Go to top"
+        aria-label={t("label")}
         onClick={() => {
           // Uses the page's smooth scrolling, which respects reduced motion.
           window.scrollTo({ top: 0 });

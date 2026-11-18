@@ -1,1 +1,1 @@
-export { shareImageAlt, shareImageRoute } from "./utils";
+export { shareImageMetadata, shareImageRoute } from "./utils";

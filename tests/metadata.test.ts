@@ -4,16 +4,25 @@ import type { Availability, WorkMode } from "@/_common/constants";
 import { PAGE_ROUTES, routeModule } from "./pages";
 import { setProfile } from "./profile";
 
-const pageModule = (route: string) => routeModule<{ metadata: Metadata }>(route, "page.tsx");
+type MetadataModule = { generateMetadata: () => Promise<Metadata> };
+
+const pageMetadataOf = async (route: string) =>
+  (await routeModule<MetadataModule>(route, "page.tsx")).generateMetadata();
+
+const siteMetadata = async () =>
+  (await routeModule<MetadataModule>("/", "layout.tsx")).generateMetadata();
+
+const imageOf = (metadata: Metadata) => [metadata.openGraph?.images].flat()[0] as { url: string };
 
 async function allMetadata() {
-  const { metadata: site } = await import("../src/app/layout");
+  const site = await siteMetadata();
   return Promise.all(
     PAGE_ROUTES.map(async (route) => {
-      const { metadata } = await pageModule(route);
+      const metadata = await pageMetadataOf(route);
       const siteTitle = site.title as { default: string };
       return {
         route,
+        metadata,
         canonical: metadata.alternates?.canonical,
         title: (metadata.title as string | undefined) ?? siteTitle.default,
         description: metadata.description ?? site.description ?? "",
@@ -47,10 +56,56 @@ describe("page metadata", () => {
   });
 });
 
+describe("language metadata", () => {
+  it("tells search engines where each page is in every language, English being the default", async () => {
+    for (const { route, metadata } of await allMetadata()) {
+      expect(metadata.alternates?.languages, route).toEqual({ en: route, "x-default": route });
+    }
+  });
+
+  it("names the language of every link preview", async () => {
+    expect((await siteMetadata()).openGraph).toMatchObject({ locale: "en_GB" });
+    for (const { route, metadata } of await allMetadata()) {
+      expect(metadata.openGraph, route).toMatchObject({ locale: "en_GB" });
+    }
+  });
+
+  it("points every page's preview at its share image's own address, without a language prefix", async () => {
+    for (const { route, metadata } of await allMetadata()) {
+      const expected = route === "/" ? "/opengraph-image" : `${route}/opengraph-image`;
+      expect(imageOf(metadata).url, route).toBe(expected);
+      expect([metadata.twitter?.images].flat()[0], route).toMatchObject({ url: expected });
+    }
+  });
+
+  it("keeps the site-wide preview for pages without their own, like the 404 page", async () => {
+    expect(imageOf(await siteMetadata()).url).toBe("/opengraph-image");
+  });
+
+  it("keeps the site's name and type in every page's preview", async () => {
+    const site = (await siteMetadata()).openGraph;
+    for (const { route, metadata } of await allMetadata()) {
+      expect(metadata.openGraph, route).toMatchObject({
+        type: "website",
+        siteName: (site as { siteName: string }).siteName,
+      });
+    }
+  });
+});
+
+describe("404 page metadata", () => {
+  it("titles the page for addresses without one, in the site's pattern", async () => {
+    const { generateMetadata } = await import("../src/app/global-not-found");
+    expect((await generateMetadata()).title).toEqual({
+      absolute: "Page not found | Pedro Barbosa",
+    });
+  });
+});
+
 describe("contact page description", () => {
   async function descriptionWith(availability: Availability, workMode: WorkMode) {
     setProfile({ availability, workMode });
-    const { metadata } = await pageModule("/contact");
+    const metadata = await pageMetadataOf("/contact");
     return metadata.description ?? "";
   }
 

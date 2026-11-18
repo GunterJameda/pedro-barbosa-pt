@@ -1,14 +1,15 @@
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
+import { useTranslations } from "next-intl";
 import { AVAILABILITY } from "@/_common/constants";
 import { fontMono } from "@/_common/theme";
 import { StatusDot } from "@/_common/components/StatusDot";
-import { AVAILABILITY_TEXT } from "./content";
 
 /** Availability row in the menu. Hidden when not looking. */
 export function AvailabilityCard() {
-  const text = AVAILABILITY_TEXT[AVAILABILITY];
-  if (!text) return null;
+  const t = useTranslations("common.AvailabilityCard");
+  const availability = AVAILABILITY;
+  if (availability === "not-looking") return null;
 
   return (
     <Stack
@@ -32,10 +33,10 @@ export function AvailabilityCard() {
           fontWeight: 500,
         }}
       >
-        Availability
+        {t("label")}
       </Typography>
       <Typography sx={{ color: "primary.light", fontFamily: fontMono, fontSize: 12 }}>
-        {text}
+        {t(`status.${availability}`)}
       </Typography>
     </Stack>
   );

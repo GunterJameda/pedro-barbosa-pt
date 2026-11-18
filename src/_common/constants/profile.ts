@@ -1,7 +1,6 @@
 import type { Availability, WorkMode } from "./types";
 
 export const NAME = "Pedro Barbosa";
-export const ROLE = "Senior Frontend Engineer";
 
 export const CITY = "Porto";
 export const COUNTRY = "Portugal";

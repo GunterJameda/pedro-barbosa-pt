@@ -6,7 +6,11 @@ import { renderWithTheme } from "@tests/render";
 import type { NavLinksVariant } from "./types";
 import { NavLinks } from "./NavLinks";
 
-vi.mock("next/navigation", () => ({ usePathname: vi.fn() }));
+// Only the address is faked; the site's locale-aware navigation needs the rest.
+vi.mock("next/navigation", async (importOriginal) => ({
+  ...(await importOriginal<object>()),
+  usePathname: vi.fn(),
+}));
 
 const NAV_NAMES: Record<NavLinksVariant, string> = { desktop: "Main", mobile: "Mobile" };
 

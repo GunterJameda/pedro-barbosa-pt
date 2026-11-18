@@ -25,7 +25,10 @@ describe("career start year", () => {
   it("is what the page descriptions say", async () => {
     setCareerStartYear(OTHER_YEAR);
     for (const route of ["/about", "/experience"]) {
-      const { metadata } = await routeModule<{ metadata: Metadata }>(route, "page.tsx");
+      const { generateMetadata } = await routeModule<{
+        generateMetadata: () => Promise<Metadata>;
+      }>(route, "page.tsx");
+      const metadata = await generateMetadata();
       expect(metadata.description, route).toContain(`since ${OTHER_YEAR}`);
       expect(metadata.description, route).not.toContain(String(CAREER_START_YEAR));
     }

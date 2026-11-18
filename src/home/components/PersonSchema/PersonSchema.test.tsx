@@ -2,10 +2,11 @@ import { renderToStaticMarkup } from "react-dom/server";
 import { describe, expect, it } from "vitest";
 import { GITHUB_URL, LINKEDIN_URL, SITE_URL } from "@/_common/constants";
 import { setProfile } from "@tests/profile";
+import { withIntl } from "@tests/render";
 
 async function renderSchema() {
   const { PersonSchema } = await import("./PersonSchema");
-  const html = renderToStaticMarkup(<PersonSchema />);
+  const html = renderToStaticMarkup(withIntl(<PersonSchema />));
   const json = html.match(/<script type="application\/ld\+json">(.*)<\/script>/)?.[1];
   return { html, data: JSON.parse(json ?? "null") };
 }
@@ -22,6 +23,12 @@ describe("PersonSchema", () => {
     const { data } = await renderSchema();
     expect(data.mainEntity.url).toBe(SITE_URL);
     expect(data.mainEntity.sameAs).toEqual(expect.arrayContaining([GITHUB_URL, LINKEDIN_URL]));
+  });
+
+  it("names the person's role and the page's language", async () => {
+    const { data } = await renderSchema();
+    expect(data.inLanguage).toBe("en");
+    expect(data.mainEntity.jobTitle).toBe("Senior Frontend Engineer");
   });
 
   it("can't be broken out of by a value containing a closing script tag", async () => {

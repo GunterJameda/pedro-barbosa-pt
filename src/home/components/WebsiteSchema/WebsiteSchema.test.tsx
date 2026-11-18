@@ -2,10 +2,11 @@ import { renderToStaticMarkup } from "react-dom/server";
 import { describe, expect, it } from "vitest";
 import { SITE_URL } from "@/_common/constants";
 import { setProfile } from "@tests/profile";
+import { withIntl } from "@tests/render";
 
 async function renderSchema() {
   const { WebsiteSchema } = await import("./WebsiteSchema");
-  const html = renderToStaticMarkup(<WebsiteSchema />);
+  const html = renderToStaticMarkup(withIntl(<WebsiteSchema />));
   const json = html.match(/<script type="application\/ld\+json">(.*)<\/script>/)?.[1];
   return { html, data: JSON.parse(json ?? "null") };
 }
@@ -17,6 +18,11 @@ describe("WebsiteSchema", () => {
     expect(data["@type"]).toBe("WebSite");
     expect(data.url).toBe(SITE_URL);
     expect(data.name).toEqual(expect.any(String));
+  });
+
+  it("names the language of the page it's on", async () => {
+    const { data } = await renderSchema();
+    expect(data.inLanguage).toBe("en");
   });
 
   it("can't be broken out of by a value containing a closing script tag", async () => {

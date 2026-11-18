@@ -1,6 +1,2 @@
-import { NAME, ROLE } from "@/_common/constants";
-
-export const ALT = `${NAME}, ${ROLE}`;
-
+/** The site's address as the image shows it, before the page's path. */
 export const DOMAIN = "pedrobarbosa.pt";
-export const TAGS: string[] = ["React", "Next.js", "TypeScript", "Angular"];

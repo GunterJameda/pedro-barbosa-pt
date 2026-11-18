@@ -1,10 +1,10 @@
 import type { PageLink } from "./types";
 
-/** Every page of the site, in navigation order. */
+/** Every page of the site, in navigation order. The "pages" messages name each one by key. */
 export const PAGES: PageLink[] = [
-  { name: "Home", href: "/" },
-  { name: "About", href: "/about" },
-  { name: "Experience", href: "/experience" },
-  { name: "Personal Projects", href: "/projects" },
-  { name: "Contact", href: "/contact" },
+  { key: "home", href: "/" },
+  { key: "about", href: "/about" },
+  { key: "experience", href: "/experience" },
+  { key: "projects", href: "/projects" },
+  { key: "contact", href: "/contact" },
 ];

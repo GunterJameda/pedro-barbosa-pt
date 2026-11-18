@@ -1,5 +1,6 @@
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
+import { useTranslations } from "next-intl";
 import { fontMono } from "@/_common/theme";
 import { CardFooter } from "@/_common/components/CardFooter";
 import { CardGrid } from "@/_common/components/CardGrid";
@@ -9,20 +10,17 @@ import { SectionHeading } from "@/_common/components/SectionHeading";
 import { TEAM_PRACTICES } from "./content";
 
 export function TeamPractices() {
+  const t = useTranslations("about.TeamPractices");
   return (
     <Stack component="section" spacing={3}>
-      <SectionHeading
-        eyebrow="Methodology & Culture"
-        title="How I Work in Teams"
-        description="Software is built by people, not just pull requests. Here is how I collaborate day-to-day to keep teams moving smoothly."
-      />
+      <SectionHeading eyebrow={t("eyebrow")} title={t("title")} description={t("description")} />
       <CardGrid columns={{ xs: 1, md: 3 }}>
-        {TEAM_PRACTICES.map((practice) => (
+        {TEAM_PRACTICES.map(({ key, icon }) => (
           <FeatureCard
-            key={practice.title}
-            title={practice.title}
-            description={practice.description}
-            header={<IconBadge icon={practice.icon} />}
+            key={key}
+            title={t(`practices.${key}.title`)}
+            description={t(`practices.${key}.description`)}
+            header={<IconBadge icon={icon} />}
             footer={
               <CardFooter
                 useFlexGap
@@ -37,9 +35,9 @@ export function TeamPractices() {
                   fontSize: 12,
                 }}
               >
-                <span>{practice.tagLeft}</span>
+                <span>{t(`practices.${key}.tagLeft`)}</span>
                 <Typography component="span" sx={{ color: "primary.main", font: "inherit" }}>
-                  {practice.tagRight}
+                  {t(`practices.${key}.tagRight`)}
                 </Typography>
               </CardFooter>
             }

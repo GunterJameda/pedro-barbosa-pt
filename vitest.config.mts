@@ -14,5 +14,14 @@ export default defineConfig({
     setupFiles: ["./tests/setup.ts"],
     restoreMocks: true,
     unstubGlobals: true,
+    server: {
+      deps: {
+        // next-intl imports next/navigation without the .js ending, which Node
+        // can't resolve on its own, so Vite resolves it. Its React context
+        // lives in use-intl, which stays external, so it's shared between tests
+        // that reload modules.
+        inline: ["next-intl"],
+      },
+    },
   },
 });

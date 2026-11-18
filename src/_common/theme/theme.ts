@@ -1,7 +1,7 @@
 "use client";
 
-import NextLink from "next/link";
 import { createTheme } from "@mui/material/styles";
+import { Link } from "@/_common/navigation";
 import { slate, surfaces, teal } from "./tokens";
 import { createTextVariants, sans, TEXT_VARIANT_ELEMENTS } from "./typography";
 
@@ -36,10 +36,11 @@ const baseTheme = createTheme({
     button: { textTransform: "none" },
   },
   components: {
-    // Lets <Button href="..."> use next/link, including from server components.
+    // Lets <Button href="..."> use next/link, including from server components,
+    // through the site's Link, which keeps the visitor's language.
     MuiButtonBase: {
       defaultProps: {
-        LinkComponent: NextLink,
+        LinkComponent: Link,
       },
     },
     MuiCssBaseline: {

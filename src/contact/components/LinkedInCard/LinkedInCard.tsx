@@ -3,20 +3,22 @@ import NorthEastIcon from "@mui/icons-material/NorthEast";
 import Link from "@mui/material/Link";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
+import { useTranslations } from "next-intl";
 import { LINKEDIN_URL } from "@/_common/constants";
 import { IconBadge } from "@/_common/components/IconBadge";
 import { SurfaceCard } from "@/_common/components/SurfaceCard";
 
 export function LinkedInCard() {
+  const t = useTranslations("contact.LinkedInCard");
   return (
     <SurfaceCard spacing={2} sx={{ flexGrow: 1, p: { xs: 4, sm: 5 } }}>
       <IconBadge icon={LinkedInIcon} />
       <Stack spacing={0.5} sx={{ flex: 1 }}>
         <Typography variant="cardTitle" component="h2">
-          LinkedIn
+          {t("title")}
         </Typography>
         <Typography variant="body" sx={{ color: "text.secondary" }}>
-          Connect or message me for career inquiries or mutual connections.
+          {t("text")}
         </Typography>
       </Stack>
       <Link
@@ -36,7 +38,7 @@ export function LinkedInCard() {
           "&:hover": { color: "primary.light" },
         }}
       >
-        View profile
+        {t("link")}
         <NorthEastIcon sx={{ fontSize: 14 }} />
       </Link>
     </SurfaceCard>

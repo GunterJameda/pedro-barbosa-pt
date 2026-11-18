@@ -1,17 +1,19 @@
 "use client";
 
-// Client, because it hands next/link to MUI's Link as a component.
-import NextLink from "next/link";
+// Client, because it hands the site's Link to MUI's Link as a component.
 import Avatar from "@mui/material/Avatar";
 import Link from "@mui/material/Link";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
-import { NAME, ROLE } from "@/_common/constants";
+import { useTranslations } from "next-intl";
+import { NAME } from "@/_common/constants";
+import { Link as LocaleLink } from "@/_common/navigation";
 
 export function Brand() {
+  const t = useTranslations("profile");
   return (
     <Link
-      component={NextLink}
+      component={LocaleLink}
       href="/"
       underline="none"
       color="inherit"
@@ -60,7 +62,7 @@ export function Brand() {
           {NAME}
         </Typography>
         <Typography component="span" noWrap sx={{ color: "text.secondary", fontSize: 12 }}>
-          {ROLE}
+          {t("role")}
         </Typography>
       </Stack>
     </Link>

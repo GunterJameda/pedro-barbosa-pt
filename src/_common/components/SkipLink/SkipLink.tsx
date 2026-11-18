@@ -2,10 +2,12 @@
 
 import type { MouseEvent } from "react";
 import Box from "@mui/material/Box";
+import { useTranslations } from "next-intl";
 import { MAIN_ID, SKIP_LINK_ID } from "@/_common/constants";
 
 /** Hidden until reached by keyboard, then lets visitors jump past the Navbar. */
 export function SkipLink() {
+  const t = useTranslations("common.SkipLink");
   // Moves focus without scrolling or adding #main to the address. Without
   // JavaScript, the link still jumps there on its own.
   const skipToMain = (event: MouseEvent<HTMLAnchorElement>) => {
@@ -52,7 +54,7 @@ export function SkipLink() {
         },
       }}
     >
-      Skip to content
+      {t("label")}
     </Box>
   );
 }

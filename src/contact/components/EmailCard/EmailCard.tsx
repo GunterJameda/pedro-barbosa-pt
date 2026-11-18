@@ -2,6 +2,7 @@ import MailOutlinedIcon from "@mui/icons-material/MailOutlined";
 import Link from "@mui/material/Link";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
+import { useTranslations } from "next-intl";
 import { EMAIL, MAILTO_URL } from "@/_common/constants";
 import { ActionButton } from "@/_common/components/ActionButton";
 import { Eyebrow } from "@/_common/components/Eyebrow";
@@ -9,10 +10,11 @@ import { SurfaceCard } from "@/_common/components/SurfaceCard";
 import { CopyEmailButton } from "./CopyEmailButton";
 
 export function EmailCard() {
+  const t = useTranslations("contact.EmailCard");
   return (
     <SurfaceCard spacing={3} sx={{ flexGrow: 1, p: { xs: 4, sm: 5 } }}>
       <Stack spacing={1}>
-        <Eyebrow>Direct Email</Eyebrow>
+        <Eyebrow>{t("eyebrow")}</Eyebrow>
         <Link
           href={MAILTO_URL}
           underline="none"
@@ -29,15 +31,14 @@ export function EmailCard() {
           {EMAIL}
         </Link>
         <Typography variant="body" sx={{ color: "text.secondary" }}>
-          Best for interview inquiries, technical discussions, or sending over job descriptions and
-          specifications.
+          {t("text")}
         </Typography>
       </Stack>
 
       <Stack direction="row" spacing={2} useFlexGap sx={{ flexWrap: "wrap", alignItems: "center" }}>
         <CopyEmailButton />
         <ActionButton href={MAILTO_URL} startIcon={<MailOutlinedIcon />}>
-          Open mail client
+          {t("openMail")}
         </ActionButton>
       </Stack>
     </SurfaceCard>

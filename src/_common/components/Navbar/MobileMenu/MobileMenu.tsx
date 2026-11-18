@@ -8,6 +8,7 @@ import Drawer from "@mui/material/Drawer";
 import IconButton from "@mui/material/IconButton";
 import Stack from "@mui/material/Stack";
 import useMediaQuery from "@mui/material/useMediaQuery";
+import { useTranslations } from "next-intl";
 import { NAVBAR_HEIGHT } from "@/_common/constants";
 import { ActionButton } from "@/_common/components/ActionButton";
 import { DESKTOP_QUERY, MENU_ID } from "./constants";
@@ -23,6 +24,7 @@ interface MobileMenuProps {
 }
 
 export function MobileMenu({ brand, nav }: MobileMenuProps) {
+  const t = useTranslations("common.MobileMenu");
   const [isOpen, setIsOpen] = useState(false);
   const isDesktop = useMediaQuery(DESKTOP_QUERY);
   const close = () => setIsOpen(false);
@@ -39,7 +41,7 @@ export function MobileMenu({ brand, nav }: MobileMenuProps) {
   return (
     <>
       <IconButton
-        aria-label="Open menu"
+        aria-label={t("open")}
         aria-expanded={isOpen}
         aria-controls={MENU_ID}
         onClick={() => setIsOpen(true)}
@@ -55,7 +57,7 @@ export function MobileMenu({ brand, nav }: MobileMenuProps) {
         onClose={close}
         slotProps={{
           paper: {
-            "aria-label": "Menu",
+            "aria-label": t("menu"),
             onClick: closeOnLink,
             sx: {
               width: "100%",
@@ -81,7 +83,7 @@ export function MobileMenu({ brand, nav }: MobileMenuProps) {
         >
           {brand}
           <IconButton
-            aria-label="Close menu"
+            aria-label={t("close")}
             onClick={close}
             sx={{
               ...menuButton,
@@ -103,7 +105,7 @@ export function MobileMenu({ brand, nav }: MobileMenuProps) {
           >
             <AvailabilityCard />
             <ActionButton href="/contact" primary fullWidth startIcon={<MailOutlinedIcon />}>
-              Contact me
+              {t("contact")}
             </ActionButton>
             <MenuFooter />
           </Stack>

@@ -3,8 +3,10 @@ import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Box from "@mui/material/Box";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
+import { useLocale, useTranslations } from "next-intl";
 import { SCROLL_OFFSET } from "@/_common/constants";
 import { fontMono } from "@/_common/theme";
+import { formatMonth } from "@/_common/utils/formatMonth";
 import { ActionButton } from "@/_common/components/ActionButton";
 import { CardGrid } from "@/_common/components/CardGrid";
 import { CheckList } from "@/_common/components/CheckList";
@@ -13,7 +15,6 @@ import { FeatureCard } from "@/_common/components/FeatureCard";
 import { SurfaceCard } from "@/_common/components/SurfaceCard";
 import { TagList } from "@/_common/components/TagList";
 import { privateCodeLabel } from "./styles";
-import { formatMonth } from "./utils";
 import type { Project } from "./types";
 
 interface ProjectCardProps {
@@ -21,9 +22,12 @@ interface ProjectCardProps {
 }
 
 export function ProjectCard({ project }: ProjectCardProps) {
-  const period = `${formatMonth(project.started)} - ${
-    project.ended ? formatMonth(project.ended) : "Present"
-  }`;
+  const t = useTranslations("projects.ProjectCard");
+  const locale = useLocale();
+  const period = t("period", {
+    start: formatMonth(project.started, locale),
+    end: project.ended ? formatMonth(project.ended, locale) : t("present"),
+  });
 
   return (
     <SurfaceCard
@@ -99,12 +103,12 @@ export function ProjectCard({ project }: ProjectCardProps) {
         </Stack>
         {project.repoUrl ? (
           <ActionButton href={project.repoUrl} newTab startIcon={<GitHubIcon />}>
-            View on GitHub
+            {t("repo")}
           </ActionButton>
         ) : (
           <Box sx={privateCodeLabel}>
             <LockOutlinedIcon sx={{ fontSize: 16 }} />
-            Private code
+            {t("privateCode")}
           </Box>
         )}
       </Stack>
@@ -112,7 +116,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
       <Box sx={{ pt: 1 }}>
         <CardGrid columns={{ xs: 1, lg: 12 }} gap={4}>
           <Stack spacing={2} sx={{ gridColumn: { lg: "span 7" } }}>
-            <Eyebrow color="text.secondary">Project Overview</Eyebrow>
+            <Eyebrow color="text.secondary">{t("overview")}</Eyebrow>
             <Typography
               sx={{
                 color: "slate.300",
@@ -128,7 +132,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
           </Stack>
 
           <Stack spacing={2} sx={{ gridColumn: { lg: "span 5" } }}>
-            <Eyebrow color="text.secondary">Key Takeaways</Eyebrow>
+            <Eyebrow color="text.secondary">{t("takeaways")}</Eyebrow>
             <CheckList items={project.takeaways} />
           </Stack>
         </CardGrid>
