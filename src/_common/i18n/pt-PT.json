@@ -354,7 +354,7 @@
           "tags": ["AngularJS", "Ionic v1", "JavaScript", "Stripe API", "UI Multi-Tenant"],
           "bulletPoints": [
             "Mantive e evoluí uma extensa plataforma multi-tenant, que suportava aplicações web e móveis híbridas em produção, adaptando com precisão interfaces e lógica de negócio localizada para marcas internacionais de restauração com grande volume.",
-            "Implementei uma integração unificada de pagamentos com o Stripe, configurando dinamicamente o aspeto do formulário de pagamento, o fluxo de verificação e a marca do cliente através de regras do schema de cada tenant.",
+            "Implementei uma integração unificada de pagamentos com Stripe, configurando dinamicamente o aspeto do formulário de pagamento, o fluxo de verificação e a marca do cliente através de regras do schema de cada tenant.",
             "Fui responsável pela implementação de funcionalidades, por testes de integração abrangentes e pela passagem estruturada às equipas de QA, resolvendo defeitos de regressão e conduzindo lançamentos em produção sem tempo de inatividade."
           ]
         },
