@@ -1,13 +1,11 @@
-import MailOutlinedIcon from "@mui/icons-material/MailOutlined";
 import Link from "@mui/material/Link";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 import { useTranslations } from "next-intl";
 import { EMAIL, MAILTO_URL } from "@/_common/constants";
-import { ActionButton } from "@/_common/components/ActionButton";
 import { Eyebrow } from "@/_common/components/Eyebrow";
 import { SurfaceCard } from "@/_common/components/SurfaceCard";
-import { CopyEmailButton } from "./CopyEmailButton";
+import { EmailActions } from "./EmailActions";
 
 export function EmailCard() {
   const t = useTranslations("contact.EmailCard");
@@ -34,13 +32,7 @@ export function EmailCard() {
           {t("text")}
         </Typography>
       </Stack>
-
-      <Stack direction="row" spacing={2} useFlexGap sx={{ flexWrap: "wrap", alignItems: "center" }}>
-        <CopyEmailButton />
-        <ActionButton href={MAILTO_URL} startIcon={<MailOutlinedIcon />}>
-          {t("openMail")}
-        </ActionButton>
-      </Stack>
+      <EmailActions />
     </SurfaceCard>
   );
 }

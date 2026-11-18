@@ -570,7 +570,9 @@
       "openMail": "Abrir cliente de email"
     },
     "CopyEmailButton": {
-      "idle": "Copiar endereço de email",
+      "label": "Copiar endereço de email"
+    },
+    "CopyStatusMessage": {
       "copied": "Copiado para a área de transferência!",
       "failed": "Não foi possível copiar o email"
     },

@@ -570,7 +570,9 @@
       "openMail": "Open mail client"
     },
     "CopyEmailButton": {
-      "idle": "Copy email address",
+      "label": "Copy email address"
+    },
+    "CopyStatusMessage": {
       "copied": "Copied to clipboard!",
       "failed": "Couldn't copy the email"
     },

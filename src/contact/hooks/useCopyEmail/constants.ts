@@ -1,0 +1,2 @@
+/** How long the result stays on screen, in milliseconds. */
+export const RESET_AFTER_MS = 2000;
