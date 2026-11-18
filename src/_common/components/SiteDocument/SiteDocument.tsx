@@ -11,6 +11,7 @@ import { Footer } from "@/_common/components/Footer";
 import { Navbar } from "@/_common/components/Navbar";
 import { ScrollToTop } from "@/_common/components/ScrollToTop";
 import { SkipLink } from "@/_common/components/SkipLink";
+import { LanguageSuggestion } from "./LanguageSuggestion";
 
 interface SiteDocumentProps {
   /** The page's language, set on <html> and given to every component. */
@@ -45,6 +46,7 @@ export function SiteDocument({ locale, children }: SiteDocumentProps) {
                   minHeight: "100dvh",
                 }}
               >
+                <LanguageSuggestion />
                 <Navbar />
                 <Box sx={{ flex: 1, display: "flex", flexDirection: "column" }}>{children}</Box>
                 <Footer />

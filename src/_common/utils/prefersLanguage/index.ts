@@ -1,0 +1,1 @@
+export { prefersLanguage } from "./prefersLanguage";
