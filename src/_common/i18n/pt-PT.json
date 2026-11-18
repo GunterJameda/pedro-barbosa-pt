@@ -177,7 +177,7 @@
         },
         "writtenSpecs": {
           "title": "Especificações e RFCs Escritas com Clareza",
-          "description": "Registar por escrito os compromissos técnicos e os casos limite antes de construir. Esclarecer dúvidas logo no início poupa horas de reuniões de reformulação mais tarde.",
+          "description": "Registar por escrito os compromissos técnicos e os edge cases antes de construir. Esclarecer dúvidas logo no início poupa horas de reuniões de reformulação mais tarde.",
           "tagLeft": "Formato: RFCs Assíncronas",
           "tagRight": "Pouca Ambiguidade"
         },
@@ -481,7 +481,7 @@
           },
           {
             "title": "Testes que sobrevivem a refatorações",
-            "text": "Os testes verificam o comportamento e os casos limite através do que os visitantes veem, por isso só mudam quando o comportamento muda."
+            "text": "Os testes verificam o comportamento e os edge cases através do que os visitantes veem, por isso só mudam quando o comportamento muda."
           },
           {
             "title": "Estrutura com regras",
