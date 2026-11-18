@@ -544,7 +544,7 @@
       "steps": {
         "realProblem": {
           "title": "Start With a Real Problem",
-          "description": "Every project begins with a problem worth solving, like the misleading average price behind Growth Tracker.",
+          "description": "Every project begins with a problem worth solving, like the average price that doesn't tell the whole story, behind Growth Tracker.",
           "note": "Problem first"
         },
         "defineFirst": {
