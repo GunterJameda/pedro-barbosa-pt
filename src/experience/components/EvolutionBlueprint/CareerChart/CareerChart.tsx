@@ -1,17 +1,28 @@
-import Box from "@mui/material/Box";
-import { BUILD_YEAR, CAREER_START_YEAR } from "@/_common/constants";
-import { fontMono, slate, teal } from "@/_common/theme";
-import { CURRENT_POINT, CURVE, PAST_POINTS } from "./content";
-import { LINE } from "./styles";
+"use client";
 
-/** Small line chart of the career, from the first year to the current one. */
-export function CareerChart() {
+import Box from "@mui/material/Box";
+import { CAREER_START_YEAR } from "@/_common/constants";
+import { fontMono, slate, teal } from "@/_common/theme";
+import { useVisitYear } from "@/experience/hooks/useVisitYear";
+import { CHART_SLOTS, CURVE } from "./content";
+import { LINE } from "./styles";
+import { buildChartPoints } from "./utils";
+
+export interface CareerChartProps {
+  /** The year the page was built: what the server renders, before the browser knows the visit year. */
+  buildYear: number;
+}
+
+/** Small line chart of the career, from the first year to the year of the visit. */
+export function CareerChart({ buildYear }: CareerChartProps) {
+  const visitYear = useVisitYear(buildYear);
+  const { past, current } = buildChartPoints(CHART_SLOTS, CAREER_START_YEAR, visitYear);
   return (
     <Box
       component="svg"
       viewBox="0 0 320 40"
       role="img"
-      aria-label={`Career progression from ${CAREER_START_YEAR} to ${BUILD_YEAR}`}
+      aria-label={`Career progression from ${CAREER_START_YEAR} to ${visitYear}`}
       sx={{
         display: "block",
         width: "100%",
@@ -29,7 +40,7 @@ export function CareerChart() {
         strokeLinecap="round"
         opacity={0.7}
       />
-      {PAST_POINTS.map((point) => (
+      {past.map((point) => (
         <g key={point.year}>
           <circle cx={point.x} cy={point.y} r="3" fill={LINE} />
           <text x={point.x} y={point.labelY} fill={slate[500]} textAnchor="middle">
@@ -37,9 +48,9 @@ export function CareerChart() {
           </text>
         </g>
       ))}
-      <circle cx={CURRENT_POINT.x} cy={CURRENT_POINT.y} r="3.5" fill={teal[300]} />
-      <text x={CURRENT_POINT.x} y={CURRENT_POINT.labelY} fill={teal[400]} textAnchor="middle">
-        {CURRENT_POINT.year}
+      <circle cx={current.x} cy={current.y} r="3.5" fill={teal[300]} />
+      <text x={current.x} y={current.labelY} fill={teal[400]} textAnchor="middle">
+        {current.year}
       </text>
     </Box>
   );

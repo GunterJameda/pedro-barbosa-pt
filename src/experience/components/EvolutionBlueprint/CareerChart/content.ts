@@ -1,5 +1,3 @@
-import { BUILD_YEAR, CAREER_START_YEAR } from "@/_common/constants";
-import { buildChartPoints } from "./utils";
 import type { ChartSlot } from "./types";
 
 // The chart is drawn in a 320 x 40 box. The curve passes through every slot.
@@ -13,10 +11,3 @@ export const CHART_SLOTS: [ChartSlot, ChartSlot, ...ChartSlot[]] = [
   { x: 210, y: 18, labelY: 30 },
   { x: 310, y: 8, labelY: 20 },
 ];
-
-/** The chart's years run from the career start to the build year. */
-export const { past: PAST_POINTS, current: CURRENT_POINT } = buildChartPoints(
-  CHART_SLOTS,
-  CAREER_START_YEAR,
-  BUILD_YEAR,
-);

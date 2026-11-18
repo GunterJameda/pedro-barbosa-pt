@@ -2,6 +2,7 @@ import TrendingUpIcon from "@mui/icons-material/TrendingUp";
 import Box from "@mui/material/Box";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
+import { BUILD_YEAR } from "@/_common/constants";
 import { Eyebrow } from "@/_common/components/Eyebrow";
 import { SurfaceCard } from "@/_common/components/SurfaceCard";
 import { CareerChart } from "./CareerChart";
@@ -30,7 +31,7 @@ export function EvolutionBlueprint() {
         </Typography>
 
         <Box sx={{ pt: 1 }}>
-          <CareerChart />
+          <CareerChart buildYear={BUILD_YEAR} />
         </Box>
       </Stack>
     </SurfaceCard>

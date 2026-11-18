@@ -46,7 +46,7 @@ describe("career start year", () => {
         <ExperienceHero />
         <AcademicBackground />
         <FoundationRoles />
-        <CareerChart />
+        <CareerChart buildYear={2026} />
       </>,
     );
     const text = container.textContent ?? "";
