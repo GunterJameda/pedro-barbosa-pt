@@ -183,7 +183,7 @@
         },
         "crossFunctional": {
           "title": "Ponte Entre Áreas",
-          "description": "Trabalhar de perto com designers, engenheiros de backend e produto. Pensar no que acontece quando algo corre mal (redes lentas, erros, dados em falta) antes de os utilizadores o verem.",
+          "description": "Trabalhar de perto com designers, backend e produto. Pensar no que acontece quando algo corre mal (redes lentas, erros, dados em falta) antes de os utilizadores o verem.",
           "tagLeft": "Sinergia Design ⇄ Código",
           "tagRight": "Design Tokens"
         }
