@@ -129,7 +129,7 @@
         "seniority": {
           "tag": "Senioridade",
           "title": "IC Sénior",
-          "description": "Implementação a fundo e responsabilidade pela base de código"
+          "description": "Implementação a fundo e responsabilidade pelo código"
         }
       }
     },
@@ -147,7 +147,7 @@
         "pragmaticSimplicity": {
           "badge": "Simplicidade Pragmática",
           "title": "Arquitetura Pragmática e de Grande Alavancagem",
-          "description": "Encontrar a implementação mais enxuta e elegante, que tira o máximo partido dos sistemas existentes sem abstrações desnecessárias. Escolher padrões comprovados, que trazem grande alavancagem ao negócio com o mínimo de atrito para a equipa.",
+          "description": "Encontrar a implementação mais simples e elegante, que tira o máximo partido dos sistemas existentes sem abstrações desnecessárias. Escolher padrões comprovados, que trazem grande alavancagem ao negócio com o mínimo de atrito para a equipa.",
           "highlight": "Máxima alavancagem através da arquitetura existente"
         },
         "systemResilience": {
@@ -160,7 +160,7 @@
           "badge": "Experiência do Utilizador",
           "title": "UX Sem Atritos e Desempenho Percebido",
           "description": "Tratar o layout responsivo, a navegação por teclado e a fluidez das imagens como requisitos de arquitetura de primeira ordem, e não como retoques finais. Um feedback instantâneo transmite confiança profunda na qualidade do produto.",
-          "highlight": "Feedback tátil, zero saltos de layout, orçamentos de frames rigorosos"
+          "highlight": "Resposta imediata a cada interação, zero saltos de layout, orçamentos de frames rigorosos"
         }
       }
     },
