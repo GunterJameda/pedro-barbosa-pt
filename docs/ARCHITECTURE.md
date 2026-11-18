@@ -294,7 +294,7 @@ European Portuguese (`pt-PT`, at `/pt`).
   cookie, redirects nothing. These are rules matched before the pages, so they cost nothing
   per request on the pages themselves and keep them static. Search engines and visitors with no
   cookie always get the page they asked for.
-- **The switcher:** `Navbar/LanguageSwitcher` shows `EN · PT`, in the navbar next to the status chip
+- **The switcher:** `Navbar/LanguageSwitcher` shows a decorative translate icon and `EN · PT`, in the navbar next to the status chip
   and, with the label "Language" / "Idioma", in the phone menu's footer. The current language is
   bold (not only coloured) and has `aria-current`; the other is a plain link to the same page in
   that language, with `lang` and `hreflang`, named by its full language name for screen readers.

@@ -55,6 +55,15 @@ describe("LanguageSwitcher", () => {
     expect(readLanguageChoice(document.cookie)).toBe("pt-PT");
   });
 
+  it("has a decorative icon that doesn't change the group's name", () => {
+    const { container } = renderWithTheme(<LanguageSwitcher />);
+    expect(container.querySelector('svg[data-testid="TranslateIcon"]')).toHaveAttribute(
+      "aria-hidden",
+      "true",
+    );
+    expect(screen.getByRole("group", { name: "Language" })).toBeInTheDocument();
+  });
+
   it("shows the word Language only when asked to", () => {
     renderWithTheme(<LanguageSwitcher showLabel />);
     expect(screen.getByText("Language")).toBeInTheDocument();

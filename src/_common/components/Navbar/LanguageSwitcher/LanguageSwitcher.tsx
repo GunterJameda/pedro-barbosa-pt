@@ -1,5 +1,6 @@
 "use client";
 
+import TranslateIcon from "@mui/icons-material/Translate";
 import Link from "@mui/material/Link";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
@@ -32,8 +33,9 @@ export function LanguageSwitcher({ showLabel = false }: LanguageSwitcherProps) {
       aria-label={t("label")}
       direction="row"
       spacing={1}
-      sx={{ alignItems: "center" }}
+      sx={{ alignItems: "center", flexShrink: 0 }}
     >
+      <TranslateIcon aria-hidden="true" sx={{ fontSize: 14, color: "text.secondary" }} />
       {showLabel && (
         <Typography variant="mono" aria-hidden="true" sx={{ color: "text.secondary" }}>
           {t("label")}
