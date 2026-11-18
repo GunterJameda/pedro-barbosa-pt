@@ -480,7 +480,7 @@
             "text": "Formatação, lint, verificação de tipos, testes e build correm em cada push, e nada é publicado se não passarem."
           },
           {
-            "title": "Testes que sobrevivem a refatorações",
+            "title": "Testes que sobrevivem a refactors",
             "text": "Os testes verificam o comportamento e os edge cases através do que os visitantes veem, por isso só mudam quando o comportamento muda."
           },
           {
