@@ -1,3 +1,4 @@
+import { CAREER_START_YEAR } from "@/_common/constants";
 import { pageMetadata } from "@/_common/utils/pageMetadata";
 import { PageMain } from "@/_common/components/PageMain";
 import { PreFooterCTA } from "@/_common/components/PreFooterCTA";
@@ -8,7 +9,7 @@ import { TechnicalToolbox } from "@/about/components/TechnicalToolbox";
 
 export const metadata = pageMetadata(
   "/about",
-  "Senior Frontend Engineer since 2017, specialising in frontend modernisation and scalable design systems.",
+  `Senior Frontend Engineer since ${CAREER_START_YEAR}, specialising in frontend modernisation and scalable design systems.`,
 );
 
 export default function About() {

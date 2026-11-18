@@ -1,5 +1,5 @@
 import type { Availability, WorkMode } from "@/_common/constants";
-import { AVAILABILITY, LOCATION, WORK_MODE } from "@/_common/constants";
+import { AVAILABILITY, CAREER_START_YEAR, LOCATION, WORK_MODE } from "@/_common/constants";
 import type { Metric } from "@/_common/components/MetricCards";
 
 const WORK_MODE_LABEL: Record<WorkMode, string> = {
@@ -33,7 +33,7 @@ const AVAILABILITY_METRIC: Record<Availability, Metric> = {
 export const METRICS: Metric[] = [
   {
     tag: "Tenure",
-    title: "Since 2017",
+    title: `Since ${CAREER_START_YEAR}`,
     description: "Production web engineering & distributed delivery",
   },
   {

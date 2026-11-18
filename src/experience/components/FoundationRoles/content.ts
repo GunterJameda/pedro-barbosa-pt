@@ -1,3 +1,4 @@
+import { CAREER_START_YEAR } from "@/_common/constants";
 import type { FoundationRole } from "./types";
 
 export const FOUNDATION_ROLES: FoundationRole[] = [
@@ -26,7 +27,7 @@ export const FOUNDATION_ROLES: FoundationRole[] = [
     industry: "Healthcare Informatics",
     company: "Glintt",
     roleTitle: "Junior Frontend Engineer",
-    period: "Jul 2017 - Mar 2018",
+    period: `Jul ${CAREER_START_YEAR} - Mar 2018`,
     description:
       "Developed an enterprise healthcare application supporting rigorous clinical trial data collection, participant management, and protocol tracking workflows.",
     tags: ["Angular", "TypeScript", "Clinical Systems"],

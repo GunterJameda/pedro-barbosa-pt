@@ -1,4 +1,5 @@
 import Stack from "@mui/material/Stack";
+import { CAREER_START_YEAR } from "@/_common/constants";
 import { pageMetadata } from "@/_common/utils/pageMetadata";
 import { CardGrid } from "@/_common/components/CardGrid";
 import { PageMain } from "@/_common/components/PageMain";
@@ -12,7 +13,7 @@ import { FoundationRoles } from "@/experience/components/FoundationRoles";
 
 export const metadata = pageMetadata(
   "/experience",
-  "My track record since 2017: shipping production web apps, migrating legacy architectures to microfrontends, and building scalable design systems.",
+  `My track record since ${CAREER_START_YEAR}: shipping production web apps, migrating legacy architectures to microfrontends, and building scalable design systems.`,
 );
 
 export default function Experience() {

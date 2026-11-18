@@ -1,3 +1,4 @@
+import { CAREER_START_YEAR } from "@/_common/constants";
 import type { ToolboxGroup } from "./types";
 
 export const TOOLBOX_GROUPS: ToolboxGroup[] = [
@@ -17,7 +18,7 @@ export const TOOLBOX_GROUPS: ToolboxGroup[] = [
       "Angular / AngularJS",
     ],
     footerLeft: "Production Proficiency",
-    footerRight: "Senior · Since 2017",
+    footerRight: `Senior · Since ${CAREER_START_YEAR}`,
   },
   {
     title: "UI & Design Systems",

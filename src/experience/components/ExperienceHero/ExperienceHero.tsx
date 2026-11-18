@@ -1,3 +1,4 @@
+import { CAREER_START_YEAR } from "@/_common/constants";
 import { MetricCards } from "@/_common/components/MetricCards";
 import { PageHero } from "@/_common/components/PageHero";
 import { METRICS } from "./content";
@@ -7,7 +8,7 @@ export function ExperienceHero() {
     <PageHero
       eyebrow="Career Timeline & Architectural Impact"
       title="Professional Experience"
-      description="A chronological track record of shipping production web applications, migrating legacy architectures to modern microfrontends, and building scalable design systems since 2017."
+      description={`A chronological track record of shipping production web applications, migrating legacy architectures to modern microfrontends, and building scalable design systems since ${CAREER_START_YEAR}.`}
     >
       <MetricCards metrics={METRICS} />
     </PageHero>

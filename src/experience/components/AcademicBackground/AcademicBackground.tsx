@@ -1,7 +1,7 @@
 import SchoolOutlinedIcon from "@mui/icons-material/SchoolOutlined";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
-import { SCROLL_OFFSET } from "@/_common/constants";
+import { CAREER_START_YEAR, DEGREE_START_YEAR, SCROLL_OFFSET } from "@/_common/constants";
 import { Eyebrow } from "@/_common/components/Eyebrow";
 import { IconBadge } from "@/_common/components/IconBadge";
 import { SurfaceCard } from "@/_common/components/SurfaceCard";
@@ -27,7 +27,7 @@ export function AcademicBackground() {
           <Typography variant="cardTitle" component="h2">
             Instituto Superior de Engenharia do Porto (ISEP)
           </Typography>
-          <Typography variant="mono">BSc in Informatics Engineering · 2014 - 2017</Typography>
+          <Typography variant="mono">{`BSc in Informatics Engineering · ${DEGREE_START_YEAR} - ${CAREER_START_YEAR}`}</Typography>
         </Stack>
       </Stack>
       <Typography variant="mono" sx={{ flexShrink: 0 }}>
