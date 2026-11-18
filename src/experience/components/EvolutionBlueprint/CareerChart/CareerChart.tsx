@@ -1,4 +1,5 @@
 import Box from "@mui/material/Box";
+import { BUILD_YEAR, CAREER_START_YEAR } from "@/_common/constants";
 import { fontMono, slate, teal } from "@/_common/theme";
 import { CURRENT_POINT, CURVE, PAST_POINTS } from "./content";
 import { LINE } from "./styles";
@@ -10,7 +11,7 @@ export function CareerChart() {
       component="svg"
       viewBox="0 0 320 40"
       role="img"
-      aria-label={`Career progression from ${PAST_POINTS[0].year} to ${CURRENT_POINT.year}`}
+      aria-label={`Career progression from ${CAREER_START_YEAR} to ${BUILD_YEAR}`}
       sx={{
         display: "block",
         width: "100%",

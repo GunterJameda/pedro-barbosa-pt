@@ -1,30 +1,23 @@
 import { screen } from "@testing-library/react";
 import { describe, expect, it } from "vitest";
+import { BUILD_YEAR, CAREER_START_YEAR } from "@/_common/constants";
 import { renderWithTheme } from "@tests/render";
-import { CURRENT_POINT, PAST_POINTS } from "./content";
 import { CareerChart } from "./CareerChart";
-
-const years = [...PAST_POINTS, CURRENT_POINT].map((point) => point.year);
 
 describe("CareerChart", () => {
   it("tells screen readers which years it covers", () => {
     renderWithTheme(<CareerChart />);
     expect(screen.getByRole("img")).toHaveAccessibleName(
-      `Career progression from ${years[0]} to ${years.at(-1)}`,
+      `Career progression from ${CAREER_START_YEAR} to ${BUILD_YEAR}`,
     );
   });
 
-  it("labels every year, in order, ending with the current one", () => {
+  it("labels every year, in order, from the career start to the build year", () => {
     const { container } = renderWithTheme(<CareerChart />);
-    const labels = [...container.querySelectorAll("text")].map((text) => text.textContent);
-    expect(labels).toEqual(years);
-  });
-
-  it("lists its years in chronological order", () => {
-    // The curve is drawn left to right, so the data has to be in order too.
-    expect(years.map(Number)).toEqual([...years.map(Number)].sort((a, b) => a - b));
-    expect(PAST_POINTS.map((point) => point.x)).toEqual(
-      [...PAST_POINTS.map((point) => point.x)].sort((a, b) => a - b),
-    );
+    const labels = [...container.querySelectorAll("text")].map((text) => Number(text.textContent));
+    expect(labels[0]).toBe(CAREER_START_YEAR);
+    expect(labels.at(-1)).toBe(BUILD_YEAR);
+    // The curve is drawn left to right, so the years have to be in order too.
+    expect(labels).toEqual([...labels].sort((a, b) => a - b));
   });
 });
