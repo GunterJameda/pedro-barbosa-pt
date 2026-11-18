@@ -21,9 +21,11 @@ interface MobileMenuProps {
   brand: ReactNode;
   /** The page links. */
   nav: ReactNode;
+  /** The language switcher, shown in the menu's footer. */
+  languageSwitcher: ReactNode;
 }
 
-export function MobileMenu({ brand, nav }: MobileMenuProps) {
+export function MobileMenu({ brand, nav, languageSwitcher }: MobileMenuProps) {
   const t = useTranslations("common.MobileMenu");
   const [isOpen, setIsOpen] = useState(false);
   const isDesktop = useMediaQuery(DESKTOP_QUERY);
@@ -107,7 +109,7 @@ export function MobileMenu({ brand, nav }: MobileMenuProps) {
             <ActionButton href="/contact" primary fullWidth startIcon={<MailOutlinedIcon />}>
               {t("contact")}
             </ActionButton>
-            <MenuFooter />
+            <MenuFooter languageSwitcher={languageSwitcher} />
           </Stack>
         </Stack>
       </Drawer>

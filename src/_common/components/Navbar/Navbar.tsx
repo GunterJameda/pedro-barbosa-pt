@@ -3,6 +3,7 @@ import Box from "@mui/material/Box";
 import Stack from "@mui/material/Stack";
 import { CONTENT_MAX_WIDTH, NAVBAR_HEIGHT } from "@/_common/constants";
 import { Brand } from "./Brand";
+import { LanguageSwitcher } from "./LanguageSwitcher";
 import { MobileMenu } from "./MobileMenu";
 import { NavLinks } from "./NavLinks";
 import { StatusChip } from "./StatusChip";
@@ -37,6 +38,9 @@ export function Navbar() {
         <Brand />
         <NavLinks variant="desktop" />
         <StatusChip />
+        <Box sx={{ display: { xs: "none", lg: "block" }, flexShrink: 0 }}>
+          <LanguageSwitcher />
+        </Box>
 
         <Stack
           direction="row"
@@ -48,7 +52,11 @@ export function Navbar() {
           }}
         >
           <StatusChip compact />
-          <MobileMenu brand={<Brand />} nav={<NavLinks variant="mobile" />} />
+          <MobileMenu
+            brand={<Brand />}
+            nav={<NavLinks variant="mobile" />}
+            languageSwitcher={<LanguageSwitcher showLabel />}
+          />
         </Stack>
       </Box>
     </AppBar>

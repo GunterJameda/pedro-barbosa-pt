@@ -6,11 +6,16 @@ import { MenuFooter } from "./MenuFooter";
 
 describe("MenuFooter", () => {
   it("links to every social profile, in a new tab", () => {
-    renderWithTheme(<MenuFooter />);
+    renderWithTheme(<MenuFooter languageSwitcher={<div>Switcher</div>} />);
     for (const { name, href } of SOCIAL_LINKS) {
       const link = screen.getByRole("link", { name });
       expect(link).toHaveAttribute("href", href);
       expect(link).toHaveAttribute("target", "_blank");
     }
+  });
+
+  it("shows the language switcher it is given", () => {
+    renderWithTheme(<MenuFooter languageSwitcher={<div>Switcher</div>} />);
+    expect(screen.getByText("Switcher")).toBeInTheDocument();
   });
 });

@@ -15,6 +15,7 @@ function renderMenu() {
           <span>Not a link</span>
         </nav>
       }
+      languageSwitcher={<div>Switcher</div>}
     />,
   );
 }
