@@ -167,7 +167,7 @@
     "TeamPractices": {
       "eyebrow": "Metodologia e Cultura",
       "title": "Como Trabalho em Equipa",
-      "description": "O software é construído por pessoas, não só por pull requests. Assim colaboro no dia a dia para manter as equipas a avançar sem sobressaltos.",
+      "description": "O software é construído por pessoas, não só por pull requests. Colaboro desta maneira no dia a dia para manter as equipas a avançar sem sobressaltos.",
       "practices": {
         "codeReviews": {
           "title": "Code Reviews Colaborativas",
