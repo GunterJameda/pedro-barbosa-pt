@@ -2,7 +2,7 @@
 import { getPathMatch } from "next/dist/shared/lib/router/utils/path-match";
 import { describe, expect, it } from "vitest";
 import { DEFAULT_LOCALE, LOCALE_PREFIXES, LOCALES } from "@/_common/i18n";
-import type { RouteRule } from "./types";
+import type { RedirectRule, RouteRule } from "./types";
 import { localeRoutes } from "./localeRoutes";
 
 /** Where Next.js sends an address through the first rule that matches it, as next.config.ts runs them. */
@@ -16,6 +16,18 @@ function follow(rules: RouteRule[], address: string) {
     }
   }
   return address;
+}
+
+/** Like follow, for redirects: a rule with a cookie condition only applies to requests that carry it. */
+function followWithCookies(
+  rules: RedirectRule[],
+  address: string,
+  cookies: Record<string, string> = {},
+) {
+  return follow(
+    rules.filter(({ has }) => !has || has.every(({ key, value }) => cookies[key] === value)),
+    address,
+  );
 }
 
 const site = localeRoutes({
@@ -85,6 +97,62 @@ describe("localeRoutes", () => {
       const withGerman = localeRoutes({ locales: ["en", "de"], defaultLocale: "en", prefixes: {} });
       expect(follow(withGerman.rewrites, "/de/about")).toBe("/de/about");
       expect(follow(withGerman.redirects, "/de/about")).toBe("/de/about");
+    });
+  });
+
+  describe("with a cookie holding the visitor's choice", () => {
+    const remembered = localeRoutes({
+      locales: ["en", "pt-PT"],
+      defaultLocale: "en",
+      prefixes: { "pt-PT": "/pt" },
+      cookie: "NEXT_LOCALE",
+    });
+    const send = (address: string, cookie?: string) =>
+      followWithCookies(remembered.redirects, address, cookie ? { NEXT_LOCALE: cookie } : {});
+
+    it.each([
+      ["/", "/pt"],
+      ["/about", "/pt/about"],
+      ["/projects/opengraph-image", "/pt/projects/opengraph-image"],
+    ])("sends a visitor who chose Portuguese from %s to %s", (address, target) => {
+      expect(send(address, "pt-PT")).toBe(target);
+    });
+
+    it.each([
+      ["/pt", "/"],
+      ["/pt/about", "/about"],
+    ])("sends a visitor who chose English from %s to %s", (address, target) => {
+      expect(send(address, "en")).toBe(target);
+    });
+
+    it.each([undefined, "dismissed", "de", ""])(
+      "changes nothing for a visitor whose cookie is %j",
+      (cookie) => {
+        expect(send("/about", cookie)).toBe("/about");
+        expect(send("/pt/about", cookie)).toBe("/pt/about");
+        expect(send("/", cookie)).toBe("/");
+      },
+    );
+
+    it("keeps a visitor where they are when the page is already in their language", () => {
+      expect(send("/pt/about", "pt-PT")).toBe("/pt/about");
+      expect(send("/about", "en")).toBe("/about");
+    });
+
+    it("never redirects Next's files or the root files, whatever the choice", () => {
+      for (const address of ["/_next/static/a.js", "/sitemap.xml", "/robots.txt", "/icon.svg"]) {
+        expect(send(address, "pt-PT")).toBe(address);
+      }
+    });
+
+    it("makes the redirects for a saved choice temporary, so a changed choice takes effect", () => {
+      const saved = remembered.redirects.filter(({ has }) => has);
+      expect(saved.length).toBeGreaterThan(0);
+      expect(saved.every(({ permanent }) => !permanent)).toBe(true);
+    });
+
+    it("adds no redirect for a saved choice without a cookie name", () => {
+      expect(withPortuguese.redirects.some(({ has }) => has)).toBe(false);
     });
   });
 });

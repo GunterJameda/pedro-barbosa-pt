@@ -1,6 +1,6 @@
 import type { NextConfig } from "next";
 import createNextIntlPlugin from "next-intl/plugin";
-import { DEFAULT_LOCALE, LOCALE_PREFIXES, LOCALES } from "./src/_common/i18n";
+import { DEFAULT_LOCALE, LANGUAGE_COOKIE, LOCALE_PREFIXES, LOCALES } from "./src/_common/i18n";
 import { localeRoutes } from "./src/_common/utils/localeRoutes";
 
 const isDev = process.env.NODE_ENV === "development";
@@ -61,11 +61,13 @@ const SECURITY_HEADERS = [
 ];
 
 // Every page lives under src/app/[locale]. These map each language's public
-// addresses onto it: /about is the English page, /pt/about would be Portuguese.
+// addresses onto it: /about is the English page, /pt/about is Portuguese. With
+// the language cookie, a visitor's saved choice redirects them to that language.
 const LOCALE_ROUTES = localeRoutes({
   locales: LOCALES,
   defaultLocale: DEFAULT_LOCALE,
   prefixes: LOCALE_PREFIXES,
+  cookie: LANGUAGE_COOKIE,
 });
 
 const nextConfig: NextConfig = {

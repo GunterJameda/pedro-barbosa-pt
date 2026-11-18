@@ -4,7 +4,9 @@ export interface RouteRule {
   destination: string;
 }
 
-/** A redirect rule; these addresses never change, so the redirects are permanent. */
+/** A redirect rule: permanent for addresses that never change, temporary for a visitor's saved choice. */
 export interface RedirectRule extends RouteRule {
-  permanent: true;
+  permanent: boolean;
+  /** Only applies to requests that carry this cookie. */
+  has?: { type: "cookie"; key: string; value: string }[];
 }
