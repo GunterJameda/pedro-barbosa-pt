@@ -1,3 +1,4 @@
+import { NARROW_DESKTOP } from "./constants";
 import type { NavLinksVariant } from "./types";
 
 export const activeLink = {
@@ -18,6 +19,7 @@ export const variantStyles = {
       fontSize: 12,
       lineHeight: "16px",
       whiteSpace: "nowrap",
+      [NARROW_DESKTOP]: { px: 1 },
     },
     inactiveLink: {
       color: "text.secondary",
