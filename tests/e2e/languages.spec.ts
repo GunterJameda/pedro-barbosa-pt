@@ -51,6 +51,45 @@ test.describe("Portuguese pages", () => {
     });
   }
 
+  for (const route of PAGE_ROUTES) {
+    test(`${portuguese(route)} previews with its own Portuguese share image`, async ({
+      page,
+      request,
+    }) => {
+      await visit(page, portuguese(route));
+      const imagePath = `${portuguese(route)}/opengraph-image`;
+      for (const name of ["og:image", "twitter:image"]) {
+        await expect(
+          page.locator(`meta[property="${name}"], meta[name="${name}"]`),
+        ).toHaveAttribute("content", `${SITE}${imagePath}`);
+      }
+      for (const name of ["og:image:alt", "twitter:image:alt"]) {
+        const alt = await page
+          .locator(`meta[property="${name}"], meta[name="${name}"]`)
+          .getAttribute("content");
+        expect(alt).toContain("Engenheiro Frontend Sénior");
+        expect(alt).not.toContain("Senior Frontend Engineer");
+      }
+      const response = await request.get(imagePath);
+      expect(response.status()).toBe(200);
+      expect(response.headers()["content-type"]).toBe("image/png");
+    });
+
+    test(`${route} previews with its own English share image`, async ({ page }) => {
+      await visit(page, route);
+      const imagePath = `${route === "/" ? "" : route}/opengraph-image`;
+      for (const name of ["og:image", "twitter:image"]) {
+        await expect(
+          page.locator(`meta[property="${name}"], meta[name="${name}"]`),
+        ).toHaveAttribute("content", `${SITE}${imagePath}`);
+      }
+      await expect(page.locator('meta[property="og:image:alt"]')).toHaveAttribute(
+        "content",
+        /Senior Frontend Engineer/,
+      );
+    });
+  }
+
   test("the home page greets in Portuguese", async ({ page }) => {
     await visit(page, "/pt");
     await expect(page.getByRole("heading", { level: 1 })).toHaveText("Olá, sou o Pedro Barbosa.");

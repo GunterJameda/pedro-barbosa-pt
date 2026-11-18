@@ -4,6 +4,7 @@ import { join } from "node:path";
 import type { Metadata } from "next";
 import { describe, expect, it } from "vitest";
 import { PAGES } from "@/_common/constants";
+import portuguese from "@/_common/i18n/pt-PT.json";
 import { messages } from "./intl";
 import { PAGE_ROUTES, routeModule } from "./pages";
 
@@ -42,5 +43,13 @@ describe("share images", () => {
       "opengraph-image.tsx",
     );
     expect(image.generateStaticParams()).toEqual([{ locale: "en" }, { locale: "pt-PT" }]);
+  });
+
+  it("has Portuguese text for every part of the image that differs from English", () => {
+    // Catches English copy left in the Portuguese messages.
+    expect(portuguese.profile.role).not.toBe(messages.profile.role);
+    for (const { key } of PAGES) {
+      expect(portuguese.pages[key]).not.toBe(messages.pages[key]);
+    }
   });
 });
