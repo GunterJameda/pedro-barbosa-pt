@@ -102,7 +102,7 @@ test.describe("structured data", () => {
   }
 });
 
-test.describe("the old /home address", () => {
+test.describe("the old /home address and the /en addresses", () => {
   test("only ever redirects within the site", async ({ request, baseURL }) => {
     const site = new URL(baseURL!).origin;
     const attempts = [
@@ -114,6 +114,13 @@ test.describe("the old /home address", () => {
       "/%2F%2Fevil.example/",
       "/%5C%5Cevil.example/",
       "/.//evil.example/",
+      // The English pages' internal /en addresses redirect to their public ones.
+      "/en//evil.example",
+      "/en/%2F%2Fevil.example",
+      "/en/%5C%5Cevil.example",
+      "/en/%5Cevil.example",
+      "/en/\\evil.example",
+      "/en?next=https://evil.example",
     ];
     for (const path of attempts) {
       // Joined as text: as a URL, "//evil.example/" alone would leave the site.

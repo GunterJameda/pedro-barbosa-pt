@@ -67,3 +67,42 @@ test("sends the old /home address to the home page, permanently", async ({ reque
   expect(response.status()).toBe(308);
   expect(response.headers().location).toBe("/");
 });
+
+test("sends the English pages' internal /en addresses to their public ones", async ({
+  request,
+}) => {
+  for (const route of PAGE_ROUTES) {
+    const response = await request.get(route === "/" ? "/en" : `/en${route}`, { maxRedirects: 0 });
+    expect(response.status(), route).toBe(308);
+    expect(response.headers().location, route).toBe(route);
+  }
+});
+
+for (const route of [...PAGE_ROUTES, MISSING_PAGE]) {
+  test.describe(`${route} language`, () => {
+    if (route === MISSING_PAGE) {
+      test.beforeEach(({}, testInfo) => {
+        testInfo.annotations.push({ type: EXPECTS_404 });
+      });
+    }
+
+    test("is declared to browsers, link previews and search engines", async ({ page }) => {
+      await visit(page, route);
+      await expect(page.locator("html")).toHaveAttribute("lang", "en");
+      await expect(page.locator('meta[property="og:locale"]')).toHaveAttribute("content", "en_GB");
+      const alternates = page.locator('link[rel="alternate"][hreflang]');
+      if (route === MISSING_PAGE) {
+        // A missing page has no versions in other languages.
+        await expect(alternates).toHaveCount(0);
+      } else {
+        const address = new URL(route, "https://pedrobarbosa.pt").href.replace(/\/$/, "");
+        await expect(alternates).toHaveCount(2);
+        for (const language of ["en", "x-default"]) {
+          await expect(
+            page.locator(`link[rel="alternate"][hreflang="${language}"]`),
+          ).toHaveAttribute("href", address);
+        }
+      }
+    });
+  });
+}
