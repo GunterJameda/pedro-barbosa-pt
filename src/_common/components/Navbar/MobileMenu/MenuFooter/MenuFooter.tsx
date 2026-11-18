@@ -5,12 +5,12 @@ import Typography from "@mui/material/Typography";
 import { LOCATION, SOCIAL_LINKS } from "@/_common/constants";
 import { socialLink } from "./styles";
 
-/** The language switcher, location and social profiles, at the bottom of the menu. */
 interface MenuFooterProps {
   /** The language switcher, shown first. */
   languageSwitcher: ReactNode;
 }
 
+/** The language switcher, location and social profiles, at the bottom of the menu. */
 export function MenuFooter({ languageSwitcher }: MenuFooterProps) {
   return (
     <Stack spacing={2}>
