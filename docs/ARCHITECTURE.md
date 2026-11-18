@@ -33,7 +33,7 @@ assets/fonts/           Font files for the share images
   is never called `src/pages`, which Next.js would read as the Pages Router.
 - Inside `_common` and each page folder, code is grouped by kind, one folder per kind:
   `components/`, `constants/`, `hooks/`, `types/`, `utils/` (and `theme/`, only in `_common`). A
-  folder only exists when it has something in it; today the page folders only have `components/`.
+  folder only exists when it has something in it; today the page folders have `components/`, and `experience` also has `hooks/`.
   Helper functions always go in `utils/`, never `helpers/` or `functions/`.
 - In `components/`, `hooks/` and `utils/`, every child folder is a module
   (`_common/components/Footer`, `_common/utils/pageMetadata`). `constants/`, `theme/` and `types/`
