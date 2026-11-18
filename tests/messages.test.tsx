@@ -33,6 +33,28 @@ describe("messages", () => {
     expect(keysOf(messages).sort()).toEqual(keysOf(english).sort());
   });
 
+  // Search engines cut descriptions at about 155 characters, in every language.
+  it.each(LOCALES)("%s's page descriptions are short enough for search results", async (locale) => {
+    const { default: messages } = await import(`@/_common/i18n/${locale}.json`);
+    const fill = (text: string) =>
+      text
+        .replace("{careerStartYear}", "2019")
+        .replace("{role}", messages.profile.role)
+        .replace("{city}", "Porto")
+        .replace("{workModeRoles}", messages.profile.workModeRoles["remote-and-hybrid"]);
+    const descriptions = [
+      messages.site.description,
+      messages.about.page.description,
+      messages.experience.page.description,
+      messages.projects.page.description,
+      messages.contact.page.description,
+      messages.contact.page.descriptionLooking,
+    ];
+    for (const description of descriptions) {
+      expect(fill(description).length, description).toBeLessThanOrEqual(155);
+    }
+  });
+
   it.each(PAGE_ROUTES)("%s only uses messages that exist", async (route) => {
     const page = await routeModule<{
       default: ComponentType;

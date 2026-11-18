@@ -59,14 +59,24 @@ describe("page metadata", () => {
 describe("language metadata", () => {
   it("tells search engines where each page is in every language, English being the default", async () => {
     for (const { route, metadata } of await allMetadata()) {
-      expect(metadata.alternates?.languages, route).toEqual({ en: route, "x-default": route });
+      expect(metadata.alternates?.languages, route).toEqual({
+        en: route,
+        "pt-PT": route === "/" ? "/pt" : `/pt${route}`,
+        "x-default": route,
+      });
     }
   });
 
   it("names the language of every link preview", async () => {
-    expect((await siteMetadata()).openGraph).toMatchObject({ locale: "en_GB" });
+    expect((await siteMetadata()).openGraph).toMatchObject({
+      locale: "en_GB",
+      alternateLocale: ["pt_PT"],
+    });
     for (const { route, metadata } of await allMetadata()) {
-      expect(metadata.openGraph, route).toMatchObject({ locale: "en_GB" });
+      expect(metadata.openGraph, route).toMatchObject({
+        locale: "en_GB",
+        alternateLocale: ["pt_PT"],
+      });
     }
   });
 

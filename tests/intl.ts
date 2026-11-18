@@ -1,6 +1,7 @@
 import type { IntlError } from "next-intl";
 import { DEFAULT_LOCALE, TIME_ZONE } from "@/_common/i18n";
 import english from "@/_common/i18n/en.json";
+import portuguese from "@/_common/i18n/pt-PT.json";
 
 /** The default language's messages, for tests that compare against the copy. */
 export const messages = english;
@@ -16,4 +17,11 @@ export const INTL = {
   messages,
   timeZone: TIME_ZONE,
   onError: failOnMessageError,
+};
+
+/** The same for a page in Portuguese. */
+export const PORTUGUESE_INTL: typeof INTL = {
+  ...INTL,
+  locale: "pt-PT",
+  messages: portuguese,
 };

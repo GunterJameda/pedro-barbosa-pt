@@ -26,11 +26,11 @@ function siteWith(locales: readonly string[], prefixes: Record<string, `/${strin
 }
 
 describe("languageAlternates", () => {
-  it("lists English, and English as the default, while it's the site's only language", () => {
+  it("lists every language the site has, and English as the default", () => {
     const pathFor = (locale: Locale, href: string) => getPathname({ locale, href });
     expect(
       languageAlternates("/about", { locales: LOCALES, defaultLocale: DEFAULT_LOCALE, pathFor }),
-    ).toEqual({ en: "/about", "x-default": "/about" });
+    ).toEqual({ en: "/about", "pt-PT": "/pt/about", "x-default": "/about" });
   });
 
   it("adds a language as soon as it's enabled, under its own prefix", () => {

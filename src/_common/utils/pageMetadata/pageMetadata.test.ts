@@ -16,6 +16,7 @@ describe("pageMetadata", () => {
     async (href) => {
       expect((await pageMetadata(href)).alternates?.languages).toEqual({
         en: href,
+        "pt-PT": href === "/" ? "/pt" : `/pt${href}`,
         "x-default": href,
       });
     },

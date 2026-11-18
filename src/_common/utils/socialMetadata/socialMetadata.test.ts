@@ -12,6 +12,10 @@ describe("socialMetadata", () => {
     });
   });
 
+  it("lists the other languages' names as alternates, so the preview isn't tied to one", async () => {
+    expect((await socialMetadata()).openGraph).toMatchObject({ alternateLocale: ["pt_PT"] });
+  });
+
   it("shows the page's own image in both previews", async () => {
     const { openGraph, twitter } = await socialMetadata("/contact");
     const image = expect.objectContaining({ url: "/contact/opengraph-image" });

@@ -41,6 +41,6 @@ describe("share images", () => {
       route,
       "opengraph-image.tsx",
     );
-    expect(image.generateStaticParams()).toEqual([{ locale: "en" }]);
+    expect(image.generateStaticParams()).toEqual([{ locale: "en" }, { locale: "pt-PT" }]);
   });
 });

@@ -30,6 +30,18 @@
     "FastNavigation": {
       "label": "Fast Navigation"
     },
+    "LanguageSuggestion": {
+      "text": "Este site está disponível em português.",
+      "link": "Ver em português",
+      "close": "Fechar"
+    },
+    "LanguageSwitcher": {
+      "label": "Language",
+      "languages": {
+        "en": "English",
+        "pt-PT": "Português"
+      }
+    },
     "MobileMenu": {
       "open": "Open menu",
       "menu": "Menu",

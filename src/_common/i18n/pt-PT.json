@@ -1,0 +1,613 @@
+{
+  "site": {
+    "title": "{name} | {role}",
+    "titleTemplate": "%s | {name}",
+    "description": "Engenheiro Frontend Sénior especializado em React, Next.js e TypeScript, com uma base sólida em Angular."
+  },
+  "profile": {
+    "role": "Engenheiro Frontend Sénior",
+    "workModeRoles": {
+      "remote-and-hybrid": "funções remotas e híbridas",
+      "remote-only": "funções remotas"
+    }
+  },
+  "pages": {
+    "home": "Início",
+    "about": "Sobre",
+    "experience": "Experiência",
+    "projects": "Projetos Pessoais",
+    "contact": "Contacto"
+  },
+  "common": {
+    "ErrorPage": {
+      "label": "Algo correu mal",
+      "title": "Não foi possível apresentar esta página.",
+      "text": "Um erro inesperado impediu o carregamento desta página. Tente novamente ou volte ao início.",
+      "retry": "Tentar novamente",
+      "home": "Ir para o Início",
+      "tabTitle": "Algo correu mal | {name}"
+    },
+    "FastNavigation": {
+      "label": "Navegação Rápida"
+    },
+    "LanguageSuggestion": {
+      "text": "This site is available in English.",
+      "link": "View in English",
+      "close": "Close"
+    },
+    "LanguageSwitcher": {
+      "label": "Idioma",
+      "languages": {
+        "en": "English",
+        "pt-PT": "Português"
+      }
+    },
+    "MobileMenu": {
+      "open": "Abrir menu",
+      "menu": "Menu",
+      "close": "Fechar menu",
+      "contact": "Fale comigo"
+    },
+    "AvailabilityCard": {
+      "label": "Disponibilidade",
+      "status": {
+        "immediate": "Imediata",
+        "open": "Aberto a oportunidades"
+      }
+    },
+    "NavLinks": {
+      "desktop": "Principal",
+      "mobile": "Móvel"
+    },
+    "StatusChip": {
+      "status": {
+        "immediate": "Disponível para oportunidades",
+        "open": "Aberto a oportunidades"
+      },
+      "short": "Disponível"
+    },
+    "PreFooterCTA": {
+      "label": "Próximos Contactos e Colaborações",
+      "contact": "Fale comigo"
+    },
+    "ScrollToTop": {
+      "label": "Ir para o topo"
+    },
+    "ShareImage": {
+      "alt": "{name}, {role}",
+      "pageAlt": "{page} · {name}, {role}",
+      "tags": ["React", "Next.js", "TypeScript", "Angular"]
+    },
+    "SkipLink": {
+      "label": "Saltar para o conteúdo"
+    }
+  },
+  "notFound": {
+    "title": "Página não encontrada",
+    "label": "Erro 404",
+    "heading": "Não há nada para mostrar aqui.",
+    "text": "Este endereço não faz parte do site. Deixe-me indicar-lhe um sítio útil.",
+    "home": "Ir para o Início",
+    "contact": "Fale comigo"
+  },
+  "home": {
+    "Hero": {
+      "title": "Olá, sou o {name}.",
+      "text": "Engenheiro Frontend Sénior especializado em <highlight>React</highlight>,<gap></gap> <highlight>Next.js</highlight> e <highlight>TypeScript</highlight>, com uma base sólida em <highlight>Angular</highlight>. Construo aplicações multi-tenant resilientes, design systems e arquiteturas frontend modernas."
+    },
+    "PersonSchema": {
+      "knowsAbout": ["React", "Next.js", "TypeScript", "Angular"]
+    }
+  },
+  "about": {
+    "page": {
+      "description": "Engenheiro Frontend Sénior desde {careerStartYear}, especializado em modernização de frontend e design systems escaláveis.",
+      "ctaTitle": "Veja o trabalho de engenharia na prática.",
+      "ctaText": "Explore a minha carreira em startups e em equipas de software estabelecidas, ou veja os produtos que construí fora do trabalho.",
+      "ctaButton": "Ver Experiência"
+    },
+    "AboutHero": {
+      "eyebrow": "Perfil e Filosofia de Arquitetura",
+      "title": "Engenharia com cuidado, pragmatismo e atenção ao detalhe.",
+      "description": "Engenheiro Frontend Sénior · Desde {careerStartYear}. Especializado em modernização de frontend e design systems escaláveis. A minha prática une fronteiras arquiteturais limpas, sistemas de componentes acessíveis e uma colaboração empática e ágil entre equipas de produto, design e engenharia.",
+      "pillars": {
+        "specialisation": {
+          "tag": "Especialização",
+          "title": "Modernização de Frontend",
+          "description": "Reduzir o risco de migrações legadas e desacoplar o estado"
+        },
+        "uiArchitecture": {
+          "tag": "Arquitetura de UI",
+          "title": "Design Systems",
+          "description": "Pipelines de tokens multi-tenant e UI orientada por schemas"
+        },
+        "collaboration": {
+          "tag": "Colaboração",
+          "title": "Direta e Orientada por RFCs",
+          "description": "Aproximar design e engenharia com especificações pouco ambíguas"
+        },
+        "seniority": {
+          "tag": "Senioridade",
+          "title": "IC Sénior",
+          "description": "Implementação a fundo e responsabilidade pela base de código"
+        }
+      }
+    },
+    "EngineeringPrinciples": {
+      "eyebrow": "Princípios de Engenharia",
+      "title": "O Que Mais Valorizo no Código",
+      "description": "Uma perspetiva disciplinada e fundamentada, cultivada ao longo de milhares de pull requests e lançamentos em produção.",
+      "principles": {
+        "rootIntent": {
+          "badge": "Intenção de Fundo",
+          "title": "Resolver a Necessidade de Fundo, Não Só a Especificação",
+          "description": "Olhar para além dos tickets estáticos para perceber o comportamento real dos utilizadores e o resultado de negócio por trás do requisito. A boa engenharia questiona os pressupostos logo no início para entregar soluções duradouras e de grande impacto.",
+          "highlight": "Responder a necessidades reais, humanas e de sistema"
+        },
+        "pragmaticSimplicity": {
+          "badge": "Simplicidade Pragmática",
+          "title": "Arquitetura Pragmática e de Grande Alavancagem",
+          "description": "Encontrar a implementação mais enxuta e elegante, que tira o máximo partido dos sistemas existentes sem abstrações desnecessárias. Escolher padrões comprovados, que trazem grande alavancagem ao negócio com o mínimo de atrito para a equipa.",
+          "highlight": "Máxima alavancagem através da arquitetura existente"
+        },
+        "systemResilience": {
+          "badge": "Resiliência do Sistema",
+          "title": "Extensibilidade Sustentável",
+          "description": "Desenhar fronteiras e contratos claros entre componentes, que acomodam a evolução futura sem complexidade prematura. Isolar domínios de estado para permitir um crescimento tranquilo, sem cascatas frágeis.",
+          "highlight": "Contratos de fronteira limpos, sem excesso de engenharia"
+        },
+        "userExperience": {
+          "badge": "Experiência do Utilizador",
+          "title": "UX Sem Atritos e Desempenho Percebido",
+          "description": "Tratar o layout responsivo, a navegação por teclado e a fluidez das imagens como requisitos de arquitetura de primeira ordem, e não como retoques finais. Um feedback instantâneo transmite confiança profunda na qualidade do produto.",
+          "highlight": "Feedback tátil, zero saltos de layout, orçamentos de frames rigorosos"
+        }
+      }
+    },
+    "TeamPractices": {
+      "eyebrow": "Metodologia e Cultura",
+      "title": "Como Trabalho em Equipa",
+      "description": "O software é construído por pessoas, não só por pull requests. Assim colaboro no dia a dia para manter as equipas a avançar sem sobressaltos.",
+      "practices": {
+        "codeReviews": {
+          "title": "Code Reviews Colaborativas",
+          "description": "Feedback construtivo e sem ego, PRs a andar para ninguém ficar bloqueado, e ficheiros deixados mais limpos do que os encontrei.",
+          "tagLeft": "Foco: Legibilidade e Fiabilidade",
+          "tagRight": "Mentoria"
+        },
+        "writtenSpecs": {
+          "title": "Especificações e RFCs Escritas com Clareza",
+          "description": "Registar por escrito os compromissos técnicos e os casos limite antes de construir. Esclarecer dúvidas logo no início poupa horas de reuniões de reformulação mais tarde.",
+          "tagLeft": "Formato: RFCs Assíncronas",
+          "tagRight": "Pouca Ambiguidade"
+        },
+        "crossFunctional": {
+          "title": "Ponte Entre Áreas",
+          "description": "Trabalhar de perto com designers, engenheiros de backend e produto. Pensar no que acontece quando algo corre mal (redes lentas, erros, dados em falta) antes de os utilizadores o verem.",
+          "tagLeft": "Sinergia Design ⇄ Código",
+          "tagRight": "Design Tokens"
+        }
+      }
+    },
+    "TechnicalToolbox": {
+      "eyebrow": "Competências e Stacks",
+      "title": "Ferramentas Técnicas",
+      "description": "Tecnologias escolhidas pela facilidade de manutenção, rapidez, estabilidade do ecossistema e ergonomia para quem desenvolve.",
+      "groups": {
+        "coreState": {
+          "title": "Base e Estado",
+          "roleBadge": "Stack Principal",
+          "description": "React, Next.js e TypeScript como ferramentas do dia a dia, aliados a arquiteturas de gestão de estado resilientes.",
+          "skills": [
+            "TypeScript",
+            "React",
+            "Next.js",
+            "JavaScript (ES6+)",
+            "HTML5 / CSS3",
+            "Redux & Context API",
+            "NgRx & Recoil",
+            "Angular / AngularJS"
+          ],
+          "footerLeft": "Proficiência em Produção",
+          "footerRight": "Sénior · Desde {careerStartYear}"
+        },
+        "designSystems": {
+          "title": "UI e Design Systems",
+          "roleBadge": "Arquitetura",
+          "description": "Bibliotecas de componentes reutilizáveis, pipelines de design tokens e renderização dinâmica de UI orientada por JSON.",
+          "skills": [
+            "Arquitetura de Design Systems",
+            "Componentes Orientados por JSON",
+            "Material UI (MUI)",
+            "Chakra UI",
+            "Tailwind CSS",
+            "Acessibilidade (a11y)",
+            "Modernização de Frontend"
+          ],
+          "footerLeft": "Especialização",
+          "footerRight": "Sistemas de UI Escaláveis"
+        },
+        "testingDelivery": {
+          "title": "Testes e CI/CD",
+          "roleBadge": "Entrega",
+          "description": "Automação de testes unitários e de ponta a ponta, com pipelines de integração contínua em várias plataformas.",
+          "skills": [
+            "Jest & Vitest",
+            "Playwright",
+            "Jasmine & Karma",
+            "Testes Unitários e E2E",
+            "GitHub Actions",
+            "GitLab CI/CD",
+            "Bitbucket Pipelines",
+            "Jenkins"
+          ],
+          "footerLeft": "Automação de Pipelines",
+          "footerRight": "CI/CD Rigoroso"
+        }
+      }
+    }
+  },
+  "experience": {
+    "page": {
+      "description": "O meu percurso desde {careerStartYear}: aplicações web em produção, migração de arquiteturas legadas para microfrontends e construção de design systems escaláveis.",
+      "ctaTitle": "Quer falar sobre uma função ou ver código?",
+      "ctaText": "Quer esteja a planear uma migração de frontend ou a escalar uma equipa de engenharia, falemos de arquitetura, execução e adequação técnica.",
+      "ctaButton": "Explorar Projetos Pessoais"
+    },
+    "period": "{start} - {end}",
+    "ExperienceHero": {
+      "eyebrow": "Percurso Profissional e Impacto Arquitetural",
+      "title": "Experiência Profissional",
+      "description": "Um percurso cronológico de aplicações web em produção, de migração de arquiteturas legadas para microfrontends modernos e de construção de design systems escaláveis desde {careerStartYear}.",
+      "metrics": {
+        "tenure": {
+          "tag": "Antiguidade",
+          "title": "Desde {careerStartYear}",
+          "description": "Engenharia web em produção e entrega distribuída"
+        },
+        "industries": {
+          "tag": "Setores",
+          "title": "De Fintech a Saúde",
+          "description": "SaaS, e-commerce, proptech e cadeia de abastecimento"
+        },
+        "primaryStack": {
+          "tag": "Stack Principal",
+          "title": "React e Next.js",
+          "description": "TypeScript, design systems e migração para microfrontends"
+        }
+      },
+      "availability": {
+        "immediate": {
+          "tag": "Disponibilidade",
+          "title": "Imediata",
+          "description": "{location} · Funções de Engenheiro Sénior {workMode}"
+        },
+        "open": {
+          "tag": "Disponibilidade",
+          "title": "Aberto a propostas",
+          "description": "{location} · Funções de Engenheiro Sénior {workMode}"
+        },
+        "not-looking": {
+          "tag": "Localização",
+          "title": "{location}",
+          "description": "{workModeExperience}"
+        }
+      },
+      "workMode": {
+        "remote-and-hybrid": "remotas e híbridas",
+        "remote-only": "remotas"
+      },
+      "workModeExperience": {
+        "remote-and-hybrid": "Experiência remota e híbrida",
+        "remote-only": "Experiência remota"
+      }
+    },
+    "EvolutionBlueprint": {
+      "eyebrow": "Plano de Evolução",
+      "text": "Dos sistemas empresariais monolíticos na Glintt e na HUUB aos microfrontends na PriceHubble e aos motores de componentes orientados por schemas na Teya, a minha carreira é moldada por uma responsabilidade técnica cada vez maior.",
+      "focusLabel": "Transição do Foco Principal",
+      "focus": "Angular → React / Next"
+    },
+    "CareerChart": {
+      "label": "Evolução da carreira de {start} a {end}"
+    },
+    "CompanyNavigation": {
+      "label": "Empresas",
+      "title": "Empresas e Projetos",
+      "links": {
+        "teya": { "name": "Teya", "detail": "Engenheiro Sénior" },
+        "tillster": { "name": "Tillster", "detail": "Engenheiro Sénior" },
+        "pricehubble": { "name": "PriceHubble", "detail": "Engenheiro Frontend" },
+        "luxclusif": { "name": "Luxclusif", "detail": "Engenheiro Frontend" },
+        "labsforge": { "name": "LabsForge", "detail": "Engenheiro Frontend" },
+        "huub": { "name": "HUUB", "detail": "Engenheiro Júnior" },
+        "glintt": { "name": "Glintt", "detail": "Engenheiro Júnior" },
+        "education": { "name": "Formação", "detail": "ISEP Porto" }
+      }
+    },
+    "CareerMilestones": {
+      "contributions": "Principais Contribuições e Arquitetura",
+      "roles": {
+        "teya": {
+          "industry": "SaaS de Operações Financeiras",
+          "company": "Teya",
+          "roleTitle": "Engenheiro Frontend Sénior",
+          "tags": [
+            "React",
+            "Next.js",
+            "TypeScript",
+            "Context API",
+            "Material UI",
+            "Recoil",
+            "Redux"
+          ],
+          "bulletPoints": [
+            "Identifiquei e implementei, por iniciativa própria, melhorias na base de código de uma aplicação existente de operações financeiras, equilibrando a refatoração estrutural com uma entrega acelerada de funcionalidades.",
+            "Contribuí para migrações profundas da gestão de estado, de arquiteturas legadas em Redux e Recoil diretamente para padrões idiomáticos de Context API, reduzindo a carga mental e o peso do bundle.",
+            "Liderei a migração de componentes do Chakra UI para um design system unificado interno, baseado em Material UI, incluindo um motor de componentes dinâmico que renderizava fluxos complexos diretamente a partir de configurações JSON e schemas de dados."
+          ]
+        },
+        "tillster": {
+          "industry": "Pedidos Empresariais para Restauração Rápida",
+          "company": "Tillster",
+          "roleTitle": "Engenheiro Frontend Sénior",
+          "tags": ["AngularJS", "Ionic v1", "JavaScript", "Stripe API", "UI Multi-Tenant"],
+          "bulletPoints": [
+            "Mantive e evoluí uma extensa plataforma multi-tenant, que suportava aplicações web e móveis híbridas em produção, adaptando com precisão interfaces e lógica de negócio localizada para marcas internacionais de restauração com grande volume.",
+            "Implementei uma integração unificada de pagamentos com a Stripe, configurando dinamicamente o aspeto do formulário de pagamento, o fluxo de verificação e a marca do cliente através de regras do schema de cada tenant.",
+            "Fui responsável pela implementação de funcionalidades, por testes de integração abrangentes e pela passagem estruturada às equipas de QA, resolvendo defeitos de regressão e conduzindo lançamentos em produção sem tempo de inatividade."
+          ]
+        },
+        "pricehubble": {
+          "industry": "IA Imobiliária e PropTech",
+          "company": "PriceHubble",
+          "roleTitle": "Engenheiro Frontend",
+          "tags": ["single-spa", "React", "Next.js", "TypeScript", "Angular", "Workflows de CI/CD"],
+          "bulletPoints": [
+            "Trabalhei diretamente com outro engenheiro para planear, desenhar e entregar a fase inicial da decomposição de um enorme monólito Angular em microfrontends, separando os domínios de negócio de forma limpa.",
+            "Criei repositórios isolados e pipelines de deployment CI/CD, com o single-spa a orquestrar a coordenação de rotas, o que deu autonomia de deployment às equipas de produto independentes.",
+            "Desenvolvi um assistente de onboarding de utilizadores redesenhado em React e Next.js, iterando em estreita sintonia com designers de produto para afinar heurísticas de UX e otimizar as métricas de conclusão de cada passo."
+          ]
+        },
+        "luxclusif": {
+          "industry": "Tecnologia de E-Commerce de Luxo",
+          "company": "Luxclusif",
+          "roleTitle": "Engenheiro Frontend",
+          "tags": [
+            "React",
+            "TypeScript",
+            "Material UI",
+            "Sistemas de Componentes",
+            "Automação de Workflows"
+          ],
+          "bulletPoints": [
+            "Entrei como o primeiro programador frontend da empresa, definindo sozinho as convenções de engenharia e construindo a aplicação principal, que simplificava a aquisição e a autenticação de malas de luxo em segunda mão.",
+            "Desenhei e publiquei a versão 1.0 da biblioteca interna de componentes da empresa, uniformizando o design de interação, os tokens visuais e os primitivos reutilizáveis nas ferramentas de negócio distribuídas."
+          ]
+        }
+      }
+    },
+    "FoundationRoles": {
+      "roles": {
+        "labsforge": {
+          "industry": "Consultoria e Cloud",
+          "company": "LabsForge Consulting",
+          "roleTitle": "Engenheiro Frontend",
+          "description": "Único programador do AlbumTeller, uma aplicação que reúne num só fluxo de trabalho as ferramentas de produção de álbuns de fotografia.",
+          "tags": ["Angular", "TypeScript", "Node.js", "AWS Serverless"]
+        },
+        "huub": {
+          "industry": "Tecnologia de Cadeia de Abastecimento",
+          "company": "HUUB",
+          "roleTitle": "Engenheiro Frontend Júnior",
+          "description": "Desenvolvi uma aplicação especializada de controlo de qualidade em armazém, que suportava fluxos de inspeção em tempo real de peças de vestuário à chegada e a auditoria de defeitos de fabrico.",
+          "tags": ["Angular", "TypeScript", "UX de Logística"]
+        },
+        "glintt": {
+          "industry": "Informática da Saúde",
+          "company": "Glintt",
+          "roleTitle": "Engenheiro Frontend Júnior",
+          "description": "Desenvolvi uma aplicação empresarial de saúde que suportava a recolha rigorosa de dados de ensaios clínicos, a gestão de participantes e o acompanhamento de protocolos.",
+          "tags": ["Angular", "TypeScript", "Sistemas Clínicos"]
+        }
+      }
+    },
+    "AcademicBackground": {
+      "eyebrow": "Formação Académica",
+      "school": "Instituto Superior de Engenharia do Porto (ISEP)",
+      "degree": "Licenciatura em Engenharia Informática · {start} - {end}",
+      "location": "Porto, Portugal"
+    }
+  },
+  "projects": {
+    "page": {
+      "description": "Produtos que construo fora do trabalho para resolver problemas reais, desde a definição dos requisitos até ao software a funcionar.",
+      "ctaTitle": "Quer colaborar ou falar sobre uma oportunidade?",
+      "ctaText": "Se está a contratar um Engenheiro Frontend Sénior ou a planear uma migração de frontend, falemos sobre a função e sobre como posso ajudar.",
+      "ctaButton": "Ver Experiência"
+    },
+    "ProjectsHero": {
+      "eyebrow": "Trabalho Independente e Ofício",
+      "title": "Projetos Pessoais",
+      "description": "Produtos que construo fora do trabalho para resolver problemas reais, desde a definição dos requisitos até ao software a funcionar.",
+      "cards": {
+        "motivation": {
+          "tag": "Motivação",
+          "title": "Primeiro, Ser Útil",
+          "description": "Feitos para resolver problemas reais, não para experimentar tecnologia nova"
+        },
+        "startingPoint": {
+          "tag": "Ponto de Partida",
+          "title": "Do Problema aos Requisitos",
+          "description": "Os requisitos vêm antes do código"
+        },
+        "ownership": {
+          "tag": "Responsabilidade",
+          "title": "Da Ideia ao Lançamento",
+          "description": "Regras de negócio, passagem do design e entrega"
+        },
+        "scope": {
+          "tag": "Âmbito",
+          "title": "Do Frontend à Base de Dados",
+          "description": "Full-stack, construído fora do trabalho"
+        }
+      }
+    },
+    "ProjectList": {
+      "label": "Projetos",
+      "title": "Todos os Projetos"
+    },
+    "ProjectCard": {
+      "period": "{start} - {end}",
+      "present": "Atualidade",
+      "repo": "Ver no GitHub",
+      "privateCode": "Código privado",
+      "overview": "Visão Geral do Projeto",
+      "takeaways": "Principais Aprendizagens"
+    },
+    "projects": {
+      "pedrobarbosa-pt": {
+        "name": "pedrobarbosa.pt",
+        "tagline": "O site em que está, construído e gerido como um produto",
+        "kind": "Produto Frontend",
+        "category": "Site pessoal",
+        "status": "Código aberto · Online",
+        "summary": "O meu site pessoal, onde mostro a minha experiência e os meus projetos. Trato-o como um produto no trabalho: um backlog priorizado, commits pequenos e focados, e verificações que têm de passar antes de qualquer publicação.",
+        "details": "Cada push executa verificações de formatação e lint, verificações de tipos, testes e um build de produção, e uma verificação falhada bloqueia o deploy. Cada página é enviada com cabeçalhos de segurança que só deixam carregar os ficheiros do próprio site, e os testes de browser tentam ataques de injeção de scripts, de framing e de redirecionamento. O código é público, por isso pode ver como trabalho, e não apenas ler sobre isso.",
+        "takeaways": [
+          {
+            "title": "Barreiras de qualidade",
+            "text": "Formatação, lint, verificação de tipos, testes e build correm em cada push, e nada é publicado se não passarem."
+          },
+          {
+            "title": "Testes que sobrevivem a refatorações",
+            "text": "Os testes verificam o comportamento e os casos limite através do que os visitantes veem, por isso só mudam quando o comportamento muda."
+          },
+          {
+            "title": "Estrutura com regras",
+            "text": "As regras de pastas e de imports são aplicadas pelo lint, pelo que o âmbito de cada ficheiro se percebe pelo seu caminho."
+          }
+        ],
+        "detailCards": [
+          {
+            "title": "Implementação Frontend",
+            "description": "Páginas responsivas renderizadas no servidor, um único tema para todas as cores e estilos de texto, e imagens de partilha e dados estruturados para pesquisa e ligações em redes sociais.",
+            "tags": ["Next.js", "React", "TypeScript", "Material UI"]
+          },
+          {
+            "title": "Qualidade e Entrega",
+            "description": "Testes de componentes e de páginas em cada push, com deployments que esperam que passem, além de testes de browser e de acessibilidade em Chromium, Firefox e WebKit, executados localmente e no site em produção.",
+            "tags": ["Vitest", "Testing Library", "Playwright", "GitHub Actions", "Vercel"]
+          }
+        ]
+      },
+      "growth-tracker": {
+        "name": "Growth Tracker",
+        "tagline": "Um gestor de investimentos que mostra o seu preço médio real",
+        "kind": "Produto Full-Stack",
+        "category": "Gestor de investimentos",
+        "status": "Produto independente · Lançado, descontinuado em jan. 2026",
+        "summary": "Um produto que levei da ideia ao lançamento. Os utilizadores registavam os seus ativos, compras e vendas, e o Growth Tracker calculava o preço médio em que podiam realmente confiar ao decidir vender.",
+        "details": "Compre 3 unidades a 500 e venda 1 a 700, e uma aplicação de corretora típica mostra uma média de 400, embora as unidades restantes continuem a custar 500. O Growth Tracker mantinha esse valor correto, para que os utilizadores pudessem procurar lucro em cada unidade vendida.",
+        "takeaways": [
+          {
+            "title": "Responsabilidade pelo produto",
+            "text": "Defini eu próprio as regras de negócio e os requisitos, a partir de um problema que eu tinha."
+          },
+          {
+            "title": "Entrega de ponta a ponta",
+            "text": "Construí todas as camadas, da base de dados à interface, e levei-o até ao lançamento."
+          },
+          {
+            "title": "Tornar o valor evidente",
+            "text": "Aprendi que uma funcionalidade forte não chega se os utilizadores não lhe veem o valor. Tinha planos para resolver isso, mas o dinheiro acabou primeiro."
+          }
+        ],
+        "detailCards": [
+          {
+            "title": "Implementação Frontend",
+            "description": "Implementei o design visual criado por um designer, incluindo a gestão de ativos, a tabela de transações e um gráfico que acompanhava a evolução do preço médio real a cada transação.",
+            "tags": ["React", "TypeScript", "Material UI", "Chart.js"]
+          },
+          {
+            "title": "Backend e Lógica Central",
+            "description": "Construí o backend e o modelo de dados, além do algoritmo complexo por trás do preço médio real, que cobre cenários como vendas abaixo dele.",
+            "tags": ["Node.js", "Fastify", "Prisma", "PostgreSQL"]
+          }
+        ]
+      }
+    },
+    "ProjectApproach": {
+      "eyebrow": "A Minha Abordagem",
+      "title": "Como Escolho o Que Construir",
+      "description": "Construo coisas porque podem ser úteis, e não apenas para experimentar uma tecnologia nova.",
+      "steps": {
+        "realProblem": {
+          "title": "Começar Por um Problema Real",
+          "description": "Todos os projetos começam por um problema que vale a pena resolver, como o preço médio enganador que deu origem ao Growth Tracker.",
+          "note": "Primeiro o problema"
+        },
+        "defineFirst": {
+          "title": "Definir Antes de Construir",
+          "description": "Primeiro transformo o problema em requisitos claros, para que o código tenha um propósito desde o início.",
+          "note": "Requisitos, depois código"
+        }
+      }
+    }
+  },
+  "contact": {
+    "page": {
+      "description": "A escalar uma equipa de produto ou a modernizar o frontend? Falemos. Sou {role} ({city}).",
+      "descriptionLooking": "A escalar uma equipa de produto ou a modernizar o frontend? Falemos. Sou {role} ({city}), disponível para {workModeRoles}."
+    },
+    "ContactHero": {
+      "eyebrow": "Contacto e Propostas de Trabalho",
+      "title": "Falemos de arquitetura, equipas ou novas oportunidades.",
+      "description": "Quer esteja a escalar uma equipa de produto, a modernizar as bases do frontend ou à procura de um Engenheiro Frontend Sénior que entrega com mestria e responsabilidade pragmática."
+    },
+    "EmailCard": {
+      "eyebrow": "Email Direto",
+      "text": "O melhor para convites a entrevistas, conversas técnicas ou para me enviar descrições de funções e especificações.",
+      "openMail": "Abrir cliente de email"
+    },
+    "CopyEmailButton": {
+      "idle": "Copiar endereço de email",
+      "copied": "Copiado para a área de transferência!",
+      "failed": "Não foi possível copiar o email"
+    },
+    "LinkedInCard": {
+      "title": "LinkedIn",
+      "text": "Ligue-se a mim ou envie-me mensagem para assuntos de carreira ou contactos em comum.",
+      "link": "Ver perfil"
+    },
+    "LocationBanner": {
+      "eyebrow": "Localização e Trabalho Remoto",
+      "title": "{city}, disponível para trabalho remoto.",
+      "text": "À vontade para trabalhar de forma assíncrona e autónoma, e em estreita colaboração nos momentos-chave.",
+      "openTo": "Disponível para {workModeRoles}"
+    },
+    "RoleAlignment": {
+      "eyebrow": "Alinhamento de Funções",
+      "title": "Alinhamento de Funções e Colaborações Ideais",
+      "text": "Para poupar tempo a recrutadores e líderes de engenharia, deixo aqui um retrato transparente do meu foco principal e dos ambientes de equipa ideais:",
+      "points": {
+        "icRoles": {
+          "title": "Funções de IC Frontend Sénior",
+          "description": "Função prática de contribuidor individual, centrada na implementação a fundo, no desempenho de renderização, na disciplina de bundle e na fluidez da UI."
+        },
+        "coreStack": {
+          "title": "Stack Principal",
+          "description": "Ecossistemas modernos de React, Next.js e TypeScript, apoiados por experiência arquitetural pragmática entre frameworks (incluindo migrações de Angular para React)."
+        },
+        "scopeImpact": {
+          "title": "Âmbito e Impacto",
+          "description": "Modernização de frontend, bibliotecas sistemáticas de Design System (motores de UI orientados por JSON/dados), aplicações empresariais multi-tenant e arquiteturas de estado acessíveis."
+        },
+        "culture": {
+          "title": "Cultura de Engenharia",
+          "description": "Equipas pragmáticas que valorizam ergonomia limpa, code reviews ponderadas, muita empatia, problemas descritos por escrito e testes automatizados sensatos."
+        }
+      }
+    }
+  }
+}

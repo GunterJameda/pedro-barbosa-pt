@@ -9,13 +9,14 @@ import { INTL } from "./intl";
  * Gives components the default language and its messages, as the site's
  * layout does, so they render their real copy. A missing message fails the test.
  */
-export function withIntl(ui: ReactElement) {
-  return <NextIntlClientProvider {...INTL}>{ui}</NextIntlClientProvider>;
+export function withIntl(ui: ReactElement, intl: typeof INTL = INTL) {
+  return <NextIntlClientProvider {...intl}>{ui}</NextIntlClientProvider>;
 }
 
 /** Renders with the site's theme, so text styles map to the same HTML elements as on the site. */
-export function renderWithTheme(ui: ReactElement) {
+export function renderWithTheme(ui: ReactElement, intl: typeof INTL = INTL) {
   return render(ui, {
-    wrapper: ({ children }) => withIntl(<ThemeProvider theme={theme}>{children}</ThemeProvider>),
+    wrapper: ({ children }) =>
+      withIntl(<ThemeProvider theme={theme}>{children}</ThemeProvider>, intl),
   });
 }

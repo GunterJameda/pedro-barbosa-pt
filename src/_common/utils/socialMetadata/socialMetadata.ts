@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { getLocale } from "next-intl/server";
 import { SITE_NAME } from "@/_common/constants";
-import { OPEN_GRAPH_LOCALES } from "@/_common/i18n";
+import { LOCALES, OPEN_GRAPH_LOCALES } from "@/_common/i18n";
 import { shareImageMetadata } from "@/_common/components/ShareImage";
 
 /**
@@ -22,6 +22,10 @@ export async function socialMetadata(
       type: "website",
       siteName: SITE_NAME,
       locale: OPEN_GRAPH_LOCALES[locale],
+      // The page is also available in the other languages.
+      alternateLocale: LOCALES.filter((other) => other !== locale).map(
+        (other) => OPEN_GRAPH_LOCALES[other],
+      ),
       images: [image],
     },
     twitter: { card: "summary_large_image", images: [image] },
