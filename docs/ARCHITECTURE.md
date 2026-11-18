@@ -7,12 +7,15 @@ Next.js App Router project with React, TypeScript and Material UI (MUI).
 
 ```text
 src/
-  app/                  Routes only: pages, layout, metadata routes, share images
+  app/                  Routes only: sitemap, robots, icons, the error and 404 pages
+    [locale]/           Every page, its share image, the layout: one copy per language
   _common/              Code used by more than one page (or by the layout)
     components/         Shared components
     constants/          Site-wide values: pages, links, profile, layout sizes
+    i18n/               Languages, routing, and one message file per language (en.json)
+    navigation/         Locale-aware Link, usePathname and getPathname
     theme/              Colour tokens, the MUI theme, text styles and fonts
-    utils/              Shared helpers (pageMetadata)
+    utils/              Shared helpers (pageMetadata, localeRoutes, formatMonth...)
   <page>/               Code used by one page only (about, contact, experience, home, projects)
     components/         That page's components
 tests/                  Route-level tests, structure tests and helpers
@@ -21,25 +24,35 @@ assets/fonts/           Font files for the share images
 ```
 
 - `src/app` holds Next.js route files and nothing else: `page.tsx`, `layout.tsx`, `not-found.tsx`,
-  `error.tsx`, `global-error.tsx`, `opengraph-image.tsx`, `sitemap.ts`, `robots.ts`, the favicon and
-  the icon.
+  `global-not-found.tsx`, `error.tsx`, `global-error.tsx`, `opengraph-image.tsx`, `sitemap.ts`,
+  `robots.ts`, the favicon and the icon.
+- Every page sits under `src/app/[locale]`, whose layout is the root layout. The language comes from
+  that part of the address (see Languages and copy). The sitemap, `robots.txt`, the icons,
+  `global-error.tsx` and `global-not-found.tsx` sit directly in `src/app`: they're the same in every
+  language.
+- `global-not-found.tsx` is the 404 page for every address without a page. It sits outside
+  `[locale]`, so it brings the whole document through `_common/components/SiteDocument` (the same
+  one the root layout uses) and is in the default language. `[locale]/not-found.tsx` shows the same
+  `NotFoundPage` inside the layout when a page calls `notFound()`.
 - The error routes only render a shared component. `error.tsx` shows `_common/components/ErrorPage`
   when a page throws, inside the normal layout. `global-error.tsx` shows
   `_common/components/GlobalErrorPage` when the root layout itself fails, so that page brings its
   own `<html>` and `<body>` and uses only inline styles and system fonts: no MUI, theme or web
   fonts, since any of them could be what broke.
 - `src/<page>` is named after its route. Home is the root route, so its route files are
-  `src/app/page.tsx` and `src/app/opengraph-image.tsx`, and its code is in `src/home`. A page folder
+  `src/app/[locale]/page.tsx` and `src/app/[locale]/opengraph-image.tsx`, and its code is in
+  `src/home`. A page folder
   is never called `src/pages`, which Next.js would read as the Pages Router.
 - Inside `_common` and each page folder, code is grouped by kind, one folder per kind:
-  `components/`, `constants/`, `hooks/`, `types/`, `utils/` (and `theme/`, only in `_common`). A
+  `components/`, `constants/`, `hooks/`, `types/`, `utils/` (and `i18n/`, `navigation/` and
+  `theme/`, only in `_common`). A
   folder only exists when it has something in it; today the page folders have `components/`, and `experience` also has `hooks/`.
   Helper functions always go in `utils/`, never `helpers/` or `functions/`.
 - In `components/`, `hooks/` and `utils/`, every child folder is a module
-  (`_common/components/Footer`, `_common/utils/pageMetadata`). `constants/`, `theme/` and `types/`
-  are one module each.
-- `src/_common/constants` and `src/_common/theme` are the project's base layer. Everything else may
-  import them.
+  (`_common/components/Footer`, `_common/utils/pageMetadata`). `constants/`, `i18n/`,
+  `navigation/`, `theme/` and `types/` are one module each.
+- `src/_common/constants`, `i18n`, `navigation` and `theme` are the project's base layer. Everything
+  else may import them.
 
 ### Where a new component goes
 
@@ -69,7 +82,7 @@ Every folder inside a `components/`, `hooks/` or `utils/` kind folder is a modul
   `@/_common/components/Footer/Footer`; `@/_common/constants`, never `@/_common/constants/links`.
 - **Imports use `@/`** (which maps to `src/`). A relative `./` import only reaches files of the same
   module or its direct child modules (`./CopyEmailButton`). `../` is never used in `src`.
-- **A page's code is private to that page.** `src/app/about/**` and `src/about/**` can import
+- **A page's code is private to that page.** `src/app/[locale]/about/**` and `src/about/**` can import
   `@/about/...` and `@/_common/...`, but not `@/contact/...`. Code in `_common`, and route files
   shared by every page (`layout.tsx`, `error.tsx`, `not-found.tsx`), can't import any page's code.
 - **Nothing imports from `src/app`.** Routes sit at the top and only consume other code.
@@ -82,9 +95,9 @@ A module splits its pieces by kind, one file per kind:
 | ----------------- | -------------------------------------------------------------------------- | -------------------------------------------------- |
 | `<Component>.tsx` | The component and its props type, nothing else                             | `Footer.tsx`                                       |
 | `constants.ts`    | Fixed values the code relies on: sizes, ids, timings, media queries        | `ScrollToTop/constants.ts`: `SHOW_AFTER_PX = 400`  |
-| `content.ts`      | The copy and data the component shows: lists, labels, structured data      | `CopyEmailButton/content.ts`: one label per status |
+| `content.ts`      | The data the component shows: lists, their order, ids, icons, dates        | `RoleAlignment/content.ts`: each point's key, icon |
 | `styles.ts`       | Style objects that are shared or used as a base; one-off `sx` stays in JSX | `ActionButton/styles.ts`: `primaryStyles`          |
-| `utils.ts`        | Helper functions, each with a test in `utils.test.ts`                      | `ProjectCard/utils.ts`: `formatMonth("2021-05")`   |
+| `utils.ts`        | Helper functions, each with a test in `utils.test.ts`                      | `ShareImage/utils.ts`: `shareImageRoute("/about")` |
 | `types.ts`        | Types other than the props type                                            | `CopyEmailButton/types.ts`: `CopyStatus`           |
 | `index.ts`        | The module's exports                                                       | `export { Footer } from "./Footer";`               |
 
@@ -92,13 +105,14 @@ A module splits its pieces by kind, one file per kind:
   its `<Component>Props` type. Anything else (a helper, a constant, a second component, another
   type) moves to its own file or module.
 - A module only has the files it needs. Many are just a component and an `index.ts`.
-- Short copy passed straight to a component as JSX props or children stays in the component, for
-  example the title and description in `ContactHero.tsx`. Lists and records of copy go in
-  `content.ts`.
+- Copy never sits in a component or a `content.ts`: it's in the message files (see Languages and
+  copy). A list in `content.ts` names each item's messages by key, typed from the messages, so a
+  key that doesn't exist fails the type check.
 - Related values stay grouped by topic. `src/_common/constants` has one file per topic (`links.ts`,
   `profile.ts`, `routes.ts`, `layout.ts`, `site.ts`, `status.ts`), all re-exported by
   `src/_common/constants/index.ts`.
-- Route files keep only what Next.js needs together: a `page.tsx` holds the page and its `metadata`;
+- Route files keep only what Next.js needs together: a `page.tsx` holds the page and its
+  `generateMetadata`;
   an `opengraph-image.tsx` only re-exports what `shareImageRoute` builds.
 
 ## Naming
@@ -124,7 +138,8 @@ each layer. Type imports sit with their layer.
 3. React and Next.js (`react`, `react-dom`, `next`)
 4. MUI (`@mui/...`)
 5. Other packages (`@vercel/analytics`, `vitest`)
-6. The project's base: `@/_common/constants`, `@/_common/theme`
+6. The project's base: `@/_common/constants`, `@/_common/i18n`, `@/_common/navigation`,
+   `@/_common/theme`
 7. Shared helpers: `@/_common/utils/...`
 8. Shared components: `@/_common/components/...`
 9. The page's own code (`@/contact/...`) and any other `@/` code
@@ -195,8 +210,9 @@ The theme is built in layers in `src/_common/theme`:
    can import it.
 2. **`theme.ts`** builds the MUI theme from the tokens: a dark palette (`primary`, `background`,
    `text`) plus two custom entries, `surface` and `slate`. `cssVariables: true` makes MUI emit the
-   palette as CSS variables. It also sets defaults, such as `Button href` rendering through
-   `next/link`, and smooth scrolling unless the visitor prefers reduced motion.
+   palette as CSS variables. It also sets defaults, such as `Button href` rendering through the
+   site's locale-aware `Link` (built on `next/link`), and smooth scrolling unless the visitor
+   prefers reduced motion.
 3. **`types.ts`** adds the custom palette entries and text styles to MUI's types through module
    augmentation, so `"surface.card"` and `variant="sectionTitle"` are type-checked.
 4. **`typography.ts`** defines the site's text styles as custom Typography variants (`pageTitle`,
@@ -218,32 +234,85 @@ How components pick a colour:
 
 ## Metadata and SEO
 
-`PAGES` in `src/_common/constants/routes.ts` lists every page with its name and address, in
+`PAGES` in `src/_common/constants/routes.ts` lists every page with its key and address, in
 navigation order. Several things are built from it, so a new page needs its entry there and its
 route files, and nothing else:
 
 - **Navigation:** the navbar and mobile menu links.
-- **Page metadata:** each `page.tsx` exports `metadata = pageMetadata("/about", "...")`. The helper
-  looks the address up in `PAGES`, sets the title to the page name and the canonical URL to its
-  address, and adds the description when there is one. An address missing from `PAGES` throws, so
-  the build fails. The root layout sets `metadataBase`, the title template and the site-wide
-  description.
+- **Page metadata:** each `page.tsx` exports `generateMetadata`, which calls
+  `pageMetadata("/about", description)` with its description from the messages. The helper looks
+  the address up in `PAGES`, sets the title to the page name, the canonical URL to its address in
+  the current language, the language alternates and the link preview, and adds the description
+  when there is one. An address missing from `PAGES` throws, so the build fails. The root layout's
+  `siteMetadata()` sets `metadataBase`, the title template, the site-wide description and preview.
+- **Language alternates:** every page lists its address in every enabled language
+  (`<link rel="alternate" hreflang>`), plus `x-default`, the default language's address, built by
+  `languageAlternates` from `LOCALES`. With English alone, that's `en` and `x-default`; a new
+  language shows up there, in the sitemap and in the routes as soon as it's enabled.
+- **Link previews:** `socialMetadata` sets `og:type`, `og:site_name`, `og:locale` (from
+  `OPEN_GRAPH_LOCALES`) and the share image, for Open Graph and X's large image card. The image is
+  set explicitly rather than left to Next.js, which would give it the `[locale]` route's address
+  (`/en/about/opengraph-image`) instead of the page's own (`/about/opengraph-image`).
 - **Share images:** each route's `opengraph-image.tsx` is three lines around
-  `shareImageRoute("/about")`, which returns the image's alt text, size, content type and the image
-  itself. The image is rendered from JSX with `next/og`, using the font files in `assets/fonts`.
-- **Sitemap:** `src/app/sitemap.ts` maps `PAGES` to full URLs on `SITE_URL`.
+  `shareImageRoute("/about")`, which returns the image's size, content type, one copy per language
+  (`generateStaticParams`) and the image itself, in the language of its address. The image is
+  rendered from JSX with `next/og`, using the font files in `assets/fonts`.
+- **Sitemap:** `src/app/sitemap.ts` lists every page in every language, as full URLs on `SITE_URL`,
+  each with its language alternates.
 
 Also:
 
 - **`robots.ts`** allows every page and points to the sitemap.
 - **Structured data:** the home page renders two JSON-LD scripts, `PersonSchema` (a `ProfilePage`
-  about a `Person`, built from the constants) and `WebsiteSchema` (the site's name, for search
-  results). Both pass their data to `_common/components/JsonLd`, which serializes it with
+  about a `Person`, built from the constants and messages) and `WebsiteSchema` (the site's name, for
+  search results), each with the page's language (`inLanguage`). Both pass their data to `_common/components/JsonLd`, which serializes it with
   `serializeJsonLd` (in its `utils.ts`). That escapes `<`, so a value can't close the script tag or
   open an HTML comment, and the U+2028 and U+2029 separators, which older JavaScript parsers reject
   in strings. Data with no JSON form (a function, or a `toJSON` that returns nothing) throws, so the
   build fails instead of shipping an empty script.
-- **Old addresses:** `/home` redirects permanently to `/` (in `next.config.ts`).
+- **Old addresses:** `/home` redirects permanently to `/` (in `next.config.ts`). The English pages'
+  internal addresses (`/en`, `/en/about`) redirect permanently to their public ones.
+
+## Languages and copy
+
+The site uses [next-intl](https://next-intl.dev). English (`en`) is the only language today, and
+the default one.
+
+- **Addresses:** the default language has no prefix (`/about`); any other language gets one
+  (`/pt/about`). Every page lives under `src/app/[locale]`; `localeRoutes` (in `_common/utils`)
+  builds the rewrites and redirects in `next.config.ts` that map the public addresses onto it, so
+  `/about` shows `/en/about` at the same address. There is no proxy: nothing runs on each request,
+  every page stays static, and the headers are the ones `next.config.ts` sets. Nothing detects the
+  browser's language or sets a cookie.
+- **The language in code:** pages and layouts read it from the address with `next/root-params`
+  (in `_common/i18n/request.ts`), so they stay static; share images get it from their route's
+  `params`. Links go through `_common/navigation`'s `Link` (also MUI's link component, through the
+  theme), which keeps the visitor's language, and `usePathname` gives the address without the
+  prefix.
+- **Messages:** every piece of copy is in `src/_common/i18n/en.json`: text, labels, aria-labels,
+  alt text, page titles and descriptions, share image text and structured data text. Namespaces
+  follow the code: `pages` and `profile` for shared names, `common.<Component>` for shared
+  components, `<page>.<Component>` for a page's own, and `<page>.page` for a page's route copy.
+  Only values that come from data stay out: my name, email, city and links (constants), years and
+  dates (`CAREER_START_YEAR`, `formatMonth`), passed in as message arguments (`{careerStartYear}`).
+  Lists of items are keyed objects; lists of tags or bullet points are arrays, read with `t.raw`.
+- **Keys are typed:** `_common/i18n/types.ts` gives next-intl the English messages' shape, so a
+  key that doesn't exist fails `yarn typecheck`.
+- **The one exception:** `GlobalErrorPage` keeps its copy in its `content.ts`, in English. It shows
+  when the root layout fails, and the layout is what provides the language and messages, so it
+  can't count on them.
+- **Rich text:** the home page's intro marks its highlights with tags (`<highlight>React</highlight>`).
+  Its empty `<gap></gap>` renders nothing: it keeps the comma and the space after it as separate
+  text, as the page always had, so the browser lays the line out exactly the same.
+
+To add a language (for example `pt-PT` at `/pt`):
+
+1. Add `src/_common/i18n/pt-PT.json` with the same keys as `en.json` (a test checks it).
+2. In `src/_common/i18n/locales.ts`, add it to `LOCALES` and `OPEN_GRAPH_LOCALES` (`pt_PT`), and to
+   `LOCALE_PREFIXES` (`{ "pt-PT": "/pt" }`), since its prefix isn't its locale.
+
+Its pages, share images, routes, alternates and sitemap entries follow from those. The 404 page for
+addresses without a page stays in the default language.
 
 ## Security headers
 
@@ -293,26 +362,33 @@ the attacks these protections stop (see Testing).
 Component and helper tests sit next to the code they test, for example
 `Navbar/MobileMenu/MobileMenu.test.tsx` and `ProjectCard/utils.test.ts`. They test behaviour and
 edge cases through what a visitor sees: roles, labels, text. `tests/render.tsx` renders with the
-site's theme, and `tests/setup.ts` stubs `next/font`, which only works inside a Next.js build.
+site's theme and the English messages (`withIntl` wraps an element in them), and `tests/setup.ts`
+stubs `next/font` and next-intl's server functions, which only work inside a Next.js build. A
+missing message fails the test.
 
-Route-level tests in `tests/` find every `page.tsx` in `src/app` and check all pages at once:
+Route-level tests in `tests/` find every `page.tsx` in `src/app/[locale]` and check all pages at once:
 
 - `metadata.test.ts`: every page has its own canonical URL, a unique title and description, and a
   description short enough for search results, including the contact page's description for every
-  availability setting;
+  availability setting; the language alternates, `og:locale` and share image addresses, and the 404
+  page's title;
+- `messages.test.tsx`: every language has exactly English's keys, and every page, the 404 page, the
+  layout and the error page only use messages that exist;
 - `pageStructure.test.tsx`: each page, and the 404 page, has one `h1`, no skipped heading levels, no
   duplicate ids, and only links to pages and sections that exist;
-- `shareImages.test.ts`: every page has its own share image, with alt text for that page;
+- `shareImages.test.ts`: every page has its own share image, with alt text for that page, built for
+  every language;
 - `sitemap.test.ts`: the sitemap lists every page once, and `robots.txt` blocks nothing;
-- `redirects.test.ts`: `/home` redirects to `/`.
+- `redirects.test.ts`: `/home` redirects to `/`, and `/en` addresses to their public ones.
 
 **End-to-end tests** (Playwright, in `tests/e2e`) run against a production build in Chromium,
 Firefox and WebKit, each at desktop and phone sizes. A shared fixture fails any test if the browser
 logs an error or warning, throws, or gets a failed request.
 
 - `pages.spec.ts`: every page loads with a 200 status and has no accessibility violations (axe);
-  missing pages return 404; the clean-load test also runs against the dev server, where some
-  hydration errors only show up.
+  missing pages return 404; every page and the 404 page declare English (`lang`, `og:locale`,
+  `hreflang` alternates); `/en` addresses redirect to their public ones; the clean-load test also
+  runs against the dev server, where some hydration errors only show up.
 - `navigation.spec.ts`: the navbar, the phone menu and the skip link.
 - `scrolling.spec.ts`: in-page navigation lands each section below the sticky navbar; the go-to-top
   button.
@@ -321,7 +397,7 @@ logs an error or warning, throws, or gets a failed request.
 - `attacks.spec.ts`: tries the attacks the headers and code guard against. Script payloads in query
   strings, hashes and paths (encoded once and twice, on real and missing pages) are never reflected
   as markup, never add an element and never run; the structured data never contains `<` and parses
-  as JSON; `/home` and slash tricks like `//evil.example` only redirect within the site; another
+  as JSON; `/home`, `/en` and slash tricks like `//evil.example` only redirect within the site; another
   site can't show a page in a frame; every link that opens a new tab has
   `rel="noopener noreferrer"` (including the phone menu), the new tab gets no handle on the site
   and no referrer, and every link starts with `/`, `#`, `https://` or `mailto:`.
