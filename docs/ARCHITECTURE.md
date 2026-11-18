@@ -98,7 +98,7 @@ A module splits its pieces by kind, one file per kind:
 | `content.ts`      | The data the component shows: lists, their order, ids, icons, dates        | `RoleAlignment/content.ts`: each point's key, icon |
 | `styles.ts`       | Style objects that are shared or used as a base; one-off `sx` stays in JSX | `ActionButton/styles.ts`: `primaryStyles`          |
 | `utils.ts`        | Helper functions, each with a test in `utils.test.ts`                      | `ShareImage/utils.ts`: `shareImageRoute("/about")` |
-| `types.ts`        | Types other than the props type                                            | `CopyEmailButton/types.ts`: `CopyStatus`           |
+| `types.ts`        | Types other than the props type                                            | `useCopyEmail/types.ts`: `CopyStatus`              |
 | `index.ts`        | The module's exports                                                       | `export { Footer } from "./Footer";`               |
 
 - A component file's top-level statements may only be imports, re-exports, its one component and
