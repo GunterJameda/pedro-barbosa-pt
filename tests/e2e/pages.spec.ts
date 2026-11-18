@@ -1,36 +1,13 @@
-import AxeBuilder from "@axe-core/playwright";
-import type { Page } from "@playwright/test";
 import { PAGE_ROUTES } from "@tests/pages";
 import { expect, EXPECTS_404, test } from "./fixtures";
+import { expectNoAccessibilityViolations, portuguese, visit } from "./helpers";
 
 const MISSING_PAGE = "/this-page-does-not-exist";
 
-/** Loads a page and waits until React has taken it over. */
-async function visit(page: Page, path: string) {
-  const response = await page.goto(path);
-  // React marks the elements it has hydrated. Hydration errors are reported
-  // by then, so the fixture sees them.
-  await page.waitForFunction(() => {
-    const navbar = document.querySelector("header");
-    return !!navbar && Object.keys(navbar).some((key) => key.startsWith("__reactFiber"));
-  });
-  // Lets late requests finish too. The dev server can keep a connection open,
-  // so this is a best effort rather than a requirement.
-  await page.waitForLoadState("networkidle", { timeout: 5_000 }).catch(() => {});
-  return response;
-}
-
-async function expectNoAccessibilityViolations(page: Page) {
-  const { violations } = await new AxeBuilder({ page }).analyze();
-  const summary = violations.map(
-    (violation) => `${violation.id}: ${violation.help} (${violation.nodes.length}x)`,
-  );
-  expect(summary).toEqual([]);
-}
-
 // Every check below also fails on any browser problem, through the fixture:
 // console errors, exceptions, hydration mismatches and failed requests.
-for (const route of PAGE_ROUTES) {
+// Every page in both languages.
+for (const route of PAGE_ROUTES.flatMap((route) => [route, portuguese(route)])) {
   test.describe(`${route} page`, () => {
     test("loads cleanly from an empty cache", async ({ page }) => {
       const response = await visit(page, route);
@@ -90,18 +67,28 @@ for (const route of [...PAGE_ROUTES, MISSING_PAGE]) {
       await visit(page, route);
       await expect(page.locator("html")).toHaveAttribute("lang", "en");
       await expect(page.locator('meta[property="og:locale"]')).toHaveAttribute("content", "en_GB");
+      if (route !== MISSING_PAGE) {
+        await expect(page.locator('meta[property="og:locale:alternate"]')).toHaveAttribute(
+          "content",
+          "pt_PT",
+        );
+      }
       const alternates = page.locator('link[rel="alternate"][hreflang]');
       if (route === MISSING_PAGE) {
         // A missing page has no versions in other languages.
         await expect(alternates).toHaveCount(0);
       } else {
         const address = new URL(route, "https://pedrobarbosa.pt").href.replace(/\/$/, "");
-        await expect(alternates).toHaveCount(2);
+        await expect(alternates).toHaveCount(3);
         for (const language of ["en", "x-default"]) {
           await expect(
             page.locator(`link[rel="alternate"][hreflang="${language}"]`),
           ).toHaveAttribute("href", address);
         }
+        await expect(page.locator('link[rel="alternate"][hreflang="pt-PT"]')).toHaveAttribute(
+          "href",
+          new URL(portuguese(route), "https://pedrobarbosa.pt").href,
+        );
       }
     });
   });
