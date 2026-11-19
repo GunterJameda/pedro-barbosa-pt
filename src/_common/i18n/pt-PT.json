@@ -280,12 +280,12 @@
         "immediate": {
           "tag": "Disponibilidade",
           "title": "Imediata",
-          "description": "{location} · Funções de Developer Sénior {workMode}"
+          "description": "{location} · Funções de Frontend Developer Sénior {workMode}"
         },
         "open": {
           "tag": "Disponibilidade",
           "title": "Aberto a propostas",
-          "description": "{location} · Funções de Developer Sénior {workMode}"
+          "description": "{location} · Funções de Frontend Developer Sénior {workMode}"
         },
         "not-looking": {
           "tag": "Localização",
@@ -315,13 +315,13 @@
       "label": "Empresas",
       "title": "Empresas e Projetos",
       "links": {
-        "teya": { "name": "Teya", "detail": "Developer Sénior" },
-        "tillster": { "name": "Tillster", "detail": "Developer Sénior" },
+        "teya": { "name": "Teya", "detail": "Frontend Developer Sénior" },
+        "tillster": { "name": "Tillster", "detail": "Frontend Developer Sénior" },
         "pricehubble": { "name": "PriceHubble", "detail": "Frontend Developer" },
         "luxclusif": { "name": "Luxclusif", "detail": "Frontend Developer" },
         "labsforge": { "name": "LabsForge", "detail": "Frontend Developer" },
-        "huub": { "name": "HUUB", "detail": "Developer Júnior" },
-        "glintt": { "name": "Glintt", "detail": "Developer Júnior" },
+        "huub": { "name": "HUUB", "detail": "Frontend Developer Júnior" },
+        "glintt": { "name": "Glintt", "detail": "Frontend Developer Júnior" },
         "education": { "name": "Formação", "detail": "ISEP Porto" }
       }
     },
