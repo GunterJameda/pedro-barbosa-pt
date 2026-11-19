@@ -1,6 +1,7 @@
 import { renderToStaticMarkup } from "react-dom/server";
 import { describe, expect, it } from "vitest";
 import { SITE_URL } from "@/_common/constants";
+import { messages } from "@tests/intl";
 import { setProfile } from "@tests/profile";
 import { withIntl } from "@tests/render";
 
@@ -20,9 +21,14 @@ describe("WebsiteSchema", () => {
     expect(data.name).toEqual(expect.any(String));
   });
 
-  it("names the language of the page it's on", async () => {
+  it("names every language the site is in", async () => {
     const { data } = await renderSchema();
-    expect(data.inLanguage).toBe("en");
+    expect(data.inLanguage).toEqual(["en", "pt-PT"]);
+  });
+
+  it("describes the site in the page's language", async () => {
+    const { data } = await renderSchema();
+    expect(data.description).toBe(messages.site.description);
   });
 
   it("can't be broken out of by a value containing a closing script tag", async () => {

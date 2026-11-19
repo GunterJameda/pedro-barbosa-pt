@@ -7,8 +7,9 @@ export interface WebsiteFacts {
   url: string;
 }
 
-/** The site's name and address, in the language of the page it's on. */
+/** The site's name and address, naming every language it is in, with a description in the page's language. */
 export interface WebsiteData extends WebsiteFacts {
-  /** The page's language, like "en". */
-  inLanguage: string;
+  /** Every language the site is in, like ["en", "pt-PT"]. */
+  inLanguage: string[];
+  description: string;
 }
