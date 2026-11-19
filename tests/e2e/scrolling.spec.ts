@@ -16,20 +16,36 @@ const landing = (page: Page, id: string) =>
     { id, zone: LANDING_ZONE_PX },
   );
 
-/** Waits until the page has scrolled away from the top and stopped moving. */
-async function waitForScrollToStop(page: Page) {
-  const scrollY = () => page.evaluate(() => window.scrollY);
-  await expect
-    .poll(
-      async () => {
-        const before = await scrollY();
-        await page.waitForTimeout(200);
-        return before > 0 && before === (await scrollY());
-      },
-      { message: "the page scrolls to the section and stops" },
-    )
-    .toBe(true);
-}
+/** How long the scroll position must stay put to count as stopped. */
+const SETTLE_MS = 300;
+
+/**
+ * Waits until the page has scrolled away from the top and stopped moving. It
+ * watches inside the page, frame by frame, because a busy machine can stall a
+ * round trip from the test for seconds, which a polling loop would mistake for
+ * the scroll never ending.
+ */
+const waitForScrollToStop = (page: Page) =>
+  page.evaluate(
+    (settleMs) =>
+      new Promise<void>((resolve) => {
+        let lastY = -1;
+        let since = performance.now();
+        const check = () => {
+          const now = performance.now();
+          if (window.scrollY !== lastY) {
+            lastY = window.scrollY;
+            since = now;
+          } else if (lastY > 0 && now - since >= settleMs) {
+            resolve();
+            return;
+          }
+          requestAnimationFrame(check);
+        };
+        check();
+      }),
+    SETTLE_MS,
+  );
 
 // Every page with a Fast Navigation card, and the name of its navigation.
 const FAST_NAVIGATION = [
@@ -58,11 +74,20 @@ for (const { path, label } of FAST_NAVIGATION) {
       // final one counts: near the top, below the navbar. The last sections
       // can't reach the top, so for them the page must be scrolled to its end.
       await waitForScrollToStop(page);
-      const { top, navbar, nearTop, atBottom } = await landing(page, id);
-      expect(top, `#${id} lands below the navbar`).toBeGreaterThanOrEqual(navbar - 1);
-      expect(nearTop || atBottom, `#${id} lands near the top, or the page is at its end`).toBe(
-        true,
-      );
+      // A stall in the middle of the scroll can look like a stop, so the landing
+      // is retried until it holds instead of being judged on one reading.
+      await expect
+        .poll(
+          async () => {
+            const { top, navbar, nearTop, atBottom } = await landing(page, id);
+            return top >= navbar - 1 && (nearTop || atBottom);
+          },
+          {
+            message: `#${id} lands below the navbar, near the top or with the page at its end`,
+            timeout: 10_000,
+          },
+        )
+        .toBe(true);
     }
   });
 }
