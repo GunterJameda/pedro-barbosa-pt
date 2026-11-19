@@ -56,8 +56,7 @@
       }
     },
     "NavLinks": {
-      "desktop": "Principal",
-      "mobile": "Móvel"
+      "label": "Principal"
     },
     "StatusChip": {
       "status": {

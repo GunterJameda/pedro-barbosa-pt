@@ -21,7 +21,7 @@ export function NavLinks({ variant }: { variant: NavLinksVariant }) {
   return (
     <Stack
       component="nav"
-      aria-label={t(variant)}
+      aria-label={t("label")}
       direction={variant === "desktop" ? "row" : "column"}
       spacing={1}
       sx={nav}

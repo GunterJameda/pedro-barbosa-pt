@@ -12,13 +12,11 @@ vi.mock("next/navigation", async (importOriginal) => ({
   usePathname: vi.fn(),
 }));
 
-const NAV_NAMES: Record<NavLinksVariant, string> = { desktop: "Main", mobile: "Mobile" };
-
 function renderAt(pathname: string, variant: NavLinksVariant = "desktop") {
   vi.mocked(usePathname).mockReturnValue(pathname);
   renderWithTheme(<NavLinks variant={variant} />);
   // jsdom can't evaluate breakpoints, so the desktop links count as hidden.
-  return screen.getByRole("navigation", { name: NAV_NAMES[variant], hidden: true });
+  return screen.getByRole("navigation", { name: "Main", hidden: true });
 }
 
 const linksIn = (nav: HTMLElement) => within(nav).getAllByRole("link", { hidden: true });

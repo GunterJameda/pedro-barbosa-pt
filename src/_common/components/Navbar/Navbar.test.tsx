@@ -17,8 +17,17 @@ beforeEach(() => {
   vi.mocked(usePathname).mockReturnValue("/experience");
 });
 
-const linksIn = (name: string) =>
-  within(screen.getByRole("navigation", { name, hidden: true }))
+// Both link lists share one name, since only one shows at a time; the menu's sits in its panel.
+const menuNav = () =>
+  within(screen.getByRole("dialog", { name: "Menu" })).getByRole("navigation", { name: "Main" });
+
+const desktopNav = () =>
+  screen
+    .getAllByRole("navigation", { name: "Main", hidden: true })
+    .find((nav) => !nav.closest("[role=dialog]"))!;
+
+const linksIn = (nav: HTMLElement) =>
+  within(nav)
     .getAllByRole("link", { hidden: true })
     .map((link) => [link.textContent, link.getAttribute("aria-current")]);
 
@@ -34,17 +43,16 @@ describe("Navbar", () => {
   it("shows the same pages, and the same current one, in the desktop links and the menu", async () => {
     renderWithTheme(<Navbar />);
     await userEvent.click(screen.getByRole("button", { name: "Open menu" }));
-    expect(linksIn("Mobile")).toEqual(linksIn("Main"));
-    expect(linksIn("Mobile")).toContainEqual(["Experience", "page"]);
+    expect(linksIn(menuNav())).toEqual(linksIn(desktopNav()));
+    expect(linksIn(menuNav())).toContainEqual(["Experience", "page"]);
   });
 
   it("closes the menu after a page is chosen in it", async () => {
     renderWithTheme(<Navbar />);
     await userEvent.click(screen.getByRole("button", { name: "Open menu" }));
-    const menu = within(screen.getByRole("navigation", { name: "Mobile" }));
-    await userEvent.click(menu.getByRole("link", { name: "Contact" }));
+    await userEvent.click(within(menuNav()).getByRole("link", { name: "Contact" }));
     await waitFor(() =>
-      expect(screen.queryByRole("navigation", { name: "Mobile" })).not.toBeInTheDocument(),
+      expect(screen.queryByRole("dialog", { name: "Menu" })).not.toBeInTheDocument(),
     );
   });
 });
