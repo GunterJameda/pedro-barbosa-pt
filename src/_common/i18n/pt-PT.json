@@ -2,10 +2,10 @@
   "site": {
     "title": "{name} | {role}",
     "titleTemplate": "%s | {name}",
-    "description": "Frontend Developer Sénior especializado em React, Next.js e TypeScript, com uma base sólida em Angular."
+    "description": "Frontend Engineer Sénior especializado em React, Next.js e TypeScript, com uma base sólida em Angular."
   },
   "profile": {
-    "role": "Frontend Developer Sénior",
+    "role": "Frontend Engineer Sénior",
     "workModeRoles": {
       "remote-and-hybrid": "funções remotas e híbridas",
       "remote-only": "funções remotas"
@@ -93,7 +93,7 @@
   "home": {
     "Hero": {
       "title": "Olá, sou o {name}.",
-      "text": "Frontend Developer Sénior especializado em <highlight>React</highlight>,<gap></gap> <highlight>Next.js</highlight> e <highlight>TypeScript</highlight>, com uma base sólida em <highlight>Angular</highlight>. Construo aplicações multi-tenant resilientes, design systems e arquiteturas frontend modernas."
+      "text": "Frontend Engineer Sénior especializado em <highlight>React</highlight>,<gap></gap> <highlight>Next.js</highlight> e <highlight>TypeScript</highlight>, com uma base sólida em <highlight>Angular</highlight>. Construo aplicações multi-tenant resilientes, design systems e arquiteturas frontend modernas."
     },
     "PersonSchema": {
       "knowsAbout": ["React", "Next.js", "TypeScript", "Angular"]
@@ -101,7 +101,7 @@
   },
   "about": {
     "page": {
-      "description": "Frontend Developer Sénior desde {careerStartYear}, especializado em modernização de frontend e design systems escaláveis.",
+      "description": "Frontend Engineer Sénior desde {careerStartYear}, especializado em modernização de frontend e design systems escaláveis.",
       "ctaTitle": "Veja o trabalho de engenharia na prática.",
       "ctaText": "Explore a minha carreira em startups e em equipas de software estabelecidas, ou veja os produtos que construí fora do trabalho.",
       "ctaButton": "Ver Experiência"
@@ -109,7 +109,7 @@
     "AboutHero": {
       "eyebrow": "Perfil e Filosofia de Arquitetura",
       "title": "Engenharia com cuidado, pragmatismo e atenção ao detalhe.",
-      "description": "Frontend Developer Sénior · Desde {careerStartYear}. Especializado em modernização de frontend e design systems escaláveis. A minha prática une fronteiras arquiteturais limpas, sistemas de componentes acessíveis e uma colaboração empática e ágil entre equipas de produto, design e engenharia.",
+      "description": "Frontend Engineer Sénior · Desde {careerStartYear}. Especializado em modernização de frontend e design systems escaláveis. A minha prática une fronteiras arquiteturais limpas, sistemas de componentes acessíveis e uma colaboração empática e ágil entre equipas de produto, design e engenharia.",
       "pillars": {
         "specialisation": {
           "tag": "Especialização",
@@ -280,12 +280,12 @@
         "immediate": {
           "tag": "Disponibilidade",
           "title": "Imediata",
-          "description": "{location} · Funções de Frontend Developer Sénior {workMode}"
+          "description": "{location} · Funções de Frontend Engineer Sénior {workMode}"
         },
         "open": {
           "tag": "Disponibilidade",
           "title": "Aberto a propostas",
-          "description": "{location} · Funções de Frontend Developer Sénior {workMode}"
+          "description": "{location} · Funções de Frontend Engineer Sénior {workMode}"
         },
         "not-looking": {
           "tag": "Localização",
@@ -315,13 +315,13 @@
       "label": "Empresas",
       "title": "Empresas e Projetos",
       "links": {
-        "teya": { "name": "Teya", "detail": "Frontend Developer Sénior" },
-        "tillster": { "name": "Tillster", "detail": "Frontend Developer Sénior" },
-        "pricehubble": { "name": "PriceHubble", "detail": "Frontend Developer" },
-        "luxclusif": { "name": "Luxclusif", "detail": "Frontend Developer" },
-        "labsforge": { "name": "LabsForge", "detail": "Frontend Developer" },
-        "huub": { "name": "HUUB", "detail": "Frontend Developer Júnior" },
-        "glintt": { "name": "Glintt", "detail": "Frontend Developer Júnior" },
+        "teya": { "name": "Teya", "detail": "Frontend Engineer Sénior" },
+        "tillster": { "name": "Tillster", "detail": "Frontend Engineer Sénior" },
+        "pricehubble": { "name": "PriceHubble", "detail": "Frontend Engineer" },
+        "luxclusif": { "name": "Luxclusif", "detail": "Frontend Engineer" },
+        "labsforge": { "name": "LabsForge", "detail": "Frontend Engineer" },
+        "huub": { "name": "HUUB", "detail": "Frontend Engineer Júnior" },
+        "glintt": { "name": "Glintt", "detail": "Frontend Engineer Júnior" },
         "education": { "name": "Formação", "detail": "ISEP Porto" }
       }
     },
@@ -331,7 +331,7 @@
         "teya": {
           "industry": "SaaS de Operações Financeiras",
           "company": "Teya",
-          "roleTitle": "Frontend Developer Sénior",
+          "roleTitle": "Frontend Engineer Sénior",
           "tags": [
             "React",
             "Next.js",
@@ -350,7 +350,7 @@
         "tillster": {
           "industry": "Pedidos Empresariais para Restauração Rápida",
           "company": "Tillster",
-          "roleTitle": "Frontend Developer Sénior",
+          "roleTitle": "Frontend Engineer Sénior",
           "tags": ["AngularJS", "Ionic v1", "JavaScript", "Stripe API", "UI Multi-Tenant"],
           "bulletPoints": [
             "Mantive e evoluí uma extensa plataforma multi-tenant, que suportava aplicações web e móveis híbridas em produção, adaptando com precisão interfaces e lógica de negócio localizada para marcas internacionais de restauração com grande volume.",
@@ -361,7 +361,7 @@
         "pricehubble": {
           "industry": "IA Imobiliária e PropTech",
           "company": "PriceHubble",
-          "roleTitle": "Frontend Developer",
+          "roleTitle": "Frontend Engineer",
           "tags": ["single-spa", "React", "Next.js", "TypeScript", "Angular", "Workflows de CI/CD"],
           "bulletPoints": [
             "Trabalhei diretamente com outro engenheiro para planear, desenhar e entregar a fase inicial da decomposição de um enorme monólito Angular em microfrontends, separando os domínios de negócio de forma limpa.",
@@ -372,7 +372,7 @@
         "luxclusif": {
           "industry": "Tecnologia de E-Commerce de Luxo",
           "company": "Luxclusif",
-          "roleTitle": "Frontend Developer",
+          "roleTitle": "Frontend Engineer",
           "tags": [
             "React",
             "TypeScript",
@@ -392,21 +392,21 @@
         "labsforge": {
           "industry": "Consultoria e Cloud",
           "company": "LabsForge Consulting",
-          "roleTitle": "Frontend Developer",
+          "roleTitle": "Frontend Engineer",
           "description": "Único programador do AlbumTeller, uma aplicação que reúne num só fluxo de trabalho as ferramentas de produção de álbuns de fotografia.",
           "tags": ["Angular", "TypeScript", "Node.js", "AWS Serverless"]
         },
         "huub": {
           "industry": "Tecnologia de Cadeia de Abastecimento",
           "company": "HUUB",
-          "roleTitle": "Frontend Developer Júnior",
+          "roleTitle": "Frontend Engineer Júnior",
           "description": "Desenvolvi uma aplicação especializada de controlo de qualidade em armazém, que suportava fluxos de inspeção em tempo real de peças de vestuário à chegada e a auditoria de defeitos de fabrico.",
           "tags": ["Angular", "TypeScript", "UX de Logística"]
         },
         "glintt": {
           "industry": "Informática da Saúde",
           "company": "Glintt",
-          "roleTitle": "Frontend Developer Júnior",
+          "roleTitle": "Frontend Engineer Júnior",
           "description": "Desenvolvi uma aplicação empresarial de saúde que suportava a recolha rigorosa de dados de ensaios clínicos, a gestão de participantes e o acompanhamento de protocolos.",
           "tags": ["Angular", "TypeScript", "Sistemas Clínicos"]
         }
@@ -423,7 +423,7 @@
     "page": {
       "description": "Produtos que construo fora do trabalho para resolver problemas reais, desde a definição dos requisitos até ao software a funcionar.",
       "ctaTitle": "Quer colaborar ou falar sobre uma oportunidade?",
-      "ctaText": "Se está a contratar um Frontend Developer Sénior ou a planear uma migração de frontend, falemos sobre a função e sobre como posso ajudar.",
+      "ctaText": "Se está a contratar um Frontend Engineer Sénior ou a planear uma migração de frontend, falemos sobre a função e sobre como posso ajudar.",
       "ctaButton": "Ver Experiência"
     },
     "ProjectsHero": {
@@ -563,7 +563,7 @@
     "ContactHero": {
       "eyebrow": "Contacto e Propostas de Trabalho",
       "title": "Falemos de arquitetura, equipas ou novas oportunidades.",
-      "description": "A escalar uma equipa de produto, a modernizar as bases do frontend ou à procura de um Frontend Developer Sénior que entregue com engenho e responsabilidade pragmática? Falemos."
+      "description": "A escalar uma equipa de produto, a modernizar as bases do frontend ou à procura de um Frontend Engineer Sénior que entregue com engenho e responsabilidade pragmática? Falemos."
     },
     "EmailCard": {
       "eyebrow": "Email Direto",
