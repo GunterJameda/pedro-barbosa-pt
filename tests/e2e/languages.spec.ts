@@ -67,7 +67,7 @@ test.describe("Portuguese pages", () => {
         const alt = await page
           .locator(`meta[property="${name}"], meta[name="${name}"]`)
           .getAttribute("content");
-        expect(alt).toContain("Engenheiro Frontend Sénior");
+        expect(alt).toContain("Frontend Engineer Sénior");
         expect(alt).not.toContain("Senior Frontend Engineer");
       }
       const response = await request.get(imagePath);
