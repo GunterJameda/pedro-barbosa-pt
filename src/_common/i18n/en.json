@@ -280,12 +280,12 @@
         "immediate": {
           "tag": "Availability",
           "title": "Immediate",
-          "description": "{location} · {workMode} Senior Engineer roles"
+          "description": "{location} · {workMode} Senior Frontend Engineer roles"
         },
         "open": {
           "tag": "Availability",
           "title": "Open to offers",
-          "description": "{location} · {workMode} Senior Engineer roles"
+          "description": "{location} · {workMode} Senior Frontend Engineer roles"
         },
         "not-looking": {
           "tag": "Location",
@@ -315,13 +315,13 @@
       "label": "Companies",
       "title": "Companies & Engagements",
       "links": {
-        "teya": { "name": "Teya", "detail": "Senior Engineer" },
-        "tillster": { "name": "Tillster", "detail": "Senior Engineer" },
+        "teya": { "name": "Teya", "detail": "Senior Frontend Engineer" },
+        "tillster": { "name": "Tillster", "detail": "Senior Frontend Engineer" },
         "pricehubble": { "name": "PriceHubble", "detail": "Frontend Engineer" },
         "luxclusif": { "name": "Luxclusif", "detail": "Frontend Engineer" },
         "labsforge": { "name": "LabsForge", "detail": "Frontend Engineer" },
-        "huub": { "name": "HUUB", "detail": "Junior Engineer" },
-        "glintt": { "name": "Glintt", "detail": "Junior Engineer" },
+        "huub": { "name": "HUUB", "detail": "Junior Frontend Engineer" },
+        "glintt": { "name": "Glintt", "detail": "Junior Frontend Engineer" },
         "education": { "name": "Education", "detail": "ISEP Porto" }
       }
     },
