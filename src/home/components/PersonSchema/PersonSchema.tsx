@@ -1,15 +1,19 @@
 import { useLocale, useTranslations } from "next-intl";
 import { JsonLd } from "@/_common/components/JsonLd";
 import { PERSON } from "./content";
+import { homePageUrl } from "./utils";
 import type { ProfilePageData } from "./types";
 
 /** Tells search engines this page is the profile of the person the site is about (JSON-LD). */
 export function PersonSchema() {
   const t = useTranslations();
+  const locale = useLocale();
   const profilePage: ProfilePageData = {
     "@context": "https://schema.org",
     "@type": "ProfilePage",
-    inLanguage: useLocale(),
+    url: homePageUrl(locale),
+    inLanguage: locale,
+    description: t("site.description"),
     mainEntity: {
       ...PERSON,
       jobTitle: t("profile.role"),

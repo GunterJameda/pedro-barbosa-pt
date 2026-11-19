@@ -21,7 +21,10 @@ export type PersonFacts = Omit<PersonData, "jobTitle" | "knowsAbout">;
 export interface ProfilePageData {
   "@context": "https://schema.org";
   "@type": "ProfilePage";
+  /** The page's own address, in its language. */
+  url: string;
   /** The page's language, like "en". */
   inLanguage: string;
+  description: string;
   mainEntity: PersonData;
 }
