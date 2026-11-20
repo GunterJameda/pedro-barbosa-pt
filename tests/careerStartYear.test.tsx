@@ -54,8 +54,8 @@ describe("career start year", () => {
     );
     const text = container.textContent ?? "";
     expect(text).not.toContain(String(CAREER_START_YEAR));
-    expect(text).toContain(`Senior Frontend Engineer · Since ${OTHER_YEAR}`);
-    expect(text).toContain(`Senior · Since ${OTHER_YEAR}`);
+    expect(text).toContain(`Senior Frontend Engineer · Building for the web since ${OTHER_YEAR}`);
+    expect(text).toContain(`Frontend · Since ${OTHER_YEAR}`);
     expect(screen.getByText(`Since ${OTHER_YEAR}`)).toBeInTheDocument();
     expect(text).toContain(
       `microfrontends, and building scalable design systems since ${OTHER_YEAR}.`,

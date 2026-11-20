@@ -100,7 +100,7 @@
   },
   "about": {
     "page": {
-      "description": "Senior Frontend Engineer since {careerStartYear}, specialising in frontend modernisation and scalable design systems.",
+      "description": "Senior Frontend Engineer building for the web since {careerStartYear}, specialising in frontend modernisation and scalable design systems.",
       "ctaTitle": "See the engineering work in practice.",
       "ctaText": "Explore my career across startups and established software teams, or see the products I've built outside work.",
       "ctaButton": "View Experience"
@@ -108,7 +108,7 @@
     "AboutHero": {
       "eyebrow": "Profile & Architecture Philosophy",
       "title": "Engineering with care, pragmatism, and attention to detail.",
-      "description": "Senior Frontend Engineer · Since {careerStartYear}. Specialising in frontend modernisation and scalable design systems. My practice unites clean architectural boundaries, accessible component systems, and empathetic, high-velocity collaboration across product, design, and engineering squads.",
+      "description": "Senior Frontend Engineer · Building for the web since {careerStartYear}. Specialising in frontend modernisation and scalable design systems. My practice unites clean architectural boundaries, accessible component systems, and empathetic, high-velocity collaboration across product, design, and engineering squads.",
       "pillars": {
         "specialisation": {
           "tag": "Specialisation",
@@ -208,7 +208,7 @@
             "Angular / AngularJS"
           ],
           "footerLeft": "Production Proficiency",
-          "footerRight": "Senior · Since {careerStartYear}"
+          "footerRight": "Frontend · Since {careerStartYear}"
         },
         "designSystems": {
           "title": "UI & Design Systems",

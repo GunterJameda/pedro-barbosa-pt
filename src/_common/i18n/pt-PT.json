@@ -100,7 +100,7 @@
   },
   "about": {
     "page": {
-      "description": "Frontend Engineer Sénior desde {careerStartYear}, especializado em modernização de frontend e design systems escaláveis.",
+      "description": "Frontend Engineer Sénior, a construir para a web desde {careerStartYear}, especializado em modernização de frontend e design systems escaláveis.",
       "ctaTitle": "Veja o trabalho de engenharia na prática.",
       "ctaText": "Explore a minha carreira em startups e em equipas de software estabelecidas, ou veja os produtos que construí fora do trabalho.",
       "ctaButton": "Ver Experiência"
@@ -108,7 +108,7 @@
     "AboutHero": {
       "eyebrow": "Perfil e Filosofia de Arquitetura",
       "title": "Engenharia com cuidado, pragmatismo e atenção ao detalhe.",
-      "description": "Frontend Engineer Sénior · Desde {careerStartYear}. Especializado em modernização de frontend e design systems escaláveis. A minha prática une fronteiras arquiteturais limpas, sistemas de componentes acessíveis e uma colaboração empática e ágil entre equipas de produto, design e engenharia.",
+      "description": "Frontend Engineer Sénior · A construir para a web desde {careerStartYear}. Especializado em modernização de frontend e design systems escaláveis. A minha prática une fronteiras arquiteturais limpas, sistemas de componentes acessíveis e uma colaboração empática e ágil entre equipas de produto, design e engenharia.",
       "pillars": {
         "specialisation": {
           "tag": "Especialização",
@@ -208,7 +208,7 @@
             "Angular / AngularJS"
           ],
           "footerLeft": "Proficiência em Produção",
-          "footerRight": "Sénior · Desde {careerStartYear}"
+          "footerRight": "Frontend · Desde {careerStartYear}"
         },
         "designSystems": {
           "title": "UI e Design Systems",
