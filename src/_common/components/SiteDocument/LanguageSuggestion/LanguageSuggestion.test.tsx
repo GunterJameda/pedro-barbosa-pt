@@ -1,14 +1,15 @@
+import { usePathname } from "next/navigation";
 import { screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { afterEach, describe, expect, it, vi } from "vitest";
-import { readLanguageChoice } from "@/_common/utils/readLanguageChoice";
 import { renderWithTheme } from "@tests/render";
+import { readLanguageChoice } from "./utils";
 import { LanguageSuggestion } from "./LanguageSuggestion";
 
 // Only the address is faked; the site's locale-aware navigation needs the rest.
 vi.mock("next/navigation", async (importOriginal) => ({
   ...(await importOriginal<object>()),
-  usePathname: () => "/contact",
+  usePathname: vi.fn(() => "/contact"),
 }));
 
 function browserLanguages(languages: string[]) {
@@ -29,6 +30,13 @@ describe("LanguageSuggestion", () => {
       "href",
       "/pt/contact",
     );
+  });
+
+  it("offers the Portuguese home page on an address that isn't a page, never another 404", () => {
+    vi.mocked(usePathname).mockReturnValueOnce("/xyz");
+    browserLanguages(["pt-PT"]);
+    renderWithTheme(<LanguageSuggestion />);
+    expect(screen.getByRole("link", { name: "Ver em português" })).toHaveAttribute("href", "/pt");
   });
 
   it("shows nothing to a browser that doesn't prefer Portuguese", () => {

@@ -15,6 +15,7 @@ import { CONTENT_MAX_WIDTH } from "@/_common/constants";
 import { DEFAULT_LOCALE, LANGUAGE_DISMISSED } from "@/_common/i18n";
 import { getPathname, usePathname } from "@/_common/navigation";
 import { saveLanguageChoice } from "@/_common/utils/saveLanguageChoice";
+import { switchPathname } from "@/_common/utils/switchPathname";
 import { SUGGESTED_LOCALE } from "./constants";
 import { shouldSuggest } from "./utils";
 
@@ -26,7 +27,8 @@ import { shouldSuggest } from "./utils";
 export function LanguageSuggestion() {
   const t = useTranslations("common.LanguageSuggestion");
   const locale = useLocale();
-  // The address without its language prefix, so the link keeps the page.
+  // The address without its language prefix, so the link keeps the page (or
+  // goes home on a 404, which has no Portuguese twin).
   const pathname = usePathname();
   const [isClosed, setIsClosed] = useState(false);
   // False on the server and while the page hydrates, then what the browser says.
@@ -80,7 +82,7 @@ export function LanguageSuggestion() {
         </Typography>
         <Link
           // A plain link, so the page loads whole in the new language.
-          href={getPathname({ locale: SUGGESTED_LOCALE, href: pathname })}
+          href={getPathname({ locale: SUGGESTED_LOCALE, href: switchPathname(pathname) })}
           hrefLang={SUGGESTED_LOCALE}
           underline="always"
           onClick={() => saveLanguageChoice(SUGGESTED_LOCALE)}
