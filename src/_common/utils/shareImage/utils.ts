@@ -1,4 +1,4 @@
-import { readFile } from "node:fs/promises";
+import { readFileSync } from "node:fs";
 import { join } from "node:path";
 import { notFound } from "next/navigation";
 import { hasLocale } from "next-intl";
@@ -12,27 +12,27 @@ import { DOMAIN } from "./content";
 import type { LoadedFont } from "./types";
 import { renderShareImage } from "./renderShareImage";
 
-let fonts: Promise<LoadedFont[]> | undefined;
-let logo: Promise<string> | undefined;
+let fonts: LoadedFont[] | undefined;
+let logo: string | undefined;
 
-/** The image's font files, read once and kept: the image renderer can't use next/font. */
+/**
+ * The image's font files, read once and kept: the image renderer can't use
+ * next/font. The read is synchronous, so the image can still be prerendered
+ * (an awaited read at request time would make it dynamic).
+ */
 export function loadFonts() {
-  fonts ??= Promise.all(
-    FONTS.map(async ({ name, file, weight }) => ({
-      name,
-      weight,
-      style: "normal" as const,
-      data: await readFile(join(process.cwd(), "assets/fonts", file)),
-    })),
-  );
+  fonts ??= FONTS.map(({ name, file, weight }) => ({
+    name,
+    weight,
+    style: "normal" as const,
+    data: readFileSync(join(process.cwd(), "assets/fonts", file)),
+  }));
   return fonts;
 }
 
-/** The site's favicon as a data address, read once and kept, so the image carries the same mark. */
+/** The site's favicon as a data address, read once and kept (synchronously, like the fonts). */
 export function loadLogo() {
-  logo ??= readFile(join(process.cwd(), "src/app/icon.svg")).then(
-    (file) => `data:image/svg+xml;base64,${file.toString("base64")}`,
-  );
+  logo ??= `data:image/svg+xml;base64,${readFileSync(join(process.cwd(), "src/app/icon.svg")).toString("base64")}`;
   return logo;
 }
 
@@ -67,8 +67,8 @@ export function shareImageRoute(path?: string) {
       if (!hasLocale(LOCALES, locale)) notFound();
       const t = await getTranslations({ locale });
       return renderShareImage({
-        fonts: await loadFonts(),
-        logo: await loadLogo(),
+        fonts: loadFonts(),
+        logo: loadLogo(),
         pageName: page && t(`pages.${page.key}`),
         role: t("profile.role"),
         tags: t.raw("common.ShareImage.tags") as string[],

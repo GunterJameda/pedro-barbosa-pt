@@ -80,8 +80,8 @@ describe("shareImageRoute", () => {
 });
 
 describe("loadFonts", () => {
-  it("reads every font file the image uses", async () => {
-    const fonts = await loadFonts();
+  it("reads every font file the image uses", () => {
+    const fonts = loadFonts();
     expect(fonts.map(({ name, weight }) => ({ name, weight }))).toEqual(
       FONTS.map(({ name, weight }) => ({ name, weight })),
     );
@@ -94,8 +94,8 @@ describe("loadFonts", () => {
 });
 
 describe("loadLogo", () => {
-  it("is the site's icon as an SVG data address", async () => {
-    const logo = await loadLogo();
+  it("is the site's icon as an SVG data address", () => {
+    const logo = loadLogo();
     const prefix = "data:image/svg+xml;base64,";
     expect(logo.startsWith(prefix)).toBe(true);
     expect(Buffer.from(logo.slice(prefix.length), "base64").toString()).toContain("<svg");
