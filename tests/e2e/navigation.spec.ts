@@ -29,7 +29,9 @@ test.describe("on desktop", () => {
 
   test("reserves room for the longest status text, so the links never move", async ({ page }) => {
     await page.goto("/");
-    const chips = page.locator(".MuiChip-root", { hasText: /^(Available for|Open to) opportunities$/ });
+    const chips = page.locator(".MuiChip-root", {
+      hasText: /^(Available for|Open to) opportunities$/,
+    });
     const slot = chips.first().locator("..");
     const slotBox = (await slot.boundingBox())!;
     const widths = await chips.evaluateAll((elements) =>
