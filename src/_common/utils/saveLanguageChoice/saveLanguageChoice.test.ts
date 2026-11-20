@@ -1,5 +1,4 @@
 import { afterEach, describe, expect, it, vi } from "vitest";
-import { readLanguageChoice } from "@/_common/utils/readLanguageChoice";
 import { saveLanguageChoice } from "./saveLanguageChoice";
 
 afterEach(() => {
@@ -10,13 +9,13 @@ afterEach(() => {
 describe("saveLanguageChoice", () => {
   it("saves the choice where it can be read back", () => {
     saveLanguageChoice("pt-PT");
-    expect(readLanguageChoice(document.cookie)).toBe("pt-PT");
+    expect(document.cookie).toBe("NEXT_LOCALE=pt-PT");
   });
 
   it("replaces an earlier choice", () => {
     saveLanguageChoice("pt-PT");
     saveLanguageChoice("en");
-    expect(readLanguageChoice(document.cookie)).toBe("en");
+    expect(document.cookie).toBe("NEXT_LOCALE=en");
   });
 
   it("sets a year-long, site-wide, same-site cookie", () => {

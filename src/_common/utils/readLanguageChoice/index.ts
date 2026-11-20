@@ -1,1 +1,0 @@
-export { readLanguageChoice } from "./readLanguageChoice";

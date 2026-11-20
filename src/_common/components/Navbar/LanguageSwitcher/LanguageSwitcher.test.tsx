@@ -2,7 +2,6 @@ import { usePathname } from "next/navigation";
 import { screen, within } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { afterEach, describe, expect, it, vi } from "vitest";
-import { readLanguageChoice } from "@/_common/utils/readLanguageChoice";
 import { PORTUGUESE_INTL } from "@tests/intl";
 import { renderWithTheme } from "@tests/render";
 import { LanguageSwitcher } from "./LanguageSwitcher";
@@ -58,7 +57,7 @@ describe("LanguageSwitcher", () => {
     // Stops the navigation, which jsdom can't do, after the click handlers ran.
     link.addEventListener("click", (event) => event.preventDefault());
     await userEvent.click(link);
-    expect(readLanguageChoice(document.cookie)).toBe("pt-PT");
+    expect(document.cookie).toBe("NEXT_LOCALE=pt-PT");
   });
 
   it("has a decorative icon that doesn't change the group's name", () => {
