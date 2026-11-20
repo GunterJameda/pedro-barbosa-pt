@@ -46,7 +46,7 @@ assets/fonts/           Font files for the share images
 - Inside `_common` and each page folder, code is grouped by kind, one folder per kind:
   `components/`, `constants/`, `hooks/`, `types/`, `utils/` (and `i18n/`, `navigation/` and
   `theme/`, only in `_common`). A
-  folder only exists when it has something in it; today the page folders have `components/`, and `experience` also has `hooks/`.
+  folder only exists when it has something in it; today the page folders have `components/`, and `contact` and `experience` also have `hooks/`.
   Helper functions always go in `utils/`, never `helpers/` or `functions/`.
 - In `components/`, `hooks/` and `utils/`, every child folder is a module
   (`_common/components/Footer`, `_common/utils/pageMetadata`). `constants/`, `i18n/`,
@@ -58,7 +58,7 @@ assets/fonts/           Font files for the share images
 
 1. Used by one page: `src/<page>/components/<Component>`.
 2. Used only inside one component: in that component's folder, for example
-   `contact/components/EmailCard/CopyEmailButton`.
+   `contact/components/EmailCard/EmailActions/CopyEmailButton`.
 3. Used by two or more pages, or by the root layout: `src/_common/components/<Component>`.
 
 A helper, hook, constant or type follows the same rule, in the matching kind folder.
@@ -67,7 +67,7 @@ When a component gains a second user, it moves up to the nearest level both can 
 whole folder moves as one unit, with every nested child module inside it, however deep, and the same
 inner structure: nothing is flattened or reshuffled, only the imports that point at it change. For
 example, if a second page needed `EmailCard`, `contact/components/EmailCard/` would move to
-`_common/components/EmailCard/` with `CopyEmailButton/` still inside it.
+`_common/components/EmailCard/` with `EmailActions/CopyEmailButton/` still inside it.
 
 There is no generic `common`, `components` or `utils` folder outside these.
 
@@ -147,17 +147,17 @@ each layer. Type imports sit with their layer.
 11. The module's own files, in this order: `./constants`, `./content`, `./styles`, `./utils`,
     `./types`, then child modules (`./CopyEmailButton`)
 
-For example, from `CopyEmailButton.tsx`:
+For example, from `EmailCard/EmailActions/EmailActions.tsx`:
 
 ```ts
-import { useEffect, useRef, useState } from "react";
-import ContentCopyOutlinedIcon from "@mui/icons-material/ContentCopyOutlined";
-import Box from "@mui/material/Box";
-import { EMAIL } from "@/_common/constants";
+import MailOutlinedIcon from "@mui/icons-material/MailOutlined";
+import Stack from "@mui/material/Stack";
+import { useTranslations } from "next-intl";
+import { MAILTO_URL } from "@/_common/constants";
 import { ActionButton } from "@/_common/components/ActionButton";
-import { RESET_AFTER_MS } from "./constants";
-import { LABELS } from "./content";
-import type { CopyStatus } from "./types";
+import { useCopyEmail } from "@/contact/hooks/useCopyEmail";
+import { CopyEmailButton } from "./CopyEmailButton";
+import { CopyStatusMessage } from "./CopyStatusMessage";
 ```
 
 ## How the rules are enforced
@@ -404,7 +404,7 @@ the attacks these protections stop (see Testing).
 - **Vitest** with Testing Library, in jsdom, runs everything else.
 
 Component and helper tests sit next to the code they test, for example
-`Navbar/MobileMenu/MobileMenu.test.tsx` and `ProjectCard/utils.test.ts`. They test behaviour and
+`Navbar/MobileMenu/MobileMenu.test.tsx` and `ProjectList/ProjectCard/ProjectCard.test.tsx`. They test behaviour and
 edge cases through what a visitor sees: roles, labels, text. `tests/render.tsx` renders with the
 site's theme and the English messages (`withIntl` wraps an element in them), and `tests/setup.ts`
 stubs `next/font` and next-intl's server functions, which only work inside a Next.js build. A
