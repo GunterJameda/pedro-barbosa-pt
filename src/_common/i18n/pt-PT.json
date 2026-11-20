@@ -583,7 +583,7 @@
     },
     "LocationBanner": {
       "eyebrow": "Localização e Disponibilidade",
-      "title": "Baseado em {city}.",
+      "title": "Baseado no {city}.",
       "text": "À vontade para trabalhar de forma assíncrona e autónoma, e em estreita colaboração nos momentos-chave.",
       "openTo": "Disponível para {workModeRoles}"
     },
