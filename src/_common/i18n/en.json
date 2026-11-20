@@ -170,7 +170,7 @@
       "practices": {
         "codeReviews": {
           "title": "Collaborative Code Reviews",
-          "description": "Focus on constructive, ego-free feedback, keeping PRs moving so teammates aren't blocked and leaving files cleaner than I found them.",
+          "description": "Focus on constructive, ego-free feedback, keeping PRs moving so teammates aren't blocked, and leaving files cleaner than I found them.",
           "tagLeft": "Focus: Readability & Reliability",
           "tagRight": "Mentorship"
         },
@@ -381,7 +381,7 @@
           ],
           "bulletPoints": [
             "Joined as the company's first frontend developer, single-handedly setting engineering conventions and building its first application, to streamline second-hand luxury handbag acquisition and authentication.",
-            "Architected and published version 1.0 of the company's internal component library, standardising interaction design, visual tokens, and reusable primitives across distributed business tools."
+            "Architected and published version 1.0 of the company's internal component library, standardising interaction design, visual tokens and reusable primitives across distributed business tools."
           ]
         }
       }
@@ -490,7 +490,7 @@
         "detailCards": [
           {
             "title": "Frontend Implementation",
-            "description": "Responsive pages rendered on the server, one theme for every colour and text style and share images and structured data for search and social links.",
+            "description": "Responsive pages rendered on the server, one theme for every colour and text style, and share images and structured data for search and social links.",
             "tags": ["Next.js", "React", "TypeScript", "Material UI"]
           },
           {
