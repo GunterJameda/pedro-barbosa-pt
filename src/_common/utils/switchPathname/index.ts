@@ -1,0 +1,1 @@
+export { switchPathname } from "./switchPathname";

@@ -8,9 +8,10 @@ import { useLocale, useTranslations } from "next-intl";
 import { LOCALES } from "@/_common/i18n";
 import { getPathname, usePathname } from "@/_common/navigation";
 import { saveLanguageChoice } from "@/_common/utils/saveLanguageChoice";
+import { switchPathname } from "@/_common/utils/switchPathname";
 import { VISUALLY_HIDDEN } from "./constants";
 import { languageOption } from "./styles";
-import { languageCode, switchPathname } from "./utils";
+import { languageCode } from "./utils";
 
 interface LanguageSwitcherProps {
   /** Also shows the word "Language" before the options, for the phone menu. */
