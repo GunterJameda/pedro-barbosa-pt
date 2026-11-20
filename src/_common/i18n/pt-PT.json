@@ -583,7 +583,7 @@
     },
     "LocationBanner": {
       "eyebrow": "Localização e Trabalho Remoto",
-      "title": "Em {city}, disponível para {workModeRoles}.",
+      "title": "Baseado em {city}.",
       "text": "À vontade para trabalhar de forma assíncrona e autónoma, e em estreita colaboração nos momentos-chave.",
       "openTo": "Disponível para {workModeRoles}"
     },

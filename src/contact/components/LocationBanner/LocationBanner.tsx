@@ -14,10 +14,7 @@ export function LocationBanner() {
       <Stack spacing={1}>
         <Eyebrow>{t("contact.LocationBanner.eyebrow")}</Eyebrow>
         <Typography variant="cardHeading">
-          {t("contact.LocationBanner.title", {
-            city: CITY,
-            workModeRoles: t(`profile.workModeRoles.${WORK_MODE}`),
-          })}
+          {t("contact.LocationBanner.title", { city: CITY })}
         </Typography>
         <Typography variant="body" sx={{ maxWidth: 768 }}>
           {t("contact.LocationBanner.text")}
