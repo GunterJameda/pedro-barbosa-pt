@@ -5,6 +5,7 @@ import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 import { useTranslations } from "next-intl";
 import { LINKEDIN_URL } from "@/_common/constants";
+import { linkHover } from "@/_common/theme";
 import { IconBadge } from "@/_common/components/IconBadge";
 import { SurfaceCard } from "@/_common/components/SurfaceCard";
 
@@ -34,8 +35,7 @@ export function LinkedInCard() {
           color: "slate.300",
           fontSize: 12,
           fontWeight: 500,
-          transition: "color 150ms",
-          "&:hover": { color: "primary.light" },
+          ...linkHover,
         }}
       >
         {t("link")}

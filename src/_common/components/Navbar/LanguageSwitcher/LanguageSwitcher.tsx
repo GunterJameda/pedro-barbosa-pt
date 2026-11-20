@@ -7,6 +7,7 @@ import Typography from "@mui/material/Typography";
 import { useLocale, useTranslations } from "next-intl";
 import { LOCALES } from "@/_common/i18n";
 import { getPathname, usePathname } from "@/_common/navigation";
+import { linkHover } from "@/_common/theme";
 import { saveLanguageChoice } from "@/_common/utils/saveLanguageChoice";
 import { switchPathname } from "@/_common/utils/switchPathname";
 import { VISUALLY_HIDDEN } from "./constants";
@@ -88,8 +89,7 @@ export function LanguageSwitcher({ showLabel = false }: LanguageSwitcherProps) {
                 ...languageOption,
                 color: "text.secondary",
                 fontWeight: 400,
-                transition: "color 150ms",
-                "&:hover": { color: "primary.light" },
+                ...linkHover,
               }}
             >
               {content}

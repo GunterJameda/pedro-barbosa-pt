@@ -8,6 +8,7 @@ import Typography from "@mui/material/Typography";
 import { useTranslations } from "next-intl";
 import { NAME } from "@/_common/constants";
 import { Link as LocaleLink } from "@/_common/navigation";
+import { TRANSITION_DURATION } from "@/_common/theme";
 
 export function Brand() {
   const t = useTranslations("profile");
@@ -39,7 +40,7 @@ export function Brand() {
           fontSize: 12,
           fontWeight: 600,
           letterSpacing: "0.05em",
-          transition: "border-color 150ms",
+          transition: `border-color ${TRANSITION_DURATION}`,
         }}
       >
         PB

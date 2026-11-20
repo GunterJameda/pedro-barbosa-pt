@@ -2,6 +2,7 @@ import Box from "@mui/material/Box";
 import type { SxProps, Theme } from "@mui/material/styles";
 import Typography from "@mui/material/Typography";
 import { useTranslations } from "next-intl";
+import { TRANSITION_DURATION } from "@/_common/theme";
 import { CardGrid } from "@/_common/components/CardGrid";
 import { Eyebrow } from "@/_common/components/Eyebrow";
 import { SurfaceCard } from "@/_common/components/SurfaceCard";
@@ -41,7 +42,7 @@ export function FastNavigation({ label, title, links, sx }: FastNavigationProps)
               backgroundColor: "surface.white2",
               border: 1,
               borderColor: "surface.hairline",
-              transition: "background-color 150ms, border-color 150ms",
+              transition: `background-color ${TRANSITION_DURATION}, border-color ${TRANSITION_DURATION}`,
               "&:hover": {
                 color: "primary.light",
                 backgroundColor: "surface.white4",
@@ -54,7 +55,7 @@ export function FastNavigation({ label, title, links, sx }: FastNavigationProps)
                 color: "inherit",
                 fontSize: 12,
                 fontWeight: 600,
-                transition: "color 150ms",
+                transition: `color ${TRANSITION_DURATION}`,
               }}
             >
               {link.name}

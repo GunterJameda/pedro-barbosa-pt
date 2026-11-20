@@ -3,6 +3,7 @@ import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 import { useTranslations } from "next-intl";
 import { EMAIL, MAILTO_URL } from "@/_common/constants";
+import { linkHover } from "@/_common/theme";
 import { Eyebrow } from "@/_common/components/Eyebrow";
 import { SurfaceCard } from "@/_common/components/SurfaceCard";
 import { EmailActions } from "./EmailActions";
@@ -22,8 +23,7 @@ export function EmailCard() {
             fontSize: { xs: 24, sm: 30 },
             fontWeight: 700,
             letterSpacing: "-0.025em",
-            transition: "color 150ms",
-            "&:hover": { color: "primary.light" },
+            ...linkHover,
           }}
         >
           {EMAIL}

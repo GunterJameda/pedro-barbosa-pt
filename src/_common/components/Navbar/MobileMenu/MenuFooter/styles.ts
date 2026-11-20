@@ -1,4 +1,4 @@
-import { fontMono } from "@/_common/theme";
+import { fontMono, linkHover } from "@/_common/theme";
 
 export const socialLink = {
   display: "inline-flex",
@@ -7,6 +7,5 @@ export const socialLink = {
   color: "text.secondary",
   fontFamily: fontMono,
   fontSize: 12,
-  transition: "color 150ms",
-  "&:hover": { color: "primary.light" },
+  ...linkHover,
 };

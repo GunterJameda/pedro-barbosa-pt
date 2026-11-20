@@ -3,7 +3,7 @@ import Box from "@mui/material/Box";
 import Link from "@mui/material/Link";
 import Stack from "@mui/material/Stack";
 import { CONTENT_MAX_WIDTH, EMAIL, LOCATION, MAILTO_URL, SOCIAL_LINKS } from "@/_common/constants";
-import { linkHover } from "./styles";
+import { linkHover } from "@/_common/theme";
 
 export function Footer() {
   return (
