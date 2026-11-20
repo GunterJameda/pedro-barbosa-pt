@@ -2,7 +2,6 @@ import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 import { useTranslations } from "next-intl";
 import { AVAILABILITY } from "@/_common/constants";
-import { fontMono } from "@/_common/theme";
 import { StatusDot } from "@/_common/components/StatusDot";
 
 /** Availability row in the menu. Hidden when not looking. */
@@ -35,7 +34,7 @@ export function AvailabilityCard() {
       >
         {t("label")}
       </Typography>
-      <Typography sx={{ color: "primary.light", fontFamily: fontMono, fontSize: 12 }}>
+      <Typography variant="mono" sx={{ color: "primary.light" }}>
         {t(`status.${availability}`)}
       </Typography>
     </Stack>

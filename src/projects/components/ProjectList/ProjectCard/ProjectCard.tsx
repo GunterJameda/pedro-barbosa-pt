@@ -5,7 +5,6 @@ import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 import { useLocale, useTranslations } from "next-intl";
 import { SCROLL_OFFSET } from "@/_common/constants";
-import { fontMono } from "@/_common/theme";
 import { formatMonth } from "@/_common/utils/formatMonth";
 import { ActionButton } from "@/_common/components/ActionButton";
 import { CardGrid } from "@/_common/components/CardGrid";
@@ -51,7 +50,9 @@ export function ProjectCard({ project }: ProjectCardProps) {
           borderColor: "surface.hairline",
         }}
       >
-        <Box
+        <Typography
+          variant="mono"
+          component="div"
           sx={{
             alignSelf: "flex-start",
             px: 1,
@@ -61,12 +62,10 @@ export function ProjectCard({ project }: ProjectCardProps) {
             backgroundColor: "surface.teal10",
             border: 1,
             borderColor: "surface.teal20",
-            fontFamily: fontMono,
-            fontSize: 12,
           }}
         >
           {project.kind} · {period}
-        </Box>
+        </Typography>
         <Typography variant="mono">{project.status}</Typography>
       </Stack>
 
