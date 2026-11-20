@@ -335,10 +335,10 @@ European Portuguese (`pt-PT`, at `/pt`).
   key that doesn't exist fails `yarn typecheck`.
 - **The exceptions:** `GlobalErrorPage` keeps its copy in its `content.ts`, in English. It shows
   when the root layout fails, and the layout is what provides the language and messages, so it
-  can't count on them. The 404 page for addresses without a page, which stays in English (Next.js
-  can't show a translated one for them), and the share images' pictures (their text is translated;
-  the design is the same), stay as they were. On that 404 the language switcher links to the other
-  language's home page.
+  can't count on them. The 404 page for addresses without a page stays in English, since Next.js
+  can't show a translated one for them; on it, the language switcher links to the other language's
+  home page. The share images' pictures stay as they were (their text is translated; the design is
+  the same).
 - **Rich text:** the home page's intro marks its highlights with tags (`<highlight>React</highlight>`).
   Its empty `<gap></gap>` renders nothing: it keeps the comma and the space after it as separate
   text, as the page always had, so the browser lays the line out exactly the same.
