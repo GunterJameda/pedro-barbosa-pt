@@ -302,13 +302,17 @@ European Portuguese (`pt-PT`, at `/pt`).
   bold (not only coloured) and has `aria-current`; the other is a plain link to the same page in
   that language, with `lang` and `hreflang`, named by its full language name for screen readers.
   It is a plain link (not next-intl's `Link`, which would point at the internal `/en/...`), so the
-  page loads whole in the new language.
+  page loads whole in the new language. On an address that isn't one of the site's pages (a 404),
+  both language links go to the other language's home page (`switchPathname`, in `_common/utils`),
+  so a link never leads from one 404 to another.
 - **The suggestion bar:** `SiteDocument/LanguageSuggestion` is a thin bar above the navbar, shown
   only on an English page, to a browser whose `navigator.languages` includes any `pt*`, with no
   saved choice or dismissal: "Este site está disponível em português.", a link to the same page
-  in Portuguese and a close button. It reads the browser while hydrating (`useSyncExternalStore`
-  with a server snapshot of "hidden"), so it is not in the static HTML and appears after the page
-  loads, pushing the page down once, for those visitors only. Its copy is `common.LanguageSuggestion`:
+  in Portuguese (the home page on a 404) and a close button. Its helpers, `prefersLanguage` and
+  `readLanguageChoice`, live in its own `utils.ts`. It reads the browser while hydrating
+  (`useSyncExternalStore` with a server snapshot of "hidden"), so it is not in the static HTML and
+  appears after the page loads, pushing the page down once, for those visitors only. Its copy is
+  `common.LanguageSuggestion`:
   in `en.json` it is in Portuguese (the bar speaks the suggested language, whatever the page's),
   and `pt-PT.json` holds the English version, unused until a mirror bar for Portuguese pages is
   wanted. There is no such bar for English-speaking visitors on Portuguese pages.
