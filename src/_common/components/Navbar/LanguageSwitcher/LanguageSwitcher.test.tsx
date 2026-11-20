@@ -46,6 +46,12 @@ describe("LanguageSwitcher", () => {
     expect(screen.getByRole("link", { name: "Português" })).toHaveAttribute("href", "/pt");
   });
 
+  it("links to the other language's home page from an address that isn't a page", () => {
+    vi.mocked(usePathname).mockReturnValueOnce("/_not-found");
+    renderWithTheme(<LanguageSwitcher />);
+    expect(screen.getByRole("link", { name: "Português" })).toHaveAttribute("href", "/pt");
+  });
+
   it("saves the choice when a language is picked", async () => {
     renderWithTheme(<LanguageSwitcher />);
     const link = screen.getByRole("link", { name: "Português" });

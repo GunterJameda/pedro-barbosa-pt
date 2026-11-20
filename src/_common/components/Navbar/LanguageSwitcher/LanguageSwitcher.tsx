@@ -10,7 +10,7 @@ import { getPathname, usePathname } from "@/_common/navigation";
 import { saveLanguageChoice } from "@/_common/utils/saveLanguageChoice";
 import { VISUALLY_HIDDEN } from "./constants";
 import { languageOption } from "./styles";
-import { languageCode } from "./utils";
+import { languageCode, switchPathname } from "./utils";
 
 interface LanguageSwitcherProps {
   /** Also shows the word "Language" before the options, for the phone menu. */
@@ -24,7 +24,8 @@ interface LanguageSwitcherProps {
 export function LanguageSwitcher({ showLabel = false }: LanguageSwitcherProps) {
   const t = useTranslations("common.LanguageSwitcher");
   const current = useLocale();
-  // The address without its language prefix, so each link keeps the page.
+  // The address without its language prefix, so each link keeps the page
+  // (or goes home, on a 404).
   const pathname = usePathname();
 
   return (
@@ -75,7 +76,7 @@ export function LanguageSwitcher({ showLabel = false }: LanguageSwitcherProps) {
             <Link
               key={locale}
               // A plain link, so the page loads whole in the new language.
-              href={getPathname({ locale, href: pathname })}
+              href={getPathname({ locale, href: switchPathname(pathname) })}
               lang={locale}
               hrefLang={locale}
               underline="hover"
