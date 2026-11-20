@@ -31,7 +31,7 @@ export function CareerChart({ buildYear }: CareerChartProps) {
         height: 40,
         overflow: "visible",
         fontFamily: fontMono,
-        fontSize: 8,
+        fontSize: 13,
       }}
     >
       <path
@@ -45,7 +45,7 @@ export function CareerChart({ buildYear }: CareerChartProps) {
       {past.map((point) => (
         <g key={point.year}>
           <circle cx={point.x} cy={point.y} r="3" fill={LINE} />
-          <text x={point.x} y={point.labelY} fill={slate[500]} textAnchor="middle">
+          <text x={point.x} y={point.labelY} fill={slate[400]} textAnchor="middle">
             {point.year}
           </text>
         </g>
