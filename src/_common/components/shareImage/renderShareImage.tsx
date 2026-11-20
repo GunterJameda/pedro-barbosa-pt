@@ -4,7 +4,7 @@ import { slate, surfaces, teal, white } from "@/_common/theme";
 import { SIZE } from "./constants";
 import type { LoadedFont } from "./types";
 
-interface ShareImageProps {
+interface RenderShareImageProps {
   /** The page's name, shown above mine. Left out on the site-wide image. */
   pageName?: string | undefined;
   role: string;
@@ -20,7 +20,14 @@ interface ShareImageProps {
  * Link preview image shown when a page of the site is shared. With a page, it
  * also shows that page's name and address.
  */
-export function ShareImage({ pageName, role, tags, address, fonts, logo }: ShareImageProps) {
+export function renderShareImage({
+  pageName,
+  role,
+  tags,
+  address,
+  fonts,
+  logo,
+}: RenderShareImageProps) {
   return new ImageResponse(
     <div
       style={{

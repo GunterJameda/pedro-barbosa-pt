@@ -10,7 +10,7 @@ import { pageUrl } from "@/_common/utils/pageUrl";
 import { CONTENT_TYPE, FONTS, SIZE } from "./constants";
 import { DOMAIN } from "./content";
 import type { LoadedFont } from "./types";
-import { ShareImage } from "./ShareImage";
+import { renderShareImage } from "./renderShareImage";
 
 let fonts: Promise<LoadedFont[]> | undefined;
 let logo: Promise<string> | undefined;
@@ -66,7 +66,7 @@ export function shareImageRoute(path?: string) {
       const { locale } = await params;
       if (!hasLocale(LOCALES, locale)) notFound();
       const t = await getTranslations({ locale });
-      return ShareImage({
+      return renderShareImage({
         fonts: await loadFonts(),
         logo: await loadLogo(),
         pageName: page && t(`pages.${page.key}`),

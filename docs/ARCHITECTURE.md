@@ -97,7 +97,7 @@ A module splits its pieces by kind, one file per kind:
 | `constants.ts`    | Fixed values the code relies on: sizes, ids, timings, media queries        | `ScrollToTop/constants.ts`: `SHOW_AFTER_PX = 400`  |
 | `content.ts`      | The data the component shows: lists, their order, ids, icons, dates        | `RoleAlignment/content.ts`: each point's key, icon |
 | `styles.ts`       | Style objects that are shared or used as a base; one-off `sx` stays in JSX | `ActionButton/styles.ts`: `primaryStyles`          |
-| `utils.ts`        | Helper functions, each with a test in `utils.test.ts`                      | `ShareImage/utils.ts`: `shareImageRoute("/about")` |
+| `utils.ts`        | Helper functions, each with a test in `utils.test.ts`                      | `shareImage/utils.ts`: `shareImageRoute("/about")` |
 | `types.ts`        | Types other than the props type                                            | `useCopyEmail/types.ts`: `CopyStatus`              |
 | `index.ts`        | The module's exports                                                       | `export { Footer } from "./Footer";`               |
 
@@ -227,7 +227,7 @@ How components pick a colour:
   `color: "slate.300"`. A colour inside a longer value, like a shadow, comes from
   `theme.vars.palette`.
 - **With the tokens directly**, only where there is no theme: the share image
-  (`ShareImage.tsx`) and SVG attributes (`CareerChart`'s line colour).
+  (`renderShareImage.tsx`) and SVG attributes (`CareerChart`'s line colour).
 - Two places repeat a few colour values on purpose, as the comment in `tokens.ts` notes:
   `src/app/icon.svg`, a static file, and `GlobalErrorPage/styles.ts`, which can't count on the theme
   loading.
