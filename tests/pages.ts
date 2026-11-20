@@ -12,8 +12,6 @@ export const PAGE_ROUTES: string[] = readdirSync(APP, {
 })
   .filter((entry) => entry.isFile() && entry.name === "page.tsx")
   .map((entry) => `/${relative(APP, entry.parentPath)}`)
-  // The catch-all route ([...rest]) only shows the 404 page.
-  .filter((route) => !route.includes("["))
   .sort();
 
 /** Loads a route file, e.g. routeModule("/about", "page.tsx"). */
