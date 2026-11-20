@@ -20,9 +20,9 @@ const shownTexts = (pattern: RegExp) =>
     .map((element) => element.textContent);
 
 describe("StatusChip", () => {
-  it("says open for opportunities when available right away", async () => {
+  it("says available for opportunities when available right away", async () => {
     await renderWith("immediate");
-    expect(shownTexts(/opportunities/)).toEqual(["Open for opportunities"]);
+    expect(shownTexts(/opportunities/)).toEqual(["Available for opportunities"]);
   });
 
   it("says open to opportunities when open without a start date", async () => {

@@ -60,7 +60,7 @@
     },
     "StatusChip": {
       "status": {
-        "immediate": "Open for opportunities",
+        "immediate": "Available for opportunities",
         "open": "Open to opportunities"
       },
       "short": "Open"
@@ -283,7 +283,7 @@
         },
         "open": {
           "tag": "Availability",
-          "title": "Open to offers",
+          "title": "Open to opportunities",
           "description": "{location} · {workMode} Senior Frontend Engineer roles"
         },
         "not-looking": {
