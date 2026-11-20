@@ -286,6 +286,22 @@ test.describe("language suggestion for a Portuguese browser", () => {
   });
 });
 
+test.describe("language suggestion on a missing page", () => {
+  test.use({ locale: "pt-PT" });
+  test.beforeEach(({}, testInfo) => {
+    testInfo.annotations.push({ type: EXPECTS_404 });
+  });
+
+  test("links to the Portuguese home page, not to another 404", async ({ page }) => {
+    const response = await visit(page, "/xyz");
+    expect(response?.status()).toBe(404);
+    await expect(suggestion(page).getByRole("link", { name: "Ver em português" })).toHaveAttribute(
+      "href",
+      "/pt",
+    );
+  });
+});
+
 test.describe("language suggestion for an English browser", () => {
   test.use({ locale: "en-GB" });
 
