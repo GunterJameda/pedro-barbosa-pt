@@ -22,7 +22,7 @@
     "ErrorPage": {
       "label": "Algo correu mal",
       "title": "Não foi possível apresentar esta página.",
-      "text": "Um erro inesperado impediu o carregamento desta página. Tente novamente ou volte ao início.",
+      "text": "Um erro inesperado impediu o carregamento desta página. Tente novamente ou deixe-me indicar-lhe o caminho para o início.",
       "retry": "Tentar novamente",
       "home": "Ir para o Início",
       "tabTitle": "Algo correu mal | {name}"
@@ -472,7 +472,7 @@
         "category": "Site pessoal",
         "status": "Código aberto · Online",
         "summary": "O meu site pessoal, onde mostro a minha experiência e os meus projetos. Trato-o como um produto no trabalho: um backlog priorizado, commits pequenos e focados, e verificações que têm de passar antes de qualquer publicação.",
-        "details": "Cada push executa verificações de formatação e lint, verificações de tipos, testes e uma build de produção, e uma verificação falhada bloqueia o deploy. Cada página é enviada com cabeçalhos de segurança que só deixam carregar os ficheiros do próprio site, e os testes de browser tentam ataques de injeção de scripts, de framing e de redirecionamento. O código é público, por isso, para além de ler sobre isso, pode também ver como trabalho.",
+        "details": "Cada push executa verificações de formatação e lint, verificações de tipos, testes e uma build de produção, e uma verificação falhada bloqueia o deploy. Cada página é enviada com cabeçalhos de segurança que só deixam carregar os ficheiros do próprio site, e os testes de browser tentam ataques de injeção de scripts, de framing e de redirecionamento. O código é público, por isso pode ver como trabalho, e não apenas ler sobre isso.",
         "takeaways": [
           {
             "title": "Barreiras de qualidade",
