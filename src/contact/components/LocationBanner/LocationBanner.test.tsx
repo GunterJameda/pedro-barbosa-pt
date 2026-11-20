@@ -10,7 +10,7 @@ async function renderWith(availability: Availability, workMode: WorkMode) {
   renderWithTheme(<LocationBanner />);
 }
 
-// The banner's heading also says "open to remote work", so match the status line only.
+// The banner's heading also says "open to ...", so match the status line only.
 const statusLine = () => screen.queryByText(/^Open to /);
 
 describe("LocationBanner", () => {
@@ -23,6 +23,13 @@ describe("LocationBanner", () => {
     await renderWith("open", "remote-only");
     expect(statusLine()).toHaveTextContent("Open to remote roles");
     expect(screen.queryByText(/hybrid/i)).not.toBeInTheDocument();
+  });
+
+  it("builds the heading from the same setting as the status line", async () => {
+    await renderWith("open", "remote-only");
+    expect(
+      screen.getByRole("heading", { name: "Based in Porto, open to remote roles." }),
+    ).toBeVisible();
   });
 
   it("drops the status line when not looking", async () => {

@@ -583,7 +583,7 @@
     },
     "LocationBanner": {
       "eyebrow": "Location & Remote Work",
-      "title": "Based in {city}, open to remote work.",
+      "title": "Based in {city}, open to {workModeRoles}.",
       "text": "Comfortable working asynchronously and autonomously, and in close collaboration during key milestones.",
       "openTo": "Open to {workModeRoles}"
     },
