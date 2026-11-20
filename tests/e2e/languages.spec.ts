@@ -111,11 +111,13 @@ test.describe("Portuguese pages", () => {
 
   test("lists every page in both languages in the sitemap", async ({ request }) => {
     const sitemap = await (await request.get("/sitemap.xml")).text();
+    // The home pages have no trailing slash: "https://pedrobarbosa.pt", not ".../".
+    const full = (route: string) => new URL(route, SITE).href.replace(/\/$/, "");
     for (const route of PAGE_ROUTES) {
-      const english = new URL(route, SITE).href;
+      const english = full(route);
       expect(sitemap).toContain(`<loc>${english}</loc>`);
-      expect(sitemap).toContain(`<loc>${new URL(portuguese(route), SITE).href}</loc>`);
-      expect(sitemap).toContain(`hreflang="pt-PT" href="${new URL(portuguese(route), SITE).href}"`);
+      expect(sitemap).toContain(`<loc>${full(portuguese(route))}</loc>`);
+      expect(sitemap).toContain(`hreflang="pt-PT" href="${full(portuguese(route))}"`);
       expect(sitemap).toContain(`hreflang="x-default" href="${english}"`);
     }
   });
