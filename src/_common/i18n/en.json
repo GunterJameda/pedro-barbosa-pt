@@ -582,7 +582,7 @@
       "link": "View profile"
     },
     "LocationBanner": {
-      "eyebrow": "Location & Remote Work",
+      "eyebrow": "Location & Availability",
       "title": "Based in {city}.",
       "text": "Comfortable working asynchronously and autonomously, and in close collaboration during key milestones.",
       "openTo": "Open to {workModeRoles}"
