@@ -1,6 +1,6 @@
 import type { Page } from "@playwright/test";
 import { PAGE_ROUTES } from "@tests/pages";
-import { expect, isPhone, test } from "./fixtures";
+import { expect, EXPECTS_404, isPhone, test } from "./fixtures";
 import { followLink, portuguese, visit } from "./helpers";
 
 const SITE = "https://pedrobarbosa.pt";
@@ -159,6 +159,30 @@ test.describe("language switcher", () => {
     await expect(other).toHaveAttribute("hreflang", "pt-PT");
     await expect(other).toHaveAttribute("lang", "pt-PT");
   });
+});
+
+test.describe("missing pages", () => {
+  test.beforeEach(({}, testInfo) => {
+    testInfo.annotations.push({ type: EXPECTS_404 });
+  });
+
+  // Next.js can only show the English global 404 for addresses without a page.
+  for (const address of ["/xyz", "/pt/xyz"]) {
+    test(`${address} is the English 404, and its language link leads to a home page`, async ({
+      page,
+      viewport,
+    }) => {
+      const response = await visit(page, address);
+      expect(response?.status()).toBe(404);
+      await expect(page.locator("html")).toHaveAttribute("lang", "en");
+      await expect(page.getByRole("heading", { level: 1 })).toBeVisible();
+      const link = (await switcher(page, isPhone(viewport?.width))).getByRole("link", {
+        name: "Português",
+      });
+      await expect(link).toHaveAttribute("href", "/pt");
+      expect((await page.request.get("/pt")).status()).toBe(200);
+    });
+  }
 });
 
 test.describe("remembered choice", () => {
