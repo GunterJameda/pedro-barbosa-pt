@@ -92,7 +92,7 @@
   "home": {
     "Hero": {
       "title": "Hello, I'm {name}.",
-      "text": "Senior Frontend Engineer specialising in <highlight>React</highlight>,<gap></gap> <highlight>Next.js</highlight> and <highlight>TypeScript</highlight>, with a strong foundation in <highlight>Angular</highlight>. Building resilient multi-tenant apps, design systems, and modern frontend architectures."
+      "text": "Senior Frontend Engineer specialising in <highlight>React</highlight>,<gap></gap> <highlight>Next.js</highlight> and <highlight>TypeScript</highlight>, with a strong foundation in <highlight>Angular</highlight>. Building resilient multi-tenant apps, design systems and modern frontend architectures."
     },
     "PersonSchema": {
       "knowsAbout": ["React", "Next.js", "TypeScript", "Angular"]
@@ -107,8 +107,8 @@
     },
     "AboutHero": {
       "eyebrow": "Profile & Architecture Philosophy",
-      "title": "Engineering with care, pragmatism, and attention to detail.",
-      "description": "Senior Frontend Engineer · Building for the web since {careerStartYear}. Specialising in frontend modernisation and scalable design systems. My practice unites clean architectural boundaries, accessible component systems, and empathetic, high-velocity collaboration across product, design, and engineering squads.",
+      "title": "Engineering with care, pragmatism and attention to detail.",
+      "description": "Senior Frontend Engineer · Building for the web since {careerStartYear}. Specialising in frontend modernisation and scalable design systems. My practice unites clean architectural boundaries, accessible component systems and empathetic, high-velocity collaboration across product, design and engineering squads.",
       "pillars": {
         "specialisation": {
           "tag": "Specialisation",
@@ -170,7 +170,7 @@
       "practices": {
         "codeReviews": {
           "title": "Collaborative Code Reviews",
-          "description": "Focus on constructive, ego-free feedback, keeping PRs moving so teammates aren't blocked, and leaving files cleaner than I found them.",
+          "description": "Focus on constructive, ego-free feedback, keeping PRs moving so teammates aren't blocked and leaving files cleaner than I found them.",
           "tagLeft": "Focus: Readability & Reliability",
           "tagRight": "Mentorship"
         },
@@ -182,7 +182,7 @@
         },
         "crossFunctional": {
           "title": "Cross-functional Bridge",
-          "description": "Working closely with designers, backend engineers, and product. Thinking through what happens when things go wrong (slow networks, errors, missing data) before users see it.",
+          "description": "Working closely with designers, backend engineers and product. Thinking through what happens when things go wrong (slow networks, errors, missing data) before users see it.",
           "tagLeft": "Design ⇄ Code Synergy",
           "tagRight": "Design Tokens"
         }
@@ -191,12 +191,12 @@
     "TechnicalToolbox": {
       "eyebrow": "Capabilities & Stacks",
       "title": "Technical Toolbox",
-      "description": "Technologies chosen for maintainability, speed, ecosystem stability, and developer ergonomics.",
+      "description": "Technologies chosen for maintainability, speed, ecosystem stability and developer ergonomics.",
       "groups": {
         "coreState": {
           "title": "Core & State",
           "roleBadge": "Primary Stack",
-          "description": "React, Next.js, and TypeScript daily drivers paired with resilient state management architectures.",
+          "description": "React, Next.js and TypeScript daily drivers paired with resilient state management architectures.",
           "skills": [
             "TypeScript",
             "React",
@@ -213,7 +213,7 @@
         "designSystems": {
           "title": "UI & Design Systems",
           "roleBadge": "Architecture",
-          "description": "Reusable component libraries, design token pipelines, and dynamic JSON-driven UI rendering.",
+          "description": "Reusable component libraries, design token pipelines and dynamic JSON-driven UI rendering.",
           "skills": [
             "Design System Architecture",
             "JSON-driven Components",
@@ -248,16 +248,16 @@
   },
   "experience": {
     "page": {
-      "description": "My track record since {careerStartYear}: shipping production web apps, migrating legacy architectures to microfrontends, and building scalable design systems.",
+      "description": "My track record since {careerStartYear}: shipping production web apps, migrating legacy architectures to microfrontends and building scalable design systems.",
       "ctaTitle": "Interested in discussing a role or viewing code?",
-      "ctaText": "Whether you are planning a modern frontend migration or scaling an engineering squad, let's talk architecture, execution, and technical fit.",
+      "ctaText": "Whether you are planning a modern frontend migration or scaling an engineering squad, let's talk architecture, execution and technical fit.",
       "ctaButton": "Explore Personal Projects"
     },
     "period": "{start} - {end}",
     "ExperienceHero": {
       "eyebrow": "Career Timeline & Architectural Impact",
       "title": "Professional Experience",
-      "description": "A chronological track record of shipping production web applications, migrating legacy architectures to modern microfrontends, and building scalable design systems since {careerStartYear}.",
+      "description": "A chronological track record of shipping production web applications, migrating legacy architectures to modern microfrontends and building scalable design systems since {careerStartYear}.",
       "metrics": {
         "tenure": {
           "tag": "Tenure",
@@ -353,8 +353,8 @@
           "tags": ["AngularJS", "Ionic v1", "JavaScript", "Stripe API", "Multi-Tenant UI"],
           "bulletPoints": [
             "Maintained and extended an expansive multi-tenant platform supporting production web and hybrid mobile applications, precisely adapting interfaces and localised business logic for high-volume international restaurant brands.",
-            "Implemented a unified Stripe payment integration, dynamically configuring the payment form's appearance, verification flow, and client branding via tenant schema rules.",
-            "Owned feature implementation, comprehensive integration tests, and structured handoff to QA teams, resolving regression defects and orchestrating zero-downtime production rollouts."
+            "Implemented a unified Stripe payment integration, dynamically configuring the payment form's appearance, verification flow and client branding via tenant schema rules.",
+            "Owned feature implementation, comprehensive integration tests and structured handoff to QA teams, resolving regression defects and orchestrating zero-downtime production rollouts."
           ]
         },
         "pricehubble": {
@@ -363,7 +363,7 @@
           "roleTitle": "Frontend Engineer",
           "tags": ["single-spa", "React", "Next.js", "TypeScript", "Angular", "CI/CD Workflows"],
           "bulletPoints": [
-            "Partnered directly with another engineer to plan, architect, and deliver the initial phase of decomposing a massive Angular monolith into microfrontends, segregating business domains cleanly.",
+            "Partnered directly with another engineer to plan, architect and deliver the initial phase of decomposing a massive Angular monolith into microfrontends, segregating business domains cleanly.",
             "Established isolated repositories and CI/CD deployment pipelines using single-spa orchestration for route coordination, unlocking autonomous deployment pipelines for independent product squads.",
             "Engineered a redesigned user onboarding wizard in React and Next.js, iterating in close synchronization with product designers to refine UX heuristics and optimise step-completion metrics."
           ]
@@ -406,7 +406,7 @@
           "industry": "Healthcare Informatics",
           "company": "Glintt",
           "roleTitle": "Junior Frontend Engineer",
-          "description": "Developed an enterprise healthcare application supporting rigorous clinical trial data collection, participant management, and protocol tracking workflows.",
+          "description": "Developed an enterprise healthcare application supporting rigorous clinical trial data collection, participant management and protocol tracking workflows.",
           "tags": ["Angular", "TypeScript", "Clinical Systems"]
         }
       }
@@ -490,7 +490,7 @@
         "detailCards": [
           {
             "title": "Frontend Implementation",
-            "description": "Responsive pages rendered on the server, one theme for every colour and text style, and share images and structured data for search and social links.",
+            "description": "Responsive pages rendered on the server, one theme for every colour and text style and share images and structured data for search and social links.",
             "tags": ["Next.js", "React", "TypeScript", "Material UI"]
           },
           {
@@ -525,7 +525,7 @@
         "detailCards": [
           {
             "title": "Frontend Implementation",
-            "description": "Implemented a designer's visual design, including asset management, the transactions table, and a chart tracking how the real average price evolved with each transaction.",
+            "description": "Implemented a designer's visual design, including asset management, the transactions table and a chart tracking how the real average price evolved with each transaction.",
             "tags": ["React", "TypeScript", "Material UI", "Chart.js"]
           },
           {
@@ -561,12 +561,12 @@
     },
     "ContactHero": {
       "eyebrow": "Contact & Work Inquiries",
-      "title": "Let's talk architecture, teams, or new opportunities.",
-      "description": "Scaling a product team, modernising frontend foundations, or looking for a Senior Frontend Engineer who delivers with craft and pragmatic ownership? Let's talk."
+      "title": "Let's talk architecture, teams or new opportunities.",
+      "description": "Scaling a product team, modernising frontend foundations or looking for a Senior Frontend Engineer who delivers with craft and pragmatic ownership?"
     },
     "EmailCard": {
       "eyebrow": "Direct Email",
-      "text": "Best for interview inquiries, technical discussions, or sending over job descriptions and specifications.",
+      "text": "Best for interview inquiries, technical discussions or sending over job descriptions and specifications.",
       "openMail": "Open mail client"
     },
     "CopyEmailButton": {
@@ -594,19 +594,19 @@
       "points": {
         "icRoles": {
           "title": "Senior Frontend IC Roles",
-          "description": "Hands-on individual contributor role focusing on deep implementation, rendering performance, bundle discipline, and UI fluidity."
+          "description": "Hands-on individual contributor role focusing on deep implementation, rendering performance, bundle discipline and UI fluidity."
         },
         "coreStack": {
           "title": "Core Stack",
-          "description": "Modern React, Next.js, and TypeScript ecosystems, backed with pragmatic cross-framework architectural experience (including Angular-to-React migrations)."
+          "description": "Modern React, Next.js and TypeScript ecosystems, backed with pragmatic cross-framework architectural experience (including Angular-to-React migrations)."
         },
         "scopeImpact": {
           "title": "Scope & Impact",
-          "description": "Frontend modernisation, systematic Design System libraries (JSON/data-driven UI engines), multi-tenant enterprise applications, and accessible state architectures."
+          "description": "Frontend modernisation, systematic Design System libraries (JSON/data-driven UI engines), multi-tenant enterprise applications and accessible state architectures."
         },
         "culture": {
           "title": "Engineering Culture",
-          "description": "Pragmatic teams valuing clean ergonomics, thoughtful code reviews, high empathy, written problem statements, and sensible automated testing."
+          "description": "Pragmatic teams valuing clean ergonomics, thoughtful code reviews, high empathy, written problem statements and sensible automated testing."
         }
       }
     }

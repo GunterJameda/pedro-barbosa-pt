@@ -58,7 +58,7 @@ describe("career start year", () => {
     expect(text).toContain(`Frontend · Since ${OTHER_YEAR}`);
     expect(screen.getByText(`Since ${OTHER_YEAR}`)).toBeInTheDocument();
     expect(text).toContain(
-      `microfrontends, and building scalable design systems since ${OTHER_YEAR}.`,
+      `microfrontends and building scalable design systems since ${OTHER_YEAR}.`,
     );
     expect(text).toContain(`BSc in Informatics Engineering · 2014 - ${OTHER_YEAR}`);
     expect(text).toContain(`Jul ${OTHER_YEAR} - Mar 2018`);
