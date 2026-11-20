@@ -140,13 +140,13 @@
         "rootIntent": {
           "badge": "Root Intent",
           "title": "Solve the Root Need, Not Just the Spec",
-          "description": "Looking past static tickets to understand the real user behavior and business outcome behind the requirement. True engineering interrogates assumptions upfront to ship durable, high-impact solutions.",
+          "description": "Looking past static tickets to understand the real user behaviour and business outcome behind the requirement. True engineering interrogates assumptions upfront to ship durable, high-impact solutions.",
           "highlight": "Addressing genuine human and system needs"
         },
         "pragmaticSimplicity": {
           "badge": "Pragmatic Simplicity",
           "title": "Pragmatic, High-Leverage Architecture",
-          "description": "Finding the leanest, most elegant implementation that maximizes existing systems without unnecessary abstraction. Choosing proven patterns that deliver high business leverage with minimal team friction.",
+          "description": "Finding the leanest, most elegant implementation that maximises existing systems without unnecessary abstraction. Choosing proven patterns that deliver high business leverage with minimal team friction.",
           "highlight": "Maximal leverage through existing architecture"
         },
         "systemResilience": {
@@ -342,7 +342,7 @@
           ],
           "bulletPoints": [
             "Proactively identified and implemented codebase improvements in an existing financial operations application, balancing structural refactoring alongside accelerated feature delivery.",
-            "Contributed to deep state-management migrations from legacy Redux and Recoil architectures directly to idiomatic Context API patterns, minimizing mental overhead and bundle weight.",
+            "Contributed to deep state-management migrations from legacy Redux and Recoil architectures directly to idiomatic Context API patterns, minimising mental overhead and bundle weight.",
             "Spearheaded component migrations from Chakra UI to an internal Material UI-based unified design system, including a dynamic component engine that rendered complex workflows straight from JSON configurations and data schemas."
           ]
         },
@@ -352,7 +352,7 @@
           "roleTitle": "Senior Frontend Engineer",
           "tags": ["AngularJS", "Ionic v1", "JavaScript", "Stripe API", "Multi-Tenant UI"],
           "bulletPoints": [
-            "Maintained and extended an expansive multi-tenant platform supporting production web and hybrid mobile applications, precisely adapting interfaces and localized business logic for high-volume international restaurant brands.",
+            "Maintained and extended an expansive multi-tenant platform supporting production web and hybrid mobile applications, precisely adapting interfaces and localised business logic for high-volume international restaurant brands.",
             "Implemented a unified Stripe payment integration, dynamically configuring the payment form's appearance, verification flow, and client branding via tenant schema rules.",
             "Owned feature implementation, comprehensive integration tests, and structured handoff to QA teams, resolving regression defects and orchestrating zero-downtime production rollouts."
           ]
@@ -365,7 +365,7 @@
           "bulletPoints": [
             "Partnered directly with another engineer to plan, architect, and deliver the initial phase of decomposing a massive Angular monolith into microfrontends, segregating business domains cleanly.",
             "Established isolated repositories and CI/CD deployment pipelines using single-spa orchestration for route coordination, unlocking autonomous deployment pipelines for independent product squads.",
-            "Engineered a redesigned user onboarding wizard in React and Next.js, iterating in close synchronization with product designers to refine UX heuristics and optimize step-completion metrics."
+            "Engineered a redesigned user onboarding wizard in React and Next.js, iterating in close synchronization with product designers to refine UX heuristics and optimise step-completion metrics."
           ]
         },
         "luxclusif": {
@@ -381,7 +381,7 @@
           ],
           "bulletPoints": [
             "Joined as the company's first frontend developer, single-handedly setting engineering conventions and building its first application, to streamline second-hand luxury handbag acquisition and authentication.",
-            "Architected and published version 1.0 of the company's internal component library, standardizing interaction design, visual tokens, and reusable primitives across distributed business tools."
+            "Architected and published version 1.0 of the company's internal component library, standardising interaction design, visual tokens, and reusable primitives across distributed business tools."
           ]
         }
       }
@@ -399,7 +399,7 @@
           "industry": "Supply Chain Tech",
           "company": "HUUB",
           "roleTitle": "Junior Frontend Engineer",
-          "description": "Developed a specialized warehouse quality control application supporting real-time inspection workflows for incoming clothing garments and manufacturing defect auditing.",
+          "description": "Developed a specialised warehouse quality control application supporting real-time inspection workflows for incoming clothing garments and manufacturing defect auditing.",
           "tags": ["Angular", "TypeScript", "Logistics UX"]
         },
         "glintt": {
@@ -602,7 +602,7 @@
         },
         "scopeImpact": {
           "title": "Scope & Impact",
-          "description": "Frontend modernization, systematic Design System libraries (JSON/data-driven UI engines), multi-tenant enterprise applications, and accessible state architectures."
+          "description": "Frontend modernisation, systematic Design System libraries (JSON/data-driven UI engines), multi-tenant enterprise applications, and accessible state architectures."
         },
         "culture": {
           "title": "Engineering Culture",
