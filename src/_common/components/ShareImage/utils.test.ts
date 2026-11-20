@@ -4,7 +4,13 @@ import { NAME, PAGES } from "@/_common/constants";
 import { LOCALES } from "@/_common/i18n";
 import { messages } from "@tests/intl";
 import { FONTS } from "./constants";
-import { loadFonts, loadLogo, shareImageMetadata, shareImageRoute } from "./utils";
+import {
+  loadFonts,
+  loadLogo,
+  shareImageAddress,
+  shareImageMetadata,
+  shareImageRoute,
+} from "./utils";
 
 const ROLE = messages.profile.role;
 const otherPages = PAGES.filter(({ href }) => href !== "/");
@@ -97,5 +103,20 @@ describe("loadLogo", () => {
 
   it("reads it once and hands out the same result afterwards", () => {
     expect(loadLogo()).toBe(loadLogo());
+  });
+});
+
+describe("shareImageAddress", () => {
+  it("is the domain alone for home in the default language", () => {
+    expect(shareImageAddress("en")).toBe("pedrobarbosa.pt");
+  });
+
+  it("adds the language's prefix for home in the other language", () => {
+    expect(shareImageAddress("pt-PT", "/")).toBe("pedrobarbosa.pt/pt");
+  });
+
+  it("adds the page's path, with the language's prefix when there is one", () => {
+    expect(shareImageAddress("en", "/about")).toBe("pedrobarbosa.pt/about");
+    expect(shareImageAddress("pt-PT", "/about")).toBe("pedrobarbosa.pt/pt/about");
   });
 });

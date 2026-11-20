@@ -1,0 +1,1 @@
+export { pageUrl } from "./pageUrl";

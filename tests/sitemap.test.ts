@@ -19,7 +19,7 @@ describe("sitemap", () => {
 
   it("lists each page's versions in both languages, with English as the default", () => {
     for (const route of PAGE_ROUTES) {
-      const english = `${SITE_URL}${route}`;
+      const english = route === "/" ? SITE_URL : `${SITE_URL}${route}`;
       const expected = {
         en: english,
         "pt-PT": `${SITE_URL}${portuguese(route)}`,
@@ -31,6 +31,12 @@ describe("sitemap", () => {
         expect(entry?.alternates?.languages, url).toEqual(expected);
       }
     }
+  });
+
+  it("writes the home pages without a trailing slash", () => {
+    expect(urls).toContain(SITE_URL);
+    expect(urls).toContain(`${SITE_URL}/pt`);
+    expect(urls.filter((url) => url.endsWith("/"))).toEqual([]);
   });
 
   it("lists each page once", () => {

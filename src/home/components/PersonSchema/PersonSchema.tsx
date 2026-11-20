@@ -1,7 +1,7 @@
 import { useLocale, useTranslations } from "next-intl";
+import { pageUrl } from "@/_common/utils/pageUrl";
 import { JsonLd } from "@/home/components/JsonLd";
 import { PERSON } from "./content";
-import { homePageUrl } from "./utils";
 import type { ProfilePageData } from "./types";
 
 /** Tells search engines this page is the profile of the person the site is about (JSON-LD). */
@@ -11,7 +11,7 @@ export function PersonSchema() {
   const profilePage: ProfilePageData = {
     "@context": "https://schema.org",
     "@type": "ProfilePage",
-    url: homePageUrl(locale),
+    url: pageUrl(locale, "/"),
     inLanguage: locale,
     description: t("site.description"),
     mainEntity: {

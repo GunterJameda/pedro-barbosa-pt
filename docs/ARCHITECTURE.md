@@ -265,7 +265,7 @@ Also:
 - **`robots.ts`** allows every page and points to the sitemap.
 - **Structured data:** the home page renders two JSON-LD scripts, `PersonSchema` (a `ProfilePage`
   about a `Person`, built from the constants and messages) and `WebsiteSchema` (the site's name, for
-  search results). The `ProfilePage` names the page's own address (`url`, from `homePageUrl`), its
+  search results). The `ProfilePage` names the page's own address (`url`, from `pageUrl`), its
   language (`inLanguage`) and the site description in that language. The `WebSite` keeps the site
   root as its `url`, lists every language in `inLanguage` and carries the same description. Both
   pass their data to `home/components/JsonLd`, which serializes it with

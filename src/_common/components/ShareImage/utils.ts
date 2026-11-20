@@ -3,10 +3,10 @@ import { join } from "node:path";
 import { notFound } from "next/navigation";
 import { hasLocale } from "next-intl";
 import { getLocale, getTranslations } from "next-intl/server";
-import { NAME, PAGES } from "@/_common/constants";
+import { NAME, PAGES, SITE_URL } from "@/_common/constants";
 import type { Locale } from "@/_common/i18n";
 import { LOCALES } from "@/_common/i18n";
-import { getPathname } from "@/_common/navigation";
+import { pageUrl } from "@/_common/utils/pageUrl";
 import { CONTENT_TYPE, FONTS, SIZE } from "./constants";
 import { DOMAIN } from "./content";
 import type { LoadedFont } from "./types";
@@ -41,8 +41,12 @@ const pageFor = (path?: string) => PAGES.find((page) => page.href === path);
 
 /** Where the image for a page's address is served, in a language. */
 function imagePath(locale: Locale, href = "/") {
-  const pagePath = getPathname({ locale, href });
-  return `${pagePath === "/" ? "" : pagePath}/opengraph-image`;
+  return `${pageUrl(locale, href).slice(SITE_URL.length)}/opengraph-image`;
+}
+
+/** A page's address as the image shows it, without the scheme: "pedrobarbosa.pt/about". */
+export function shareImageAddress(locale: Locale, href = "/") {
+  return pageUrl(locale, href).replace(SITE_URL, DOMAIN);
 }
 
 /**
@@ -62,14 +66,13 @@ export function shareImageRoute(path?: string) {
       const { locale } = await params;
       if (!hasLocale(LOCALES, locale)) notFound();
       const t = await getTranslations({ locale });
-      const pagePath = getPathname({ locale, href: page?.href ?? "/" });
       return ShareImage({
         fonts: await loadFonts(),
         logo: await loadLogo(),
         pageName: page && t(`pages.${page.key}`),
         role: t("profile.role"),
         tags: t.raw("common.ShareImage.tags") as string[],
-        address: `${DOMAIN}${pagePath === "/" ? "" : pagePath}`,
+        address: shareImageAddress(locale, page?.href),
       });
     },
   };
