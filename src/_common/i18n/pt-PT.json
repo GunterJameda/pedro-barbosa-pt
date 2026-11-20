@@ -426,7 +426,7 @@
       "ctaButton": "Ver Experiência"
     },
     "ProjectsHero": {
-      "eyebrow": "Trabalho Independente e Engenho",
+      "eyebrow": "Trabalho Independente e Rigor",
       "title": "Projetos Pessoais",
       "description": "Produtos que construo fora do trabalho para resolver problemas reais, desde a definição dos requisitos até ao software a funcionar.",
       "cards": {
@@ -562,7 +562,7 @@
     "ContactHero": {
       "eyebrow": "Contacto e Propostas de Trabalho",
       "title": "Falemos de arquitetura, equipas ou novas oportunidades.",
-      "description": "A escalar uma equipa de produto, a modernizar as bases do frontend ou à procura de um Frontend Engineer Sénior que entregue com engenho e responsabilidade pragmática? Falemos."
+      "description": "A escalar uma equipa de produto, a modernizar as bases do frontend ou à procura de um Frontend Engineer Sénior que entregue com rigor e responsabilidade pragmática?"
     },
     "EmailCard": {
       "eyebrow": "Email Direto",
