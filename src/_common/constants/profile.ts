@@ -3,7 +3,7 @@ import type { Availability, WorkMode } from "./types";
 export const NAME = "Pedro Barbosa";
 
 export const CITY = "Porto";
-export const COUNTRY = "Portugal";
+const COUNTRY = "Portugal";
 export const COUNTRY_CODE = "PT";
 export const LOCATION = `${CITY}, ${COUNTRY}`;
 
