@@ -2,7 +2,6 @@ import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 import { useTranslations } from "next-intl";
 import { CAREER_START_YEAR } from "@/_common/constants";
-import { fontMono } from "@/_common/theme";
 import { CardFooter } from "@/_common/components/CardFooter";
 import { SectionHeading } from "@/_common/components/SectionHeading";
 import { StatusDot } from "@/_common/components/StatusDot";
@@ -37,19 +36,7 @@ export function TechnicalToolbox() {
 
             <TagList tags={t.raw(`groups.${group}.skills`) as string[]} />
 
-            <CardFooter
-              useFlexGap
-              sx={{
-                justifyContent: "space-between",
-                // On narrow cards the right label moves below, whole.
-                flexWrap: "wrap",
-                rowGap: 0.5,
-                "& > *": { whiteSpace: "nowrap" },
-                color: "text.secondary",
-                fontFamily: fontMono,
-                fontSize: 12,
-              }}
-            >
+            <CardFooter variant="split">
               <span>{t(`groups.${group}.footerLeft`)}</span>
               <Typography component="span" sx={{ color: "slate.300", font: "inherit" }}>
                 {t(`groups.${group}.footerRight`, { careerStartYear: CAREER_START_YEAR })}
