@@ -268,7 +268,7 @@ Also:
   search results). The `ProfilePage` names the page's own address (`url`, from `homePageUrl`), its
   language (`inLanguage`) and the site description in that language. The `WebSite` keeps the site
   root as its `url`, lists every language in `inLanguage` and carries the same description. Both
-  pass their data to `_common/components/JsonLd`, which serializes it with
+  pass their data to `home/components/JsonLd`, which serializes it with
   `serializeJsonLd` (in its `utils.ts`). That escapes `<`, so a value can't close the script tag or
   open an HTML comment, and the U+2028 and U+2029 separators, which older JavaScript parsers reject
   in strings. Data with no JSON form (a function, or a `toJSON` that returns nothing) throws, so the

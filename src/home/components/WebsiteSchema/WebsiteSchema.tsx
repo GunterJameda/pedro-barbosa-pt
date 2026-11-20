@@ -1,6 +1,6 @@
 import { useTranslations } from "next-intl";
 import { LOCALES } from "@/_common/i18n";
-import { JsonLd } from "@/_common/components/JsonLd";
+import { JsonLd } from "@/home/components/JsonLd";
 import { WEBSITE } from "./content";
 import type { WebsiteData } from "./types";
 

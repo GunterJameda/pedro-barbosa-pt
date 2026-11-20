@@ -1,5 +1,5 @@
 import { useLocale, useTranslations } from "next-intl";
-import { JsonLd } from "@/_common/components/JsonLd";
+import { JsonLd } from "@/home/components/JsonLd";
 import { PERSON } from "./content";
 import { homePageUrl } from "./utils";
 import type { ProfilePageData } from "./types";
