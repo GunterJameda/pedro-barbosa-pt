@@ -260,7 +260,7 @@
       "description": "Um percurso cronológico de aplicações web em produção, de migração de arquiteturas legadas para microfrontends modernos e de construção de design systems escaláveis desde {careerStartYear}.",
       "metrics": {
         "tenure": {
-          "tag": "Antiguidade",
+          "tag": "Experiência",
           "title": "Desde {careerStartYear}",
           "description": "Engenharia web em produção e entrega distribuída"
         },
@@ -364,7 +364,7 @@
           "tags": ["single-spa", "React", "Next.js", "TypeScript", "Angular", "Workflows de CI/CD"],
           "bulletPoints": [
             "Trabalhei diretamente com outro engenheiro para planear, desenhar e entregar a fase inicial da decomposição de um enorme monólito Angular em microfrontends, separando os domínios de negócio de forma limpa.",
-            "Criei repositórios isolados e pipelines de deployment CI/CD, com o single-spa a orquestrar a coordenação de rotas, o que deu autonomia de deployment às equipas de produto independentes.",
+            "Criei repositórios isolados e pipelines de deploy CI/CD, com o single-spa a orquestrar a coordenação de rotas, o que deu autonomia de deploy às equipas de produto independentes.",
             "Desenvolvi um assistente de onboarding de utilizadores redesenhado em React e Next.js, iterando em estreita sintonia com designers de produto para afinar heurísticas de UX e otimizar as métricas de conversão de cada passo."
           ]
         },
@@ -471,12 +471,12 @@
         "kind": "Produto Frontend",
         "category": "Site pessoal",
         "status": "Código aberto · Online",
-        "summary": "O meu site pessoal, onde mostro a minha experiência e os meus projetos. Trato-o como um produto no trabalho: um backlog priorizado, commits pequenos e focados, e verificações que têm de passar antes de qualquer publicação.",
+        "summary": "O meu site pessoal, onde mostro a minha experiência e os meus projetos. Trato-o como um produto no trabalho: um backlog priorizado, commits pequenos e focados, e verificações que têm de passar antes de qualquer deploy.",
         "details": "Cada push executa verificações de formatação e lint, verificações de tipos, testes e uma build de produção, e uma verificação falhada bloqueia o deploy. Cada página é enviada com cabeçalhos de segurança que só deixam carregar os ficheiros do próprio site, e os testes de browser tentam ataques de injeção de scripts, de framing e de redirecionamento. O código é público, por isso pode ver como trabalho, e não apenas ler sobre isso.",
         "takeaways": [
           {
             "title": "Barreiras de qualidade",
-            "text": "Formatação, lint, verificação de tipos, testes e build correm em cada push, e nada é publicado se não passarem."
+            "text": "Formatação, lint, verificação de tipos, testes e build correm em cada push, e nenhum deploy avança se não passarem."
           },
           {
             "title": "Testes que sobrevivem a refactors",
@@ -495,7 +495,7 @@
           },
           {
             "title": "Qualidade e Entrega",
-            "description": "Testes de componentes e de páginas em cada push, com deployments que esperam que passem, além de testes de browser e de acessibilidade em Chromium, Firefox e WebKit, executados localmente e no site em produção.",
+            "description": "Testes de componentes e de páginas em cada push, com deploys que esperam que passem, além de testes de browser e de acessibilidade em Chromium, Firefox e WebKit, executados localmente e no site em produção.",
             "tags": ["Vitest", "Testing Library", "Playwright", "GitHub Actions", "Vercel"]
           }
         ]
