@@ -158,7 +158,7 @@
         "userExperience": {
           "badge": "Experiência do Utilizador",
           "title": "UX Sem Atritos e Desempenho Percebido",
-          "description": "Tratar o layout responsivo, a navegação por teclado e a fluidez das imagens como requisitos de arquitetura de primeira ordem, e não como retoques finais. Um feedback instantâneo transmite confiança profunda na qualidade do produto.",
+          "description": "Tratar o layout responsivo, a navegação por teclado e a fluidez das animações como requisitos de arquitetura de primeira ordem, e não como retoques finais. Um feedback instantâneo transmite confiança profunda na qualidade do produto.",
           "highlight": "Resposta imediata a cada interação, zero saltos de layout, orçamentos de frames rigorosos"
         }
       }
