@@ -3,7 +3,8 @@ import { describe, expect, it } from "vitest";
 import { NAME, PAGES } from "@/_common/constants";
 import { LOCALES } from "@/_common/i18n";
 import { messages } from "@tests/intl";
-import { shareImageMetadata, shareImageRoute } from "./utils";
+import { FONTS } from "./constants";
+import { loadFonts, loadLogo, shareImageMetadata, shareImageRoute } from "./utils";
 
 const ROLE = messages.profile.role;
 const otherPages = PAGES.filter(({ href }) => href !== "/");
@@ -69,5 +70,32 @@ describe("shareImageRoute", () => {
     await expect(
       shareImageRoute("/about").Image({ params: Promise.resolve({ locale: "xx" }) }),
     ).rejects.toThrow();
+  });
+});
+
+describe("loadFonts", () => {
+  it("reads every font file the image uses", async () => {
+    const fonts = await loadFonts();
+    expect(fonts.map(({ name, weight }) => ({ name, weight }))).toEqual(
+      FONTS.map(({ name, weight }) => ({ name, weight })),
+    );
+    for (const { data } of fonts) expect(data.byteLength).toBeGreaterThan(0);
+  });
+
+  it("reads them once and hands out the same result afterwards", () => {
+    expect(loadFonts()).toBe(loadFonts());
+  });
+});
+
+describe("loadLogo", () => {
+  it("is the site's icon as an SVG data address", async () => {
+    const logo = await loadLogo();
+    const prefix = "data:image/svg+xml;base64,";
+    expect(logo.startsWith(prefix)).toBe(true);
+    expect(Buffer.from(logo.slice(prefix.length), "base64").toString()).toContain("<svg");
+  });
+
+  it("reads it once and hands out the same result afterwards", () => {
+    expect(loadLogo()).toBe(loadLogo());
   });
 });

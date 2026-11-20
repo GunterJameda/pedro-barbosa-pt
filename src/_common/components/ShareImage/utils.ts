@@ -1,3 +1,5 @@
+import { readFile } from "node:fs/promises";
+import { join } from "node:path";
 import { notFound } from "next/navigation";
 import { hasLocale } from "next-intl";
 import { getLocale, getTranslations } from "next-intl/server";
@@ -5,9 +7,34 @@ import { NAME, PAGES } from "@/_common/constants";
 import type { Locale } from "@/_common/i18n";
 import { LOCALES } from "@/_common/i18n";
 import { getPathname } from "@/_common/navigation";
-import { CONTENT_TYPE, SIZE } from "./constants";
+import { CONTENT_TYPE, FONTS, SIZE } from "./constants";
 import { DOMAIN } from "./content";
+import type { LoadedFont } from "./types";
 import { ShareImage } from "./ShareImage";
+
+let fonts: Promise<LoadedFont[]> | undefined;
+let logo: Promise<string> | undefined;
+
+/** The image's font files, read once and kept: the image renderer can't use next/font. */
+export function loadFonts() {
+  fonts ??= Promise.all(
+    FONTS.map(async ({ name, file, weight }) => ({
+      name,
+      weight,
+      style: "normal" as const,
+      data: await readFile(join(process.cwd(), "assets/fonts", file)),
+    })),
+  );
+  return fonts;
+}
+
+/** The site's favicon as a data address, read once and kept, so the image carries the same mark. */
+export function loadLogo() {
+  logo ??= readFile(join(process.cwd(), "src/app/icon.svg")).then(
+    (file) => `data:image/svg+xml;base64,${file.toString("base64")}`,
+  );
+  return logo;
+}
 
 /** The page at a path, or none for the site-wide image. */
 const pageFor = (path?: string) => PAGES.find((page) => page.href === path);
@@ -37,6 +64,8 @@ export function shareImageRoute(path?: string) {
       const t = await getTranslations({ locale });
       const pagePath = getPathname({ locale, href: page?.href ?? "/" });
       return ShareImage({
+        fonts: await loadFonts(),
+        logo: await loadLogo(),
         pageName: page && t(`pages.${page.key}`),
         role: t("profile.role"),
         tags: t.raw("common.ShareImage.tags") as string[],

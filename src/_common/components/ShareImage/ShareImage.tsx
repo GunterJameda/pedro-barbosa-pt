@@ -1,7 +1,8 @@
 import { ImageResponse } from "next/og";
 import { LOCATION, NAME } from "@/_common/constants";
 import { slate, surfaces, teal, white } from "@/_common/theme";
-import { FONT_DATA, LOGO, SIZE } from "./constants";
+import { SIZE } from "./constants";
+import type { LoadedFont } from "./types";
 
 interface ShareImageProps {
   /** The page's name, shown above mine. Left out on the site-wide image. */
@@ -10,13 +11,16 @@ interface ShareImageProps {
   tags: string[];
   /** The page's address, without the scheme: "pedrobarbosa.pt/about". */
   address: string;
+  fonts: LoadedFont[];
+  /** The site's mark, as a data address. */
+  logo: string;
 }
 
 /**
  * Link preview image shown when a page of the site is shared. With a page, it
  * also shows that page's name and address.
  */
-export function ShareImage({ pageName, role, tags, address }: ShareImageProps) {
+export function ShareImage({ pageName, role, tags, address, fonts, logo }: ShareImageProps) {
   return new ImageResponse(
     <div
       style={{
@@ -39,7 +43,7 @@ export function ShareImage({ pageName, role, tags, address }: ShareImageProps) {
         }}
       >
         {/* eslint-disable-next-line @next/next/no-img-element -- rendered to a PNG, not a page */}
-        <img src={LOGO} width={80} height={80} alt="" />
+        <img src={logo} width={80} height={80} alt="" />
         <div
           style={{
             color: slate[300],
@@ -140,6 +144,6 @@ export function ShareImage({ pageName, role, tags, address }: ShareImageProps) {
         {address}
       </div>
     </div>,
-    { ...SIZE, fonts: FONT_DATA },
+    { ...SIZE, fonts },
   );
 }
