@@ -1,4 +1,4 @@
-import { shareImageRoute } from "@/_common/components/shareImage";
+import { shareImageRoute } from "@/_common/utils/shareImage";
 
 // Without a path: the site-wide image, which the 404 page also uses.
 const route = shareImageRoute();

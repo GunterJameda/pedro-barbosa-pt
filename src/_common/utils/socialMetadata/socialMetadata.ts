@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { getLocale } from "next-intl/server";
 import { SITE_NAME } from "@/_common/constants";
 import { LOCALES, OPEN_GRAPH_LOCALES } from "@/_common/i18n";
-import { shareImageMetadata } from "@/_common/components/shareImage";
+import { shareImageMetadata } from "@/_common/utils/shareImage";
 
 /**
  * A page's link preview (Open Graph, and X's large image card) in the current

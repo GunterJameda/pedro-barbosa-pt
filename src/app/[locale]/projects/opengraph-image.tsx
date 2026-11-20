@@ -1,4 +1,4 @@
-import { shareImageRoute } from "@/_common/components/shareImage";
+import { shareImageRoute } from "@/_common/utils/shareImage";
 
 const route = shareImageRoute("/projects");
 
