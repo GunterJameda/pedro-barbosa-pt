@@ -4,9 +4,11 @@ import CssBaseline from "@mui/material/CssBaseline";
 import { ThemeProvider } from "@mui/material/styles";
 import { AppRouterCacheProvider } from "@mui/material-nextjs/v16-appRouter";
 import { Analytics } from "@vercel/analytics/next";
-import { NextIntlClientProvider } from "next-intl";
+import { NextIntlClientProvider, useMessages } from "next-intl";
 import type { Locale } from "@/_common/i18n";
+import { CLIENT_NAMESPACES } from "@/_common/i18n";
 import { fontVariables, theme } from "@/_common/theme";
+import { pickMessages } from "@/_common/utils/pickMessages";
 import { Footer } from "@/_common/components/Footer";
 import { Navbar } from "@/_common/components/Navbar";
 import { ScrollToTop } from "@/_common/components/ScrollToTop";
@@ -26,6 +28,9 @@ interface SiteDocumentProps {
  * addresses both use it, so every page looks the same around its content.
  */
 export function SiteDocument({ locale, children }: SiteDocumentProps) {
+  // Only what client components read goes to the browser, not the whole message file.
+  const messages = pickMessages(useMessages(), CLIENT_NAMESPACES);
+
   return (
     <html
       lang={locale}
@@ -34,7 +39,7 @@ export function SiteDocument({ locale, children }: SiteDocumentProps) {
       data-scroll-behavior="smooth"
     >
       <body>
-        <NextIntlClientProvider locale={locale}>
+        <NextIntlClientProvider locale={locale} messages={messages}>
           <AppRouterCacheProvider>
             <ThemeProvider theme={theme}>
               <CssBaseline enableColorScheme />
