@@ -37,7 +37,7 @@ export function SiteDocument({ locale, children }: SiteDocumentProps) {
         <NextIntlClientProvider locale={locale}>
           <AppRouterCacheProvider>
             <ThemeProvider theme={theme}>
-              <CssBaseline />
+              <CssBaseline enableColorScheme />
               <SkipLink />
               <Box
                 sx={{
