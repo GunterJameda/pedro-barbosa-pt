@@ -42,6 +42,11 @@ describe("MobileMenu", () => {
     expect(openButton()).toHaveAttribute("aria-expanded", "false");
   });
 
+  it("does not point at an element that only exists while open", () => {
+    renderMenu();
+    expect(openButton()).not.toHaveAttribute("aria-controls");
+  });
+
   it("opens from the menu button, and the button says it's open", async () => {
     renderMenu();
     await openMenu();

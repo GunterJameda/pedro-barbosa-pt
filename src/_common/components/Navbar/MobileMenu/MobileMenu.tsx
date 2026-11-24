@@ -11,7 +11,7 @@ import useMediaQuery from "@mui/material/useMediaQuery";
 import { useTranslations } from "next-intl";
 import { NAVBAR_HEIGHT } from "@/_common/constants";
 import { ActionButton } from "@/_common/components/ActionButton";
-import { DESKTOP_QUERY, MENU_ID } from "./constants";
+import { DESKTOP_QUERY } from "./constants";
 import { menuButton } from "./styles";
 import { AvailabilityCard } from "./AvailabilityCard";
 import { MenuFooter } from "./MenuFooter";
@@ -45,7 +45,6 @@ export function MobileMenu({ brand, nav, languageSwitcher }: MobileMenuProps) {
       <IconButton
         aria-label={t("open")}
         aria-expanded={isOpen}
-        aria-controls={MENU_ID}
         onClick={() => setIsOpen(true)}
         sx={menuButton}
       >
@@ -53,7 +52,6 @@ export function MobileMenu({ brand, nav, languageSwitcher }: MobileMenuProps) {
       </IconButton>
 
       <Drawer
-        id={MENU_ID}
         anchor="right"
         open={isOpen}
         onClose={close}
