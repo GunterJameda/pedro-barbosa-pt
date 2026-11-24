@@ -340,7 +340,7 @@
             "Redux"
           ],
           "bulletPoints": [
-            "Identifiquei e implementei, por iniciativa própria, melhorias na base de código de uma aplicação existente de operações financeiras, refatorando a estrutura sem abrandar a entrega de funcionalidades.",
+            "Identifiquei e implementei, por iniciativa própria, melhorias no código de uma aplicação existente de operações financeiras, refatorando a estrutura sem abrandar a entrega de funcionalidades.",
             "Contribuí para a migração da gestão de estado de arquiteturas legadas em Redux e Recoil para padrões de Context API, reduzindo a complexidade e o tamanho do bundle.",
             "Liderei a migração de componentes do Chakra UI para um design system interno baseado em Material UI, incluindo um motor de componentes dinâmico que renderizava fluxos complexos a partir de configurações JSON e schemas de dados."
           ]
