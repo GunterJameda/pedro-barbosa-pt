@@ -27,11 +27,11 @@ This is my personal website, live at **[pedrobarbosa.pt](https://pedrobarbosa.pt
 It's a small site, but I built it the way I'd build a production project:
 
 - **Reusable pieces.** Components shared across pages live in one place, and the ones a single page needs stay with that page.
-- **Structure the code checks itself.** Folder and import rules are enforced automatically by linting and tests, so the structure stays tidy as the site grows.
+- **Rules that check themselves.** Linting and tests enforce the folder and import rules, so the structure stays tidy as the site grows.
 - **Consistent history.** Every commit message follows the same format, checked before the commit is accepted.
-- **Tested and checked on every push.** Tests cover the interactive parts and their edge cases, and every push runs formatting and lint checks, type checks, the tests and a production build. A change only goes live once all of them pass.
-- **Tested in real browsers.** End-to-end tests open every page in Chromium, Firefox and WebKit, at desktop and phone sizes, checking navigation, accessibility and that nothing errors in the browser. They take a few minutes, so they run before bigger changes and against the live site rather than on every push.
-- **Secure by default.** Every page is sent with security headers: a Content Security Policy that only lets the site load its own files and blocks inline event handlers, HTTPS only, no framing by other sites, and no access to device features it doesn't use. Lint rules keep links that open a new tab from reaching back into the site. Browser tests check the headers on every route and try the attacks they stop: script injection through the address, framing and open redirects.
+- **Tested and checked on every push.** Tests cover the interactive parts and their edge cases. Every push runs formatting and lint checks, type checks, the tests and a production build, and a change only goes live once all of them pass.
+- **Tested in real browsers.** End-to-end tests open every page in Chromium, Firefox and WebKit, at desktop and phone sizes. They take a few minutes, so they run before bigger changes and against the live site.
+- **Secure by default.** Every page is sent with security headers, and browser tests try the attacks they stop, such as script injection, framing and open redirects.
 - **Ready to be found and shared.** A sitemap, structured data for search engines, and link preview images generated from code.
 
 For how the code is organised, the rules it follows and how they're checked, see [the architecture notes](docs/ARCHITECTURE.md).
