@@ -6,10 +6,10 @@ import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 import { useLocale, useTranslations } from "next-intl";
 import { LOCALES } from "@/_common/i18n";
-import { getPathname, usePathname } from "@/_common/navigation";
+import { usePathname } from "@/_common/navigation";
 import { linkHover } from "@/_common/theme";
+import { languageHref } from "@/_common/utils/languageHref";
 import { saveLanguageChoice } from "@/_common/utils/saveLanguageChoice";
-import { switchPathname } from "@/_common/utils/switchPathname";
 import { VISUALLY_HIDDEN } from "./constants";
 import { languageOption } from "./styles";
 import { languageCode } from "./utils";
@@ -78,7 +78,7 @@ export function LanguageSwitcher({ showLabel = false }: LanguageSwitcherProps) {
             <Link
               key={locale}
               // A plain link, so the page loads whole in the new language.
-              href={getPathname({ locale, href: switchPathname(pathname) })}
+              href={languageHref(locale, pathname)}
               lang={locale}
               hrefLang={locale}
               underline="hover"

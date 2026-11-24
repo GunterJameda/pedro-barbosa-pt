@@ -1,0 +1,1 @@
+export { languageHref } from "./languageHref";

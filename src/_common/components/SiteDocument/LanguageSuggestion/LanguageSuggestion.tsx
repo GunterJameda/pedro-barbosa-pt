@@ -13,9 +13,9 @@ import Typography from "@mui/material/Typography";
 import { useLocale, useTranslations } from "next-intl";
 import { CONTENT_MAX_WIDTH } from "@/_common/constants";
 import { DEFAULT_LOCALE, LANGUAGE_DISMISSED } from "@/_common/i18n";
-import { getPathname, usePathname } from "@/_common/navigation";
+import { usePathname } from "@/_common/navigation";
+import { languageHref } from "@/_common/utils/languageHref";
 import { saveLanguageChoice } from "@/_common/utils/saveLanguageChoice";
-import { switchPathname } from "@/_common/utils/switchPathname";
 import { SUGGESTED_LOCALE } from "./constants";
 import { shouldSuggest } from "./utils";
 
@@ -82,7 +82,7 @@ export function LanguageSuggestion() {
         </Typography>
         <Link
           // A plain link, so the page loads whole in the new language.
-          href={getPathname({ locale: SUGGESTED_LOCALE, href: switchPathname(pathname) })}
+          href={languageHref(SUGGESTED_LOCALE, pathname)}
           hrefLang={SUGGESTED_LOCALE}
           underline="always"
           onClick={() => saveLanguageChoice(SUGGESTED_LOCALE)}
