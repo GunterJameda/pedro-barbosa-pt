@@ -227,7 +227,7 @@ test.describe("links that open a new tab", () => {
     await visit(page, "/contact");
     const [opened] = await Promise.all([
       context.waitForEvent("page"),
-      page.getByRole("link", { name: "View profile" }).click(),
+      page.getByRole("link", { name: "View LinkedIn profile" }).click(),
     ]);
     await opened.waitForLoadState();
     expect(await opened.evaluate(() => window.opener)).toBeNull();

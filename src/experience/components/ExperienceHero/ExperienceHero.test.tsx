@@ -15,14 +15,14 @@ describe("ExperienceHero availability card", () => {
   it("says the start is immediate", async () => {
     await renderWith("immediate");
     expect(screen.getByText("Availability")).toBeInTheDocument();
-    expect(screen.getByText("Immediate")).toBeInTheDocument();
+    expect(screen.getByText("Available immediately")).toBeInTheDocument();
   });
 
   it("says open to opportunities, without a start date", async () => {
     await renderWith("open");
     expect(screen.getByText("Availability")).toBeInTheDocument();
     expect(screen.getByText("Open to opportunities")).toBeInTheDocument();
-    expect(screen.queryByText("Immediate")).not.toBeInTheDocument();
+    expect(screen.queryByText("Available immediately")).not.toBeInTheDocument();
   });
 
   it("shows the location instead when not looking", async () => {

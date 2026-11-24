@@ -14,13 +14,13 @@ describe("AvailabilityCard", () => {
   it("says the start is immediate", async () => {
     await renderWith("immediate");
     expect(screen.getByText("Availability")).toBeVisible();
-    expect(screen.getByText("Immediate")).toBeVisible();
+    expect(screen.getByText("Available immediately")).toBeVisible();
   });
 
   it("says open to opportunities, without a start date", async () => {
     await renderWith("open");
     expect(screen.getByText("Open to opportunities")).toBeVisible();
-    expect(screen.queryByText("Immediate")).not.toBeInTheDocument();
+    expect(screen.queryByText("Available immediately")).not.toBeInTheDocument();
   });
 
   it("says nothing about availability when not looking", async () => {

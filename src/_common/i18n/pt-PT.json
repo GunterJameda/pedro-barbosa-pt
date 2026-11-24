@@ -51,7 +51,7 @@
     "AvailabilityCard": {
       "label": "Disponibilidade",
       "status": {
-        "immediate": "Imediata",
+        "immediate": "Disponível de imediato",
         "open": "Aberto a oportunidades"
       }
     },
@@ -207,7 +207,7 @@
             "NgRx & Recoil",
             "Angular / AngularJS"
           ],
-          "footerLeft": "Proficiência em Produção",
+          "footerLeft": "Usado em produção",
           "footerRight": "Frontend · Desde {careerStartYear}"
         },
         "designSystems": {
@@ -262,7 +262,7 @@
         "tenure": {
           "tag": "Experiência",
           "title": "Desde {careerStartYear}",
-          "description": "Engenharia web em produção e entrega distribuída"
+          "description": "Engenharia web em produção e entrega"
         },
         "industries": {
           "tag": "Setores",
@@ -278,7 +278,7 @@
       "availability": {
         "immediate": {
           "tag": "Disponibilidade",
-          "title": "Imediata",
+          "title": "Disponível de imediato",
           "description": "{location} · Funções de Frontend Engineer Sénior {workMode}"
         },
         "open": {
@@ -579,7 +579,7 @@
     "LinkedInCard": {
       "title": "LinkedIn",
       "text": "Ligue-se a mim ou envie-me mensagem para assuntos de carreira ou contactos em comum.",
-      "link": "Ver perfil"
+      "link": "Ver perfil no LinkedIn"
     },
     "LocationBanner": {
       "eyebrow": "Localização e Disponibilidade",

@@ -28,7 +28,7 @@
       "tabTitle": "Something went wrong | {name}"
     },
     "FastNavigation": {
-      "label": "Fast Navigation"
+      "label": "Fast navigation"
     },
     "LanguageSuggestion": {
       "text": "Este site está disponível em português.",
@@ -51,7 +51,7 @@
     "AvailabilityCard": {
       "label": "Availability",
       "status": {
-        "immediate": "Immediate",
+        "immediate": "Available immediately",
         "open": "Open to opportunities"
       }
     },
@@ -207,7 +207,7 @@
             "NgRx & Recoil",
             "Angular / AngularJS"
           ],
-          "footerLeft": "Production Proficiency",
+          "footerLeft": "Used in production",
           "footerRight": "Frontend · Since {careerStartYear}"
         },
         "designSystems": {
@@ -262,7 +262,7 @@
         "tenure": {
           "tag": "Tenure",
           "title": "Since {careerStartYear}",
-          "description": "Production web engineering & distributed delivery"
+          "description": "Production web engineering & delivery"
         },
         "industries": {
           "tag": "Industries",
@@ -278,7 +278,7 @@
       "availability": {
         "immediate": {
           "tag": "Availability",
-          "title": "Immediate",
+          "title": "Available immediately",
           "description": "{location} · {workMode} Senior Frontend Engineer roles"
         },
         "open": {
@@ -578,8 +578,8 @@
     },
     "LinkedInCard": {
       "title": "LinkedIn",
-      "text": "Connect or message me for career enquiries or mutual connections.",
-      "link": "View profile"
+      "text": "Connect or message me about a role, or if we know people in common.",
+      "link": "View LinkedIn profile"
     },
     "LocationBanner": {
       "eyebrow": "Location & Availability",
