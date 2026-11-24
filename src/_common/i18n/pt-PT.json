@@ -341,7 +341,7 @@
           ],
           "bulletPoints": [
             "Identifiquei e implementei, por iniciativa própria, melhorias no código de uma aplicação existente de operações financeiras e reorganizei a sua estrutura sem abrandar a entrega de funcionalidades.",
-            "Contribuí para a migração da gestão de estado de arquiteturas legadas em Redux e Recoil para padrões de Context API, reduzindo a complexidade e o tamanho do bundle.",
+            "Contribuí para a migração da gestão de estado de arquiteturas legadas em Redux e Recoil para padrões de Context API, o que reduziu a complexidade e o tamanho do bundle.",
             "Liderei a migração de componentes do Chakra UI para um design system interno baseado em Material UI, incluindo um motor de componentes dinâmico que renderizava fluxos complexos a partir de configurações JSON e schemas de dados."
           ]
         },
@@ -353,7 +353,7 @@
           "bulletPoints": [
             "Mantive e evoluí uma grande plataforma multi-tenant, que suportava aplicações web e móveis híbridas em produção, adaptando interfaces e lógica de negócio localizada para marcas internacionais de restauração com grande volume.",
             "Implementei uma integração unificada de pagamentos com Stripe, configurando dinamicamente o aspeto do formulário de pagamento, o fluxo de verificação e a marca do cliente através de regras do schema de cada tenant.",
-            "Fui responsável pela implementação de funcionalidades, pelos testes de integração e pela passagem às equipas de QA, corrigindo defeitos de regressão e conduzindo lançamentos em produção sem tempo de inatividade."
+            "Fui responsável pela implementação de funcionalidades, pelos testes de integração, pela passagem às equipas de QA, pela correção de defeitos de regressão e pelos lançamentos em produção sem tempo de inatividade."
           ]
         },
         "pricehubble": {
@@ -380,7 +380,7 @@
           ],
           "bulletPoints": [
             "Entrei como o primeiro programador frontend da empresa, tendo definido sozinho as convenções de engenharia e construído a primeira aplicação, que simplificava a aquisição e a autenticação de malas de luxo em segunda mão.",
-            "Desenhei e publiquei a versão 1.0 da biblioteca interna de componentes da empresa, uniformizando o design de interação, os tokens visuais e os blocos reutilizáveis nas diferentes ferramentas de negócio."
+            "Desenhei e publiquei a versão 1.0 da biblioteca interna de componentes da empresa, que uniformizou o design de interação, os tokens visuais e os blocos reutilizáveis nas diferentes ferramentas de negócio."
           ]
         }
       }
