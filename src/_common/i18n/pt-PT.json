@@ -364,7 +364,7 @@
           "bulletPoints": [
             "Trabalhei com outro engenheiro para planear, desenhar e entregar a primeira fase da divisão de um grande monólito Angular em microfrontends, separando os domínios de negócio.",
             "Criei repositórios separados e pipelines de deploy CI/CD, com o single-spa a coordenar as rotas, para que as equipas de produto independentes pudessem fazer deploy de forma autónoma.",
-            "Desenvolvi um assistente de onboarding de utilizadores redesenhado em React e Next.js, a iterar de perto com designers de produto para melhorar a UX e as métricas de conclusão de cada passo."
+            "Desenvolvi um assistente de onboarding de utilizadores redesenhado em React e Next.js, em estreita colaboração com o design de produto, para melhorar a UX e as métricas de conclusão de cada passo."
           ]
         },
         "luxclusif": {

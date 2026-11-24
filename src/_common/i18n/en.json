@@ -364,7 +364,7 @@
           "bulletPoints": [
             "Worked with another engineer to plan, design and deliver the first phase of splitting a large Angular monolith into microfrontends, separating the business domains.",
             "Set up separate repositories and CI/CD deployment pipelines, using single-spa to coordinate routes, so independent product teams could deploy on their own.",
-            "Built a redesigned user onboarding wizard in React and Next.js, iterating closely with product designers to improve the UX and step-completion metrics."
+            "Built a redesigned user onboarding wizard in React and Next.js, iterating closely with a product designer to improve the UX and step-completion metrics."
           ]
         },
         "luxclusif": {
