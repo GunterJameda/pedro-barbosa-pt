@@ -66,7 +66,7 @@
       "short": "Open"
     },
     "PreFooterCTA": {
-      "label": "Inquiries & Collaboration",
+      "label": "Enquiries & Collaboration",
       "contact": "Contact me"
     },
     "ScrollToTop": {
@@ -158,7 +158,7 @@
         "userExperience": {
           "badge": "User Experience",
           "title": "Frictionless UX & Perceived Performance",
-          "description": "Treating responsive layout, keyboard navigation, and smooth frame delivery as first-class architectural requirements, not afterthoughts. Instantaneous feedback inspires deep confidence in product craft.",
+          "description": "Treating responsive layout, keyboard navigation and smooth frame delivery as first-class architectural requirements, not afterthoughts. Instantaneous feedback inspires deep confidence in product craft.",
           "highlight": "Immediate response to every interaction, zero layout shifts, tight frame budgets"
         }
       }
@@ -365,7 +365,7 @@
           "bulletPoints": [
             "Partnered directly with another engineer to plan, architect and deliver the initial phase of decomposing a massive Angular monolith into microfrontends, segregating business domains cleanly.",
             "Established isolated repositories and CI/CD deployment pipelines using single-spa orchestration for route coordination, unlocking autonomous deployment pipelines for independent product squads.",
-            "Engineered a redesigned user onboarding wizard in React and Next.js, iterating in close synchronization with product designers to refine UX heuristics and optimise step-completion metrics."
+            "Engineered a redesigned user onboarding wizard in React and Next.js, iterating in close synchronisation with product designers to refine UX heuristics and optimise step-completion metrics."
           ]
         },
         "luxclusif": {
@@ -560,13 +560,13 @@
       "descriptionLooking": "Scaling a product team or modernising your frontend? Let's talk. I'm a {role} in {city}, open to {workModeRoles}."
     },
     "ContactHero": {
-      "eyebrow": "Contact & Work Inquiries",
+      "eyebrow": "Contact & Work Enquiries",
       "title": "Let's talk architecture, teams or new opportunities.",
       "description": "Scaling a product team, modernising frontend foundations or looking for a Senior Frontend Engineer who delivers with craft and pragmatic ownership?"
     },
     "EmailCard": {
       "eyebrow": "Direct Email",
-      "text": "Best for interview inquiries, technical discussions or sending over job descriptions and specifications.",
+      "text": "Best for interview enquiries, technical discussions or sending over job descriptions and specifications.",
       "openMail": "Open mail client"
     },
     "CopyEmailButton": {
@@ -578,7 +578,7 @@
     },
     "LinkedInCard": {
       "title": "LinkedIn",
-      "text": "Connect or message me for career inquiries or mutual connections.",
+      "text": "Connect or message me for career enquiries or mutual connections.",
       "link": "View profile"
     },
     "LocationBanner": {
