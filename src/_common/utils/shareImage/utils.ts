@@ -6,6 +6,7 @@ import { getLocale, getTranslations } from "next-intl/server";
 import { NAME, PAGES, SITE_URL } from "@/_common/constants";
 import type { Locale } from "@/_common/i18n";
 import { LOCALES } from "@/_common/i18n";
+import { getPathname } from "@/_common/navigation";
 import { pageUrl } from "@/_common/utils/pageUrl";
 import { CONTENT_TYPE, FONTS, SIZE } from "./constants";
 import { DOMAIN } from "./content";
@@ -40,8 +41,9 @@ export function loadLogo() {
 const pageFor = (path?: string) => PAGES.find((page) => page.href === path);
 
 /** Where the image for a page's address is served, in a language. */
-function imagePath(locale: Locale, href = "/") {
-  return `${pageUrl(locale, href).slice(SITE_URL.length)}/opengraph-image`;
+export function imagePath(locale: Locale, href = "/") {
+  const pathname = getPathname({ locale, href });
+  return `${pathname === "/" ? "" : pathname}/opengraph-image`;
 }
 
 /** A page's address as the image shows it, without the scheme: "pedrobarbosa.pt/about". */

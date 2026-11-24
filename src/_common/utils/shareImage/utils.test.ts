@@ -5,6 +5,7 @@ import { LOCALES } from "@/_common/i18n";
 import { messages } from "@tests/intl";
 import { FONTS } from "./constants";
 import {
+  imagePath,
   loadFonts,
   loadLogo,
   shareImageAddress,
@@ -49,6 +50,18 @@ describe("shareImageMetadata", () => {
       width: 1200,
       height: 630,
     });
+  });
+});
+
+describe("imagePath", () => {
+  it("serves the site-wide image at the language's home, without a trailing slash", () => {
+    expect(imagePath("en")).toBe("/opengraph-image");
+    expect(imagePath("pt-PT")).toBe("/pt/opengraph-image");
+  });
+
+  it("serves a page's image under the page, with the language prefix when it has one", () => {
+    expect(imagePath("en", "/about")).toBe("/about/opengraph-image");
+    expect(imagePath("pt-PT", "/about")).toBe("/pt/about/opengraph-image");
   });
 });
 
