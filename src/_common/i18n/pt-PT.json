@@ -145,9 +145,9 @@
         },
         "pragmaticSimplicity": {
           "badge": "Arquitetura Pragmática",
-          "title": "Arquitetura Pragmática e de Grande Alavancagem",
-          "description": "Encontrar a implementação mais simples e elegante, que tira o máximo partido dos sistemas existentes sem abstrações desnecessárias. Escolher padrões comprovados, que trazem grande alavancagem ao negócio com o mínimo de atrito para a equipa.",
-          "highlight": "Máxima alavancagem através da arquitetura existente"
+          "title": "Arquitetura Pragmática e de Grande Retorno",
+          "description": "Encontrar a implementação mais simples e elegante, que tira o máximo partido dos sistemas existentes sem abstrações desnecessárias. Escolher padrões comprovados, que dão grande retorno ao negócio com o mínimo de atrito para a equipa.",
+          "highlight": "Máximo retorno com a arquitetura existente"
         },
         "systemResilience": {
           "badge": "Extensibilidade",
@@ -158,7 +158,7 @@
         "userExperience": {
           "badge": "Experiência do Utilizador",
           "title": "UX Sem Atritos e Desempenho Percebido",
-          "description": "Tratar o layout responsivo, a navegação por teclado e a fluidez das animações como requisitos de arquitetura de primeira ordem, e não como retoques finais. Um feedback instantâneo transmite confiança profunda na qualidade do produto.",
+          "description": "Tratar o layout responsivo, a navegação por teclado e a fluidez das animações como requisitos de arquitetura de primeira ordem, e não como retoques finais. Um feedback instantâneo transmite muita confiança na qualidade do produto.",
           "highlight": "Resposta imediata a cada interação, zero saltos de layout, orçamentos de frames rigorosos"
         }
       }
@@ -347,7 +347,7 @@
           ]
         },
         "tillster": {
-          "industry": "Pedidos Empresariais para Restauração Rápida",
+          "industry": "Pedidos para Grandes Cadeias de Restauração Rápida",
           "company": "Tillster",
           "roleTitle": "Frontend Engineer Sénior",
           "tags": ["AngularJS", "Ionic v1", "JavaScript", "Stripe API", "UI Multi-Tenant"],
@@ -381,7 +381,7 @@
           ],
           "bulletPoints": [
             "Entrei como o primeiro programador frontend da empresa, definindo sozinho as convenções de engenharia e construindo a sua primeira aplicação, que simplificava a aquisição e a autenticação de malas de luxo em segunda mão.",
-            "Desenhei e publiquei a versão 1.0 da biblioteca interna de componentes da empresa, uniformizando o design de interação, os tokens visuais e os primitivos reutilizáveis nas ferramentas de negócio distribuídas."
+            "Desenhei e publiquei a versão 1.0 da biblioteca interna de componentes da empresa, uniformizando o design de interação, os tokens visuais e as primitivas reutilizáveis nas ferramentas de negócio distribuídas."
           ]
         }
       }
@@ -472,7 +472,7 @@
         "category": "Site pessoal",
         "status": "Código aberto · Online",
         "summary": "O meu site pessoal, onde mostro a minha experiência e os meus projetos. Trato-o como um produto no trabalho: um backlog priorizado, commits pequenos e focados, e verificações que têm de passar antes de qualquer deploy.",
-        "details": "Cada push executa verificações de formatação e lint, verificações de tipos, testes e uma build de produção, e uma verificação falhada bloqueia o deploy. Cada página é enviada com cabeçalhos de segurança que só deixam carregar os ficheiros do próprio site, e os testes de browser tentam ataques de injeção de scripts, de framing e de redirecionamento. O código é público, por isso pode ver como trabalho, e não apenas ler sobre isso.",
+        "details": "Cada push executa verificações de formatação e lint, verificações de tipos, testes e uma build de produção, e uma verificação que falhe bloqueia o deploy. Cada página é enviada com cabeçalhos de segurança que só deixam carregar os ficheiros do próprio site, e os testes de browser tentam ataques de injeção de scripts, de framing e de redirecionamento. O código é público, por isso pode ver como trabalho, e não apenas ler sobre isso.",
         "takeaways": [
           {
             "title": "Barreiras de qualidade",
