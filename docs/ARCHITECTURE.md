@@ -287,6 +287,12 @@ European Portuguese (`pt-PT`, at `/pt`).
   `/about` shows `/en/about` at the same address and `/pt/about` shows `/pt-PT/about`. There is no
   proxy: nothing runs on each request, every page stays static, and the headers are the ones
   `next.config.ts` sets. Nothing on the server detects the browser's language.
+- **Messages in the browser:** `SiteDocument` gives `NextIntlClientProvider` only the namespaces
+  client components read (`CLIENT_NAMESPACES` in `_common/i18n/clientNamespaces.ts`, picked with
+  `pickMessages`), not the whole message file. A client component is a `"use client"` file and
+  everything it imports. When one starts reading a new namespace, add it to the list:
+  `tests/clientMessages.test.ts` fails otherwise, and fails too if the list holds a namespace no
+  client component reads.
 - **The visitor's choice:** one cookie, `NEXT_LOCALE` (a first-party, functional preference,
   `SameSite=Lax`, `Path=/`, a year; the names and values are in `_common/i18n/locales.ts`), holds
   `en`, `pt-PT` or `dismissed`. It is written in the browser by `saveLanguageChoice`, before
