@@ -1,9 +1,8 @@
 import type { ReactNode } from "react";
-import Link from "@mui/material/Link";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
-import { LOCATION, SOCIAL_LINKS } from "@/_common/constants";
-import { socialLink } from "./styles";
+import { LOCATION } from "@/_common/constants";
+import { SocialLinks } from "@/_common/components/SocialLinks";
 
 interface MenuFooterProps {
   /** The language switcher, shown first. */
@@ -27,19 +26,7 @@ export function MenuFooter({ languageSwitcher }: MenuFooterProps) {
       >
         <Typography variant="mono">{LOCATION}</Typography>
         <Stack direction="row" spacing={2}>
-          {SOCIAL_LINKS.map(({ name, href, Icon }) => (
-            <Link
-              key={name}
-              href={href}
-              target="_blank"
-              rel="noopener noreferrer"
-              underline="none"
-              sx={socialLink}
-            >
-              <Icon sx={{ fontSize: 14 }} />
-              {name}
-            </Link>
-          ))}
+          <SocialLinks variant="menu" />
         </Stack>
       </Stack>
     </Stack>

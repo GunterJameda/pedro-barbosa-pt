@@ -2,8 +2,9 @@ import PlaceOutlinedIcon from "@mui/icons-material/PlaceOutlined";
 import Box from "@mui/material/Box";
 import Link from "@mui/material/Link";
 import Stack from "@mui/material/Stack";
-import { CONTENT_MAX_WIDTH, EMAIL, LOCATION, MAILTO_URL, SOCIAL_LINKS } from "@/_common/constants";
+import { CONTENT_MAX_WIDTH, EMAIL, LOCATION, MAILTO_URL } from "@/_common/constants";
 import { linkHover } from "@/_common/theme";
+import { SocialLinks } from "@/_common/components/SocialLinks";
 
 export function Footer() {
   return (
@@ -45,26 +46,7 @@ export function Footer() {
         </Stack>
 
         <Stack direction="row" spacing={3} sx={{ alignItems: "center" }}>
-          {SOCIAL_LINKS.map(({ name, href, Icon }) => (
-            <Link
-              key={name}
-              href={href}
-              target="_blank"
-              rel="noopener noreferrer"
-              underline="none"
-              sx={{
-                display: "flex",
-                alignItems: "center",
-                gap: 1,
-                color: "text.secondary",
-                fontSize: "inherit",
-                ...linkHover,
-              }}
-            >
-              <Icon sx={{ fontSize: 14 }} />
-              {name}
-            </Link>
-          ))}
+          <SocialLinks variant="footer" />
         </Stack>
       </Stack>
     </Box>
