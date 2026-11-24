@@ -196,7 +196,7 @@
         "coreState": {
           "title": "Base e Estado",
           "roleBadge": "Stack Principal",
-          "description": "React, Next.js e TypeScript como ferramentas do dia a dia, com gestão de estado em Redux, Context API, NgRx e Recoil.",
+          "description": "React, Next.js e TypeScript como ferramentas do dia a dia, com gestão de estado em Redux, Context API e NgRx.",
           "skills": [
             "TypeScript",
             "React",
@@ -213,7 +213,7 @@
         "designSystems": {
           "title": "UI e Design Systems",
           "roleBadge": "Arquitetura",
-          "description": "Bibliotecas de componentes reutilizáveis, design tokens e UI renderizada a partir de JSON.",
+          "description": "Bibliotecas de componentes reutilizáveis, design tokens e UI renderizada a partir de configuração JSON.",
           "skills": [
             "Arquitetura de Design Systems",
             "Componentes Orientados por JSON",

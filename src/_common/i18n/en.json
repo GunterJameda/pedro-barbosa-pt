@@ -196,7 +196,7 @@
         "coreState": {
           "title": "Core & State",
           "roleBadge": "Primary Stack",
-          "description": "React, Next.js and TypeScript as my daily tools, plus state management with Redux, Context API, NgRx and Recoil.",
+          "description": "React, Next.js and TypeScript as my daily tools, plus state management with Redux, Context API and NgRx.",
           "skills": [
             "TypeScript",
             "React",
@@ -213,7 +213,7 @@
         "designSystems": {
           "title": "UI & Design Systems",
           "roleBadge": "Architecture",
-          "description": "Reusable component libraries, design tokens and UI rendered from JSON.",
+          "description": "Reusable component libraries, design tokens and UI rendered from JSON configuration.",
           "skills": [
             "Design System Architecture",
             "JSON-driven Components",
