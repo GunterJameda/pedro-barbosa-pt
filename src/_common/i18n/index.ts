@@ -1,3 +1,4 @@
+export { CLIENT_NAMESPACES } from "./clientNamespaces";
 export {
   DEFAULT_LOCALE,
   LANGUAGE_COOKIE,
