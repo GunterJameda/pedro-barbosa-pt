@@ -16,7 +16,7 @@ import { chip } from "./styles";
 
 /**
  * Availability chip. The full one shows on desktop; the compact one, on
- * smaller screens, reads "Open" but keeps the full text as hidden text for screen readers.
+ * smaller screens, reads "Available" but keeps the full text as hidden text for screen readers.
  */
 export function StatusChip({ compact = false }: { compact?: boolean }) {
   const t = useTranslations("common.StatusChip");

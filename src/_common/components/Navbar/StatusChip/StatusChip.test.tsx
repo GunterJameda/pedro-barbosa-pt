@@ -49,12 +49,12 @@ describe("StatusChip", () => {
       const full = screen.getByText("Open to opportunities");
       expect(full).toBeVisible();
       expect(full.closest("[aria-label]")).toBeNull();
-      expect(screen.getByText("Open").closest("[aria-hidden='true']")).not.toBeNull();
+      expect(screen.getByText("Available").closest("[aria-hidden='true']")).not.toBeNull();
     });
 
     it("shows nothing when not looking", async () => {
       await renderWith("not-looking", true);
-      expect(screen.queryByText("Open")).not.toBeInTheDocument();
+      expect(screen.queryByText("Available")).not.toBeInTheDocument();
       expect(screen.queryByText(/opportunit/)).not.toBeInTheDocument();
     });
   });
