@@ -1,16 +1,17 @@
 "use client";
 
 import TranslateIcon from "@mui/icons-material/Translate";
+import Box from "@mui/material/Box";
 import Link from "@mui/material/Link";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
+import { visuallyHidden } from "@mui/utils";
 import { useLocale, useTranslations } from "next-intl";
 import { LOCALES } from "@/_common/i18n";
 import { usePathname } from "@/_common/navigation";
 import { linkHover } from "@/_common/theme";
 import { languageHref } from "@/_common/utils/languageHref";
 import { saveLanguageChoice } from "@/_common/utils/saveLanguageChoice";
-import { VISUALLY_HIDDEN } from "./constants";
 import { languageOption } from "./styles";
 import { languageCode } from "./utils";
 
@@ -50,7 +51,9 @@ export function LanguageSwitcher({ showLabel = false }: LanguageSwitcherProps) {
         const content = (
           <>
             <span aria-hidden="true">{languageCode(locale)}</span>
-            <span style={VISUALLY_HIDDEN}>{name}</span>
+            <Box component="span" sx={visuallyHidden}>
+              {name}
+            </Box>
           </>
         );
         const separator = index > 0 && (
