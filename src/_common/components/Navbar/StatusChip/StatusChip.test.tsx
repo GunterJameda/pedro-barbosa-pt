@@ -46,13 +46,16 @@ describe("StatusChip", () => {
   describe("compact", () => {
     it("shows a short label that still reads in full to screen readers", async () => {
       await renderWith("open", true);
-      expect(screen.getByLabelText("Open to opportunities")).toHaveTextContent(/^Open$/);
+      const full = screen.getByText("Open to opportunities");
+      expect(full).toBeVisible();
+      expect(full.closest("[aria-label]")).toBeNull();
+      expect(screen.getByText("Open").closest("[aria-hidden='true']")).not.toBeNull();
     });
 
     it("shows nothing when not looking", async () => {
       await renderWith("not-looking", true);
       expect(screen.queryByText("Open")).not.toBeInTheDocument();
-      expect(screen.queryByLabelText(/opportunit/)).not.toBeInTheDocument();
+      expect(screen.queryByText(/opportunit/)).not.toBeInTheDocument();
     });
   });
 });

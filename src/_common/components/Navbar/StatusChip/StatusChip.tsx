@@ -7,6 +7,7 @@
 
 import Box from "@mui/material/Box";
 import Chip from "@mui/material/Chip";
+import visuallyHidden from "@mui/utils/visuallyHidden";
 import { useTranslations } from "next-intl";
 import { AVAILABILITY } from "@/_common/constants";
 import { StatusDot } from "@/_common/components/StatusDot";
@@ -15,7 +16,7 @@ import { chip } from "./styles";
 
 /**
  * Availability chip. The full one shows on desktop; the compact one, on
- * smaller screens, reads "Open" but keeps the full text for screen readers.
+ * smaller screens, reads "Open" but keeps the full text as hidden text for screen readers.
  */
 export function StatusChip({ compact = false }: { compact?: boolean }) {
   const t = useTranslations("common.StatusChip");
@@ -27,8 +28,14 @@ export function StatusChip({ compact = false }: { compact?: boolean }) {
   if (compact) {
     return label ? (
       <Chip
-        label={t("short")}
-        aria-label={label}
+        label={
+          <>
+            <span aria-hidden>{t("short")}</span>
+            <Box component="span" sx={visuallyHidden}>
+              {label}
+            </Box>
+          </>
+        }
         icon={<StatusDot pulse />}
         sx={{
           ...chip,
