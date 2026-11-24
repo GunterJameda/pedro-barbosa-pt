@@ -128,7 +128,7 @@
         "seniority": {
           "tag": "Senioridade",
           "title": "IC Sénior",
-          "description": "Implementação a fundo e responsabilidade pelo código"
+          "description": "Contribuidor individual: implementação a fundo e responsabilidade pelo código"
         }
       }
     },
@@ -593,7 +593,7 @@
       "text": "Para poupar tempo a recrutadores e líderes de engenharia, deixo aqui um retrato transparente do meu foco principal e dos ambientes de equipa ideais:",
       "points": {
         "icRoles": {
-          "title": "Funções de IC Frontend Sénior",
+          "title": "Função de IC Frontend Sénior",
           "description": "Função prática de contribuidor individual, centrada na implementação a fundo, no desempenho de renderização, na disciplina de bundle e na fluidez da UI."
         },
         "coreStack": {
@@ -602,7 +602,7 @@
         },
         "scopeImpact": {
           "title": "Âmbito e Impacto",
-          "description": "Modernização de frontend, bibliotecas de design systems (motores de UI orientados por JSON/dados), aplicações empresariais multi-tenant e arquiteturas de estado acessíveis."
+          "description": "Modernização de frontend, bibliotecas de design systems (motores de UI orientados por JSON/dados), aplicações empresariais multi-tenant e interfaces acessíveis."
         },
         "culture": {
           "title": "Cultura de Engenharia",

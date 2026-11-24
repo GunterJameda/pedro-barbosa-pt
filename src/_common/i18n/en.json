@@ -128,7 +128,7 @@
         "seniority": {
           "tag": "Seniority",
           "title": "Senior IC",
-          "description": "Deep hands-on implementation & codebase stewardship"
+          "description": "Individual contributor: deep hands-on implementation & codebase stewardship"
         }
       }
     },
@@ -593,16 +593,16 @@
       "text": "To save time for recruiters and engineering leaders, here is a transparent snapshot of my core focus and ideal team environments:",
       "points": {
         "icRoles": {
-          "title": "Senior Frontend IC Roles",
+          "title": "Senior Frontend IC Role",
           "description": "Hands-on individual contributor role focusing on deep implementation, rendering performance, bundle discipline and UI fluidity."
         },
         "coreStack": {
           "title": "Core Stack",
-          "description": "Modern React, Next.js and TypeScript ecosystems, backed with pragmatic cross-framework architectural experience (including Angular-to-React migrations)."
+          "description": "Modern React, Next.js and TypeScript ecosystems, backed by pragmatic cross-framework architectural experience (including Angular-to-React migrations)."
         },
         "scopeImpact": {
           "title": "Scope & Impact",
-          "description": "Frontend modernisation, design system libraries (JSON/data-driven UI engines), multi-tenant enterprise applications and accessible state architectures."
+          "description": "Frontend modernisation, design system libraries (JSON/data-driven UI engines), multi-tenant enterprise applications and accessible interfaces."
         },
         "culture": {
           "title": "Engineering Culture",
