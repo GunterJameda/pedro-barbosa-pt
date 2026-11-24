@@ -257,7 +257,7 @@
     "ExperienceHero": {
       "eyebrow": "Career Timeline",
       "title": "Professional Experience",
-      "description": "A timeline since {careerStartYear}: shipping production web applications, migrating legacy architectures to microfrontends and building scalable design systems.",
+      "description": "A timeline of shipping production web applications, migrating legacy architectures to microfrontends and building scalable design systems since {careerStartYear}.",
       "metrics": {
         "tenure": {
           "tag": "Tenure",

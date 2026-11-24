@@ -257,7 +257,7 @@
     "ExperienceHero": {
       "eyebrow": "Percurso Profissional",
       "title": "Experiência Profissional",
-      "description": "Um percurso cronológico desde {careerStartYear}: aplicações web em produção, migração de arquiteturas legadas para microfrontends e construção de design systems escaláveis.",
+      "description": "Um percurso cronológico de aplicações web em produção, de migração de arquiteturas legadas para microfrontends modernos e de construção de design systems escaláveis desde {careerStartYear}.",
       "metrics": {
         "tenure": {
           "tag": "Experiência",
