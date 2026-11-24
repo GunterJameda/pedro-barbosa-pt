@@ -63,10 +63,10 @@
         "immediate": "Disponível para oportunidades",
         "open": "Aberto a oportunidades"
       },
-      "short": "Disponível"
+      "short": "Aberto"
     },
     "PreFooterCTA": {
-      "label": "Contactos e Colaborações",
+      "label": "Contacto e Colaboração",
       "contact": "Fale comigo"
     },
     "ScrollToTop": {
@@ -312,7 +312,7 @@
     },
     "CompanyNavigation": {
       "label": "Empresas",
-      "title": "Empresas e Projetos",
+      "title": "Empresas",
       "links": {
         "teya": { "name": "Teya", "detail": "Frontend Engineer Sénior" },
         "tillster": { "name": "Tillster", "detail": "Frontend Engineer Sénior" },
@@ -502,9 +502,9 @@
       },
       "growth-tracker": {
         "name": "Growth Tracker",
-        "tagline": "Um gestor de investimentos que mostra o seu preço médio real",
+        "tagline": "Uma aplicação para acompanhar investimentos que mostra o seu preço médio real",
         "kind": "Produto Full-Stack",
-        "category": "Gestor de investimentos",
+        "category": "Acompanhamento de investimentos",
         "status": "Produto independente · Lançado, hoje descontinuado",
         "summary": "Um produto que levei da ideia ao lançamento. Os utilizadores registavam os seus ativos, compras e vendas, e o Growth Tracker calculava o preço médio em que podiam realmente confiar ao decidir vender.",
         "details": "Compre 3 unidades a 500 e venda 1 a 700, e uma aplicação de corretora típica mostra uma média de 400, embora as unidades restantes continuem a custar 500. O Growth Tracker mantinha esse valor correto, para que os utilizadores pudessem procurar lucro em cada unidade vendida.",
@@ -556,8 +556,8 @@
   },
   "contact": {
     "page": {
-      "description": "A escalar uma equipa de produto ou a modernizar o frontend? Falemos. Sou {role} ({city}).",
-      "descriptionLooking": "A escalar uma equipa de produto ou a modernizar o frontend? Falemos. Sou {role} ({city}), disponível para {workModeRoles}."
+      "description": "A escalar uma equipa de produto ou a modernizar o frontend? Falemos. Sou {role} no {city}.",
+      "descriptionLooking": "A escalar uma equipa de produto ou a modernizar o frontend? Falemos. Sou {role} no {city}, disponível para {workModeRoles}."
     },
     "ContactHero": {
       "eyebrow": "Contacto e Propostas de Trabalho",

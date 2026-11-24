@@ -312,7 +312,7 @@
     },
     "CompanyNavigation": {
       "label": "Companies",
-      "title": "Companies & Engagements",
+      "title": "Companies",
       "links": {
         "teya": { "name": "Teya", "detail": "Senior Frontend Engineer" },
         "tillster": { "name": "Tillster", "detail": "Senior Frontend Engineer" },
