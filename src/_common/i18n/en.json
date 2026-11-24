@@ -20,8 +20,8 @@
   },
   "common": {
     "ErrorPage": {
-      "label": "Something broke",
-      "title": "Something failed to render.",
+      "label": "Error",
+      "title": "Something went wrong.",
       "text": "An unexpected error stopped this page from loading. Try again, or let me take you back home.",
       "retry": "Try again",
       "home": "Go to Home",
@@ -84,8 +84,8 @@
   "notFound": {
     "title": "Page not found",
     "label": "Error 404",
-    "heading": "Nothing to render here.",
-    "text": "This route isn't part of the site. Let me point you somewhere useful.",
+    "heading": "There is nothing here.",
+    "text": "This page isn't part of the site. Let me point you somewhere useful.",
     "home": "Go to Home",
     "contact": "Contact me"
   },

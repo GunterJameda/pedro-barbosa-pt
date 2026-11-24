@@ -20,8 +20,8 @@
   },
   "common": {
     "ErrorPage": {
-      "label": "Algo correu mal",
-      "title": "Não foi possível apresentar esta página.",
+      "label": "Erro",
+      "title": "Algo correu mal.",
       "text": "Um erro inesperado impediu o carregamento desta página. Tente novamente ou deixe-me indicar-lhe o caminho para o início.",
       "retry": "Tentar novamente",
       "home": "Ir para o Início",
@@ -84,7 +84,7 @@
   "notFound": {
     "title": "Página não encontrada",
     "label": "Erro 404",
-    "heading": "Não há nada para mostrar aqui.",
+    "heading": "Não há nada aqui.",
     "text": "Este endereço não faz parte do site. Deixe-me indicar-lhe um sítio útil.",
     "home": "Ir para o Início",
     "contact": "Fale comigo"

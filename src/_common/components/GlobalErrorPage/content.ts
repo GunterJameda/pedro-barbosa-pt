@@ -5,7 +5,7 @@ import { NAME } from "@/_common/constants";
 // (next-intl's provider), so it can't count on them. It stays in English, the
 // default language, and needs nothing that loads with the layout.
 
-export const LABEL = "Something broke";
+export const LABEL = "Error";
 export const TITLE = "The site failed to load.";
 export const TEXT =
   "An unexpected error stopped the whole site from loading. Try again, or let me start you over from Home.";

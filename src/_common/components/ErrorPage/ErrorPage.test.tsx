@@ -16,9 +16,7 @@ describe("ErrorPage", () => {
     renderErrorPage();
     expect(screen.getByRole("main")).toBeInTheDocument();
     expect(screen.getAllByRole("heading", { level: 1 })).toHaveLength(1);
-    expect(screen.getByRole("heading", { level: 1 })).toHaveTextContent(
-      "Something failed to render.",
-    );
+    expect(screen.getByRole("heading", { level: 1 })).toHaveTextContent("Something went wrong.");
     expect(screen.getByText(/unexpected error stopped this page/)).toBeInTheDocument();
   });
 
