@@ -20,12 +20,12 @@
   },
   "common": {
     "ErrorPage": {
-      "label": "Error",
-      "title": "Something went wrong.",
+      "label": "Something broke",
+      "title": "This page couldn't load.",
       "text": "An unexpected error stopped this page from loading. Try again, or let me take you back home.",
       "retry": "Try again",
       "home": "Go to Home",
-      "tabTitle": "Something went wrong | {name}"
+      "tabTitle": "Something broke | {name}"
     },
     "FastNavigation": {
       "label": "Fast navigation"

@@ -20,8 +20,8 @@
   },
   "common": {
     "ErrorPage": {
-      "label": "Erro",
-      "title": "Algo correu mal.",
+      "label": "Algo correu mal",
+      "title": "Não foi possível carregar esta página.",
       "text": "Um erro inesperado impediu o carregamento desta página. Tente novamente ou deixe-me indicar-lhe o caminho para o início.",
       "retry": "Tentar novamente",
       "home": "Ir para o Início",

@@ -16,7 +16,7 @@ describe("ErrorPage", () => {
     renderErrorPage();
     expect(screen.getByRole("main")).toBeInTheDocument();
     expect(screen.getAllByRole("heading", { level: 1 })).toHaveLength(1);
-    expect(screen.getByRole("heading", { level: 1 })).toHaveTextContent("Something went wrong.");
+    expect(screen.getByRole("heading", { level: 1 })).toHaveTextContent("This page couldn't load.");
     expect(screen.getByText(/unexpected error stopped this page/)).toBeInTheDocument();
   });
 
@@ -38,7 +38,7 @@ describe("ErrorPage", () => {
 
   it("names the browser tab, with the site's name", () => {
     renderErrorPage();
-    expect(document.title).toContain("Something went wrong");
+    expect(document.title).toContain("Something broke");
     expect(document.title).toContain(NAME);
   });
 });

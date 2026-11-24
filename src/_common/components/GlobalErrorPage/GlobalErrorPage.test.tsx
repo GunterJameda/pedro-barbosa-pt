@@ -40,7 +40,7 @@ describe("GlobalErrorPage", () => {
 
   it("names the browser tab, with the site's name", () => {
     renderGlobalErrorPage();
-    expect(document.title).toContain("Something went wrong");
+    expect(document.title).toContain("Something broke");
     expect(document.title).toContain(NAME);
   });
 });
