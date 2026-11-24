@@ -24,7 +24,7 @@ const CONTENT_SECURITY_POLICY = [
   // a script. This narrows what 'unsafe-inline' above allows to script tags.
   "script-src-attr 'none'",
   "style-src 'self' 'unsafe-inline'",
-  "img-src 'self' data: blob:",
+  "img-src 'self'",
   "font-src 'self'",
   "connect-src 'self'",
   "object-src 'none'",
@@ -55,6 +55,9 @@ const SECURITY_HEADERS = [
   // Browsers only ever reach the site over HTTPS, for two years after a visit.
   // Vercel sends the same by default; set here so it doesn't depend on the host.
   // Browsers ignore it over plain HTTP, so local runs are unaffected.
+  // No includeSubDomains or preload: the only subdomains are the email ones, and a
+  // webmail page there would be unreachable for two years if its certificate
+  // lapsed (see RM-002).
   { key: "Strict-Transport-Security", value: "max-age=63072000" },
   // Pages opened from here can't reach back into this window.
   { key: "Cross-Origin-Opener-Policy", value: "same-origin" },
