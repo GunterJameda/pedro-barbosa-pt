@@ -11,7 +11,7 @@ const sansFont = Plus_Jakarta_Sans({
 const monoFont = JetBrains_Mono({
   variable: "--font-mono",
   subsets: ["latin"],
-  weight: ["400", "500"],
+  weight: ["400", "700"],
 });
 
 /** Class names that define the font variables, for the root element. */

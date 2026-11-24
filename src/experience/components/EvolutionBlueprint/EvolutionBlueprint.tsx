@@ -23,7 +23,7 @@ export function EvolutionBlueprint() {
       <Stack spacing={2} sx={{ pt: 2, borderTop: 1, borderColor: "surface.hairline" }}>
         <Typography variant="mono">
           {t("focusLabel")}{" "}
-          <Box component="span" sx={{ color: "primary.main", fontWeight: 600 }}>
+          <Box component="span" sx={{ color: "primary.main", fontWeight: 700 }}>
             {t("focus")}
           </Box>
         </Typography>
