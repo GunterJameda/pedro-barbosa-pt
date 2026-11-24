@@ -241,7 +241,7 @@ route files, and nothing else:
 - **Navigation:** the navbar and mobile menu links.
 - **Page metadata:** each `page.tsx` exports `generateMetadata`, which calls
   `pageMetadata("/about", description)` with its description from the messages. The helper looks
-  the address up in `PAGES`, sets the title to the page name, the canonical URL to its address in
+  the address up in `PAGES`, sets the title to the page name (the title template adds my name and role), the canonical URL to its address in
   the current language, the language alternates and the link preview, and adds the description
   when there is one. An address missing from `PAGES` throws, so the build fails. The root layout's
   `siteMetadata()` sets `metadataBase`, the title template, the site-wide description and preview.

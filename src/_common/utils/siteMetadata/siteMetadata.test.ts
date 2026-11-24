@@ -9,16 +9,16 @@ describe("siteMetadata", () => {
     expect(String((await siteMetadata()).metadataBase)).toBe(`${SITE_URL}/`);
   });
 
-  it("titles pages with my name, and the home page with my name and role", async () => {
+  it("titles pages with my name and role, and the home page with my name then role", async () => {
     expect((await siteMetadata()).title).toEqual({
       default: `${NAME} | ${messages.profile.role}`,
-      template: `%s | ${NAME}`,
+      template: `%s | ${NAME}, ${messages.profile.role}`,
     });
   });
 
   it("gives a page without a layout above it its whole title, in the site's pattern", async () => {
     expect((await siteMetadata("Page not found")).title).toEqual({
-      absolute: `Page not found | ${NAME}`,
+      absolute: `Page not found | ${NAME}, ${messages.profile.role}`,
     });
   });
 

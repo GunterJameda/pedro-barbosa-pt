@@ -1,7 +1,7 @@
 {
   "site": {
     "title": "{name} | {role}",
-    "titleTemplate": "%s | {name}",
+    "titleTemplate": "%s | {name}, {role}",
     "description": "Senior Frontend Engineer specialising in React, Next.js and TypeScript, with a strong foundation in Angular."
   },
   "profile": {

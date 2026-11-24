@@ -11,7 +11,7 @@ import { socialMetadata } from "@/_common/utils/socialMetadata";
  */
 export async function siteMetadata(pageTitle?: string): Promise<Metadata> {
   const t = await getTranslations();
-  const template = t("site.titleTemplate", { name: NAME });
+  const template = t("site.titleTemplate", { name: NAME, role: t("profile.role") });
   return {
     metadataBase: new URL(SITE_URL),
     title: pageTitle

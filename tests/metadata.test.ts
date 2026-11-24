@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { describe, expect, it } from "vitest";
 import type { Availability, WorkMode } from "@/_common/constants";
+import { NAME } from "@/_common/constants";
+import { messages, PORTUGUESE_INTL } from "./intl";
 import { PAGE_ROUTES, routeModule } from "./pages";
 import { setProfile } from "./profile";
 
@@ -56,6 +58,19 @@ describe("page metadata", () => {
   });
 });
 
+describe("title length", () => {
+  it("keeps every page title, in every language, within the 60 characters search results show", () => {
+    for (const copy of [messages, PORTUGUESE_INTL.messages]) {
+      const template = copy.site.titleTemplate
+        .replace("{name}", NAME)
+        .replace("{role}", copy.profile.role);
+      for (const name of Object.values(copy.pages)) {
+        expect(template.replace("%s", name).length, name).toBeLessThanOrEqual(60);
+      }
+    }
+  });
+});
+
 describe("language metadata", () => {
   it("tells search engines where each page is in every language, English being the default", async () => {
     for (const { route, metadata } of await allMetadata()) {
@@ -107,7 +122,7 @@ describe("404 page metadata", () => {
   it("titles the page for addresses without one, in the site's pattern", async () => {
     const { generateMetadata } = await import("../src/app/global-not-found");
     expect((await generateMetadata()).title).toEqual({
-      absolute: "Page not found | Pedro Barbosa",
+      absolute: "Page not found | Pedro Barbosa, Senior Frontend Engineer",
     });
   });
 });
