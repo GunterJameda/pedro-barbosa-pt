@@ -144,13 +144,13 @@
           "highlight": "Responder a necessidades reais, humanas e de sistema"
         },
         "pragmaticSimplicity": {
-          "badge": "Simplicidade Pragmática",
+          "badge": "Arquitetura Pragmática",
           "title": "Arquitetura Pragmática e de Grande Alavancagem",
           "description": "Encontrar a implementação mais simples e elegante, que tira o máximo partido dos sistemas existentes sem abstrações desnecessárias. Escolher padrões comprovados, que trazem grande alavancagem ao negócio com o mínimo de atrito para a equipa.",
           "highlight": "Máxima alavancagem através da arquitetura existente"
         },
         "systemResilience": {
-          "badge": "Resiliência do Sistema",
+          "badge": "Extensibilidade",
           "title": "Extensibilidade Sustentável",
           "description": "Desenhar fronteiras e contratos claros entre componentes, que acomodam a evolução futura sem complexidade prematura. Isolar domínios de estado para permitir um crescimento tranquilo, sem cascatas frágeis.",
           "highlight": "Contratos de fronteira limpos, sem excesso de engenharia"
@@ -184,7 +184,7 @@
           "title": "Ponte Entre Áreas",
           "description": "Trabalhar de perto com designers, backend e produto. Pensar no que acontece quando algo corre mal (redes lentas, erros, dados em falta) antes de os utilizadores o verem.",
           "tagLeft": "Sinergia Design ⇄ Código",
-          "tagRight": "Design Tokens"
+          "tagRight": "Estados de Erro"
         }
       }
     },
@@ -505,7 +505,7 @@
         "tagline": "Um gestor de investimentos que mostra o seu preço médio real",
         "kind": "Produto Full-Stack",
         "category": "Gestor de investimentos",
-        "status": "Produto independente · Lançado, descontinuado em jan. 2026",
+        "status": "Produto independente · Lançado, hoje descontinuado",
         "summary": "Um produto que levei da ideia ao lançamento. Os utilizadores registavam os seus ativos, compras e vendas, e o Growth Tracker calculava o preço médio em que podiam realmente confiar ao decidir vender.",
         "details": "Compre 3 unidades a 500 e venda 1 a 700, e uma aplicação de corretora típica mostra uma média de 400, embora as unidades restantes continuem a custar 500. O Growth Tracker mantinha esse valor correto, para que os utilizadores pudessem procurar lucro em cada unidade vendida.",
         "takeaways": [
@@ -602,7 +602,7 @@
         },
         "scopeImpact": {
           "title": "Âmbito e Impacto",
-          "description": "Modernização de frontend, bibliotecas sistemáticas de Design System (motores de UI orientados por JSON/dados), aplicações empresariais multi-tenant e arquiteturas de estado acessíveis."
+          "description": "Modernização de frontend, bibliotecas de design systems (motores de UI orientados por JSON/dados), aplicações empresariais multi-tenant e arquiteturas de estado acessíveis."
         },
         "culture": {
           "title": "Cultura de Engenharia",

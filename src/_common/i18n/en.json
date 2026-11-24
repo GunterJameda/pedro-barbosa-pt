@@ -144,13 +144,13 @@
           "highlight": "Addressing genuine human and system needs"
         },
         "pragmaticSimplicity": {
-          "badge": "Pragmatic Simplicity",
+          "badge": "Pragmatic Architecture",
           "title": "Pragmatic, High-Leverage Architecture",
           "description": "Finding the leanest, most elegant implementation that maximises existing systems without unnecessary abstraction. Choosing proven patterns that deliver high business leverage with minimal team friction.",
           "highlight": "Maximal leverage through existing architecture"
         },
         "systemResilience": {
-          "badge": "System Resilience",
+          "badge": "Extensibility",
           "title": "Sustainable Extensibility",
           "description": "Designing clear component boundaries and contracts that accommodate future evolution without premature complexity. Isolating state domains to enable seamless growth without brittle cascades.",
           "highlight": "Clean boundary contracts without over-engineering"
@@ -184,7 +184,7 @@
           "title": "Cross-functional Bridge",
           "description": "Working closely with designers, backend engineers and product. Thinking through what happens when things go wrong (slow networks, errors, missing data) before users see it.",
           "tagLeft": "Design ⇄ Code Synergy",
-          "tagRight": "Design Tokens"
+          "tagRight": "Error States"
         }
       }
     },
@@ -293,7 +293,7 @@
         }
       },
       "workMode": {
-        "remote-and-hybrid": "Remote & Hybrid",
+        "remote-and-hybrid": "Remote & hybrid",
         "remote-only": "Remote"
       },
       "workModeExperience": {
@@ -505,7 +505,7 @@
         "tagline": "An investment tracker that shows your real average price",
         "kind": "Full-Stack Product",
         "category": "Investment tracker",
-        "status": "Independent product · Launched, retired Jan 2026",
+        "status": "Independent product · Launched, now retired",
         "summary": "A product I took from idea to launch. Users logged their assets, buys and sells, and Growth Tracker calculated the average price they could actually trust when deciding to sell.",
         "details": "Buy 3 units at 500 and sell 1 at 700, and a typical broker app shows an average of 400, even though the remaining units still cost 500. Growth Tracker kept that number accurate, so users could aim for a profit on every unit they sold.",
         "takeaways": [
@@ -602,7 +602,7 @@
         },
         "scopeImpact": {
           "title": "Scope & Impact",
-          "description": "Frontend modernisation, systematic Design System libraries (JSON/data-driven UI engines), multi-tenant enterprise applications and accessible state architectures."
+          "description": "Frontend modernisation, design system libraries (JSON/data-driven UI engines), multi-tenant enterprise applications and accessible state architectures."
         },
         "culture": {
           "title": "Engineering Culture",
