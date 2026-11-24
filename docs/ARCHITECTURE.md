@@ -253,7 +253,7 @@ route files, and nothing else:
   `OPEN_GRAPH_LOCALES`), `og:locale:alternate` (the other languages') and the share image, for Open Graph and X's large image card. The image is
   set explicitly rather than left to Next.js, which would give it the `[locale]` route's address
   (`/en/about/opengraph-image`) instead of the page's own (`/about/opengraph-image`).
-- **Share images:** each route's `opengraph-image.tsx` is three lines around
+- **Share images:** each route's `opengraph-image.tsx` is a few lines around
   `shareImageRoute("/about")`, which returns the image's size, content type, one copy per language
   (`generateStaticParams`) and the image itself, in the language of its address. The image is
   rendered from JSX with `next/og`, using the font files in `assets/fonts`.
@@ -429,7 +429,9 @@ Route-level tests in `tests/` find every `page.tsx` in `src/app/[locale]` and ch
 - `shareImages.test.ts`: every page has its own share image, with alt text for that page, built for
   every language;
 - `sitemap.test.ts`: the sitemap lists every page once, and `robots.txt` blocks nothing;
-- `redirects.test.ts`: `/home` redirects to `/`, and `/en` addresses to their public ones.
+- `redirects.test.ts`: `/home` redirects to `/`, and `/en` addresses to their public ones;
+- `careerStartYear.test.tsx`: the career start year is written once in the source, and the page
+  descriptions and copy follow it.
 
 **End-to-end tests** (Playwright, in `tests/e2e`) run against a production build in Chromium,
 Firefox and WebKit, each at desktop and phone sizes. A shared fixture fails any test if the browser
