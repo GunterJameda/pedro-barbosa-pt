@@ -196,7 +196,7 @@
         "coreState": {
           "title": "Base e Estado",
           "roleBadge": "Stack Principal",
-          "description": "React, Next.js e TypeScript como ferramentas do dia a dia, com gestão de estado em Redux, Context API e NgRx.",
+          "description": "React, Next.js e TypeScript como ferramentas do dia a dia, com gestão de estado em Redux e Context API.",
           "skills": [
             "TypeScript",
             "React",
@@ -204,7 +204,6 @@
             "JavaScript (ES6+)",
             "HTML5 / CSS3",
             "Redux & Context API",
-            "NgRx & Recoil",
             "Angular / AngularJS"
           ],
           "footerLeft": "Usado em produção",

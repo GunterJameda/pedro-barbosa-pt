@@ -196,7 +196,7 @@
         "coreState": {
           "title": "Core & State",
           "roleBadge": "Primary Stack",
-          "description": "React, Next.js and TypeScript as my daily tools, plus state management with Redux, Context API and NgRx.",
+          "description": "React, Next.js and TypeScript as my daily tools, plus state management with Redux and Context API.",
           "skills": [
             "TypeScript",
             "React",
@@ -204,7 +204,6 @@
             "JavaScript (ES6+)",
             "HTML5 / CSS3",
             "Redux & Context API",
-            "NgRx & Recoil",
             "Angular / AngularJS"
           ],
           "footerLeft": "Used in production",
