@@ -2,6 +2,7 @@ import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 import { useTranslations } from "next-intl";
 import { CAREER_START_YEAR } from "@/_common/constants";
+import { rawList } from "@/_common/utils/rawList";
 import { CardFooter } from "@/_common/components/CardFooter";
 import { SectionHeading } from "@/_common/components/SectionHeading";
 import { StatusDot } from "@/_common/components/StatusDot";
@@ -34,7 +35,7 @@ export function TechnicalToolbox() {
 
             <Typography variant="body">{t(`groups.${group}.description`)}</Typography>
 
-            <TagList tags={t.raw(`groups.${group}.skills`) as string[]} />
+            <TagList tags={rawList(t.raw(`groups.${group}.skills`))} />
 
             <CardFooter variant="split">
               <span>{t(`groups.${group}.footerLeft`)}</span>

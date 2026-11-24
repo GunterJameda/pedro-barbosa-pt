@@ -1,5 +1,6 @@
 import Stack from "@mui/material/Stack";
 import { useTranslations } from "next-intl";
+import { rawList } from "@/_common/utils/rawList";
 import type { CheckListItem } from "@/_common/components/CheckList";
 import { FastNavigation } from "@/_common/components/FastNavigation";
 import { PROJECTS } from "./content";
@@ -19,8 +20,8 @@ export function ProjectList() {
     status: t(`projects.${id}.status`),
     summary: t(`projects.${id}.summary`),
     details: t(`projects.${id}.details`),
-    takeaways: t.raw(`projects.${id}.takeaways`) as CheckListItem[],
-    detailCards: t.raw(`projects.${id}.detailCards`) as DetailCard[],
+    takeaways: rawList<CheckListItem>(t.raw(`projects.${id}.takeaways`)),
+    detailCards: rawList<DetailCard>(t.raw(`projects.${id}.detailCards`)),
   }));
 
   return (

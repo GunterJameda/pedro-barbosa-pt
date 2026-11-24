@@ -1,5 +1,6 @@
 import { useLocale, useTranslations } from "next-intl";
 import { pageUrl } from "@/_common/utils/pageUrl";
+import { rawList } from "@/_common/utils/rawList";
 import { JsonLd } from "@/home/components/JsonLd";
 import { PERSON } from "./content";
 import type { ProfilePageData } from "./types";
@@ -17,7 +18,7 @@ export function PersonSchema() {
     mainEntity: {
       ...PERSON,
       jobTitle: t("profile.role"),
-      knowsAbout: t.raw("home.PersonSchema.knowsAbout") as string[],
+      knowsAbout: rawList(t.raw("home.PersonSchema.knowsAbout")),
     },
   };
   return <JsonLd data={profilePage} />;

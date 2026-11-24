@@ -26,11 +26,38 @@ function keysOf(messages: object, prefix = ""): string[] {
   );
 }
 
+/** Every list message's path ("about.TechnicalToolbox.groups.frontend.skills"). */
+function listKeysOf(messages: object, prefix = ""): string[] {
+  return Object.entries(messages).flatMap(([key, value]) =>
+    Array.isArray(value)
+      ? [`${prefix}${key}`]
+      : typeof value === "object" && value !== null
+        ? listKeysOf(value, `${prefix}${key}.`)
+        : [],
+  );
+}
+
+/** The message at a path, or undefined. */
+function messageAt(messages: object, path: string) {
+  return path.split(".").reduce<unknown>((value, key) => (value as never)?.[key], messages);
+}
+
 // The test helpers fail on any message problem, like a key missing from the messages.
 describe("messages", () => {
   it.each(LOCALES)("%s has exactly the messages English has", async (locale) => {
     const { default: messages } = await import(`@/_common/i18n/${locale}.json`);
     expect(keysOf(messages).sort()).toEqual(keysOf(english).sort());
+  });
+
+  // The code reads these with rawList, which fails on anything but a list.
+  it.each(LOCALES)("%s has a list wherever English has one", async (locale) => {
+    const { default: messages } = await import(`@/_common/i18n/${locale}.json`);
+    const paths = listKeysOf(english);
+    expect(paths.length).toBeGreaterThan(0);
+    for (const path of paths) {
+      expect(Array.isArray(messageAt(messages, path)), `${locale}: ${path}`).toBe(true);
+    }
+    expect(listKeysOf(messages).sort()).toEqual(paths.sort());
   });
 
   // Search engines cut descriptions at about 155 characters, in every language.

@@ -8,6 +8,7 @@ import type { Locale } from "@/_common/i18n";
 import { LOCALES } from "@/_common/i18n";
 import { getPathname } from "@/_common/navigation";
 import { pageUrl } from "@/_common/utils/pageUrl";
+import { rawList } from "@/_common/utils/rawList";
 import { CONTENT_TYPE, FONTS, SIZE } from "./constants";
 import { DOMAIN } from "./content";
 import type { LoadedFont } from "./types";
@@ -73,7 +74,7 @@ export function shareImageRoute(path?: string) {
         logo: loadLogo(),
         pageName: page && t(`pages.${page.key}`),
         role: t("profile.role"),
-        tags: t.raw("common.ShareImage.tags") as string[],
+        tags: rawList(t.raw("common.ShareImage.tags")),
         address: shareImageAddress(locale, page?.href),
       });
     },

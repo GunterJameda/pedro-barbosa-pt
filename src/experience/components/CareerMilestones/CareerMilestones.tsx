@@ -1,6 +1,7 @@
 import Box from "@mui/material/Box";
 import Stack from "@mui/material/Stack";
 import { useTranslations } from "next-intl";
+import { rawList } from "@/_common/utils/rawList";
 import { CardGrid } from "@/_common/components/CardGrid";
 import { CheckList } from "@/_common/components/CheckList";
 import { Eyebrow } from "@/_common/components/Eyebrow";
@@ -29,7 +30,7 @@ export function CareerMilestones() {
               <Stack spacing={2} sx={{ gridColumn: { lg: "span 8" } }}>
                 <Eyebrow color="text.secondary">{t("CareerMilestones.contributions")}</Eyebrow>
                 <CheckList
-                  items={(t.raw(`CareerMilestones.roles.${id}.bulletPoints`) as string[]).map(
+                  items={rawList(t.raw(`CareerMilestones.roles.${id}.bulletPoints`)).map(
                     (text) => ({ text }),
                   )}
                 />
@@ -37,7 +38,7 @@ export function CareerMilestones() {
             </CardGrid>
           </Box>
 
-          <TagList tags={t.raw(`CareerMilestones.roles.${id}.tags`) as string[]} />
+          <TagList tags={rawList(t.raw(`CareerMilestones.roles.${id}.tags`))} />
         </RoleCard>
       ))}
     </Stack>

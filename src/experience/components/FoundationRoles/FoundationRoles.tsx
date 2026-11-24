@@ -2,6 +2,7 @@ import Box from "@mui/material/Box";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 import { useTranslations } from "next-intl";
+import { rawList } from "@/_common/utils/rawList";
 import { CardFooter } from "@/_common/components/CardFooter";
 import { CardGrid } from "@/_common/components/CardGrid";
 import { TagList } from "@/_common/components/TagList";
@@ -30,7 +31,7 @@ export function FoundationRoles() {
               </Typography>
             </Stack>
             <CardFooter>
-              <TagList tags={t.raw(`FoundationRoles.roles.${id}.tags`) as string[]} dense />
+              <TagList tags={rawList(t.raw(`FoundationRoles.roles.${id}.tags`))} dense />
             </CardFooter>
           </RoleCard>
         ))}
