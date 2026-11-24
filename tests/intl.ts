@@ -7,7 +7,7 @@ import portuguese from "@/_common/i18n/pt-PT.json";
 export const messages = english;
 
 /** Fails the test on any message problem, like a key missing from the messages. */
-export function failOnMessageError(error: IntlError): never {
+function failOnMessageError(error: IntlError): never {
   throw error;
 }
 

@@ -9,7 +9,7 @@ import { CHART_SLOTS, CURVE } from "./content";
 import { LINE } from "./styles";
 import { buildChartPoints } from "./utils";
 
-export interface CareerChartProps {
+interface CareerChartProps {
   /** The year the page was built: what the server renders, before the browser knows the visit year. */
   buildYear: number;
 }

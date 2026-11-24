@@ -1,6 +1,6 @@
 import { serializeJsonLd } from "./utils";
 
-export interface JsonLdProps {
+interface JsonLdProps {
   /** The schema.org data to describe the page with. */
   data: object;
 }
