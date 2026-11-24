@@ -5,7 +5,7 @@ import Box from "@mui/material/Box";
 import Link from "@mui/material/Link";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
-import { visuallyHidden } from "@mui/utils";
+import visuallyHidden from "@mui/utils/visuallyHidden";
 import { useLocale, useTranslations } from "next-intl";
 import { LOCALES } from "@/_common/i18n";
 import { usePathname } from "@/_common/navigation";
