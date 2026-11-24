@@ -4,8 +4,7 @@ import { rawList } from "@/_common/utils/rawList";
 import type { CheckListItem } from "@/_common/components/CheckList";
 import { FastNavigation } from "@/_common/components/FastNavigation";
 import { PROJECTS } from "./content";
-import type { DetailCard, Project } from "./ProjectCard";
-import { ProjectCard } from "./ProjectCard";
+import { type DetailCard, type Project, ProjectCard } from "./ProjectCard";
 
 export function ProjectList() {
   const t = useTranslations("projects");
