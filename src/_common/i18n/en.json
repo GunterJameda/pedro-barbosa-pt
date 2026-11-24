@@ -106,60 +106,60 @@
       "ctaButton": "View Experience"
     },
     "AboutHero": {
-      "eyebrow": "Profile & Architecture Philosophy",
+      "eyebrow": "Profile & Approach",
       "title": "Engineering with care, pragmatism and attention to detail.",
-      "description": "Senior Frontend Engineer · Building for the web since {careerStartYear}. Specialising in frontend modernisation and scalable design systems. My practice unites clean architectural boundaries, accessible component systems and empathetic, high-velocity collaboration across product, design and engineering squads.",
+      "description": "Senior Frontend Engineer · Building for the web since {careerStartYear}. Specialising in frontend modernisation and scalable design systems. My work combines clear code boundaries, accessible component systems and close, quick collaboration across product, design and engineering teams.",
       "pillars": {
         "specialisation": {
           "tag": "Specialisation",
           "title": "Frontend Modernisation",
-          "description": "De-risking legacy migrations & state decoupling"
+          "description": "Migrating legacy code safely & decoupling state"
         },
         "uiArchitecture": {
           "tag": "UI Architecture",
           "title": "Design Systems",
-          "description": "Multi-tenant token pipelines & schema-driven UI"
+          "description": "Multi-tenant design tokens & schema-driven UI"
         },
         "collaboration": {
           "tag": "Collaboration",
           "title": "Direct & RFC-Driven",
-          "description": "Bridging design & engineering with low-ambiguity specs"
+          "description": "Linking design & engineering with clear specs"
         },
         "seniority": {
           "tag": "Seniority",
           "title": "Senior IC",
-          "description": "Individual contributor: deep hands-on implementation & codebase stewardship"
+          "description": "Individual contributor: hands-on implementation & ownership of the codebase"
         }
       }
     },
     "EngineeringPrinciples": {
       "eyebrow": "Engineering Principles",
       "title": "What I Value Most in Code",
-      "description": "A disciplined, grounded perspective cultivated over thousands of pull requests and production releases.",
+      "description": "What I've learned from thousands of pull requests and production releases.",
       "principles": {
         "rootIntent": {
           "badge": "Root Intent",
           "title": "Solve the Root Need, Not Just the Spec",
-          "description": "Looking past static tickets to understand the real user behaviour and business outcome behind the requirement. True engineering interrogates assumptions upfront to ship durable, high-impact solutions.",
-          "highlight": "Addressing genuine human and system needs"
+          "description": "Looking past the ticket to understand the real user behaviour and business outcome behind the requirement. Questioning assumptions early to ship solutions that last.",
+          "highlight": "Addressing real user and system needs"
         },
         "pragmaticSimplicity": {
           "badge": "Pragmatic Architecture",
-          "title": "Pragmatic, High-Leverage Architecture",
-          "description": "Finding the leanest, most elegant implementation that maximises existing systems without unnecessary abstraction. Choosing proven patterns that deliver high business leverage with minimal team friction.",
-          "highlight": "Maximal leverage through existing architecture"
+          "title": "Simple Solutions That Reuse What Exists",
+          "description": "Finding the simplest implementation that makes the most of existing systems, without unnecessary abstraction. Choosing proven patterns that deliver business value with little friction for the team.",
+          "highlight": "Getting the most from the existing architecture"
         },
         "systemResilience": {
           "badge": "Extensibility",
-          "title": "Sustainable Extensibility",
-          "description": "Designing clear component boundaries and contracts that accommodate future evolution without premature complexity. Isolating state domains to enable seamless growth without brittle cascades.",
-          "highlight": "Clean boundary contracts without over-engineering"
+          "title": "Built to Grow",
+          "description": "Designing clear component boundaries and contracts that leave room for change, without premature complexity. Keeping state in separate domains so the code can grow without changes breaking other parts.",
+          "highlight": "Clear boundaries and contracts, without over-engineering"
         },
         "userExperience": {
           "badge": "User Experience",
-          "title": "Frictionless UX & Perceived Performance",
-          "description": "Treating responsive layout, keyboard navigation and smooth frame delivery as first-class architectural requirements, not afterthoughts. Instantaneous feedback inspires deep confidence in product craft.",
-          "highlight": "Immediate response to every interaction, zero layout shifts, tight frame budgets"
+          "title": "Smooth UX & Perceived Performance",
+          "description": "Treating responsive layout, keyboard navigation and smooth frame delivery as core requirements from the start, not afterthoughts. Instant feedback makes a product feel well made.",
+          "highlight": "Immediate response to every interaction, no layout shifts, tight frame budgets"
         }
       }
     },
@@ -176,14 +176,14 @@
         },
         "writtenSpecs": {
           "title": "Clear Written Specs & RFCs",
-          "description": "Writing down technical trade-offs and edge cases early before building. Clarifying questions up front saves hours of rewrite meetings later.",
+          "description": "Writing down technical trade-offs and edge cases before building. Asking questions early saves hours of rework meetings later.",
           "tagLeft": "Format: Async RFCs",
           "tagRight": "Low Ambiguity"
         },
         "crossFunctional": {
-          "title": "Cross-functional Bridge",
+          "title": "Bridge Between Teams",
           "description": "Working closely with designers, backend engineers and product. Thinking through what happens when things go wrong (slow networks, errors, missing data) before users see it.",
-          "tagLeft": "Design ⇄ Code Synergy",
+          "tagLeft": "Design ⇄ Code",
           "tagRight": "Error States"
         }
       }
@@ -196,7 +196,7 @@
         "coreState": {
           "title": "Core & State",
           "roleBadge": "Primary Stack",
-          "description": "React, Next.js and TypeScript daily drivers paired with resilient state management architectures.",
+          "description": "React, Next.js and TypeScript as my daily tools, plus state management with Redux, Context API, NgRx and Recoil.",
           "skills": [
             "TypeScript",
             "React",
@@ -213,7 +213,7 @@
         "designSystems": {
           "title": "UI & Design Systems",
           "roleBadge": "Architecture",
-          "description": "Reusable component libraries, design token pipelines and dynamic JSON-driven UI rendering.",
+          "description": "Reusable component libraries, design tokens and UI rendered from JSON.",
           "skills": [
             "Design System Architecture",
             "JSON-driven Components",
@@ -229,7 +229,7 @@
         "testingDelivery": {
           "title": "Testing & CI/CD",
           "roleBadge": "Delivery",
-          "description": "End-to-end and unit testing automation with multi-platform continuous integration pipelines.",
+          "description": "Automated end-to-end and unit tests, run in continuous integration on several platforms.",
           "skills": [
             "Jest & Vitest",
             "Playwright",
@@ -241,7 +241,7 @@
             "Jenkins"
           ],
           "footerLeft": "Pipeline Automation",
-          "footerRight": "Rigorous CI/CD"
+          "footerRight": "Tests in CI/CD"
         }
       }
     }

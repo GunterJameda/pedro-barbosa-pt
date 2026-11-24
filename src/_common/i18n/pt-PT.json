@@ -106,60 +106,60 @@
       "ctaButton": "Ver Experiência"
     },
     "AboutHero": {
-      "eyebrow": "Perfil e Filosofia de Arquitetura",
+      "eyebrow": "Perfil e Abordagem",
       "title": "Engenharia com cuidado, pragmatismo e atenção ao detalhe.",
-      "description": "Frontend Engineer Sénior · A construir para a web desde {careerStartYear}. Especializado em modernização de frontend e design systems escaláveis. A minha prática une fronteiras arquiteturais limpas, sistemas de componentes acessíveis e uma colaboração empática e ágil entre equipas de produto, design e engenharia.",
+      "description": "Frontend Engineer Sénior · A construir para a web desde {careerStartYear}. Especializado em modernização de frontend e design systems escaláveis. O meu trabalho combina fronteiras claras no código, sistemas de componentes acessíveis e uma colaboração próxima e rápida entre equipas de produto, design e engenharia.",
       "pillars": {
         "specialisation": {
           "tag": "Especialização",
           "title": "Modernização de Frontend",
-          "description": "Reduzir o risco de migrações legadas e desacoplar o estado"
+          "description": "Migrar código legado com menos risco e desacoplar o estado"
         },
         "uiArchitecture": {
           "tag": "Arquitetura de UI",
           "title": "Design Systems",
-          "description": "Pipelines de tokens multi-tenant e UI orientada por schemas"
+          "description": "Design tokens multi-tenant e UI orientada por schemas"
         },
         "collaboration": {
           "tag": "Colaboração",
           "title": "Direta e Orientada por RFCs",
-          "description": "Aproximar design e engenharia com especificações pouco ambíguas"
+          "description": "Aproximar design e engenharia com especificações claras"
         },
         "seniority": {
           "tag": "Senioridade",
           "title": "IC Sénior",
-          "description": "Contribuidor individual: implementação a fundo e responsabilidade pelo código"
+          "description": "Contribuidor individual: implementação prática e responsabilidade pelo código"
         }
       }
     },
     "EngineeringPrinciples": {
       "eyebrow": "Princípios de Engenharia",
       "title": "O Que Mais Valorizo no Código",
-      "description": "Uma perspetiva disciplinada e fundamentada, cultivada ao longo de milhares de pull requests e lançamentos em produção.",
+      "description": "O que aprendi com milhares de pull requests e lançamentos em produção.",
       "principles": {
         "rootIntent": {
           "badge": "Intenção de Fundo",
           "title": "Resolver a Necessidade de Fundo, Não Só a Especificação",
-          "description": "Olhar para além dos tickets estáticos para perceber o comportamento real dos utilizadores e o resultado de negócio por trás do requisito. A boa engenharia questiona os pressupostos logo no início para entregar soluções duradouras e de grande impacto.",
-          "highlight": "Responder a necessidades reais, humanas e de sistema"
+          "description": "Olhar para além do ticket para perceber o comportamento real dos utilizadores e o resultado de negócio por trás do requisito. Questionar os pressupostos logo no início para entregar soluções duradouras.",
+          "highlight": "Responder a necessidades reais dos utilizadores e do sistema"
         },
         "pragmaticSimplicity": {
           "badge": "Arquitetura Pragmática",
-          "title": "Arquitetura Pragmática e de Grande Retorno",
-          "description": "Encontrar a implementação mais simples e elegante, que tira o máximo partido dos sistemas existentes sem abstrações desnecessárias. Escolher padrões comprovados, que dão grande retorno ao negócio com o mínimo de atrito para a equipa.",
-          "highlight": "Máximo retorno com a arquitetura existente"
+          "title": "Soluções Simples Que Aproveitam o Que Já Existe",
+          "description": "Encontrar a implementação mais simples, que tira o máximo partido dos sistemas existentes sem abstrações desnecessárias. Escolher padrões comprovados, que dão valor ao negócio com pouco atrito para a equipa.",
+          "highlight": "Tirar o máximo partido da arquitetura existente"
         },
         "systemResilience": {
           "badge": "Extensibilidade",
-          "title": "Extensibilidade Sustentável",
-          "description": "Desenhar fronteiras e contratos claros entre componentes, que acomodam a evolução futura sem complexidade prematura. Isolar domínios de estado para permitir um crescimento tranquilo, sem cascatas frágeis.",
-          "highlight": "Contratos de fronteira limpos, sem excesso de engenharia"
+          "title": "Feito Para Crescer",
+          "description": "Desenhar fronteiras e contratos claros entre componentes, que deixam espaço para mudar sem complexidade prematura. Manter o estado em domínios separados para o código crescer sem que uma alteração parta outras partes.",
+          "highlight": "Fronteiras e contratos claros, sem excesso de engenharia"
         },
         "userExperience": {
           "badge": "Experiência do Utilizador",
-          "title": "UX Sem Atritos e Desempenho Percebido",
-          "description": "Tratar o layout responsivo, a navegação por teclado e a fluidez das animações como requisitos de arquitetura de primeira ordem, e não como retoques finais. Um feedback instantâneo transmite muita confiança na qualidade do produto.",
-          "highlight": "Resposta imediata a cada interação, zero saltos de layout, orçamentos de frames rigorosos"
+          "title": "UX Fluida e Desempenho Percebido",
+          "description": "Tratar o layout responsivo, a navegação por teclado e a fluidez das animações como requisitos centrais desde o início, e não como retoques finais. Um feedback instantâneo dá confiança na qualidade do produto.",
+          "highlight": "Resposta imediata a cada interação, sem saltos de layout, orçamentos de frames rigorosos"
         }
       }
     },
@@ -181,9 +181,9 @@
           "tagRight": "Pouca Ambiguidade"
         },
         "crossFunctional": {
-          "title": "Ponte Entre Áreas",
+          "title": "Ponte Entre Equipas",
           "description": "Trabalhar de perto com designers, backend e produto. Pensar no que acontece quando algo corre mal (redes lentas, erros, dados em falta) antes de os utilizadores o verem.",
-          "tagLeft": "Sinergia Design ⇄ Código",
+          "tagLeft": "Design ⇄ Código",
           "tagRight": "Estados de Erro"
         }
       }
@@ -196,7 +196,7 @@
         "coreState": {
           "title": "Base e Estado",
           "roleBadge": "Stack Principal",
-          "description": "React, Next.js e TypeScript como ferramentas do dia a dia, aliados a arquiteturas de gestão de estado resilientes.",
+          "description": "React, Next.js e TypeScript como ferramentas do dia a dia, com gestão de estado em Redux, Context API, NgRx e Recoil.",
           "skills": [
             "TypeScript",
             "React",
@@ -213,7 +213,7 @@
         "designSystems": {
           "title": "UI e Design Systems",
           "roleBadge": "Arquitetura",
-          "description": "Bibliotecas de componentes reutilizáveis, pipelines de design tokens e renderização dinâmica de UI orientada por JSON.",
+          "description": "Bibliotecas de componentes reutilizáveis, design tokens e UI renderizada a partir de JSON.",
           "skills": [
             "Arquitetura de Design Systems",
             "Componentes Orientados por JSON",
@@ -229,7 +229,7 @@
         "testingDelivery": {
           "title": "Testes e CI/CD",
           "roleBadge": "Entrega",
-          "description": "Automação de testes unitários e de ponta a ponta, com pipelines de integração contínua em várias plataformas.",
+          "description": "Testes unitários e de ponta a ponta automatizados, executados em integração contínua em várias plataformas.",
           "skills": [
             "Jest & Vitest",
             "Playwright",
@@ -241,7 +241,7 @@
             "Jenkins"
           ],
           "footerLeft": "Automação de Pipelines",
-          "footerRight": "CI/CD Rigoroso"
+          "footerRight": "Testes em CI/CD"
         }
       }
     }
