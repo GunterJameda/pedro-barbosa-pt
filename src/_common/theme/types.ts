@@ -13,10 +13,13 @@ export type TextVariant =
   | "displayTitle"
   | "sectionTitle"
   | "cardHeading"
+  | "featureHeading"
+  | "tagline"
   | "cardTitle"
   | "itemTitle"
   | "lead"
   | "body"
+  | "bodyLarge"
   | "small"
   | "mono";
 
@@ -38,10 +41,13 @@ declare module "@mui/material/styles" {
     displayTitle: CSSProperties;
     sectionTitle: CSSProperties;
     cardHeading: CSSProperties;
+    featureHeading: CSSProperties;
+    tagline: CSSProperties;
     cardTitle: CSSProperties;
     itemTitle: CSSProperties;
     lead: CSSProperties;
     body: CSSProperties;
+    bodyLarge: CSSProperties;
     small: CSSProperties;
     mono: CSSProperties;
   }
@@ -50,10 +56,13 @@ declare module "@mui/material/styles" {
     displayTitle?: CSSProperties;
     sectionTitle?: CSSProperties;
     cardHeading?: CSSProperties;
+    featureHeading?: CSSProperties;
+    tagline?: CSSProperties;
     cardTitle?: CSSProperties;
     itemTitle?: CSSProperties;
     lead?: CSSProperties;
     body?: CSSProperties;
+    bodyLarge?: CSSProperties;
     small?: CSSProperties;
     mono?: CSSProperties;
   }
@@ -65,10 +74,13 @@ declare module "@mui/material/Typography" {
     displayTitle: true;
     sectionTitle: true;
     cardHeading: true;
+    featureHeading: true;
+    tagline: true;
     cardTitle: true;
     itemTitle: true;
     lead: true;
     body: true;
+    bodyLarge: true;
     small: true;
     mono: true;
   }

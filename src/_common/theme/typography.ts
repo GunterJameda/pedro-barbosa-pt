@@ -1,7 +1,7 @@
 import type { CSSProperties } from "react";
 import type { Breakpoints } from "@mui/material/styles";
 import type { TextVariant } from "./types";
-import { slate, white } from "./tokens";
+import { slate, teal, white } from "./tokens";
 
 export const sans =
   'var(--font-sans), system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
@@ -59,6 +59,23 @@ export function createTextVariants(breakpoints: Breakpoints): Record<TextVariant
       fontWeight: 700,
       lineHeight: 1.33,
     },
+    // Large heading of a feature card, such as a project name.
+    featureHeading: {
+      ...base,
+      ...tight,
+      fontSize: 30,
+      fontWeight: 700,
+      lineHeight: 1.2,
+      [sm]: { fontSize: 36 },
+    },
+    // One-line summary under a heading, in the accent colour.
+    tagline: {
+      ...base,
+      color: teal[400],
+      fontSize: 16,
+      fontWeight: 500,
+      [sm]: { fontSize: 18 },
+    },
     // Card titles.
     cardTitle: {
       ...base,
@@ -84,6 +101,14 @@ export function createTextVariants(breakpoints: Breakpoints): Record<TextVariant
       fontSize: 14,
       lineHeight: 1.625,
     },
+    // Larger card text, for the main paragraph of a card.
+    bodyLarge: {
+      ...base,
+      color: slate[300],
+      fontSize: 14,
+      lineHeight: 1.625,
+      [sm]: { fontSize: 16 },
+    },
     // Fine print in cards.
     small: { ...base, color: slate[400], fontSize: 12, lineHeight: 1.625 },
     // Notes, dates and badges.
@@ -97,10 +122,13 @@ export const TEXT_VARIANT_ELEMENTS: Record<TextVariant, string> = {
   displayTitle: "h1",
   sectionTitle: "h2",
   cardHeading: "h2",
+  featureHeading: "h2",
+  tagline: "p",
   cardTitle: "h3",
   itemTitle: "p",
   lead: "p",
   body: "p",
+  bodyLarge: "p",
   small: "p",
   mono: "p",
 };
