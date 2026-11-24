@@ -1,9 +1,9 @@
 import type { Page } from "@playwright/test";
+import { SITE_URL } from "@/_common/constants";
 import { PAGE_ROUTES } from "@tests/pages";
 import { expect, EXPECTS_404, isPhone, test } from "./fixtures";
 import { followLink, portuguese, visit } from "./helpers";
 
-const SITE = "https://pedrobarbosa.pt";
 const COOKIE = "NEXT_LOCALE";
 
 const cookieValue = async (page: Page) =>
@@ -35,7 +35,7 @@ test.describe("Portuguese pages", () => {
         "content",
         "en_GB",
       );
-      const english = new URL(route, SITE).href.replace(/\/$/, "");
+      const english = new URL(route, SITE_URL).href.replace(/\/$/, "");
       await expect(page.locator('link[rel="alternate"][hreflang="en"]')).toHaveAttribute(
         "href",
         english,
@@ -46,7 +46,7 @@ test.describe("Portuguese pages", () => {
       );
       await expect(page.locator('link[rel="alternate"][hreflang="pt-PT"]')).toHaveAttribute(
         "href",
-        new URL(portuguese(route), SITE).href,
+        new URL(portuguese(route), SITE_URL).href,
       );
     });
   }
@@ -61,7 +61,7 @@ test.describe("Portuguese pages", () => {
       for (const name of ["og:image", "twitter:image"]) {
         await expect(
           page.locator(`meta[property="${name}"], meta[name="${name}"]`),
-        ).toHaveAttribute("content", `${SITE}${imagePath}`);
+        ).toHaveAttribute("content", `${SITE_URL}${imagePath}`);
       }
       for (const name of ["og:image:alt", "twitter:image:alt"]) {
         const alt = await page
@@ -81,7 +81,7 @@ test.describe("Portuguese pages", () => {
       for (const name of ["og:image", "twitter:image"]) {
         await expect(
           page.locator(`meta[property="${name}"], meta[name="${name}"]`),
-        ).toHaveAttribute("content", `${SITE}${imagePath}`);
+        ).toHaveAttribute("content", `${SITE_URL}${imagePath}`);
       }
       await expect(page.locator('meta[property="og:image:alt"]')).toHaveAttribute(
         "content",
@@ -112,7 +112,7 @@ test.describe("Portuguese pages", () => {
   test("lists every page in both languages in the sitemap", async ({ request }) => {
     const sitemap = await (await request.get("/sitemap.xml")).text();
     // The home pages have no trailing slash: "https://pedrobarbosa.pt", not ".../".
-    const full = (route: string) => new URL(route, SITE).href.replace(/\/$/, "");
+    const full = (route: string) => new URL(route, SITE_URL).href.replace(/\/$/, "");
     for (const route of PAGE_ROUTES) {
       const english = full(route);
       expect(sitemap).toContain(`<loc>${english}</loc>`);
