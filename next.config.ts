@@ -57,7 +57,7 @@ const SECURITY_HEADERS = [
   // Browsers ignore it over plain HTTP, so local runs are unaffected.
   // No includeSubDomains or preload: the only subdomains are the email ones, and a
   // webmail page there would be unreachable for two years if its certificate
-  // lapsed (see RM-002).
+  // lapsed.
   { key: "Strict-Transport-Security", value: "max-age=63072000" },
   // Pages opened from here can't reach back into this window.
   { key: "Cross-Origin-Opener-Policy", value: "same-origin" },
