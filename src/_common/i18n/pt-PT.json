@@ -562,7 +562,7 @@
     "ContactHero": {
       "eyebrow": "Contacto e Propostas de Trabalho",
       "title": "Falemos de arquitetura, equipas ou novas oportunidades.",
-      "description": "A escalar uma equipa de produto, a modernizar as bases do frontend ou à procura de um Frontend Engineer Sénior que entregue com rigor e responsabilidade pragmática?"
+      "description": "A escalar uma equipa de produto, a modernizar as bases do frontend ou à procura de um Frontend Engineer Sénior que entregue com rigor e assuma a responsabilidade pelo resultado?"
     },
     "EmailCard": {
       "eyebrow": "Email Direto",
@@ -590,15 +590,15 @@
     "RoleAlignment": {
       "eyebrow": "Alinhamento de Funções",
       "title": "Colaborações Ideais",
-      "text": "Para poupar tempo a recrutadores e líderes de engenharia, deixo aqui um retrato transparente do meu foco principal e dos ambientes de equipa ideais:",
+      "text": "Para poupar tempo a recrutadores e líderes de engenharia, deixo aqui o meu foco principal e os ambientes de equipa em que trabalho melhor:",
       "points": {
         "icRoles": {
           "title": "Função de IC Frontend Sénior",
-          "description": "Função prática de contribuidor individual, centrada na implementação a fundo, no desempenho de renderização, na disciplina de bundle e na fluidez da UI."
+          "description": "Função prática de contribuidor individual, centrada na implementação, no desempenho de renderização, no tamanho do bundle e em interfaces fluidas."
         },
         "coreStack": {
           "title": "Stack Principal",
-          "description": "Ecossistemas modernos de React, Next.js e TypeScript, apoiados por experiência arquitetural pragmática entre frameworks (incluindo migrações de Angular para React)."
+          "description": "Ecossistemas modernos de React, Next.js e TypeScript, apoiados por experiência com várias frameworks (incluindo migrações de Angular para React)."
         },
         "scopeImpact": {
           "title": "Âmbito e Impacto",
@@ -606,7 +606,7 @@
         },
         "culture": {
           "title": "Cultura de Engenharia",
-          "description": "Equipas pragmáticas que valorizam ergonomia limpa, code reviews ponderadas, muita empatia, problemas descritos por escrito e testes automatizados sensatos."
+          "description": "Equipas pragmáticas que valorizam código fácil de manter, code reviews ponderadas, empatia, problemas descritos por escrito e testes automatizados sensatos."
         }
       }
     }

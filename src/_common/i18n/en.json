@@ -562,7 +562,7 @@
     "ContactHero": {
       "eyebrow": "Contact & Work Enquiries",
       "title": "Let's talk architecture, teams or new opportunities.",
-      "description": "Scaling a product team, modernising frontend foundations or looking for a Senior Frontend Engineer who delivers with craft and pragmatic ownership?"
+      "description": "Scaling a product team, modernising frontend foundations or looking for a Senior Frontend Engineer who delivers with care and takes ownership of the result?"
     },
     "EmailCard": {
       "eyebrow": "Direct Email",
@@ -590,15 +590,15 @@
     "RoleAlignment": {
       "eyebrow": "Role Alignment",
       "title": "Ideal Engagements",
-      "text": "To save time for recruiters and engineering leaders, here is a transparent snapshot of my core focus and ideal team environments:",
+      "text": "To save time for recruiters and engineering leaders, here is what I focus on and the teams I work best in:",
       "points": {
         "icRoles": {
           "title": "Senior Frontend IC Role",
-          "description": "Hands-on individual contributor role focusing on deep implementation, rendering performance, bundle discipline and UI fluidity."
+          "description": "Hands-on individual contributor role focused on implementation, rendering performance, bundle size and smooth UIs."
         },
         "coreStack": {
           "title": "Core Stack",
-          "description": "Modern React, Next.js and TypeScript ecosystems, backed by pragmatic cross-framework architectural experience (including Angular-to-React migrations)."
+          "description": "Modern React, Next.js and TypeScript ecosystems, backed by experience across frameworks (including Angular-to-React migrations)."
         },
         "scopeImpact": {
           "title": "Scope & Impact",
@@ -606,7 +606,7 @@
         },
         "culture": {
           "title": "Engineering Culture",
-          "description": "Pragmatic teams valuing clean ergonomics, thoughtful code reviews, high empathy, written problem statements and sensible automated testing."
+          "description": "Pragmatic teams that value code that is easy to maintain, thoughtful code reviews, empathy, written problem statements and sensible automated testing."
         }
       }
     }
