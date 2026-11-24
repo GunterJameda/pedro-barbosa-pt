@@ -4,5 +4,5 @@ export { EMAIL, GITHUB_URL, LINKEDIN_URL, MAILTO_URL, SITE_URL, SOCIAL_LINKS } f
 export { AVAILABILITY, CITY, COUNTRY_CODE, LOCATION, NAME, WORK_MODE } from "./profile";
 export { PAGES } from "./routes";
 export { SITE_ALTERNATE_NAME, SITE_NAME } from "./site";
-export { IS_LOOKING } from "./status";
+export { IS_LOOKING, LOOKING_STATUS } from "./status";
 export type { Availability, PageKey, PageLink, SocialLink, WorkMode } from "./types";

@@ -9,7 +9,7 @@ import Box from "@mui/material/Box";
 import Chip from "@mui/material/Chip";
 import visuallyHidden from "@mui/utils/visuallyHidden";
 import { useTranslations } from "next-intl";
-import { AVAILABILITY } from "@/_common/constants";
+import { LOOKING_STATUS } from "@/_common/constants";
 import { StatusDot } from "@/_common/components/StatusDot";
 import { CHIP_STATUSES } from "./constants";
 import { chip } from "./styles";
@@ -20,8 +20,7 @@ import { chip } from "./styles";
  */
 export function StatusChip({ compact = false }: { compact?: boolean }) {
   const t = useTranslations("common.StatusChip");
-  const availability = AVAILABILITY;
-  const label = availability === "not-looking" ? null : t(`status.${availability}`);
+  const label = LOOKING_STATUS ? t(`status.${LOOKING_STATUS}`) : null;
   // Every chip text, to reserve the width of the widest.
   const labels = CHIP_STATUSES.map((status) => t(`status.${status}`));
 
