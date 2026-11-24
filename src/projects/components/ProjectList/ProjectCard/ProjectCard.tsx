@@ -78,27 +78,8 @@ export function ProjectCard({ project }: ProjectCardProps) {
         }}
       >
         <Stack spacing={1}>
-          <Typography
-            variant="h2"
-            sx={{
-              color: "common.white",
-              fontSize: { xs: 30, sm: 36 },
-              fontWeight: 700,
-              letterSpacing: "-0.025em",
-              lineHeight: 1.2,
-            }}
-          >
-            {project.name}
-          </Typography>
-          <Typography
-            sx={{
-              color: "primary.main",
-              fontSize: { xs: 16, sm: 18 },
-              fontWeight: 500,
-            }}
-          >
-            {project.tagline}
-          </Typography>
+          <Typography variant="featureHeading">{project.name}</Typography>
+          <Typography variant="tagline">{project.tagline}</Typography>
         </Stack>
         {project.repoUrl ? (
           <ActionButton href={project.repoUrl} newTab startIcon={<GitHubIcon />}>
@@ -116,15 +97,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
         <CardGrid columns={{ xs: 1, lg: 12 }} gap={4}>
           <Stack spacing={2} sx={{ gridColumn: { lg: "span 7" } }}>
             <Eyebrow color="text.secondary">{t("overview")}</Eyebrow>
-            <Typography
-              sx={{
-                color: "slate.300",
-                fontSize: { xs: 14, sm: 16 },
-                lineHeight: 1.625,
-              }}
-            >
-              {project.summary}
-            </Typography>
+            <Typography variant="bodyLarge">{project.summary}</Typography>
             <Typography variant="body" sx={{ color: "text.secondary" }}>
               {project.details}
             </Typography>
