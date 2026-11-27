@@ -224,7 +224,6 @@
             "Componentes Orientados por JSON",
             "Material UI (MUI)",
             "Chakra UI",
-            "Tailwind CSS",
             "Acessibilidade (a11y)",
             "Modernização de Frontend"
           ],
@@ -348,7 +347,7 @@
           "bulletPoints": [
             "Identifiquei e implementei, por iniciativa própria, melhorias no código de uma aplicação existente de operações financeiras e reorganizei a sua estrutura sem abrandar a entrega de funcionalidades.",
             "Contribuí para a migração da gestão de estado de arquiteturas legadas em Redux e Recoil para padrões de Context API, o que reduziu a complexidade e o tamanho do bundle.",
-            "Liderei a migração de componentes do Chakra UI para um design system interno baseado em Material UI, incluindo um motor de componentes dinâmico que renderizava fluxos complexos a partir de configurações JSON e schemas de dados.",
+            "Contribuí para a migração de componentes do Chakra UI para um design system interno baseado em Material UI e desenvolvi componentes reutilizáveis para ele, incluindo um que renderizava fluxos complexos a partir de configurações JSON e dados.",
             "Usei a IA no dia a dia para explorar soluções, mapear dívida técnica e acelerar a entrega, com cada alteração revista por mim antes de chegar a produção."
           ]
         },
@@ -386,7 +385,7 @@
             "Automação de Workflows"
           ],
           "bulletPoints": [
-            "Entrei como o primeiro programador frontend da empresa, tendo definido sozinho as convenções de engenharia e construído a primeira aplicação, que simplificava a aquisição e a autenticação de malas de luxo em segunda mão.",
+            "Entrei como o primeiro programador frontend da empresa, tendo definido sozinho as convenções de engenharia e construído a primeira aplicação, que simplificava a aquisição de malas de luxo em segunda mão e a verificação da sua autenticidade.",
             "Desenhei e publiquei a versão 1.0 da biblioteca interna de componentes da empresa, que uniformizou o design de interação, os tokens visuais e os blocos reutilizáveis nas diferentes ferramentas de negócio."
           ]
         }
