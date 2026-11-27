@@ -185,6 +185,12 @@
           "description": "Working closely with designers, backend engineers and product. Thinking through what happens when things go wrong (slow networks, errors, missing data) before users see it.",
           "tagLeft": "Design ⇄ Code",
           "tagRight": "Error States"
+          },
+          "aiAgents": {
+            "title": "Working With AI Agents",
+            "description": "Using AI as a peer to think problems through and to take on heavy implementation while I work on something else. I decide, review every change and own the result.",
+            "tagLeft": "Focus: Judgment & Ownership",
+            "tagRight": "Reviewed Changes"
         }
       }
     },

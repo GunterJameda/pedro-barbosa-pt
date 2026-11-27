@@ -13,7 +13,7 @@ export function TeamPractices() {
   return (
     <Stack component="section" spacing={3}>
       <SectionHeading eyebrow={t("eyebrow")} title={t("title")} description={t("description")} />
-      <CardGrid columns={{ xs: 1, md: 3 }}>
+      <CardGrid columns={{ xs: 1, md: 2 }}>
         {TEAM_PRACTICES.map(({ key, icon }) => (
           <FeatureCard
             key={key}
