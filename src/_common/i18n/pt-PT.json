@@ -349,7 +349,7 @@
             "Identifiquei e implementei, por iniciativa própria, melhorias no código de uma aplicação existente de operações financeiras e reorganizei a sua estrutura sem abrandar a entrega de funcionalidades.",
             "Contribuí para a migração da gestão de estado de arquiteturas legadas em Redux e Recoil para padrões de Context API, o que reduziu a complexidade e o tamanho do bundle.",
             "Liderei a migração de componentes do Chakra UI para um design system interno baseado em Material UI, incluindo um motor de componentes dinâmico que renderizava fluxos complexos a partir de configurações JSON e schemas de dados.",
-            "Trabalhei com agentes de IA como um par para pensar problemas, discutir o domínio de negócio, obter relatórios de dívida técnica e delegar implementações pesadas que revia depois, assumindo a responsabilidade por cada alteração."
+            "Trabalhei com agentes de IA como pares para pensar problemas, discutir o domínio de negócio, obter relatórios de dívida técnica e delegar implementações pesadas que revia depois, e assumi a responsabilidade por cada alteração."
           ]
         },
         "tillster": {

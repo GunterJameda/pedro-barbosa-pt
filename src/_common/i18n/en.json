@@ -349,7 +349,7 @@
             "On my own initiative, identified and made codebase improvements in an existing financial operations application, refactoring its structure while still delivering features quickly.",
             "Contributed to migrating state management from legacy Redux and Recoil to Context API patterns, reducing complexity and bundle size.",
             "Led the migration of components from Chakra UI to an internal design system based on Material UI, including a dynamic component engine that rendered complex workflows from JSON configurations and data schemas.",
-            "Worked with AI agents as a peer to think problems through, discuss the business domain, get tech debt reports and hand off heavy implementation tasks that I reviewed afterwards, keeping responsibility for every change."
+            "Worked with AI agents as peers to think problems through, discuss the business domain, get tech debt reports and hand off heavy implementation tasks that I reviewed afterwards, keeping responsibility for every change."
           ]
         },
         "tillster": {
