@@ -185,12 +185,12 @@
           "description": "Trabalhar de perto com designers, backend e produto. Pensar no que acontece quando algo corre mal (redes lentas, erros, dados em falta) antes de os utilizadores o verem.",
           "tagLeft": "Design ⇄ código",
           "tagRight": "Estados de erro"
-          },
-          "aiAgents": {
-            "title": "Trabalho com agentes de IA",
-            "description": "Uso a IA como um par para pensar problemas e para executar implementações pesadas enquanto trabalho noutra coisa. Sou eu que decido, reviso cada alteração e assumo o resultado.",
-            "tagLeft": "Foco: critério e responsabilidade",
-            "tagRight": "Alterações revistas"
+        },
+        "aiAgents": {
+          "title": "Trabalho com agentes de IA",
+          "description": "Uso a IA como um par para pensar problemas e para executar implementações pesadas enquanto trabalho noutra coisa. Sou eu que decido, reviso cada alteração e assumo o resultado.",
+          "tagLeft": "Foco: critério e responsabilidade",
+          "tagRight": "Alterações revistas"
         }
       }
     },
