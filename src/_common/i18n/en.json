@@ -187,10 +187,10 @@
           "tagRight": "Error States"
         },
         "aiAgents": {
-          "title": "Working With AI Agents",
-          "description": "Using AI as a peer to think problems through and to take on heavy implementation while I work on something else. I decide, review every change and own the result.",
-          "tagLeft": "Focus: Judgment & Ownership",
-          "tagRight": "Reviewed Changes"
+          "title": "Working With AI",
+          "description": "Using AI to explore options, speed up delivery and spot tech debt early. Every change still goes through my review, and the decisions stay mine.",
+          "tagLeft": "Focus: Speed & Quality",
+          "tagRight": "Owned Decisions"
         }
       }
     },
@@ -349,7 +349,7 @@
             "On my own initiative, identified and made codebase improvements in an existing financial operations application, refactoring its structure while still delivering features quickly.",
             "Contributed to migrating state management from legacy Redux and Recoil to Context API patterns, reducing complexity and bundle size.",
             "Led the migration of components from Chakra UI to an internal design system based on Material UI, including a dynamic component engine that rendered complex workflows from JSON configurations and data schemas.",
-            "Worked with AI agents as peers to think problems through, discuss the business domain, get tech debt reports and hand off heavy implementation tasks that I reviewed afterwards, keeping responsibility for every change."
+            "Used AI in day-to-day work to explore solutions, map tech debt and speed up delivery, with every change reviewed by me before it shipped."
           ]
         },
         "tillster": {
@@ -477,7 +477,7 @@
         "kind": "Frontend Product",
         "category": "Personal website",
         "status": "Open source · Live",
-        "summary": "My personal website, where I show my experience and projects. I treat it like a product at work: a prioritised backlog, small focused commits, and checks that must pass before anything goes live. I led several AI agents working in parallel on separate branches, and reviewed every change.",
+        "summary": "My personal website, where I show my experience and projects. I treat it like a product at work: a prioritised backlog, small focused commits, and checks that must pass before anything goes live. I used AI to build it faster and reviewed every change myself.",
         "details": "Every push runs formatting and lint checks, type checks, tests and a production build, and a failing check blocks the deploy. Every page is sent with security headers that only let it load the site's own files, and browser tests try script injection, framing and redirect attacks against it. The code is public, so you can see how I work, not just read about it.",
         "takeaways": [
           {

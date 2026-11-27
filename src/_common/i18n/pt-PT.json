@@ -187,10 +187,10 @@
           "tagRight": "Estados de erro"
         },
         "aiAgents": {
-          "title": "Trabalho com agentes de IA",
-          "description": "Uso a IA como um par para pensar problemas e para executar implementações pesadas enquanto trabalho noutra coisa. Sou eu que decido, reviso cada alteração e assumo o resultado.",
-          "tagLeft": "Foco: critério e responsabilidade",
-          "tagRight": "Alterações revistas"
+          "title": "Trabalho com IA",
+          "description": "Uso a IA para explorar opções, acelerar a entrega e detetar dívida técnica cedo. Todas as alterações passam pela minha revisão, e as decisões continuam a ser minhas.",
+          "tagLeft": "Foco: rapidez e qualidade",
+          "tagRight": "Decisões assumidas"
         }
       }
     },
@@ -349,7 +349,7 @@
             "Identifiquei e implementei, por iniciativa própria, melhorias no código de uma aplicação existente de operações financeiras e reorganizei a sua estrutura sem abrandar a entrega de funcionalidades.",
             "Contribuí para a migração da gestão de estado de arquiteturas legadas em Redux e Recoil para padrões de Context API, o que reduziu a complexidade e o tamanho do bundle.",
             "Liderei a migração de componentes do Chakra UI para um design system interno baseado em Material UI, incluindo um motor de componentes dinâmico que renderizava fluxos complexos a partir de configurações JSON e schemas de dados.",
-            "Trabalhei com agentes de IA como pares para pensar problemas, discutir o domínio de negócio, obter relatórios de dívida técnica e delegar implementações pesadas que revia depois, e assumi a responsabilidade por cada alteração."
+            "Usei a IA no dia a dia para explorar soluções, mapear dívida técnica e acelerar a entrega, com cada alteração revista por mim antes de chegar a produção."
           ]
         },
         "tillster": {
@@ -477,7 +477,7 @@
         "kind": "Produto frontend",
         "category": "Site pessoal",
         "status": "Código aberto · Online",
-        "summary": "O meu site pessoal, onde mostro a minha experiência e os meus projetos. Trato-o como um produto no trabalho: um backlog priorizado, commits pequenos e focados, e verificações que têm de passar antes de qualquer deploy. Liderei vários agentes de IA a trabalhar em paralelo, cada um no seu próprio branch, e revi todas as alterações.",
+        "summary": "O meu site pessoal, onde mostro a minha experiência e os meus projetos. Trato-o como um produto no trabalho: um backlog priorizado, commits pequenos e focados, e verificações que têm de passar antes de qualquer deploy. Usei IA para o construir mais depressa e revi pessoalmente cada alteração.",
         "details": "Cada push executa verificações de formatação e lint, verificações de tipos, testes e uma build de produção, e uma verificação que falhe bloqueia o deploy. Cada página é enviada com cabeçalhos de segurança que só deixam carregar os ficheiros do próprio site, e os testes de browser tentam ataques de injeção de scripts, de framing e de redirecionamento. O código é público, por isso pode ver como trabalho, e não apenas ler sobre isso.",
         "takeaways": [
           {
