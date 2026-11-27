@@ -477,7 +477,7 @@
         "kind": "Frontend Product",
         "category": "Personal website",
         "status": "Open source · Live",
-        "summary": "My personal website, where I show my experience and projects. I treat it like a product at work: a prioritised backlog, small focused commits, and checks that must pass before anything goes live.",
+        "summary": "My personal website, where I show my experience and projects. I treat it like a product at work: a prioritised backlog, small focused commits, and checks that must pass before anything goes live. I led several AI agents working in parallel on separate branches, and reviewed every change.",
         "details": "Every push runs formatting and lint checks, type checks, tests and a production build, and a failing check blocks the deploy. Every page is sent with security headers that only let it load the site's own files, and browser tests try script injection, framing and redirect attacks against it. The code is public, so you can see how I work, not just read about it.",
         "takeaways": [
           {

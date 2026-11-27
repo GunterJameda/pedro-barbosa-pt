@@ -477,7 +477,7 @@
         "kind": "Produto frontend",
         "category": "Site pessoal",
         "status": "Código aberto · Online",
-        "summary": "O meu site pessoal, onde mostro a minha experiência e os meus projetos. Trato-o como um produto no trabalho: um backlog priorizado, commits pequenos e focados, e verificações que têm de passar antes de qualquer deploy.",
+        "summary": "O meu site pessoal, onde mostro a minha experiência e os meus projetos. Trato-o como um produto no trabalho: um backlog priorizado, commits pequenos e focados, e verificações que têm de passar antes de qualquer deploy. Liderei vários agentes de IA a trabalhar em paralelo, cada um no seu próprio branch, e revi todas as alterações.",
         "details": "Cada push executa verificações de formatação e lint, verificações de tipos, testes e uma build de produção, e uma verificação que falhe bloqueia o deploy. Cada página é enviada com cabeçalhos de segurança que só deixam carregar os ficheiros do próprio site, e os testes de browser tentam ataques de injeção de scripts, de framing e de redirecionamento. O código é público, por isso pode ver como trabalho, e não apenas ler sobre isso.",
         "takeaways": [
           {
